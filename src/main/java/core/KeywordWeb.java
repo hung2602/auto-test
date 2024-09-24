@@ -1,22 +1,14 @@
 package core;
 import io.appium.java_client.AppiumBy;
 import io.qameta.allure.Step;
-import org.openqa.selenium.Dimension;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.*;
 import org.slf4j.Logger;
 import org.testng.Assert;
-import javax.imageio.ImageIO;
-import java.awt.Rectangle;
-import java.awt.*;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
 import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.concurrent.TimeUnit;
 import java.util.function.Function;
@@ -26,17 +18,14 @@ public class KeywordWeb {
     private static Logger logger = LogHelper.getLogger();
     public KeywordWeb() {
     }
-    public String getUrl() {
-        return driver.getCurrentUrl();
-    }
-    public static void sleep(double second) {
+    public void sleep(double second) {
         try {
             Thread.sleep((long) (1000 * second));
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
     }
-    @Step("Send key: {0}  text: {1}")
+    @Step("Nhập giá trị: {0}  text: {1}")
     public void sendKeys(By by, String key){
         webDriverWaitForElementPresent(by, 20);
         String content = PropertiesFile.getPropValue(key);
@@ -46,13 +35,13 @@ public class KeywordWeb {
         }
         driver.findElement(by).sendKeys(content);
     }
-    @Step("Scroll to position: {0}")
+    @Step("Cuộn tới vị trí: {0}")
     public void scrollToPositionByScript(String jsScript) {
         logger.info(" scrolling to position ");
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript(jsScript);
     }
-    @Step("Get text: {1}")
+    @Step("Lấy giá trị: {0}")
     public void getText(By by){
         logger.info("Get Text " + by);
         driver.findElement(by).getText();
@@ -73,7 +62,7 @@ public class KeywordWeb {
         }
         Assert.assertEquals(driver.findElement(by).getText(), content);
     }
-    @Step("Chờ element: {0}")
+    @Step("Chờ element hiển thị: {0}")
     public void webDriverWaitForElementPresent(By by, long timeout){
         logger.info("Wait For Element Present" + by);
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeout));
@@ -92,7 +81,7 @@ public class KeywordWeb {
             click(by);
         }
     }
-    @Step("Xác thực hiển thị phần tử: {0}")
+    @Step("Xác thực element hiển thị: {0}")
     public boolean verifyElementPresent(By by) {
         logger.info("verifyElementPresent: " + by);
         try {
@@ -103,11 +92,21 @@ public class KeywordWeb {
             return false;
         }
     }
+    @Step("Xác thực element hiển thị: {0}")
+    public List<WebElement> getListElement(By by) {
+        logger.info("get list element: " + by);
+        webDriverWaitForElementPresent(by, 20);
+        List<WebElement> weblist = driver.findElements(by);
+        return weblist;
+    }
+
+
     public void executeJsHorizontal(String command, WebElement element) {
         logger.info("Executing JavaScript");
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript(command, element);
     }
+    @Step("Chọn từ drop list: {1}")
     public void selectByText(By by, String text){
         logger.info("Select By Text " + by);
         Select singleSelect = new Select(driver.findElement(by));
@@ -121,6 +120,7 @@ public class KeywordWeb {
         }
         list.add(data);
     }
+    @Step("Xóa: {0} và nhập giá trị {1}")
     public void clearTextAndSendKey(String element, String content){
         logger.info("Clear and send keys" + element + "with " + content);
         String xPathElement1 = PropertiesFile.getPropValue(element);
@@ -135,6 +135,7 @@ public class KeywordWeb {
         driver.findElement(By.xpath(xPathElement1)).clear();
         driver.findElement(By.xpath(xPathElement1)).sendKeys(xPathElement2);
     }
+    @Step("Xóa giá trị: {0}")
     public void clearText(String element) {
         logger.info("clearText");
         String xPathElement = PropertiesFile.getPropValue(element);
@@ -224,33 +225,6 @@ public class KeywordWeb {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript(command);
     }
-
-    public void maximizeWindow() {
-        logger.info("Maximizing browser window...");
-        driver.manage().window().maximize();
-    }
-    public void back() {
-        logger.info("Back window...");
-        driver.navigate().back();
-    }
-    public void reLoadPage() {
-        logger.info("ReLoad Page...");
-        driver.navigate().refresh();
-    }
-    public void navigateToUrl(String url) {
-        logger.info("Navigating to URL..." + url);
-        String xPathElement = PropertiesFile.getPropValue(url);
-        if (xPathElement == null) {
-            xPathElement = url;
-        }
-        driver.navigate().to(xPathElement);
-    }
-
-    public void getCurrentPageUrl() {
-        logger.info("Navigating to URL...");
-        driver.getCurrentUrl();
-    }
-
     public void acceptAlert() {
         logger.info("Accepting alert...");
         Alert alert = driver.switchTo().alert();
@@ -268,13 +242,6 @@ public class KeywordWeb {
         logger.info("Dismissing alert...");
         Alert alert = driver.switchTo().alert();
         alert.dismiss();
-    }
-
-    public void setAlertText(String alertText) {
-        logger.info("Setting alert text...");
-        Alert alert = driver.switchTo().alert();
-        alert.sendKeys(alertText);
-        alert.accept();
     }
 
     //send username and password to alert login
@@ -295,28 +262,18 @@ public class KeywordWeb {
         String url = "https://" + xPathElement1 + ":" + xPathElement2 + "@" + xPathElement3;
         driver.navigate().to(url);
     }
-
-
     public void switchToFrame(String frame) {
         logger.info("Switching to frame...");
         driver.switchTo().frame(frame);
     }
-
     public void switchToFrameByIndex(int index) {
         logger.info("Switching to frame by index...");
         driver.switchTo().frame(index);
     }
-
     public void switchToIFrame() {
         logger.info("Switching to Iframe");
         WebElement iframe = driver.findElement(By.tagName("iframe"));
         driver.switchTo().frame(iframe);
-    }
-
-    public void listWindowID() {
-        for (String windowid : driver.getWindowHandles()) {
-            logger.info("Listing window ID..." + windowid);
-        }
     }
     public void switchToIFrameByXpath(String element) {
         logger.info("Switching to Iframe");
@@ -326,35 +283,6 @@ public class KeywordWeb {
         }
         WebElement iframe = driver.findElement(By.xpath(xPathElement));
         driver.switchTo().frame(iframe);
-    }
-    public void switchToWindowByIndex(int index) {
-        logger.info("switchToWindowByIndex");
-        driver.switchTo().window(new ArrayList<>(driver.getWindowHandles()).get(index));
-    }
-
-    public void getTitleWindowByIndex(int index) {
-        logger.info("switchToWindowByIndex");
-        driver.switchTo().window(new ArrayList<>(driver.getWindowHandles()).get(index)).getTitle();
-    }
-
-    public void switchToParentWindow() {
-        logger.info("switchToParentWindow");
-        String parentWindowId = driver.getWindowHandle();
-        driver.switchTo().window(parentWindowId);
-    }
-
-    public void simpleAssertEquals(String expected, String actual) {
-        logger.info("compare from " + expected + " with " + actual);
-        String xPathElement1 = PropertiesFile.getPropValue(expected);
-        if (xPathElement1 == null) {
-            xPathElement1 = expected;
-        }
-        String xPathElement2 = PropertiesFile.getPropValue(actual);
-        if (xPathElement2 == null) {
-            xPathElement2 = actual;
-        }
-        Assert.assertEquals(xPathElement2, xPathElement1);
-
     }
     public void scrollDownToElement(String xPath) {
         logger.info("scrollDownToElement" + xPath);
@@ -367,7 +295,6 @@ public class KeywordWeb {
         actions.moveToElement(element);
         actions.perform();
     }
-
     public void scrollDownToElementByCss(String element) {
         logger.info("scroll to element");
         String xPathElement = PropertiesFile.getPropValue(element);
@@ -378,12 +305,6 @@ public class KeywordWeb {
         Actions actions = new Actions(driver);
         actions.moveToElement(elements);
         actions.perform();
-    }
-
-    public void scrollToPosition() {
-        logger.info(" scrolling to position ");
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("window.scrollBy(0,5000)");
     }
     public void selectDropDownListByName(String ddlPath, String itemName) {
         logger.info("select item by visibe text");
@@ -465,12 +386,6 @@ public class KeywordWeb {
         }
         return stt;
     }
-
-    public void deleteAllCookies() {
-        logger.info("deleteAllCookies");
-        driver.manage().deleteAllCookies();
-    }
-
     public boolean checkStatusIsDisplay(String element) {
         logger.info("Check status ");
         String xPathElement = PropertiesFile.getPropValue(element);
@@ -486,7 +401,6 @@ public class KeywordWeb {
         return status;
 
     }
-
     public Integer countNumberOfElement(String element) {
         logger.info("count the number of element " + element);
         String xPathElement = PropertiesFile.getPropValue(element);
@@ -506,25 +420,9 @@ public class KeywordWeb {
         WebElement chooseFile = driver.findElement(By.xpath(xPathElement));
         chooseFile.sendKeys(path);
     }
-    public void webDriverWaitForElementPresent(String element, long timeout) {
-        logger.info("webDriverWaitForElementPresent" + element);
-        String xPathElement = PropertiesFile.getPropValue(element);
-        if (xPathElement == null) {
-            xPathElement = element;
-        }
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeout));
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(xPathElement)));
-    }
-    public String splitEnterCharacters(String text, Integer index) {
-        String[] words = text.split("\n");
-        return words[index];
-    }
-
     public void waitForAjaxToFinish() throws InterruptedException {
         logger.info("waitForAjaxToFinish");
-
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(3000));
-
         wait.until((ExpectedCondition<Boolean>) wdriver -> ((JavascriptExecutor) driver).executeScript(
                 "return !!window.jQuery && !!window.jQuery.active == 0;").equals(true));
         Thread.sleep(150);
@@ -632,37 +530,6 @@ public class KeywordWeb {
         String c = b.getAttribute("value");
         logger.info(c);
         return c;
-    }
-
-    public void keysBoardWithDOWN(String element1) throws InterruptedException {
-        String xPathElement1 = PropertiesFile.getPropValue(element1);
-
-        if (xPathElement1 == null) {
-            xPathElement1 = element1;
-        }
-        WebElement tutorial = driver.findElement(By.xpath(xPathElement1));
-        Actions act = new Actions(driver);
-        act.moveToElement(tutorial).build().perform();
-        act.contextClick(tutorial).sendKeys(Keys.ARROW_DOWN).build().perform();
-    }
-
-    public void verifyAttributeValues(String expect, String elementGetValue) {
-        // getAttribute() to get value as displayed in GUI // no value attribute for the field in the DOM.
-        String xPathElement1 = PropertiesFile.getPropValue(elementGetValue);
-        String xPathElement2 = PropertiesFile.getPropValue(expect);
-        if (xPathElement1 == null) {
-            xPathElement1 = elementGetValue;
-        }
-        if (xPathElement2 == null) {
-            xPathElement2 = expect;
-        }
-        String valueElement = driver.findElement(By.xpath(xPathElement1)).getAttribute("value");
-        Assert.assertEquals(valueElement, xPathElement2);
-    }
-    public void clearLocalStorage() {
-        logger.info("clearLocalStorage");
-        JavascriptExecutor js = ((JavascriptExecutor) driver);
-        js.executeScript("localStorage.removeItem(\"mage-cache-storage\")");
     }
     public void scrollToTheBottomPage() {
         logger.info("scrollDownToElementWithJavaExecutor");

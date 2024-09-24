@@ -39,7 +39,7 @@ public class BaseTest {
         dc.setCapability("platformVersion", platformVersion);
         dc.setCapability("deviceName", name);
         dc.setCapability("automationName", "UiAutomator2");
-        dc.setCapability("noReset", true);
+        dc.setCapability("noReset", false);
         dc.setCapability("appWaitForLaunch", false);
         dc.setCapability("app", System.getProperty("user.dir") + "\\app\\onplus-dev-8074005.apk");
         URL url = new URL("http://127.0.0.1:4723/wd/hub");

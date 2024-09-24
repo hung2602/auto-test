@@ -9,7 +9,6 @@ public class HomePage extends BasePage {
     public HomePage(KeywordWeb key) {
         super(key);
     }
-
     @Step("Bỏ qua quảng cáo")
     public void skipBanner(){
         keyword.click(Locator.HOME_BTN_SKIP);

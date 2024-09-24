@@ -6,6 +6,9 @@ import io.qameta.allure.Step;
 import locator.Locator;
 import constant.Constant;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+
+import java.util.List;
 
 import static core.MyListener.saveScreenshotPNG;
 
@@ -14,7 +17,7 @@ public class LoginPage extends BasePage {
         super(key);
     }
 
-    @Step("Nhập tên đăng nhập: {0}")
+    @Step("Nhập tên số điện thoại: {0}")
     public void inputUserName(String name){
         keyword.sendKeys(Locator.LOGIN_TXT_USER_NAME,name);
         keyword.click(Locator.LOGIN_BTN_CONTINUE);
@@ -24,12 +27,10 @@ public class LoginPage extends BasePage {
         keyword.sendKeys(Locator.LOGIN_TXT_PASSWORD,pass);
         keyword.click(Locator.LOGIN_BTN_CONTINUE);
     }
-    @Step("Vào màn hình login")
-    public void login(String userName, String passWord) {
+    @Step("Vào màn hình đăng nhập")
+    public void goToLogin() {
         keyword.click(Locator.HOME_BTN_MENU);
         keyword.click(Locator.LOGIN_BTN);
-        inputUserName(userName);
-        inputPassWord(passWord);
     }
     public void loginSuccess(){
         keyword.assertEqual(Locator.LOGIN_MESS_SUCCESS, Constant.MESSAGE_SUCCESS_LOGIN);
@@ -40,8 +41,6 @@ public class LoginPage extends BasePage {
     @Step("Hiển thị text ẩn {0}")
     public void checkHiddenText(By locator, String text){
         keyword.assertEqual(locator, text);
-//        keyword.assertEqual(Locator.LOGIN_TXT_USER_NAME, Constant.TEXT_BOX_USERNAME);
-//        keyword.assertEqual(Locator.LOGIN_TXT_PASSWORD, Constant.TEXT_BOX_PASSWORD);
     }
     @Step("Xem thông tin tài khoản")
     public void viewUserInform(){
@@ -72,7 +71,6 @@ public class LoginPage extends BasePage {
             case "Thông báo":
                 keyword.click(Locator.SETTING_BTN_THONG_BAO);
                 break;
-            default:
         }
         keyword.click(Locator.LOGIN_BTN_ACCEPT);
         inputUserName("PHONE_NUMBER");
@@ -97,9 +95,39 @@ public class LoginPage extends BasePage {
                 keyword.assertEqual(Locator.LOGIN_SMART_TV_LBL, Constant.TITLE_INFORM_SETTING);
                 keyword.verifyElementPresent(Locator.SET_INFORM_BTN_COMPLETE);
                 break;
-            default:
         }
         keyword.click(Locator.LOGIN_SMART_TV_BTN_BACK);
     }
+    @Step("Nhập mã otp: {1} ")
+    public void inputOtp(String otp, String flag){
+        otp = PropertiesFile.getPropValue(otp);
+        List<WebElement> weblist = keyword.getListElement(Locator.SIGN_UP_TXT_EDIT_OPT);
+        for (int i = 0; i < weblist.size(); i++) {
+            weblist.get(i).sendKeys(otp.split("")[i]);
+        }
+        keyword.click(Locator.LOGIN_BTN_CONTINUE);
+        if(flag.equals("không tồn tại")){
+            keyword.webDriverWaitForElementPresent(Locator.LOGIN_MESS_INCORRECT_PASSWORD,15);
+            keyword.assertEqual(Locator.LOGIN_MESS_INCORRECT_PASSWORD,Constant.MESSAGE_INVALID_OTP);
+        }
+        else {
+            keyword.webDriverWaitForElementPresent(Locator.LOGIN_TXT_PASSWORD,15);
+        }
+    }
+    @Step("Đợi đến khi otp hết hạn")
+    public void waitTimeOtp(String otp, String flag){
+        for (int i = 0; i < 10; i++) {
+            keyword.sleep(5);
+            keyword.click(Locator.LBL_TIME_EXPIRED_OTP);
+        }
+        keyword.webDriverWaitForElementPresent(Locator.SIGN_UP_BTN_RESEND_OTP,10);
+        keyword.assertEqual(Locator.LBL_TIME_EXPIRED_OTP, Constant.MESSAGE_EXPIRED_OTP);
+    }
+    @Step("Gửi lại mã opt")
+    public void resendOtp(){
+        keyword.click(Locator.SIGN_UP_BTN_RESEND_OTP);
+    }
+
+
 }
 

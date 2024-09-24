@@ -4,6 +4,9 @@
     <parameter name="platformName" value="Android"></parameter>
     <parameter name="platformVersion" value="13"></parameter>
     <parameter name="deviceName" value="99181FFAZ002RG"></parameter>
+<!--    <parameter name="platformVersion" value="12"></parameter>-->
+<!--    <parameter name="deviceName" value="emulator-5554"></parameter>-->
+
     <listeners>
         <listener
                 class-name="core.MyListener">
@@ -13,12 +16,15 @@
         <classes>
             <class name="tests.loginTest.LoginTest" >
                 <methods>
-                    <include name="LG_9"/>
+                    <include name="LG_11_12_13_14_42"/>
+                    <include name="LG_9_43"/>
                     <include name="LG_1_2"/>
-                    <include name="LG_41_42"/>
+                    <include name="LG_44_45"/>
                     <include name="LG_3"/>
                     <include name="LG_4"/>
                     <include name="LG_5"/>
+                    <include name="LG_10"/>
+                    <include name="LG_21"/>
                 </methods>
             </class>
         </classes>

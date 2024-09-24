@@ -27,6 +27,9 @@ public class Locator {
     public static final By DEVICE_MANAGE_BTN_LOGOUT_DEVICE = By.id("com.vtvcab.onsports.dev:id/buttonKick");
     public static final By DEVICE_MANAGE_BTN_LAYOUT_DEVICE = By.id("com.vtvcab.onsports.dev:id/layoutDevice");
     public static final By SET_INFORM_BTN_COMPLETE = By.id("com.vtvcab.onsports.dev:id/button_done");
+    public static final By SIGN_UP_TXT_EDIT_OPT = By.className("android.widget.EditText");
+    public static final By LBL_TIME_EXPIRED_OTP = By.id("com.vtvcab.onsports.dev:id/text_countdown");
+    public static final By SIGN_UP_BTN_RESEND_OTP = By.id("com.vtvcab.onsports.dev:id/re_send_otp");
 
 }
 

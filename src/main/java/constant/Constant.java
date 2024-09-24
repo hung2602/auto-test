@@ -9,6 +9,7 @@ public class Constant {
     public final static String MESSAGE_SUCCESS_LOGOUT = "Đăng xuất thành công";
     public final static String TITLE_LOGIN_SMART_TV = "ĐĂNG NHẬP SMART TV, WEBSITE";
     public final static String TITLE_DEVICE_MANAGE = "QUẢN LÝ THIẾT BỊ";
-
     public final static String TITLE_INFORM_SETTING = "CÀI ĐẶT THÔNG BÁO";
+    public final static String MESSAGE_INVALID_OTP = "Mã otp sai hoặc đã hết hạn";
+    public final static String MESSAGE_EXPIRED_OTP ="Mã OTP của bạn đã hết hạn";
 }
