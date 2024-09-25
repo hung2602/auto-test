@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="OnPlus Android">
+    <parameter name="platformName" value="Android"></parameter>
+    <parameter name="platformVersion" value="13"></parameter>
+    <parameter name="deviceName" value="99181FFAZ002RG"></parameter>
+    <!--    <parameter name="platformVersion" value="12"></parameter>-->
+    <!--    <parameter name="deviceName" value="emulator-5554"></parameter>-->
+    <listeners>
+        <listener
+                class-name="core.MyListener">
+        </listener>
+    </listeners>
+    <test name="Profile Test">
+        <classes>
+            <class name="">
+                <methods>
+                    <include name=""/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

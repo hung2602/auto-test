@@ -1,16 +1,15 @@
 package core;
-import io.appium.java_client.AppiumBy;
 import io.qameta.allure.Step;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.*;
 import org.slf4j.Logger;
 import org.testng.Assert;
+import utilities.LogHelper;
+
 import java.time.Duration;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
-import java.util.concurrent.TimeUnit;
 import java.util.function.Function;
 import static core.BaseTest.driver;
 
@@ -92,14 +91,13 @@ public class KeywordWeb {
             return false;
         }
     }
-    @Step("Xác thực element hiển thị: {0}")
+    @Step("Lấy danh sách elementị: {0}")
     public List<WebElement> getListElement(By by) {
         logger.info("get list element: " + by);
         webDriverWaitForElementPresent(by, 20);
         List<WebElement> weblist = driver.findElements(by);
         return weblist;
     }
-
 
     public void executeJsHorizontal(String command, WebElement element) {
         logger.info("Executing JavaScript");
@@ -111,14 +109,6 @@ public class KeywordWeb {
         logger.info("Select By Text " + by);
         Select singleSelect = new Select(driver.findElement(by));
         singleSelect.selectByVisibleText(text);
-    }
-
-    public void addDataToList(List<String> list,String element){
-        String data = PropertiesFile.getPropValue(element);
-        if (data == null) {
-            data = element;
-        }
-        list.add(data);
     }
     @Step("Xóa: {0} và nhập giá trị {1}")
     public void clearTextAndSendKey(String element, String content){
@@ -144,6 +134,7 @@ public class KeywordWeb {
         }
         driver.findElement(By.xpath(xPathElement)).clear();
     }
+    @Step("Lấy ngẫu nhiên element: {0}")
     public void randomElement(String element) {
         String xPathElement = PropertiesFile.getPropValue(element);
         if (xPathElement == null) {
@@ -154,7 +145,7 @@ public class KeywordWeb {
         int randNumber = ThreadLocalRandom.current().nextInt(0, size);
         weblist.get(randNumber).click();
     }
-
+    @Step("Double click: {0}")
     public void doubleClick(String element) {
         logger.info("double click" + element);
         String xPathElement = PropertiesFile.getPropValue(element);
@@ -165,7 +156,19 @@ public class KeywordWeb {
         WebElement elementRep = driver.findElement(By.xpath(xPathElement));
         builder.doubleClick(elementRep).perform();
     }
-
+    @Step("Xác thực element hiển thị: {0}")
+    public boolean isDisplayElement(By by) {
+        logger.info("Check element display " + by );
+        boolean stt = driver.findElement(by).isDisplayed();
+        return stt;
+    }
+    public void addDataToList(List<String> list,String element){
+        String data = PropertiesFile.getPropValue(element);
+        if (data == null) {
+            data = element;
+        }
+        list.add(data);
+    }
     public void dragAndDropToObj(String startElement, String endElement) {
         logger.info("drag from" + startElement + " to" + endElement);
         String xPathElement1 = PropertiesFile.getPropValue(startElement);
@@ -318,7 +321,6 @@ public class KeywordWeb {
         }
         Select dropDownList = new Select(driver.findElement(By.xpath(xPathElement1)));
         dropDownList.selectByVisibleText(xPathElement2);
-
     }
     public void verifyElement(String element, boolean check) {
         logger.info("verifyElement" + element);
@@ -369,22 +371,6 @@ public class KeywordWeb {
             //fail the test if element is not found in try statement
             Assert.assertTrue(false);
         }
-    }
-
-    public boolean CheckIsDisplayElement(String element) {
-        logger.info("Check status element btn radio");
-        String xPathElement = PropertiesFile.getPropValue(element);
-        if (xPathElement == null) {
-            xPathElement = element;
-        }
-        boolean stt = driver.findElement(By.xpath(xPathElement)).isDisplayed();
-        if (!stt) {
-            System.out.println("Not selected");
-        } else {
-            driver.navigate().back();
-            System.out.println("Checkbox selected");
-        }
-        return stt;
     }
     public boolean checkStatusIsDisplay(String element) {
         logger.info("Check status ");

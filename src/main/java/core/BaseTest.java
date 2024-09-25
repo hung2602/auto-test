@@ -1,25 +1,13 @@
 package core;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
-import io.qameta.allure.Link;
-import org.openqa.selenium.WebDriver;
+import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.testng.ITestResult;
 import org.testng.annotations.*;
-import utilities.ScreenShot;
-import java.io.IOException;
-import java.net.URL;
-import java.time.Duration;
-import io.appium.java_client.android.AndroidDriver;
-import javax.xml.crypto.Data;
 
-import static core.DataBase.con;
+import java.net.URL;
+
 import static core.MyListener.saveScreenshotPNG;
-import static core.MyListener.saveTextLog;
-import java.sql.Connection;
-import org.testng.Assert;
 
 public class BaseTest {
     protected KeywordWeb keyword;
@@ -27,7 +15,7 @@ public class BaseTest {
         keyword = new KeywordWeb();
     }
     public static AndroidDriver driver;
-    public DataBase dataBase = new DataBase();
+    public DataBaseTest dataBase = new DataBaseTest();
 
     @BeforeSuite
     public void setFile(){
@@ -44,7 +32,7 @@ public class BaseTest {
         dc.setCapability("app", System.getProperty("user.dir") + "\\app\\onplus-dev-8074005.apk");
         URL url = new URL("http://127.0.0.1:4723/wd/hub");
         driver = new AndroidDriver(url, dc);
-//        dataBase.setUpDB("DB_URL","DB_USER","DB_PASSWORD");
+//        dataBase.setUpDB("POSTGRES_DB_URL","POSTGRES_DB_USER","POSTGRES_DB_PASSWORD");
     }
     @BeforeTest(alwaysRun = true)
     @Parameters({"platformName","platformVersion","deviceName"})
@@ -55,14 +43,15 @@ public class BaseTest {
     public void afterTest() throws Exception {
 //        keyword.closeBrowser();
 //        driver.quit();
-        if (con != null) {
-            con.close();
+        if (dataBase.con != null) {
+            dataBase.con.close();
         }
     }
     @AfterMethod
     public void tearDown(ITestResult testResult) {
-        if (testResult.getStatus() == ITestResult.SUCCESS) {
-            saveScreenshotPNG();
-        }
+//        if (testResult.getStatus() == ITestResult.SUCCESS) {
+//            saveScreenshotPNG();
+//        }
+        saveScreenshotPNG();
     }
 }
