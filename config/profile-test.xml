@@ -13,9 +13,15 @@
     </listeners>
     <test name="Profile Test">
         <classes>
-            <class name="">
+            <class name="tests.ProfileTest" >
                 <methods>
-                    <include name=""/>
+                    <include name="PF_1"/>
+                    <include name="PF_2"/>
+                    <include name="PF_3"/>
+<!--                    <include name="PT_4"/>-->
+<!--                    <include name="PT_5"/>-->
+<!--                    <include name="PT_6"/>-->
+<!--                    <include name="PT_7"/>-->
                 </methods>
             </class>
         </classes>

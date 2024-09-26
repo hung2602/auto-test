@@ -6,7 +6,6 @@ import org.openqa.selenium.support.ui.*;
 import org.slf4j.Logger;
 import org.testng.Assert;
 import utilities.LogHelper;
-
 import java.time.Duration;
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
@@ -41,9 +40,9 @@ public class KeywordWeb {
         js.executeScript(jsScript);
     }
     @Step("Lấy giá trị: {0}")
-    public void getText(By by){
+    public String getText(By by){
         logger.info("Get Text " + by);
-        driver.findElement(by).getText();
+        return driver.findElement(by).getText();
     }
     @Step("Click: {0}")
     public void click(By by){

@@ -1,22 +1,20 @@
 package core;
-
 import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.ITestResult;
 import org.testng.annotations.*;
-
 import java.net.URL;
-
+import static core.DataBaseTest.res;
+import static core.DataBaseTest.stmt;
 import static core.MyListener.saveScreenshotPNG;
 
 public class BaseTest {
     protected KeywordWeb keyword;
+    public static AndroidDriver driver;
+    protected DataBaseTest dataBase;
     public BaseTest() {
         keyword = new KeywordWeb();
     }
-    public static AndroidDriver driver;
-    public DataBaseTest dataBase = new DataBaseTest();
-
     @BeforeSuite
     public void setFile(){
         PropertiesFile.setPropertiesFile();
@@ -27,12 +25,11 @@ public class BaseTest {
         dc.setCapability("platformVersion", platformVersion);
         dc.setCapability("deviceName", name);
         dc.setCapability("automationName", "UiAutomator2");
-        dc.setCapability("noReset", false);
+        dc.setCapability("noReset", true);
         dc.setCapability("appWaitForLaunch", false);
         dc.setCapability("app", System.getProperty("user.dir") + "\\app\\onplus-dev-8074005.apk");
         URL url = new URL("http://127.0.0.1:4723/wd/hub");
         driver = new AndroidDriver(url, dc);
-//        dataBase.setUpDB("POSTGRES_DB_URL","POSTGRES_DB_USER","POSTGRES_DB_PASSWORD");
     }
     @BeforeTest(alwaysRun = true)
     @Parameters({"platformName","platformVersion","deviceName"})
@@ -49,9 +46,8 @@ public class BaseTest {
     }
     @AfterMethod
     public void tearDown(ITestResult testResult) {
-//        if (testResult.getStatus() == ITestResult.SUCCESS) {
-//            saveScreenshotPNG();
-//        }
-        saveScreenshotPNG();
+        if (testResult.getStatus() == ITestResult.SUCCESS) {
+            saveScreenshotPNG();
+        }
     }
 }

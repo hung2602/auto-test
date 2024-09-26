@@ -2,38 +2,57 @@ package core;
 
 import core.PropertiesFile;
 import io.qameta.allure.Step;
+import org.openqa.selenium.By;
+import org.slf4j.Logger;
 import org.testng.Assert;
+import utilities.LogHelper;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
+import java.sql.*;
 
 public class DataBaseTest {
-    public static Connection con = null;
-    private static Statement stmt;
-    @Step("Set DB: {0}")
-    public void setUpDB(String url, String user, String passWord) throws Exception {
-        Class.forName("org.postgresql.Driver");
-        String dbUrl = PropertiesFile.getPropValue(url);
-        String dbUser = PropertiesFile.getPropValue(user);
-        String dbPass = PropertiesFile.getPropValue(passWord);
-        Connection con = DriverManager.getConnection(dbUrl, dbUser, dbPass);
-        stmt = con.createStatement();
+    private static Logger logger = LogHelper.getLogger();
+    public static Connection con ;
+    public static ResultSet res ;
+    public static Statement stmt ;
+    public DataBaseTest( ) {
     }
-    @Step("Kiểm tra data base : {0}")
-    public void checkDataBase(String query, String coLumLabel, String expect) {
-        expect = PropertiesFile.getPropValue(expect);
+    @Step("Set up kết nốt Data base: {0}")
+    public void setUpDB(String url, String user, String passWord) {
+        logger.info("Set Up DB " + url );
+        try {
+            Class.forName("org.postgresql.Driver");
+            String dbUrl = PropertiesFile.getPropValue(url);
+            String dbUser = PropertiesFile.getPropValue(user);
+            String dbPass = PropertiesFile.getPropValue(passWord);
+            con = DriverManager.getConnection(dbUrl, dbUser, dbPass);
+            stmt = con.createStatement();
+        }
+        catch (ClassNotFoundException | SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    @Step("Thực hiện truy vấn dữ liệu : {0}")
+    public void queryDb(String query) {
+        logger.info("Query DB: " + query );
         query = PropertiesFile.getPropValue(query);
         try {
-            ResultSet res = stmt.executeQuery(query);
+            res = stmt.executeQuery(query);
+        }
+        catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    @Step("Kiểm tra, so sánh dữ liệu : Cột {0}, Giá trị {1}")
+    public void checkDataBase(String coLumLabel, String expect) {
+        coLumLabel = PropertiesFile.getPropValue(coLumLabel);
+        logger.info("Check DB: " + coLumLabel );
+        try {
             while (res.next())
             {
-                System.out.println(res.getString(coLumLabel));
-                Assert.assertEquals(expect,res.getString(coLumLabel));
+                Assert.assertEquals(res.getString(coLumLabel), expect);
             }
         }
-        catch(Exception e)
+        catch(SQLException e)
         {
             e.printStackTrace();
         }

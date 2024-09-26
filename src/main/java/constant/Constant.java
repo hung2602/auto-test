@@ -13,4 +13,6 @@ public class Constant {
     public final static String MESSAGE_INVALID_OTP = "Mã otp sai hoặc đã hết hạn";
     public final static String MESSAGE_EXPIRED_OTP = "Mã OTP của bạn đã hết hạn";
     public final static String MESSAGE_LOGOUT_SUCCESS_DEVICE = "Đăng xuất thiết bị thành công";
+
+    public final static String MESSAGE_UPDATE_SUCCESS_INFORM = "Cập nhật thành công";
 }

@@ -4,10 +4,13 @@ import core.KeywordWeb;
 import java.text.Normalizer;
 import java.util.Locale;
 import java.util.regex.Pattern;
+
 public class BasePage {
     protected KeywordWeb keyword;
+    protected DataBaseTest dataBase;
     public BasePage() {
         keyword = new KeywordWeb();
+        dataBase = new DataBaseTest();
     }
     public BasePage(KeywordWeb keyword) {
         this.keyword = keyword;

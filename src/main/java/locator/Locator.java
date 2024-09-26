@@ -31,6 +31,14 @@ public class Locator {
     public static final By LBL_TIME_EXPIRED_OTP = By.id("com.vtvcab.onsports.dev:id/text_countdown");
     public static final By SIGN_UP_BTN_RESEND_OTP = By.id("com.vtvcab.onsports.dev:id/re_send_otp");
     public static final By LOGOUT_DEVICE_TOAST_SUCCESS = By.id("com.vtvcab.onsports.dev:id/tv_message");
+    public static final By USER_INFORM_LBL_PHONE = By.id("com.vtvcab.onsports.dev:id/edtPhone");
+    public static final By USER_INFORM_LBL_FULL_NAME = By.id("com.vtvcab.onsports.dev:id/edtFullName");
+    public static final By USER_INFORM_LBL_EMAIL = By.id("com.vtvcab.onsports.dev:id/edtEmail");
+    public static final By USER_INFORM_LBL_BIRTH_DAY = By.id("com.vtvcab.onsports.dev:id/tvBirthday");
+    public static final By USER_INFORM_LBL_GENDER = By.id("com.vtvcab.onsports.dev:id/tvGender");
+    public static final By USER_INFORM_BTN_EDIT = By.id("com.vtvcab.onsports.dev:id/tvEdit");
+    public static final By USER_INFORM_BTN_SAVE = By.xpath("Lưu");
+    public static final By USER_INFORM_TOAST_UPDATE_SUCCESS = By.linkText("//android.widget.Toast[@text=\"Cập nhật thành công\"]");
 
 }
 
