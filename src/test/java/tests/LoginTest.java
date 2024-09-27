@@ -1,28 +1,29 @@
 package tests;
 import constant.Constant;
 import core.BaseTest;
-import core.DataBaseTest;
-import core.PropertiesFile;
+import helpers.DataBase;
 import io.qameta.allure.Severity;
 import locator.Locator;
 import org.testng.annotations.*;
 import pages.HomePage;
 import pages.LoginPage;
+
+import static constant.Constant.*;
 import static io.qameta.allure.SeverityLevel.CRITICAL;
 
 public class LoginTest extends BaseTest {
+    public DataBase dataBase ;
     public LoginPage loginPage;
     public HomePage homePage;
-    public DataBaseTest dataBase;
     public LoginTest(){
         loginPage = new LoginPage();
         homePage = new HomePage();
-        dataBase = new DataBaseTest();
+        dataBase = new DataBase();
     }
     @Test(description = "Kiểm tra text ẩn, nhập sđt bỏ trống, >,< 10 số và đầu số khác 0")
     public void LG_11_12_13_14_42(){
         loginPage.goToLogin();
-        loginPage.checkHiddenText(Locator.LOGIN_TXT_USER_NAME, Constant.TEXT_BOX_USERNAME);
+        loginPage.checkHiddenText(Locator.LOGIN_TXT_USER_NAME,TEXT_BOX_USERNAME);
         loginPage.inputUserName("PHONE_NUMBER_INVALID_1");
         loginPage.inputUserName("PHONE_NUMBER_INVALID_2");
         loginPage.inputUserName("PHONE_NUMBER_INVALID_3");
@@ -30,7 +31,7 @@ public class LoginTest extends BaseTest {
     @Test(priority = 1, description = "Đăng nhập thất bại với mật khẩu sai và check text ẩn")
     public void LG_9_43(){
         loginPage.inputUserName("PHONE_NUMBER");
-        loginPage.checkHiddenText(Locator.LOGIN_TXT_PASSWORD, Constant.TEXT_BOX_PASSWORD);
+        loginPage.checkHiddenText(Locator.LOGIN_TXT_PASSWORD,TEXT_BOX_PASSWORD);
         loginPage.inputPassWord("PASS_WORD_INCORRECT");
         loginPage.compareMessLoginIncorrectPass();
     }
@@ -41,14 +42,18 @@ public class LoginTest extends BaseTest {
         loginPage.compareMessLoginSuccess();
     }
     @Severity(CRITICAL)
-    @Test(priority = 2, dependsOnMethods = "LG_1_2" ,description = "Đăng xuất thất bại, thành công")
-    public void LG_44_45(){
+    @Test(priority = 2, dependsOnMethods = "LG_1_2" ,description = "Đăng xuất thất bại")
+    public void LG_44(){
         loginPage.viewUserInform();
         loginPage.logOut("Thất bại");
+    }
+    @Severity(CRITICAL)
+    @Test(priority = 3, dependsOnMethods = "LG_44" ,description = "Đăng xuất thành công")
+    public void LG_45(){
         loginPage.logOut("Thành công");
     }
     @Severity(CRITICAL)
-    @Test(priority = 3, dependsOnMethods = "LG_44_45" ,description = "Đăng nhập thành công qua 'Đăng nhập SmartTv Website'")
+    @Test(priority = 3, dependsOnMethods = "LG_45" ,description = "Đăng nhập thành công qua 'Đăng nhập SmartTv Website'")
     public void LG_3(){
         loginPage.logInBy("Smart Tv, Website");
         loginPage.checkScreenInform("Smart Tv, Website");
@@ -81,10 +86,11 @@ public class LoginTest extends BaseTest {
     public void LG_46(){
         loginPage.logOutDevice("Thành công");
     }
-    @Test(priority = 8,description = "Kiểm tra đăng nhập 2 sdt trên 1 thiết bị")
+    @Severity(CRITICAL)
+    @Test(priority = 8, description = "Kiểm tra đăng nhập 2 sdt trên 1 thiết bị")
     public void LG_37(){
-//        loginPage.loginSuccess("PHONE_NUMBER","PASS_WORD");
-//        loginPage.viewUserInform();
+        loginPage.loginSuccess("PHONE_NUMBER","PASS_WORD");
+        loginPage.viewUserInform();
         dataBase.setUpDB("POSTGRES_DB_URL","POSTGRES_DB_USER","POSTGRES_DB_PASSWORD");
         loginPage.checkUserInform("PHONE_NUMBER");
     }

@@ -1,4 +1,5 @@
 package locator;
+import helpers.PropertiesFile;
 import io.appium.java_client.AppiumBy;
 import io.appium.java_client.android.options.UiAutomator2Options;
 import org.openqa.selenium.By;
@@ -33,12 +34,26 @@ public class Locator {
     public static final By LOGOUT_DEVICE_TOAST_SUCCESS = By.id("com.vtvcab.onsports.dev:id/tv_message");
     public static final By USER_INFORM_LBL_PHONE = By.id("com.vtvcab.onsports.dev:id/edtPhone");
     public static final By USER_INFORM_LBL_FULL_NAME = By.id("com.vtvcab.onsports.dev:id/edtFullName");
+    public static final By USER_INFORM_BTN_EDIT_FULL_NAME = By.id("com.vtvcab.onsports.dev:id/imgEditFullName");
+    public static final By USER_INFORM_BTN_EDIT_EMAIL = By.id("com.vtvcab.onsports.dev:id/imgEditEmail");
     public static final By USER_INFORM_LBL_EMAIL = By.id("com.vtvcab.onsports.dev:id/edtEmail");
+    public static final By USER_INFORM_BTN_EDIT_BIRTH_DAY = By.id("com.vtvcab.onsports.dev:id/imgChoiceCal");
     public static final By USER_INFORM_LBL_BIRTH_DAY = By.id("com.vtvcab.onsports.dev:id/tvBirthday");
+    public static final By USER_INFORM_BTN_GENDER = By.id("com.vtvcab.onsports.dev:id/imgChoiceGender");
     public static final By USER_INFORM_LBL_GENDER = By.id("com.vtvcab.onsports.dev:id/tvGender");
+    public static final By USER_INFORM_BTN_MALE_GENDER = By.id("com.vtvcab.onsports.dev:id/rela_male");
+    public static final By USER_INFORM_BTN_OTHER_GENDER = By.id("com.vtvcab.onsports.dev:id/rela_other");
+    public static final By USER_INFORM_BTN_FEMALE_GENDER = By.id("com.vtvcab.onsports.dev:id/rela_female");
     public static final By USER_INFORM_BTN_EDIT = By.id("com.vtvcab.onsports.dev:id/tvEdit");
-    public static final By USER_INFORM_BTN_SAVE = By.xpath("Lưu");
-    public static final By USER_INFORM_TOAST_UPDATE_SUCCESS = By.linkText("//android.widget.Toast[@text=\"Cập nhật thành công\"]");
+    public static final By USER_INFORM_TOAST_UPDATE_SUCCESS = By.xpath("//android.widget.Toast[@text=\"Cập nhật thành công\"]");
+    public static final By USER_INFORM_TOAST_UPDATE_FAIL_EMAIL = By.xpath("//android.widget.Toast[@text=\"Vui lòng đúng định dạng email\"]");
+    public static final By USER_INFORM_BTN_EDIT_AVT = By.xpath("com.vtvcab.onsports.dev:id/imgEditAvatar");
+    public static final By USER_INFORM_BTN_EDIT_DATE = new AppiumBy.ByAccessibilityId(PropertiesFile.getPropValue("ID_DATE"));
+    public static final By USER_INFORM_BTN_OKE_EDIT_DATE = By.id("android:id/button1");
+    public static final By USER_INFORM_BTN_CANCEL_EDIT_DATE = By.id("android:id/button2");
+
+
+
 
 }
 

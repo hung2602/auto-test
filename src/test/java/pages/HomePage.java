@@ -1,7 +1,6 @@
 package pages;
 
 import core.BasePage;
-import core.KeywordWeb;
 import io.qameta.allure.Step;
 import locator.Locator;
 

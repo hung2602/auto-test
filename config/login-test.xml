@@ -8,29 +8,27 @@
 <!--        <parameter name="deviceName" value="emulator-5554"></parameter>-->
     <listeners>
         <listener
-                class-name="core.MyListener">
+                class-name="helpers.MyListener">
         </listener>
     </listeners>
     <test name="Login Test">
         <classes>
             <class name="tests.LoginTest" >
                 <methods>
-<!--                    <include name="LG_11_12_13_14_42"/>-->
-<!--                    <include name="LG_9_43"/>-->
-<!--                    <include name="LG_1_2"/>-->
-<!--                    <include name="LG_44_45"/>-->
-<!--                    <include name="LG_3"/>-->
-<!--                    <include name="LG_4"/>-->
-<!--                    <include name="LG_5"/>-->
-<!--                    <include name="LG_10"/>-->
-<!--                    <include name="LG_21"/>-->
-<!--                    <include name="LG_46"/>-->
-<!--                    <include name="LG_47"/>-->
+                    <include name="LG_11_12_13_14_42"/>
+                    <include name="LG_9_43"/>
+                    <include name="LG_1_2"/>
+                    <include name="LG_44_45"/>
+                    <include name="LG_3"/>
+                    <include name="LG_4"/>
+                    <include name="LG_5"/>
+                    <include name="LG_10"/>
+                    <include name="LG_21"/>
+                    <include name="LG_46"/>
+                    <include name="LG_47"/>
                     <include name="LG_37"/>
-<!--                    <include name="LG_10"/>-->
-<!--                    <include name="LG_21"/>-->
-<!--                    <include name="LG_39"/>-->
-<!--                    <include name="LG_40"/>-->
+                    <include name="LG_10"/>
+                    <include name="LG_21"/>
                 </methods>
             </class>
         </classes>

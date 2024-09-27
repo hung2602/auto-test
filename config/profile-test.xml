@@ -8,7 +8,7 @@
     <!--    <parameter name="deviceName" value="emulator-5554"></parameter>-->
     <listeners>
         <listener
-                class-name="core.MyListener">
+                class-name="helpers.MyListener">
         </listener>
     </listeners>
     <test name="Profile Test">
@@ -18,10 +18,10 @@
                     <include name="PF_1"/>
                     <include name="PF_2"/>
                     <include name="PF_3"/>
-<!--                    <include name="PT_4"/>-->
-<!--                    <include name="PT_5"/>-->
-<!--                    <include name="PT_6"/>-->
-<!--                    <include name="PT_7"/>-->
+                    <include name="PF_4"/>
+                    <include name="PF_5"/>
+                    <include name="PF_6"/>
+                    <include name="PF_7"/>
                 </methods>
             </class>
         </classes>
