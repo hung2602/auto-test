@@ -8,11 +8,11 @@ import org.slf4j.Logger;
 import org.testng.ITestResult;
 import org.testng.annotations.*;
 import utilities.LogHelper;
-
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import static helpers.MyListener.saveScreenshotPNG;
+import static helpers.DataBase.con;
 
 public class BaseTest {
     private static Logger logger = LogHelper.getLogger();
@@ -53,9 +53,9 @@ public class BaseTest {
     @AfterTest
     public void afterTest() throws Exception {
 //        driver.quit();
-//        if (dataBase.con != null) {
-//            dataBase.con.close();
-//        }
+        if (con != null) {
+            con.close();
+        }
     }
     @AfterMethod
     public void tearDown(ITestResult testResult) {

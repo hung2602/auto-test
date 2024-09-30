@@ -1,15 +1,9 @@
 package pages;
 import core.BasePage;
+import helpers.PropertiesFile;
 import io.qameta.allure.Step;
 import locator.Locator;
-import org.bouncycastle.crypto.params.Blake3Parameters;
-import org.openqa.selenium.WebElement;
-
-import java.util.ArrayList;
-import java.util.List;
-
-import static constant.Constant.*;
-import static core.BaseTest.driver;
+import static utilities.DateTime.getCurrentDateTime;
 
 public class ProfilePage extends BasePage {
     public ProfilePage() {
@@ -25,8 +19,9 @@ public class ProfilePage extends BasePage {
         keyword.clearTextAndSendKey(Locator.USER_INFORM_LBL_EMAIL, email);
     }
     @Step("Sửa ngày sinh: {0}")
-    public void editBirthDay(){
+    public void editBirthDay(String date){
         keyword.click(Locator.USER_INFORM_BTN_EDIT_BIRTH_DAY);
+        PropertiesFile.setDataPropValue("ID_DATE", date);
         keyword.click(Locator.USER_INFORM_BTN_EDIT_DATE);
         keyword.click(Locator.USER_INFORM_BTN_OKE_EDIT_DATE);
     }
@@ -54,11 +49,9 @@ public class ProfilePage extends BasePage {
     }
     @Step("Cập nhật tất cả thông tin")
     public void updateFullInform(String name, String mail){
-        clickEdit();
         editFullName(name);
         editEmail(mail);
-        editBirthDay();
+        editBirthDay(getCurrentDateTime("dd MMMM yyyy"));
         editGender();
-        saveInform("Thành công");
     }
 }

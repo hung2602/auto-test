@@ -20,6 +20,10 @@ public class LoginTest extends BaseTest {
         homePage = new HomePage();
         dataBase = new DataBase();
     }
+    @BeforeClass
+    public void connectDb(){
+        dataBase.setUpDB("POSTGRES_DB_URL","POSTGRES_DB_USER","POSTGRES_DB_PASSWORD");
+    }
     @Test(description = "Kiểm tra text ẩn, nhập sđt bỏ trống, >,< 10 số và đầu số khác 0")
     public void LG_11_12_13_14_42(){
         loginPage.goToLogin();
@@ -91,8 +95,7 @@ public class LoginTest extends BaseTest {
     public void LG_37(){
         loginPage.loginSuccess("PHONE_NUMBER","PASS_WORD");
         loginPage.viewUserInform();
-        dataBase.setUpDB("POSTGRES_DB_URL","POSTGRES_DB_USER","POSTGRES_DB_PASSWORD");
-        loginPage.checkUserInform("PHONE_NUMBER");
+        loginPage.checkUserInform("PHONE_NUMBER","all");
     }
     @Severity(CRITICAL)
     @Test(priority = 9,description = "Kiểm tra đăng nhập với sdt chưa đăng ký")

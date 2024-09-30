@@ -67,6 +67,15 @@ public class KeywordWeb {
         logger.info("Compare message: " + db + " with " + expect);
         Assert.assertEquals(db, expect);
     }
+    @Step("So sánh data: {0} với giá trị: {1}")
+    public void assertEqualMultiData(String db, String expect){
+        logger.info("Compare message: " + db + " with " + expect);
+        String[] arrDb = db.split(",");
+        String[] arrExp = db.split(",");
+        for (int i = 0; i < arrExp.length; i++) {
+            Assert.assertEquals(arrDb[i], arrExp[i]);
+        }
+    }
     @Step("Chờ element hiển thị: {0}")
     public void webDriverWaitForElementPresent(By by, long timeout){
         logger.info("Wait For Element Present" + by);

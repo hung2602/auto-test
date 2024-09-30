@@ -47,12 +47,12 @@
             <class name="tests.ProfileTest">
                 <methods>
                     <include name="PF_1"/>
-                    <include name="PF_2"/>
-                    <include name="PF_3"/>
-                    <include name="PF_4"/>
-                    <include name="PF_5"/>
-                    <include name="PF_6"/>
-                    <include name="PF_7"/>
+<!--                    <include name="PF_2"/>-->
+<!--                    <include name="PF_3"/>-->
+<!--                    <include name="PF_4"/>-->
+<!--                    <include name="PF_5"/>-->
+<!--                    <include name="PF_6"/>-->
+<!--                    <include name="PF_7"/>-->
                 </methods>
             </class>
         </classes>

@@ -14,10 +14,6 @@ public class DataBase extends BaseTest {
     public static Statement stmt ;
     public DataBase() {
     }
-    public DataBase(Statement stmt, ResultSet res) {
-        this.stmt = stmt;
-        this.res = res;
-    }
     @Step("Set up kết nốt Data base: {0}")
     public Statement setUpDB(String url, String user, String passWord) {
         logger.info("Set Up DB " + url );
@@ -62,7 +58,6 @@ public class DataBase extends BaseTest {
         }
         catch(SQLException e)
         {
-            System.out.println("Không check");
             e.printStackTrace(); // hiển thị tổng quan về lỗi
         }
     }
