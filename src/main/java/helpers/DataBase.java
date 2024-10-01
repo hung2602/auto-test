@@ -4,8 +4,8 @@ import core.BaseTest;
 import io.qameta.allure.Step;
 import org.slf4j.Logger;
 import utilities.LogHelper;
-
 import java.sql.*;
+import java.util.Properties;
 
 public class DataBase extends BaseTest {
     private static Logger logger = LogHelper.getLogger();
@@ -14,8 +14,8 @@ public class DataBase extends BaseTest {
     public static Statement stmt ;
     public DataBase() {
     }
-    @Step("Set up kết nốt Data base: {0}")
-    public Statement setUpDB(String url, String user, String passWord) {
+    @Step("Set up kết nốt Data PostGresSQL: {0}")
+    public void setUpDB(String url, String user, String passWord) {
         logger.info("Set Up DB " + url );
         try {
             Class.forName("org.postgresql.Driver");
@@ -24,7 +24,21 @@ public class DataBase extends BaseTest {
             String dbPass = PropertiesFile.getPropValue(passWord);
             con = DriverManager.getConnection(dbUrl, dbUser, dbPass);
             stmt = con.createStatement();
-            return stmt;
+        }
+        catch (ClassNotFoundException | SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    @Step("Set up kết nốt Data MonGoDb")
+    public void setUpMonGoDb(String url, String user, String passWord){
+        logger.info("Set Up MonGo DB");
+        try {
+            Class.forName("cdata.jdbc.mongodb.MongoDBDriver");
+            String dbUrl = PropertiesFile.getPropValue(url);
+            String dbUser = PropertiesFile.getPropValue(user);
+            String dbPass = PropertiesFile.getPropValue(passWord);
+            con = DriverManager.getConnection(dbUrl, dbUser, dbPass);
+            stmt = con.createStatement();
         }
         catch (ClassNotFoundException | SQLException e) {
             throw new RuntimeException(e);

@@ -13,6 +13,7 @@ import java.io.IOException;
 import java.net.URL;
 import static helpers.MyListener.saveScreenshotPNG;
 import static helpers.DataBase.con;
+import static helpers.PropertiesFile.*;
 
 public class BaseTest {
     private static Logger logger = LogHelper.getLogger();
@@ -41,7 +42,7 @@ public class BaseTest {
         dc.setCapability("automationName", "UiAutomator2");
         dc.setCapability("noReset", true);
         dc.setCapability("appWaitForLaunch", false);
-        dc.setCapability("app", System.getProperty("user.dir") + "\\app\\onplus-dev-8074005.apk");
+        dc.setCapability("app", projectPath + "\\app\\onplus-dev-8074005.apk");
         URL url = new URL("http://127.0.0.1:4723/wd/hub");
         driver = new AndroidDriver(url, dc);
     }

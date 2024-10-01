@@ -1,5 +1,8 @@
 package helpers;
 
+import org.slf4j.Logger;
+import utilities.LogHelper;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -8,10 +11,11 @@ import java.util.LinkedList;
 import java.util.Properties;
 
 public class PropertiesFile {
+    private static Logger logger = LogHelper.getLogger();
     private static Properties properties;
     private static FileInputStream fileIn;
     private static FileOutputStream fileOut;
-    private static String projectPath = System.getProperty("user.dir");
+    public static String projectPath = System.getProperty("user.dir");
     private static String dataPropertiesPath = "\\src\\main\\resources\\data.properties";
     private static String configPropertiesPath = "\\src\\main\\resources\\config.properties";
     public static void setPropertiesFile() {
@@ -35,6 +39,7 @@ public class PropertiesFile {
         }
     }
     public static String getPropValue(String key){
+        logger.info("get value properties: " + key);
         String value = null;
         try {
             value = properties.getProperty(key);
@@ -47,6 +52,7 @@ public class PropertiesFile {
         return value;
     }
     public static void setDataPropValue(String key, String value) {
+        logger.info("set value properties: " + value);
         try {
             fileOut = new FileOutputStream(projectPath + dataPropertiesPath);
             properties.setProperty(key, value);

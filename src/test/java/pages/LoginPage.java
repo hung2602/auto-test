@@ -198,11 +198,6 @@ public class LoginPage extends BasePage {
         String birthDay = getBirthDay(keyword.getText(Locator.USER_INFORM_LBL_BIRTH_DAY));
         String gender = getGender(keyword.getText(Locator.USER_INFORM_LBL_GENDER));
         switch (cases) {
-            case "all":
-                dataBase.checkDataBase("DB_USERS_LBL_PHONE,DB_USERS_LBL_FULL_NAME,DB_USERS_LBL_EMAIL,DB_USERS_LBL_DATE,DB_USERS_LBL_GENDER",
-                        keyword.getText(Locator.USER_INFORM_LBL_PHONE) + "," + keyword.getText(Locator.USER_INFORM_LBL_FULL_NAME) + "," + keyword.getText(Locator.USER_INFORM_LBL_EMAIL) + "," +
-                                birthDay + "," + gender);
-                break;
             case "name":
                 dataBase.checkDataBase("DB_USERS_LBL_FULL_NAME", keyword.getText(Locator.USER_INFORM_LBL_FULL_NAME));
                 break;
@@ -214,6 +209,11 @@ public class LoginPage extends BasePage {
                 break;
             case "gender":
                 dataBase.checkDataBase("DB_USERS_LBL_GENDER", gender);
+                break;
+            case "all":
+                dataBase.checkDataBase("DB_USERS_LBL_PHONE,DB_USERS_LBL_FULL_NAME,DB_USERS_LBL_EMAIL,DB_USERS_LBL_DATE,DB_USERS_LBL_GENDER",
+                        keyword.getText(Locator.USER_INFORM_LBL_PHONE) + "," + keyword.getText(Locator.USER_INFORM_LBL_FULL_NAME) + "," + keyword.getText(Locator.USER_INFORM_LBL_EMAIL) + "," +
+                                birthDay + "," + gender);
                 break;
         }
     }

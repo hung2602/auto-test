@@ -1,17 +1,12 @@
 package tests;
 
-import constant.Constant;
 import core.BaseTest;
 import helpers.DataBase;
-import locator.Locator;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import pages.HomePage;
 import pages.LoginPage;
 import pages.ProfilePage;
-
-import static utilities.DateTime.getCurrentDate;
 import static utilities.DateTime.getCurrentDateTime;
 
 public class ProfileTest extends BaseTest {
@@ -46,14 +41,14 @@ public class ProfileTest extends BaseTest {
         loginPage.viewUserInform();
         keyword.assertEqualMultiData(userInform, loginPage.getUserInform("all"));
     }
-    @Test(priority = 3, description = "Kiểm tra cập nhật tên hiển thị thành công")
+    @Test(priority = 3, dependsOnMethods = "PF_2", description = "Kiểm tra cập nhật tên hiển thị thành công")
     public void PF_3(){
         profilePage.clickEdit();
         profilePage.editFullName("USER_NAME");
         profilePage.saveInform("Thành công");
         loginPage.checkUserInform("PHONE_NUMBER","name");
     }
-    @Test(priority = 4, description = "Kiểm tra cập nhật tên nhưng không lưu")
+    @Test(priority = 4, dependsOnMethods = "PF_3", description = "Kiểm tra cập nhật tên nhưng không lưu")
     public void PF_5(){
         profilePage.clickEdit();
         String name = loginPage.getUserInform("name");
@@ -62,13 +57,13 @@ public class ProfileTest extends BaseTest {
         loginPage.viewUserInform();
         keyword.assertEqualMultiData(name, loginPage.getUserInform("name"));
     }
-    @Test(priority = 5, description = "Kiểm tra cập nhật profile khi để trống tên")
+    @Test(priority = 6, dependsOnMethods = "PF_5",description = "Kiểm tra cập nhật profile khi để trống tên")
     public void PF_4(){
         profilePage.clickEdit();
         profilePage.editFullName("");
         profilePage.saveInform("Thất bại");
     }
-    @Test(priority = 6, description = "Kiểm tra cập nhật email thành công")
+    @Test(priority = 7, dependsOnMethods = "PF_4",description = "Kiểm tra cập nhật email thành công")
     public void PF_6(){
         loginPage.goBack();
         loginPage.viewUserInform();
@@ -77,84 +72,78 @@ public class ProfileTest extends BaseTest {
         profilePage.saveInform("Thành công");
         loginPage.checkUserInform("PHONE_NUMBER","email");
     }
-    @Test(priority = 7, description = "Kiểm tra khi để trống mail")
+    @Test(priority = 8, dependsOnMethods = "PF_6",description = "Kiểm tra khi để trống mail")
     public void PF_8(){
         profilePage.clickEdit();
         profilePage.editEmail("");
         profilePage.saveInform("Thành công");
     }
-    @Test(priority = 8, description = "Kiểm tra  khi nhập sai định dạng email")
+    @Test(priority = 9,dependsOnMethods = "PF_8", description = "Kiểm tra  khi nhập sai định dạng email")
     public void PF_9(){
         profilePage.clickEdit();
         profilePage.editEmail("EMAIL_INVALID_1");
         profilePage.saveInform("Thất bại");
     }
-    @Test(priority = 9, description = "Kiểm tra  khi nhập sai định dạng email")
+    @Test(priority = 10, dependsOnMethods = "PF_9", description = "Kiểm tra  khi nhập sai định dạng email")
     public void PF_10(){
         profilePage.clickEdit();
         profilePage.editEmail("EMAIL_INVALID_2");
         profilePage.saveInform("Thất bại");
     }
-    @Test(priority = 10, description = "Kiểm tra  khi nhập sai định dạng email")
+    @Test(priority = 11, dependsOnMethods = "PF_10",description = "Kiểm tra  khi nhập sai định dạng email")
     public void PF_11(){
         profilePage.clickEdit();
         profilePage.editEmail("EMAIL_INVALID_3");
         profilePage.saveInform("Thất bại");
     }
-    @Test(priority = 11, description = "Kiểm tra  khi đổi email nhưng không lưu")
+    @Test(priority = 12, dependsOnMethods = "PF_11",description = "Kiểm tra  khi đổi email nhưng không lưu")
     public void PF_7(){
         profilePage.clickEdit();
         String name = loginPage.getUserInform("name");
         profilePage.editEmail("DB_EMAIL");
         loginPage.goBack();
         loginPage.viewUserInform();
-        keyword.assertEqualMultiData(name, loginPage.getUserInform("name"));
-
-//        profilePage.clickEdit();
-//        profilePage.editEmail("DB_EMAIL");
-//        profilePage.saveInform("Thành công");
+        keyword.assertEqualData(name, loginPage.getUserInform("name"));
     }
 
-    @Test(priority = 3, description = "Kiểm tra cập nhật ngày sinh thành công")
+    @Test(priority = 13, dependsOnMethods = "PF_7",description = "Kiểm tra cập nhật ngày sinh thành công")
     public void PF_12(){
         profilePage.clickEdit();
-        profilePage.editBirthDay(getCurrentDateTime("dd MMMM yyyy"));
+        profilePage.editBirthDay(getCurrentDateTime("dd MMMM yyyy"),"oke");
         profilePage.saveInform("Thành công");
+        loginPage.checkUserInform("PHONE_NUMBER","birth day");
     }
-    @Test(priority = 3, description = "Kiểm tra cập nhật ngày sinh nhưng không lưu")
-    public void PF_13(){
+    @Test(priority = 14, dependsOnMethods = "PF_12",description = "Kiểm tra cập nhật ngày sinh nhưng không lưu, hủy cập nhật ngày sinh")
+    public void PF_13_14(){
         profilePage.clickEdit();
-        profilePage.editBirthDay(getCurrentDateTime("dd MMMM yyyy"));
-        profilePage.saveInform("Thành công");
-    }
-    @Test(priority = 3, description = "Kiểm tra hủy cập nhật ngày sinh")
-    public void PF_14(){
+        String birthDay = loginPage.getUserInform("birth day");
+        profilePage.editBirthDay(getCurrentDateTime("dd MMMM yyyy"), "oke");
+        loginPage.goBack();
+        loginPage.viewUserInform();
+        keyword.assertEqualData(birthDay, loginPage.getUserInform("birth day"));
         profilePage.clickEdit();
-        profilePage.editBirthDay(getCurrentDateTime("dd MMMM yyyy"));
-        profilePage.saveInform("Thành công");
+        profilePage.editBirthDay(getCurrentDateTime("dd MMMM yyyy"),"cancel");
+        keyword.assertEqualData(birthDay, loginPage.getUserInform("birth day"));
     }
-    @Test(priority = 4, description = "Kiểm tra cập nhật giới tính thành công")
+    @Test(priority = 15, dependsOnMethods = "PF_13_14",description = "Kiểm tra cập nhật giới tính thành công")
     public void PF_15(){
-        profilePage.clickEdit();
-        profilePage.editGender();
+        profilePage.editGender("male");
         profilePage.saveInform("Thành công");
+        loginPage.checkUserInform("PHONE_NUMBER","gender");
     }
-    @Test(priority = 4, description = "Kiểm tra cập nhật giới tính nhưng không lưu")
+    @Test(priority = 16, dependsOnMethods = "PF_15",description = "Kiểm tra cập nhật giới tính nhưng không lưu")
     public void PF_16(){
+        String gender = loginPage.getUserInform("gender");
         profilePage.clickEdit();
-        profilePage.editGender();
-        profilePage.saveInform("Thành công");
+        profilePage.editGender("female");
+        loginPage.goBack();
+        loginPage.viewUserInform();
+        keyword.assertEqualData(gender, loginPage.getUserInform("gender"));
     }
-    @Test(priority = 11, description = "Kiểm tra thay đổi avatar thất bại")
-    public void PF_18(){
-        profilePage.clickEdit();
-        profilePage.editEmail("");
-        profilePage.saveInform("Thất bại");
-    }
-    @Test(priority = 12, description = "Kiểm tra thay đổi avatar thành công")
+    @Test(priority = 18, description = "Kiểm tra thay đổi avatar thành công")
     public void PF_17(){
         profilePage.clickEdit();
-        profilePage.editEmail("");
+        profilePage.editAvatar();
         profilePage.saveInform("Thành công");
     }
 }

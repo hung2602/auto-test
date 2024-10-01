@@ -1,5 +1,4 @@
 package tests;
-import constant.Constant;
 import core.BaseTest;
 import helpers.DataBase;
 import io.qameta.allure.Severity;
@@ -7,7 +6,6 @@ import locator.Locator;
 import org.testng.annotations.*;
 import pages.HomePage;
 import pages.LoginPage;
-
 import static constant.Constant.*;
 import static io.qameta.allure.SeverityLevel.CRITICAL;
 
