@@ -61,7 +61,7 @@ public class ProfileTest extends BaseTest {
     public void PF_4(){
         profilePage.clickEdit();
         profilePage.editFullName("");
-        profilePage.saveInform("Thất bại");
+        profilePage.saveInform("Tên thất bại");
     }
     @Test(priority = 7, dependsOnMethods = "PF_4",description = "Kiểm tra cập nhật email thành công")
     public void PF_6(){
@@ -82,19 +82,19 @@ public class ProfileTest extends BaseTest {
     public void PF_9(){
         profilePage.clickEdit();
         profilePage.editEmail("EMAIL_INVALID_1");
-        profilePage.saveInform("Thất bại");
+        profilePage.saveInform("Email thất bại");
     }
     @Test(priority = 10, dependsOnMethods = "PF_9", description = "Kiểm tra  khi nhập sai định dạng email")
     public void PF_10(){
         profilePage.clickEdit();
         profilePage.editEmail("EMAIL_INVALID_2");
-        profilePage.saveInform("Thất bại");
+        profilePage.saveInform("Email thất bại");
     }
     @Test(priority = 11, dependsOnMethods = "PF_10",description = "Kiểm tra  khi nhập sai định dạng email")
     public void PF_11(){
         profilePage.clickEdit();
         profilePage.editEmail("EMAIL_INVALID_3");
-        profilePage.saveInform("Thất bại");
+        profilePage.saveInform("Email thất bại");
     }
     @Test(priority = 12, dependsOnMethods = "PF_11",description = "Kiểm tra  khi đổi email nhưng không lưu")
     public void PF_7(){

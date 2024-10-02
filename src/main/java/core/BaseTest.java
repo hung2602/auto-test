@@ -1,4 +1,5 @@
 package core;
+import helpers.PathHelper;
 import helpers.PropertiesFile;
 import io.appium.java_client.android.AndroidDriver;
 import keyword.KeywordWeb;
@@ -13,15 +14,17 @@ import java.io.IOException;
 import java.net.URL;
 import static helpers.MyListener.saveScreenshotPNG;
 import static helpers.DataBase.con;
-import static helpers.PropertiesFile.*;
+import static helpers.PathHelper.*;
 
 public class BaseTest {
     private static Logger logger = LogHelper.getLogger();
     protected KeywordWeb keyword;
     public static AndroidDriver driver;
+    public static String appName = PathHelper.getFileName("app");
     public BaseTest() {
         keyword = new KeywordWeb();
     }
+
     @BeforeSuite
     public void setFile(){
         PropertiesFile.setPropertiesFile();
@@ -42,7 +45,7 @@ public class BaseTest {
         dc.setCapability("automationName", "UiAutomator2");
         dc.setCapability("noReset", true);
         dc.setCapability("appWaitForLaunch", false);
-        dc.setCapability("app", projectPath + "\\app\\onplus-dev-8074005.apk");
+        dc.setCapability("app", projectPath + "\\app\\" + appName);
         URL url = new URL("http://127.0.0.1:4723/wd/hub");
         driver = new AndroidDriver(url, dc);
     }

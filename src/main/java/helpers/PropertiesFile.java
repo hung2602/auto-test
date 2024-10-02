@@ -2,20 +2,17 @@ package helpers;
 
 import org.slf4j.Logger;
 import utilities.LogHelper;
-
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
-import java.io.IOException;
 import java.util.LinkedList;
 import java.util.Properties;
+import static helpers.PathHelper.projectPath;
 
 public class PropertiesFile {
     private static Logger logger = LogHelper.getLogger();
     private static Properties properties;
     private static FileInputStream fileIn;
     private static FileOutputStream fileOut;
-    public static String projectPath = System.getProperty("user.dir");
     private static String dataPropertiesPath = "\\src\\main\\resources\\data.properties";
     private static String configPropertiesPath = "\\src\\main\\resources\\config.properties";
     public static void setPropertiesFile() {

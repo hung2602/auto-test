@@ -15,4 +15,6 @@ public class Constant {
     public static final String MESSAGE_LOGOUT_SUCCESS_DEVICE = "Đăng xuất thiết bị thành công";
     public static final String MESSAGE_UPDATE_SUCCESS_INFORM = "Cập nhật thành công";
     public static final String MESSAGE_UPDATE_FAIL_EMAIL_INFORM = "Vui lòng đúng định dạng email";
+
+    public static final String MESSAGE_UPDATE_FAIL_NAME = "Vui lòng nhập tên";
 }

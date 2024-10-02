@@ -3,9 +3,15 @@ import core.BasePage;
 import helpers.PropertiesFile;
 import io.qameta.allure.Step;
 import locator.Locator;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 import java.util.List;
 import static constant.Constant.*;
+import static core.BaseTest.driver;
 import static utilities.DateTime.getCurrentDateTime;
 
 public class ProfilePage extends BasePage {
@@ -59,12 +65,19 @@ public class ProfilePage extends BasePage {
     @Step("Lưu thông tin: {0}")
     public void saveInform(String flag){
         keyword.click(Locator.USER_INFORM_BTN_EDIT);
-        keyword.sleep(0.3);
-        if (flag.equals("Thành công")){
-//            keyword.webDriverWaitForElementPresent(Locator.USER_INFORM_TOAST_UPDATE_SUCCESS,10);
-        }
-        else {
-
+        keyword.sleep(0.1);
+        WebElement toastMessage = driver.findElement(By.xpath("//android.widget.Toast[1]"));
+//        keyword.webDriverWaitForElementPresent(Locator.USER_INFORM_TOAST_UPDATE_SUCCESS,10);
+        switch (flag) {
+            case "Thành công":
+                keyword.assertEqualData(toastMessage.getText(), MESSAGE_UPDATE_SUCCESS_INFORM);
+                break;
+            case "Email thất bại":
+                keyword.assertEqualData(toastMessage.getText(), MESSAGE_UPDATE_FAIL_EMAIL_INFORM);
+                break;
+            case "Tên thất bại":
+                keyword.assertEqualData(toastMessage.getText(), MESSAGE_UPDATE_FAIL_NAME);
+                break;
         }
     }
     @Step("Cập nhật tất cả thông tin")

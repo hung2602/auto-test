@@ -45,8 +45,8 @@ public class Locator {
     public static final By USER_INFORM_BTN_OTHER_GENDER = By.id("com.vtvcab.onsports.dev:id/rela_other");
     public static final By USER_INFORM_BTN_FEMALE_GENDER = By.id("com.vtvcab.onsports.dev:id/rela_female");
     public static final By USER_INFORM_BTN_EDIT = By.id("com.vtvcab.onsports.dev:id/tvEdit");
-    public static final By USER_INFORM_TOAST_UPDATE_SUCCESS = By.xpath("//android.widget.Toast[@text=\"Cập nhật thành công\"]");
-    public static final By USER_INFORM_TOAST_UPDATE_FAIL_EMAIL = By.xpath("//android.widget.Toast[@text=\"Vui lòng đúng định dạng email\"]");
+    public static final By USER_INFORM_TOAST_UPDATE_SUCCESS = By.xpath("//android.widget.Toast[1]");
+    public static final By USER_INFORM_TOAST_UPDATE_FAIL_EMAIL = By.xpath("//android.widget.Toast[1]");
     public static final By USER_INFORM_BTN_EDIT_AVT = By.id("com.vtvcab.onsports.dev:id/imgEditAvatar");
     public static final By USER_INFORM_BTN_LIST_AVT = By.xpath("//android.support.v7.widget.RecyclerView/android.widget.RelativeLayout[3]");
     public static final By USER_INFORM_BTN_AVT = By.className("android.widget.ImageView");
