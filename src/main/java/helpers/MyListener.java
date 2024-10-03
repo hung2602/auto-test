@@ -7,7 +7,7 @@ import org.slf4j.Logger;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
-import utilities.LogHelper;
+
 import static core.BaseTest.driver;
 
 public class MyListener implements ITestListener {

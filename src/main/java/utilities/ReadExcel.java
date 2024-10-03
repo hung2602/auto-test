@@ -4,41 +4,48 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.lang.reflect.Method;
+import java.util.Iterator;
 
 import org.apache.poi.EncryptedDocumentException;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.testng.annotations.DataProvider;
 
+import static helpers.PathHelper.projectPath;
+
 public class ReadExcel {
-    @DataProvider(name = "Read file excel")
-    public Object[][] getData(Method m) throws EncryptedDocumentException, IOException
+    private static final String FILE_PATH = projectPath + "data\\DataTestOnplus.xlsx";
+
+    public static Object[][] getExcelData(String sheetName)
     {
-            String [][] dataTest = new String[1][1];
-           try {
-               File F = new File("");
-               FileInputStream fis = new FileInputStream(F);
-               XSSFWorkbook wb = new XSSFWorkbook(fis);
-               Sheet sheetName = wb.getSheetAt(0);
-               int totalRow = sheetName.getLastRowNum();
-               Row rowCell = sheetName.getRow(1);
-               int totalCell = rowCell.getLastCellNum();
-
-               DataFormatter format = new DataFormatter();
-               dataTest = new String[totalRow][totalCell];
-               for (int i = 1; i <= totalRow; i++) {
-                   for (int j = 0; j < totalCell; j++) {
-                       dataTest[i - 1][j] = format.formatCellValue(sheetName.getRow(i).getCell(j));
-
-                   }
-               }
-           }
-           catch (FileNotFoundException e){
-               System.out.println("can't read sheet excel");
-           }
-           catch(IOException e){
-               System.out.println("can't read sheet excel");
-           }
-        return (dataTest);
+        Object[][] data = null;
+        try {
+            FileInputStream file = new FileInputStream(FILE_PATH);
+            Workbook workbook = new XSSFWorkbook(file);
+            Sheet sheet = workbook.getSheet(sheetName);
+            int rowCount = sheet.getPhysicalNumberOfRows();
+            int colCount = sheet.getRow(0).getPhysicalNumberOfCells();
+            data = new Object[rowCount - 1][colCount];
+            Iterator<Row> rowIterator = sheet.iterator();
+            rowIterator.next();
+            int rowIndex = 0;
+            while (rowIterator.hasNext()) {
+                Row row = rowIterator.next();
+                for (int colIndex = 0; colIndex < colCount; colIndex++) {
+                    data[rowIndex][colIndex] = row.getCell(colIndex).toString();
+                }
+                rowIndex++;
+            }
+            workbook.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        for (int i = 0; i < 12; i++) {
+            for (int j = 0; j < 3; j++) {
+                System.out.print(data[i][j] + " ");
+            }
+            System.out.println();
+        }
+        return data;
     }
 }

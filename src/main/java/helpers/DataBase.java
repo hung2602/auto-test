@@ -3,9 +3,8 @@ package helpers;
 import core.BaseTest;
 import io.qameta.allure.Step;
 import org.slf4j.Logger;
-import utilities.LogHelper;
+
 import java.sql.*;
-import java.util.Properties;
 
 public class DataBase extends BaseTest {
     private static Logger logger = LogHelper.getLogger();

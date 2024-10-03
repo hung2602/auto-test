@@ -6,6 +6,8 @@ import locator.Locator;
 import org.testng.annotations.*;
 import pages.HomePage;
 import pages.LoginPage;
+import utilities.ReadExcel;
+
 import static constant.Constant.*;
 import static io.qameta.allure.SeverityLevel.CRITICAL;
 
@@ -13,22 +15,30 @@ public class LoginTest extends BaseTest {
     public DataBase dataBase ;
     public LoginPage loginPage;
     public HomePage homePage;
+    public Object[][] dataLogin;
     public LoginTest(){
         loginPage = new LoginPage();
         homePage = new HomePage();
         dataBase = new DataBase();
     }
+//    @DataProvider(name = "excelData")
+//    public Object[][] excelDataProvider() {
+//        dataLogin = ReadExcel.getExcelData("Login");
+//        return dataLogin;
+//    }
     @BeforeClass
     public void connectDb(){
+        dataLogin = ReadExcel.getExcelData("Login");
         dataBase.setUpDB("POSTGRES_DB_URL","POSTGRES_DB_USER","POSTGRES_DB_PASSWORD");
     }
     @Test(description = "Kiểm tra text ẩn, nhập sđt bỏ trống, >,< 10 số và đầu số khác 0")
     public void LG_11_12_13_14_42(){
         loginPage.goToLogin();
         loginPage.checkHiddenText(Locator.LOGIN_TXT_USER_NAME,TEXT_BOX_USERNAME);
-        loginPage.inputUserName("PHONE_NUMBER_INVALID_1");
-        loginPage.inputUserName("PHONE_NUMBER_INVALID_2");
-        loginPage.inputUserName("PHONE_NUMBER_INVALID_3");
+        loginPage.inputUserName((String)dataLogin[1][0]);
+//        loginPage.inputUserName("PHONE_NUMBER_INVALID_1");
+//        loginPage.inputUserName("PHONE_NUMBER_INVALID_2");
+//        loginPage.inputUserName("PHONE_NUMBER_INVALID_3");
     }
     @Test(priority = 1, description = "Đăng nhập thất bại với mật khẩu sai và check text ẩn")
     public void LG_9_43(){

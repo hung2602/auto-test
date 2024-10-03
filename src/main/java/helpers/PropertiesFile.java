@@ -1,7 +1,7 @@
 package helpers;
 
 import org.slf4j.Logger;
-import utilities.LogHelper;
+
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.util.LinkedList;
@@ -13,12 +13,11 @@ public class PropertiesFile {
     private static Properties properties;
     private static FileInputStream fileIn;
     private static FileOutputStream fileOut;
-    private static String dataPropertiesPath = "\\src\\main\\resources\\data.properties";
-    private static String configPropertiesPath = "\\src\\main\\resources\\config.properties";
+    private static String dataPropertiesPath = "src\\main\\resources\\data.properties";
+//    private static String configPropertiesPath = "src\\main\\resources\\config.properties";
     public static void setPropertiesFile() {
         LinkedList<String> files = new LinkedList<>();
         files.add(projectPath + dataPropertiesPath);
-        files.add(projectPath + configPropertiesPath);
         properties = new Properties();
         try {
             for (String file : files) {

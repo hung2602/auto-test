@@ -6,7 +6,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.*;
 import org.slf4j.Logger;
 import org.testng.Assert;
-import utilities.LogHelper;
+import helpers.LogHelper;
 import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
@@ -54,8 +54,8 @@ public class KeywordWeb {
     }
     @Step("So sánh message: {1}")
     public void assertEqual(By by, String text){
+        sleep(0.2);
         String content = PropertiesFile.getPropValue(text);
-        webDriverWaitForElementPresent(by, 20);
         logger.info("Compare message" + by + " with " + text);
         if (content == null) {
             content = text;

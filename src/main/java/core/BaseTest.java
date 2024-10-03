@@ -8,13 +8,14 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.slf4j.Logger;
 import org.testng.ITestResult;
 import org.testng.annotations.*;
-import utilities.LogHelper;
+import helpers.LogHelper;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import static helpers.MyListener.saveScreenshotPNG;
 import static helpers.DataBase.con;
 import static helpers.PathHelper.*;
+import static utilities.XmlParse.*;
 
 public class BaseTest {
     private static Logger logger = LogHelper.getLogger();
@@ -36,23 +37,24 @@ public class BaseTest {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        insertInformDevices("PLAT_FORM_VERSION","ID_DEVICE");
     }
-    public void setUp(String platFrom, String platformVersion, String name) throws Exception {
+    public void setUp(String platformVersion, String name) throws Exception {
         DesiredCapabilities dc = new DesiredCapabilities();
-        dc.setCapability("platformName", platFrom);
+//        dc.setCapability("platformName", platFrom);
         dc.setCapability("platformVersion", platformVersion);
         dc.setCapability("deviceName", name);
         dc.setCapability("automationName", "UiAutomator2");
         dc.setCapability("noReset", true);
         dc.setCapability("appWaitForLaunch", false);
-        dc.setCapability("app", projectPath + "\\app\\" + appName);
+        dc.setCapability("app", projectPath + "app\\" + appName);
         URL url = new URL("http://127.0.0.1:4723/wd/hub");
         driver = new AndroidDriver(url, dc);
     }
     @BeforeTest(alwaysRun = true)
-    @Parameters({"platformName","platformVersion","deviceName"})
-    public void setUpDevice(String platformName, String platformVersion, String name) throws Exception{
-        setUp(platformName, platformVersion, name);
+    @Parameters({"platformVersion","deviceName"})
+    public void setUpDevice( String platformVersion, String name) throws Exception{
+        setUp(platformVersion, name);
     }
     @AfterTest
     public void afterTest() throws Exception {
