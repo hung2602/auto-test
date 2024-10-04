@@ -13,6 +13,10 @@ public class DataBase extends BaseTest {
     public static Statement stmt ;
     public DataBase() {
     }
+    public DataBase(ResultSet res, Statement stmt) {
+        this.res = res;
+        this.stmt = stmt;
+    }
     @Step("Set up kết nốt Data PostGresSQL: {0}")
     public void setUpDB(String url, String user, String passWord) {
         logger.info("Set Up DB " + url );
@@ -73,6 +77,21 @@ public class DataBase extends BaseTest {
         {
             e.printStackTrace(); // hiển thị tổng quan về lỗi
         }
+    }
+    @Step("Kiểm tra dữ liệu Các cột {0}")
+    public String getDataBase(String coLumLabel) {
+        String data = "";
+        logger.info("Check DB: " + coLumLabel);
+        try {
+            while (res.next()) {
+                data = res.getString(coLumLabel);
+            }
+        }
+        catch(SQLException e)
+        {
+            e.printStackTrace(); // hiển thị tổng quan về lỗi
+        }
+        return data;
     }
     public void tearDown() throws Exception {
         if (con != null) {

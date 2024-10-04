@@ -17,14 +17,14 @@ public class Locator {
     public static final By LOGIN_BTN_CONTINUE = By.id("com.vtvcab.onsports.dev:id/button_next");
     public static final By LOGIN_TOAST_SUCCESS = By.xpath("//android.widget.TextView[@resource-id='com.vtvcab.onsports.dev:id/tv_message']");
     public static final By LOGIN_TOAST_INCORRECT_PASSWORD = By.id("com.vtvcab.onsports.dev:id/tv_message");
-    public static final By SETTING_BTN_SMART_TV = By.xpath("(//android.view.ViewGroup[@resource-id=\"com.vtvcab.onsports.dev:id/layout_information\"])[1]");
-    public static final By SETTING_BTN_QUAN_LY = By.xpath("(//android.view.ViewGroup[@resource-id=\"com.vtvcab.onsports.dev:id/layout_information\"])[2]");
-    public static final By SETTING_BTN_THONG_BAO = By.xpath("(//android.view.ViewGroup[@resource-id=\"com.vtvcab.onsports.dev:id/layout_information\"])[3]");
+    public static final By MENU_BTN_SMART_TV = By.xpath("(//android.view.ViewGroup[@resource-id=\"com.vtvcab.onsports.dev:id/layout_information\"])[1]");
+    public static final By MENU_BTN_QUAN_LY = By.xpath("(//android.view.ViewGroup[@resource-id=\"com.vtvcab.onsports.dev:id/layout_information\"])[2]");
+    public static final By MENU_BTN_THONG_BAO = By.xpath("(//android.view.ViewGroup[@resource-id=\"com.vtvcab.onsports.dev:id/layout_information\"])[3]");
     public static final By LOGIN_BTN_ACCEPT = By.id("com.vtvcab.onsports.dev:id/btnOk");
     public static final By LOGIN_SMART_TV_LBL = By.id("com.vtvcab.onsports.dev:id/tv_title");
     public static final By LOGIN_SMART_TV_TXT_OTP = By.id("com.vtvcab.onsports.dev:id/layout_otp");
     public static final By LOGIN_SMART_TV_BTN_QR = By.xpath("//android.view.ViewGroup[@resource-id=\"com.vtvcab.onsports.dev:id/scan_qrcode\"]");
-    public static final By LOGIN_SMART_TV_BTN_BACK = By.xpath("//android.widget.ImageView[@resource-id=\"com.vtvcab.onsports.dev:id/image_back\"]");
+    public static final By LOGIN_SMART_TV_BTN_BACK = By.id("com.vtvcab.onsports.dev:id/image_back");
     public static final By DEVICE_MANAGE_BTN_LOGOUT_DEVICE = By.id("com.vtvcab.onsports.dev:id/buttonKick");
     public static final By DEVICE_MANAGE_BTN_LAYOUT_DEVICE = By.id("com.vtvcab.onsports.dev:id/layoutDevice");
     public static final By SET_INFORM_BTN_COMPLETE = By.id("com.vtvcab.onsports.dev:id/button_done");
@@ -53,6 +53,27 @@ public class Locator {
     public static final By USER_INFORM_BTN_EDIT_DATE = new AppiumBy.ByAccessibilityId(PropertiesFile.getPropValue("ID_DATE"));
     public static final By USER_INFORM_BTN_OKE_EDIT_DATE = By.id("android:id/button1");
     public static final By USER_INFORM_BTN_CANCEL_EDIT_DATE = By.id("android:id/button2");
+    public static final By MENU_LBL_LOGIN_NOTICE = By.id("//android.widget.TextView[@resource-id='com.vtvcab.onsports.dev:id/body']");
+    public static final By MENU_BTN_SUB_HISTORY = By.id("com.vtvcab.onsports.dev:id/sub_history");
+    public static final By MENU_BTN_INPUT_COUPON = By.id("com.vtvcab.onsports.dev:id/coupon_layout");
+    public static final By HISTORY_SUB_TITLE = By.id("com.vtvcab.onsports.dev:id/tv_title");
+    public static final By HISTORY_SUB_BTN_ALL = By.xpath("//android.widget.TextView[@resource-id=\"com.vtvcab.onsports.dev:id/textview\" and @text=\"Tất cả\"]");
+    public static final By HISTORY_SUB_BTN_SUB = By.xpath("//android.widget.TextView[@resource-id=\"com.vtvcab.onsports.dev:id/textview\" and @text=\"Đăng ký\"]");
+    public static final By HISTORY_SUB_BTN_RENEW = By.xpath("//android.widget.TextView[@resource-id=\"com.vtvcab.onsports.dev:id/textview\" and @text=\"Gia hạn\"]");
+    public static final By HISTORY_SUB_BTN_CANCEL = By.xpath("//android.widget.TextView[@resource-id=\"com.vtvcab.onsports.dev:id/textview\" and @text=\"Huỷ gói\"]");
+    public static final By LIST_SUB_BTN_CHOOSE = By.xpath("com.vtvcab.onsports.dev:id/button_buy");
+    public static final By LIST_SUB_BTN_SELECT_SUB = By.xpath("(//android.widget.ImageView[@resource-id=\"com.vtvcab.onsports.dev:id/test1\"])[2]");
+    public static final By DEVICE_MANAGE_LBL_NAME_DEVICE = By.xpath("(//android.widget.TextView[@resource-id=\"com.vtvcab.onsports.dev:id/deviceName\"])[2]");
+    public static final By POLICY_TERM_LBL_TITLE  = By.xpath("//android.view.View[@text='CHÍNH SÁCH BẢO MẬT & ĐIỀU KHOẢN SỬ DỤNG']");
+    public static final By MENU_BTN_POLICY_TERM  = By.xpath("//android.widget.TextView[@resource-id=\"com.vtvcab.onsports.dev:id/txt_info\" and @text=\"Điều khoản & chính sách\"]");
+    public static final By DISCOUNT_CODE_BTN_APPLY  = By.xpath("//android.widget.TextView[@resource-id=\"com.vtvcab.onsports.dev:id/button_next\"]");
+    public static final By DISCOUNT_CODE_TXT_INPUT  = By.xpath("//android.widget.EditText[@resource-id=\"com.vtvcab.onsports.dev:id/ed_coupon\"]");
+    public static final By DISCOUNT_CODE_LBL_INPUT_CODE  = By.xpath("//android.widget.TextView[@resource-id='com.vtvcab.onsports.dev:id/textView']");
+    public static final By DISCOUNT_CODE_LBL_TITLE  = By.xpath("//android.widget.TextView[@resource-id='com.vtvcab.onsports.dev:id/tv_title']");
+    public static final By MENU_BTN_BUY_SUB  = By.id("com.vtvcab.onsports.dev:id/button_buy_layout");
+    public static final By POLICY_TERM_LBL_TITLE_MAIN  = By.xpath("//android.widget.TextView[@resource-id=\"com.vtvcab.onsports.dev:id/tv_title\"]");
+
+    public static final By POLICY_TERM_LBL_TITLE_1  = By.xpath("//android.widget.TextView[@text=\"1. KHAI BÁO KHI SỬ DỤNG\"]");
 
 
 

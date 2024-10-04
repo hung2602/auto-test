@@ -39,9 +39,9 @@ public class BaseTest {
         }
         insertInformDevices("PLAT_FORM_VERSION","ID_DEVICE");
     }
-    public void setUp(String platformVersion, String name) throws Exception {
+    public void setUp(String platFrom, String platformVersion, String name) throws Exception {
         DesiredCapabilities dc = new DesiredCapabilities();
-//        dc.setCapability("platformName", platFrom);
+        dc.setCapability("platformName", platFrom);
         dc.setCapability("platformVersion", platformVersion);
         dc.setCapability("deviceName", name);
         dc.setCapability("automationName", "UiAutomator2");
@@ -52,9 +52,9 @@ public class BaseTest {
         driver = new AndroidDriver(url, dc);
     }
     @BeforeTest(alwaysRun = true)
-    @Parameters({"platformVersion","deviceName"})
-    public void setUpDevice( String platformVersion, String name) throws Exception{
-        setUp(platformVersion, name);
+    @Parameters({"platformName","platformVersion","deviceName"})
+    public void setUpDevice(String platFrom, String platformVersion, String name) throws Exception{
+        setUp(platFrom, platformVersion, name);
     }
     @AfterTest
     public void afterTest() throws Exception {

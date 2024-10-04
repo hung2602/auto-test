@@ -69,22 +69,23 @@ public class LoginPage extends BasePage {
         }
     }
     @Step("Đăng nhập qua: {0}")
-    public void logInBy(String flag){
+    public void logInBy(String flag, String phone, String passWord){
         keyword.click(Locator.HOME_BTN_MENU);
         switch (flag) {
             case "Smart Tv, Website":
-                keyword.click(Locator.SETTING_BTN_SMART_TV);
+                keyword.click(Locator.MENU_BTN_SMART_TV);
                 break;
             case "Quản lý thiết bị":
-                keyword.click(Locator.SETTING_BTN_QUAN_LY);
+                keyword.click(Locator.MENU_BTN_QUAN_LY);
                 break;
             case "Thông báo":
-                keyword.click(Locator.SETTING_BTN_THONG_BAO);
+                keyword.click(Locator.MENU_BTN_THONG_BAO);
                 break;
         }
+        keyword.assertEqual(Locator.MENU_LBL_LOGIN_NOTICE, MESSAGE_LOGIN_NOTICE);
         keyword.click(Locator.LOGIN_BTN_ACCEPT);
-        inputUserName("PHONE_NUMBER");
-        inputPassWord("PASS_WORD");
+        inputUserName(phone);
+        inputPassWord(passWord);
         compareMessLoginSuccess();
     }
     @Step("Hiển thị màn {0}")

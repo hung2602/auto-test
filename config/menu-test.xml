@@ -13,6 +13,11 @@
         <classes>
             <class name="tests.MenuTest" >
                 <methods>
+                    <include name="MN_4"/>
+                    <include name="MN_5"/>
+                    <include name="MN_7"/>
+                    <include name="MN_9"/>
+                    <include name="MN_10"/>
                 </methods>
             </class>
         </classes>

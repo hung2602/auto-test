@@ -277,13 +277,9 @@ public class KeywordWeb {
         WebElement iframe = driver.findElement(By.xpath(xPathElement));
         driver.switchTo().frame(iframe);
     }
-    public void scrollDownToElement(String xPath) {
+    public void scrollDownToElement(By xPath) {
         logger.info("scrollDownToElement" + xPath);
-        String xPathElement = PropertiesFile.getPropValue(xPath);
-        if (xPathElement == null) {
-            xPathElement = xPath;
-        }
-        WebElement element = driver.findElement(By.xpath(xPathElement));
+        WebElement element = driver.findElement(xPath);
         Actions actions = new Actions(driver);
         actions.moveToElement(element);
         actions.perform();
@@ -312,49 +308,36 @@ public class KeywordWeb {
         Select dropDownList = new Select(driver.findElement(By.xpath(xPathElement1)));
         dropDownList.selectByVisibleText(xPathElement2);
     }
-    public void verifyElement(String element, boolean check) {
+    public void verifyElementDisplay(By element, boolean check) {
         logger.info("verifyElement" + element);
-        String xPathElement = PropertiesFile.getPropValue(element);
         boolean confirm = true;
-        if (xPathElement == null) {
-            xPathElement = element;
-        }
         try {
-            driver.findElement(By.xpath(xPathElement)).isDisplayed();
-        } catch (NoSuchElementException e) {
+            driver.findElement(element).isDisplayed();
+        }
+        catch (NoSuchElementException e) {
             e.printStackTrace();
             confirm = false;
         }
         Assert.assertEquals(confirm, check);
     }
 
-    public void checkElementIsNotDisplayed(String element) {
+    public void checkElementIsNotDisplayed(By element) {
         logger.info("checkElementVisibleOrNot" + element);
-        String xPathElement = PropertiesFile.getPropValue(element);
-        if (xPathElement == null) {
-            xPathElement = element;
-        }
         try {
-            driver.findElement(By.xpath(xPathElement));
+            driver.findElement(element);
             Assert.assertTrue(false);
         } catch (NoSuchElementException e) {
             e.printStackTrace();
             Assert.assertTrue(true);
         }
     }
-    public void checkElementIsDisplayed(String element) {
+    public void checkElementIsDisplayed(By element) {
         logger.info("checkElementVisibleOrNot" + element);
-        String xPathElement = PropertiesFile.getPropValue(element);
-        if (xPathElement == null) {
-            xPathElement = element;
-        }
         try {
-            driver.findElement(By.xpath(xPathElement));
-            //I want to pass the test here if above element is found
+            driver.findElement(element);
             Assert.assertTrue(true);
         } catch (NoSuchElementException e) {
             e.printStackTrace();
-            //fail the test if element is not found in try statement
             Assert.assertTrue(false);
         }
     }
