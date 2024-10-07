@@ -43,7 +43,7 @@ public class ProfilePage extends BasePage {
     @Step("Sửa giới tính")
     public void editGender(String option) {
         keyword.click(Locator.USER_INFORM_BTN_GENDER);
-        if (option.equals("male")) {
+        if (option.equals("nam")) {
             keyword.click(Locator.USER_INFORM_BTN_MALE_GENDER);
         }
         else {
@@ -57,7 +57,6 @@ public class ProfilePage extends BasePage {
         keyword.click(Locator.USER_INFORM_BTN_LIST_AVT);
         keyword.click(Locator.USER_INFORM_BTN_AVT);
     }
-
     @Step("Click sửa thông tin")
     public void clickEdit(){
         keyword.click(Locator.USER_INFORM_BTN_EDIT);
@@ -79,10 +78,10 @@ public class ProfilePage extends BasePage {
         }
     }
     @Step("Cập nhật tất cả thông tin")
-    public void updateFullInform(String name, String mail){
+    public void updateFullInform(String name, String mail, String gender){
         editFullName(name);
         editEmail(mail);
         editBirthDay(getCurrentDateTime("dd MMMM yyyy"),"oke");
-        editGender("male");
+        editGender(gender);
     }
 }

@@ -1,21 +1,27 @@
 package pages;
 import core.BasePage;
 import helpers.DataBase;
+import helpers.LogHelper;
 import helpers.PropertiesFile;
 import io.qameta.allure.Step;
 import locator.Locator;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.slf4j.Logger;
+
+import java.util.HashMap;
 import java.util.List;
 import static constant.Constant.*;
 
 public class LoginPage extends BasePage {
+    private static Logger logger = LogHelper.getLogger();
     public DataBase dataBase ;
     public LoginPage() {
         dataBase = new DataBase();
     }
     @Step("Đăng nhập thành công")
     public void loginSuccess(String phoneNumber, String passWord) {
+        logger.info("loginSuccess ");
         keyword.click(Locator.HOME_BTN_MENU);
         keyword.click(Locator.LOGIN_BTN);
         inputUserName(phoneNumber);
@@ -23,16 +29,19 @@ public class LoginPage extends BasePage {
     }
     @Step("Nhập số điện thoại: {0}")
     public void inputUserName(String name){
-        keyword.sendKeys(Locator.LOGIN_TXT_USER_NAME,name);
+        logger.info("inputUserName ");
+        keyword.sendKeys(Locator.LOGIN_TXT_USER_NAME, name);
         keyword.click(Locator.LOGIN_BTN_CONTINUE);
     }
     @Step("Nhập mật khẩu: {0}")
     public void inputPassWord(String pass){
+        logger.info("inputPassWord ");
         keyword.sendKeys(Locator.LOGIN_TXT_PASSWORD,pass);
         keyword.click(Locator.LOGIN_BTN_CONTINUE);
     }
     @Step("Vào màn hình đăng nhập")
     public void goToLogin() {
+        logger.info("goToLogin ");
         keyword.click(Locator.HOME_BTN_MENU);
         keyword.click(Locator.LOGIN_BTN);
     }
@@ -45,6 +54,7 @@ public class LoginPage extends BasePage {
     }
     public void compareMessLoginIncorrectPass(){
         keyword.assertEqual(Locator.LOGIN_TOAST_INCORRECT_PASSWORD, MESSAGE_FAIL_LOGIN);
+        keyword.webDriverWaitInvisibleElement(Locator.LOGIN_TOAST_INCORRECT_PASSWORD,10);
     }
     @Step("Hiển thị text ẩn {0}")
     public void checkHiddenText(By locator, String text){
@@ -53,11 +63,13 @@ public class LoginPage extends BasePage {
     }
     @Step("Xem thông tin tài khoản")
     public void viewUserInform(){
+        logger.info("viewUserInform ");
         keyword.webDriverWaitInvisibleElement(Locator.LOGIN_TOAST_SUCCESS,10);
         keyword.click(Locator.MENU_BTN_LAYOUT_AVATAR);
     }
     @Step("Đăng xuất: {0}")
     public void logOut(String flag){
+        logger.info("logOut ");
         keyword.click(Locator.LOGOUT_BTN);
         if(flag.equals("Thành công")) {
             keyword.click(Locator.LOGOUT_BTN_CONFIRM);
@@ -70,6 +82,7 @@ public class LoginPage extends BasePage {
     }
     @Step("Đăng nhập qua: {0}")
     public void logInBy(String flag, String phone, String passWord){
+        logger.info("logInBy ");
         keyword.click(Locator.HOME_BTN_MENU);
         switch (flag) {
             case "Smart Tv, Website":
@@ -127,11 +140,13 @@ public class LoginPage extends BasePage {
     }
     @Step("Đăng xuất khỏi thiết bị: {0}")
     public void logOutDevice(String option){
+        logger.info("logOutDevice ");
         keyword.click(Locator.DEVICE_MANAGE_BTN_LAYOUT_DEVICE);
         keyword.click(Locator.DEVICE_MANAGE_BTN_LOGOUT_DEVICE);
         if (option.equals("Thành công")){
             keyword.click(Locator.LOGOUT_BTN_CONFIRM);
             keyword.assertEqual(Locator.LOGOUT_DEVICE_TOAST_SUCCESS, MESSAGE_LOGOUT_SUCCESS_DEVICE);
+            keyword.webDriverWaitInvisibleElement(Locator.LOGOUT_DEVICE_TOAST_SUCCESS,10);
         }
         else {
             keyword.click(Locator.LOGOUT_BTN_CANCEL);
@@ -166,6 +181,7 @@ public class LoginPage extends BasePage {
         return date[2] + "-" + date[1] + "-" + date[0];
     }
     public String getUserInform(String flag) {
+        logger.info("getUserInform ");
         String inform = "";
         switch (flag) {
             case "phone":
@@ -194,25 +210,27 @@ public class LoginPage extends BasePage {
     }
     @Step("Kiểm tra thông tin user: {0} với trường: {1}")
     public void checkUserInform(String key, String cases){
+        logger.info("checkUserInform ");
         String query = PropertiesFile.getPropValue("POSTGRES_DB_QUERY_USER").replace("phone", PropertiesFile.getPropValue(key));
         dataBase.queryDb(query);
         String birthDay = getBirthDay(keyword.getText(Locator.USER_INFORM_LBL_BIRTH_DAY));
         String gender = getGender(keyword.getText(Locator.USER_INFORM_LBL_GENDER));
+        dataBase.getResultDataBase();
         switch (cases) {
             case "name":
-                dataBase.checkDataBase("DB_USERS_LBL_FULL_NAME", keyword.getText(Locator.USER_INFORM_LBL_FULL_NAME));
+                dataBase.checkDataBase("fullname", keyword.getText(Locator.USER_INFORM_LBL_FULL_NAME));
                 break;
             case "email":
-                dataBase.checkDataBase("DB_USERS_LBL_EMAIL", keyword.getText(Locator.USER_INFORM_LBL_EMAIL));
+                dataBase.checkDataBase("email", keyword.getText(Locator.USER_INFORM_LBL_EMAIL));
                 break;
             case "birth day":
-                dataBase.checkDataBase("DB_USERS_LBL_DATE", birthDay);
+                dataBase.checkDataBase("dob", birthDay);
                 break;
             case "gender":
-                dataBase.checkDataBase("DB_USERS_LBL_GENDER", gender);
+                dataBase.checkDataBase("gender", gender);
                 break;
             case "all":
-                dataBase.checkDataBase("DB_USERS_LBL_PHONE,DB_USERS_LBL_FULL_NAME,DB_USERS_LBL_EMAIL,DB_USERS_LBL_DATE,DB_USERS_LBL_GENDER",
+                dataBase.checkDataBase("name,fullname,email,dob,gender",
                         keyword.getText(Locator.USER_INFORM_LBL_PHONE) + "," + keyword.getText(Locator.USER_INFORM_LBL_FULL_NAME) + "," + keyword.getText(Locator.USER_INFORM_LBL_EMAIL) + "," +
                                 birthDay + "," + gender);
                 break;

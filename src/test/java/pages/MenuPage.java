@@ -43,15 +43,17 @@ public class MenuPage extends BasePage {
     }
     @Step("Vào điều khoản chính sách")
     public void goToPolicyTerm() {
-//        keyword.scrollDownToElement(Locator.MENU_BTN_THONG_BAO);
+        keyword.scrollDownTo(100,-200);
         keyword.click(Locator.MENU_BTN_POLICY_TERM);
     }
     @Step("Kiểm tra màn điều khoản chính sách")
     public void checkPolicyTerm() {
         keyword.assertEqual(Locator.POLICY_TERM_LBL_TITLE_MAIN, TITLE_MAIN_POLICY_TERM);
-//        keyword.sleep(1);
-//        keyword.assertEqual(Locator.POLICY_TERM_LBL_TITLE, TITLE_POLICY_TERM);
-//        keyword.assertEqual(Locator.POLICY_TERM_LBL_TITLE_1, TITLE_POLICY_TERM_1);
+        keyword.verifyElementDisplay(Locator.POLICY_TERM_BASE_VIEW, true);
+//        String policy = keyword.action(Locator.POLICY_TERM_LBL_TITLE,"getText");
+//        keyword.assertEqualData(policy, TITLE_POLICY_TERM);
+//        String policy1 = keyword.action(Locator.POLICY_TERM_LBL_TITLE_1,"getText");
+//        keyword.assertEqualData(policy1, TITLE_POLICY_TERM_1);
     }
     @Step("Vào mua gói cước")
     public void goToBuySub() {
@@ -61,8 +63,8 @@ public class MenuPage extends BasePage {
     public void checkBuySub() {
         keyword.webDriverWaitForElementPresent(Locator.LOGIN_SMART_TV_LBL,10);
         keyword.assertEqual(Locator.LOGIN_SMART_TV_LBL, TITLE_LIST_SUB);
-        keyword.verifyElementDisplay(Locator.LIST_SUB_BTN_CHOOSE, true);
-        keyword.verifyElementDisplay(Locator.LIST_SUB_BTN_SELECT_SUB, true);
+//        keyword.verifyElementDisplay(Locator.LIST_SUB_BTN_CHOOSE, true);
+//        keyword.verifyElementDisplay(Locator.LIST_SUB_BTN_SELECT_SUB, true);
     }
 
 

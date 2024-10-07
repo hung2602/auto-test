@@ -15,11 +15,14 @@
         <classes>
             <class name="tests.LoginTest" >
                 <methods>
-                    <include name="LG_11_12_13_14_42"/>
+                    <include name="LG_11"/>
+                    <include name="LG_12"/>
+                    <include name="LG_13"/>
+                    <include name="LG_14"/>
+                    <include name="LG_9"/>
                     <include name="LG_9_43"/>
                     <include name="LG_1_2"/>
-                    <include name="LG_44"/>
-                    <include name="LG_45"/>
+                    <include name="LG_44_45"/>
                     <include name="LG_3"/>
                     <include name="LG_4"/>
                     <include name="LG_5"/>
@@ -34,22 +37,6 @@
             </class>
         </classes>
     </test>
-<!--    <test name="Forgot Password Test">-->
-<!--        <classes>-->
-<!--            <class name="tests.ForgotPasswordTest">-->
-<!--                <methods>-->
-<!--                </methods>-->
-<!--            </class>-->
-<!--        </classes>-->
-<!--    </test>-->
-<!--    <test name="Menu Test">-->
-<!--        <classes>-->
-<!--            <class name="tests.MenuTest">-->
-<!--                <methods>-->
-<!--                </methods>-->
-<!--            </class>-->
-<!--        </classes>-->
-<!--    </test>-->
     <test name="Profile Test">
         <classes>
             <class name="tests.ProfileTest">
@@ -75,4 +62,25 @@
             </class>
         </classes>
     </test>
+    <!--    <test name="Forgot Password Test">-->
+    <!--        <classes>-->
+    <!--            <class name="tests.ForgotPasswordTest">-->
+    <!--                <methods>-->
+    <!--                </methods>-->
+    <!--            </class>-->
+    <!--        </classes>-->
+    <!--    </test>-->
+        <test name="Menu Test">
+            <classes>
+                <class name="tests.MenuTest">
+                    <methods>
+                        <include name="MN_4"/>
+                        <include name="MN_5"/>
+                        <include name="MN_7"/>
+                        <include name="MN_9"/>
+                        <include name="MN_10"/>
+                    </methods>
+                </class>
+            </classes>
+        </test>
 </suite>

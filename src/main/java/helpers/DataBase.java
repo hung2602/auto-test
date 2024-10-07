@@ -5,12 +5,14 @@ import io.qameta.allure.Step;
 import org.slf4j.Logger;
 
 import java.sql.*;
+import java.util.HashMap;
 
 public class DataBase extends BaseTest {
     private static Logger logger = LogHelper.getLogger();
     public static Connection con ;
     public static ResultSet res ;
     public static Statement stmt ;
+    public static  HashMap<String, String> dataMap = new HashMap<>();
     public DataBase() {
     }
     public DataBase(ResultSet res, Statement stmt) {
@@ -62,40 +64,30 @@ public class DataBase extends BaseTest {
         }
     }
     @Step("Kiểm tra dữ liệu Các cột {0}")
-    public void checkDataBase(String coLumLabels, String expects) {
-        logger.info("Check DB: " + coLumLabels);
-        String[] coLumLabel = coLumLabels.split(",");
-        String[] expect = expects.split(",");
+    public static HashMap<String, String> getResultDataBase() {
+        logger.info("Get result DB: ");
         try {
+            ResultSetMetaData md = res.getMetaData();
             while (res.next()) {
-                for (int i = 0; i < expect.length; i++) {
-                    keyword.assertEqualData(res.getString(PropertiesFile.getPropValue(coLumLabel[i])), expect[i]);
+                for (int i = 1; i <= md.getColumnCount(); i++) {
+                    dataMap.put(md.getColumnName(i), res.getString(i));
                 }
             }
-        }
-        catch(SQLException e)
-        {
-            e.printStackTrace(); // hiển thị tổng quan về lỗi
-        }
-    }
-    @Step("Kiểm tra dữ liệu Các cột {0}")
-    public String getDataBase(String coLumLabel) {
-        String data = "";
-        logger.info("Check DB: " + coLumLabel);
-        try {
-            while (res.next()) {
-                data = res.getString(coLumLabel);
-            }
-        }
-        catch(SQLException e)
-        {
-            e.printStackTrace(); // hiển thị tổng quan về lỗi
-        }
-        return data;
-    }
-    public void tearDown() throws Exception {
-        if (con != null) {
             con.close();
+        }
+        catch(SQLException e)
+        {
+            e.printStackTrace(); // hiển thị tổng quan về lỗi
+        }
+        return dataMap;
+    }
+    @Step("Kiểm tra dữ liệu cột: {0}")
+    public void checkDataBase(String actuals, String expects) {
+        logger.info("Check DB: ");
+        String[] actual = actuals.split(",");
+        String[] expect = expects.split(",");
+        for (int i = 0; i < expect.length; i++) {
+            keyword.assertEqualData(dataMap.get(actual[i]), expect[i]);
         }
     }
 }

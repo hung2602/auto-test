@@ -19,6 +19,7 @@ import static utilities.XmlParse.*;
 
 public class BaseTest {
     private static Logger logger = LogHelper.getLogger();
+
     protected KeywordWeb keyword;
     public static AndroidDriver driver;
     public static String appName = PathHelper.getFileName("app");
@@ -50,6 +51,7 @@ public class BaseTest {
         dc.setCapability("app", projectPath + "app\\" + appName);
         URL url = new URL("http://127.0.0.1:4723/wd/hub");
         driver = new AndroidDriver(url, dc);
+
     }
     @BeforeTest(alwaysRun = true)
     @Parameters({"platformName","platformVersion","deviceName"})
@@ -59,9 +61,6 @@ public class BaseTest {
     @AfterTest
     public void afterTest() throws Exception {
 //        driver.quit();
-        if (con != null) {
-            con.close();
-        }
     }
     @AfterMethod
     public void tearDown(ITestResult testResult) {

@@ -2,25 +2,28 @@ package tests;
 
 import core.BaseTest;
 import helpers.DataBase;
+import org.testng.ITestResult;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-import pages.HomePage;
 import pages.LoginPage;
 import pages.ProfilePage;
+import java.util.HashMap;
 import static utilities.DateTime.getCurrentDateTime;
+import static utilities.ReadExcel.*;
 
 public class ProfileTest extends BaseTest {
     public LoginPage loginPage;
     public ProfilePage profilePage;
     public DataBase dataBase ;
-
+    private HashMap<String, String> dataProfile;
     public ProfileTest(){
         loginPage = new LoginPage();
         profilePage = new ProfilePage();
         dataBase = new DataBase();
     }
     @BeforeClass
-    public void connectDb(){
+    public void setDb(){
+        ExcelOperations("Profile");
         dataBase.setUpDB("POSTGRES_DB_URL","POSTGRES_DB_USER","POSTGRES_DB_PASSWORD");
     }
     @Test(priority = 1, description = "Kiểm tra cập nhật profile khi nhập các thông tin hợp lệ")
@@ -28,23 +31,26 @@ public class ProfileTest extends BaseTest {
         loginPage.loginSuccess("PHONE_NUMBER","PASS_WORD");
         loginPage.viewUserInform();
         profilePage.clickEdit();
-        profilePage.updateFullInform("USER_NAME","DB_EMAIL");
+        dataProfile = getTestDataInMap(getRowFromKey(getClass().getName()));
+        profilePage.updateFullInform(dataProfile.get("Name"),dataProfile.get("Email"),dataProfile.get("Gender"));
         profilePage.saveInform("Thành công");
         loginPage.checkUserInform("PHONE_NUMBER","all");
     }
     @Test(priority = 2, description = "Kiểm tra cập nhật profile nhưng không lưu")
     public void PF_2(){
+        dataProfile = getTestDataInMap(getRowFromKey(getClass().getName()));
         profilePage.clickEdit();
         String userInform = loginPage.getUserInform("all");
-        profilePage.updateFullInform("USER_NAME","DB_EMAIL");
+        profilePage.updateFullInform(dataProfile.get("Name"),dataProfile.get("Email"),dataProfile.get("Gender"));
         loginPage.goBack();
         loginPage.viewUserInform();
         keyword.assertEqualMultiData(userInform, loginPage.getUserInform("all"));
     }
     @Test(priority = 3, dependsOnMethods = "PF_2", description = "Kiểm tra cập nhật tên hiển thị thành công")
     public void PF_3(){
+        dataProfile = getTestDataInMap(getRowFromKey(getClass().getName()));
         profilePage.clickEdit();
-        profilePage.editFullName("USER_NAME");
+        profilePage.editFullName(dataProfile.get("Name"));
         profilePage.saveInform("Thành công");
         loginPage.checkUserInform("PHONE_NUMBER","name");
     }
@@ -52,7 +58,7 @@ public class ProfileTest extends BaseTest {
     public void PF_5(){
         profilePage.clickEdit();
         String name = loginPage.getUserInform("name");
-        profilePage.editEmail("DB_EMAIL");
+        profilePage.editFullName(dataProfile.get("Name"));
         loginPage.goBack();
         loginPage.viewUserInform();
         keyword.assertEqualMultiData(name, loginPage.getUserInform("name"));
@@ -65,10 +71,11 @@ public class ProfileTest extends BaseTest {
     }
     @Test(priority = 7, dependsOnMethods = "PF_4",description = "Kiểm tra cập nhật email thành công")
     public void PF_6(){
+        dataProfile = getTestDataInMap(getRowFromKey(getClass().getName()));
         loginPage.goBack();
         loginPage.viewUserInform();
         profilePage.clickEdit();
-        profilePage.editEmail("DB_EMAIL");
+        profilePage.editEmail(dataProfile.get("Email"));
         profilePage.saveInform("Thành công");
         loginPage.checkUserInform("PHONE_NUMBER","email");
     }
@@ -80,27 +87,31 @@ public class ProfileTest extends BaseTest {
     }
     @Test(priority = 9,dependsOnMethods = "PF_8", description = "Kiểm tra  khi nhập sai định dạng email")
     public void PF_9(){
+        dataProfile = getTestDataInMap(getRowFromKey(getClass().getName()));
         profilePage.clickEdit();
-        profilePage.editEmail("EMAIL_INVALID_1");
+        profilePage.editEmail(dataProfile.get("Email"));
         profilePage.saveInform("Email thất bại");
     }
     @Test(priority = 10, dependsOnMethods = "PF_9", description = "Kiểm tra  khi nhập sai định dạng email")
     public void PF_10(){
+        dataProfile = getTestDataInMap(getRowFromKey(getClass().getName()));
         profilePage.clickEdit();
-        profilePage.editEmail("EMAIL_INVALID_2");
+        profilePage.editEmail(dataProfile.get("Email"));
         profilePage.saveInform("Email thất bại");
     }
     @Test(priority = 11, dependsOnMethods = "PF_10",description = "Kiểm tra  khi nhập sai định dạng email")
     public void PF_11(){
+        dataProfile = getTestDataInMap(getRowFromKey(getClass().getName()));
         profilePage.clickEdit();
-        profilePage.editEmail("EMAIL_INVALID_3");
+        profilePage.editEmail(dataProfile.get("Email"));
         profilePage.saveInform("Email thất bại");
     }
     @Test(priority = 12, dependsOnMethods = "PF_11",description = "Kiểm tra  khi đổi email nhưng không lưu")
     public void PF_7(){
+        dataProfile = getTestDataInMap(getRowFromKey(getClass().getName()));
         profilePage.clickEdit();
         String name = loginPage.getUserInform("name");
-        profilePage.editEmail("DB_EMAIL");
+        profilePage.editEmail(dataProfile.get("Email"));
         loginPage.goBack();
         loginPage.viewUserInform();
         keyword.assertEqualData(name, loginPage.getUserInform("name"));
@@ -127,7 +138,8 @@ public class ProfileTest extends BaseTest {
     }
     @Test(priority = 15, dependsOnMethods = "PF_13_14",description = "Kiểm tra cập nhật giới tính thành công")
     public void PF_15(){
-        profilePage.editGender("male");
+        dataProfile = getTestDataInMap(getRowFromKey(getClass().getName()));
+        profilePage.editGender(dataProfile.get("Gender"));
         profilePage.saveInform("Thành công");
         loginPage.checkUserInform("PHONE_NUMBER","gender");
     }
@@ -135,7 +147,7 @@ public class ProfileTest extends BaseTest {
     public void PF_16(){
         String gender = loginPage.getUserInform("gender");
         profilePage.clickEdit();
-        profilePage.editGender("female");
+        profilePage.editGender("nữ");
         loginPage.goBack();
         loginPage.viewUserInform();
         keyword.assertEqualData(gender, loginPage.getUserInform("gender"));

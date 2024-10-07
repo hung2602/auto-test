@@ -1,6 +1,11 @@
 package keyword;
 import helpers.PropertiesFile;
+import io.appium.java_client.MobileBy;
+import io.appium.java_client.TouchAction;
+import io.appium.java_client.touch.WaitOptions;
+import io.appium.java_client.touch.offset.PointOption;
 import io.qameta.allure.Step;
+import locator.Locator;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.*;
@@ -25,9 +30,34 @@ public class KeywordWeb {
             throw new RuntimeException(e);
         }
     }
+    @Step("Action: {0}")
+    public String action(String flag, String xpath){
+        String element = PropertiesFile.getPropValue(xpath);
+        logger.info("Action " + flag);
+        if (element == null) {
+            element = xpath;
+        }
+        String check = "";
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+        wait.until(ExpectedConditions.elementToBeClickable((By.xpath(element))));
+        WebElement e = driver.findElement(By.xpath(element));
+        switch (flag) {
+            case "click":
+                e.click();
+                break;
+            case "getText":
+                check = e.getText();
+                break;
+            case "sendKey":
+                e.sendKeys("");
+                break;
+        }
+        return check;
+    }
+
     @Step("Nhập giá trị: {0}  text: {1}")
     public void sendKeys(By by, String key){
-        webDriverWaitForElementPresent(by, 20);
+        webDriverWaitForElementPresent(by, 10);
         String content = PropertiesFile.getPropValue(key);
         logger.info("Send key " + by);
         if (content == null) {
@@ -48,7 +78,7 @@ public class KeywordWeb {
     }
     @Step("Click: {0}")
     public void click(By by){
-        webDriverWaitForElementPresent(by, 20);
+        webDriverWaitForElementPresent(by, 10);
         logger.info("click " + by);
         driver.findElement(by).click();
     }
@@ -180,6 +210,15 @@ public class KeywordWeb {
         boolean stt = driver.findElement(by).isDisplayed();
         return stt;
     }
+    public void scrollDownTo(int x, int y) {
+        logger.info("Scroll " + x + " " + y );
+        new TouchAction(driver)
+                .press(PointOption.point(100, 100))
+                .waitAction(WaitOptions.waitOptions(Duration.ofSeconds(2)))
+                .moveTo(PointOption.point(x, y))
+                .release()
+                .perform();
+    }
     @Step("Lấy giá trị alert: {0}")
     public String getAlertText() {
         logger.info("Getting alert text...");
@@ -198,8 +237,6 @@ public class KeywordWeb {
         }
         return false;
     }
-
-
     public void addDataToList(List<String> list,String element){
         String data = PropertiesFile.getPropValue(element);
         if (data == null) {
