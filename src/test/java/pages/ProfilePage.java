@@ -59,6 +59,7 @@ public class ProfilePage extends BasePage {
     }
     @Step("Click sửa thông tin")
     public void clickEdit(){
+        keyword.sleep(0.3);
         keyword.click(Locator.USER_INFORM_BTN_EDIT);
         keyword.webDriverWaitForElementPresent(Locator.USER_INFORM_BTN_EDIT_BIRTH_DAY,5);
     }
@@ -68,6 +69,7 @@ public class ProfilePage extends BasePage {
         switch (flag) {
             case "Thành công":
                 keyword.assertEqual(Locator.USER_INFORM_TOAST_UPDATE_SUCCESS, MESSAGE_UPDATE_SUCCESS_INFORM);
+                keyword.webDriverWaitInvisibleElement(Locator.USER_INFORM_TOAST_UPDATE_SUCCESS,10);
                 break;
             case "Email thất bại":
                 keyword.assertEqual(Locator.USER_INFORM_TOAST_UPDATE_FAIL_EMAIL, MESSAGE_UPDATE_FAIL_EMAIL_INFORM);

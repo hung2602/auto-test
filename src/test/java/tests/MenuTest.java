@@ -3,19 +3,12 @@ package tests;
 import core.BaseTest;
 import helpers.DataBase;
 import helpers.PropertiesFile;
-import locator.Locator;
-import org.testng.ITestResult;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-import pages.HomePage;
-import pages.LoginPage;
+import pages.LoginSignUp.LoginPage;
 import pages.MenuPage;
-import utilities.ReadExcel;
 
 import java.util.HashMap;
-
-import static constant.Constant.TEXT_BOX_USERNAME;
-import static utilities.ReadExcel.*;
 
 public class MenuTest extends BaseTest {
     public DataBase dataBase ;

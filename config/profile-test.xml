@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <suite name="OnPlus Android">
+    <parameter name="platformName" value="Android"/>
+    <parameter name="platformVersion" value="13"/>
+    <parameter name="deviceName" value="99181FFAZ002RG"/>
     <listeners>
         <listener class-name="helpers.MyListener"/>
     </listeners>
@@ -27,7 +30,4 @@
             </class>
         </classes>
     </test>
-    <parameter name="platformName" value="Android"/>
-    <parameter name="platformVersion" value="13"/>
-    <parameter name="deviceName" value="99181FFAZ002RG"/>
 </suite>

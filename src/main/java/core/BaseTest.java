@@ -64,8 +64,8 @@ public class BaseTest {
     }
     @AfterMethod
     public void tearDown(ITestResult testResult) {
-//        if (testResult.getStatus() == ITestResult.SUCCESS) {
+        if (testResult.getStatus() == ITestResult.FAILURE) {
             saveScreenshotPNG();
-//        }
+        }
     }
 }

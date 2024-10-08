@@ -9,15 +9,14 @@
                 class-name="helpers.MyListener">
         </listener>
     </listeners>
-    <test name="Forgot Password Test">
+    <test name="Sign Up Test">
         <classes>
-            <class name="tests.ForgotPasswordTest">
+            <class name="tests.LoginSignUp.SignUpTest" >
                 <methods>
-                    <include name="PF_1"/>
-                    <include name="PF_2"/>
-                    <include name="PF_3"/>
-                    <include name="PF_4"/>
-<!--                    1,7,6,5,4,18,3,8,9,10,11,13,12,15,14,2,16,17-->
+                    <include name="SU_1"/>
+                    <include name="SU_2"/>
+                    <include name="SU_3"/>
+<!--                    1,9,8,7,6,5,10,3,2,12,13,14,15,16,17,19,18,20-->
                 </methods>
             </class>
         </classes>

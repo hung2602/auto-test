@@ -73,7 +73,7 @@ public class DataBase extends BaseTest {
                     dataMap.put(md.getColumnName(i), res.getString(i));
                 }
             }
-            con.close();
+//            con.close();
         }
         catch(SQLException e)
         {

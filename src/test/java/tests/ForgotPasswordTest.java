@@ -5,7 +5,7 @@ import helpers.DataBase;
 import locator.Locator;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-import pages.LoginPage;
+import pages.LoginSignUp.LoginPage;
 import pages.ProfilePage;
 
 import java.util.HashMap;
@@ -28,12 +28,15 @@ public class ForgotPasswordTest extends BaseTest {
         ExcelOperations("Forgot password");
         dataBase.setUpDB("POSTGRES_DB_URL","POSTGRES_DB_USER","POSTGRES_DB_PASSWORD");
     }
-    @Test(description = "Kiểm tra text ẩn, nhập sđt bỏ trống")
+    @Test(description = "Kiểm tra nhấn quên pass")
     public void FP_1(){
-        dataForgot = getTestDataInMap(getRowFromKey(getNameMethod()));
+        dataForgot = getTestDataInMap(getIndexRowFromKey(getNameMethod()));
         loginPage.goToLogin();
-        loginPage.checkHiddenText(Locator.LOGIN_TXT_USER_NAME,TEXT_BOX_USERNAME);
-        loginPage.inputUserName(dataForgot.get("Pass word"));
+        loginPage.inputUserName(dataForgot.get("User name"));
     }
+
+    // otp_code
+    // otp_expiration_time
+    // updated_at
 
 }

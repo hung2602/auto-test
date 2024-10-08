@@ -1,4 +1,4 @@
-package pages;
+package pages.LoginSignUp;
 import core.BasePage;
 import helpers.DataBase;
 import helpers.LogHelper;
@@ -11,6 +11,9 @@ import org.slf4j.Logger;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
+
 import static constant.Constant.*;
 
 public class LoginPage extends BasePage {
@@ -18,6 +21,11 @@ public class LoginPage extends BasePage {
     public DataBase dataBase ;
     public LoginPage() {
         dataBase = new DataBase();
+    }
+    public String getPhoneNumber(){
+        String number = "0363";
+        int ranNum = ThreadLocalRandom.current().nextInt(100000,999999);
+        return number + Integer.toString(ranNum);
     }
     @Step("Đăng nhập thành công")
     public void loginSuccess(String phoneNumber, String passWord) {
@@ -59,6 +67,7 @@ public class LoginPage extends BasePage {
     @Step("Hiển thị text ẩn {0}")
     public void checkHiddenText(By locator, String text){
         keyword.clearText(locator);
+        keyword.sleep(0.3);
         keyword.assertEqual(locator, text);
     }
     @Step("Xem thông tin tài khoản")
@@ -71,6 +80,7 @@ public class LoginPage extends BasePage {
     public void logOut(String flag){
         logger.info("logOut ");
         keyword.click(Locator.LOGOUT_BTN);
+        keyword.sleep(0.1);
         if(flag.equals("Thành công")) {
             keyword.click(Locator.LOGOUT_BTN_CONFIRM);
             keyword.assertEqual(Locator.LOGOUT_TOAST_SUCCESS, MESSAGE_SUCCESS_LOGOUT);
@@ -124,14 +134,13 @@ public class LoginPage extends BasePage {
     }
     @Step("Nhập mã otp: {1} ")
     public void inputOtp(String otp, String flag){
-        otp = PropertiesFile.getPropValue(otp);
         List<WebElement> weblist = keyword.getListElement(Locator.SIGN_UP_TXT_EDIT_OPT);
         for (int i = 0; i < weblist.size(); i++) {
             weblist.get(i).sendKeys(otp.split("")[i]);
         }
         keyword.click(Locator.LOGIN_BTN_CONTINUE);
         if(flag.equals("không tồn tại")){
-            keyword.webDriverWaitForElementPresent(Locator.LOGIN_TOAST_INCORRECT_PASSWORD,10);
+//            keyword.webDriverWaitForElementPresent(Locator.LOGIN_TOAST_INCORRECT_PASSWORD,15);
             keyword.assertEqual(Locator.LOGIN_TOAST_INCORRECT_PASSWORD, MESSAGE_INVALID_OTP);
         }
         else {
@@ -211,7 +220,11 @@ public class LoginPage extends BasePage {
     @Step("Kiểm tra thông tin user: {0} với trường: {1}")
     public void checkUserInform(String key, String cases){
         logger.info("checkUserInform ");
-        String query = PropertiesFile.getPropValue("POSTGRES_DB_QUERY_USER").replace("phone", PropertiesFile.getPropValue(key));
+        String getKey = PropertiesFile.getPropValue(key);
+        if(getKey == null){
+            getKey = key;
+        }
+        String query = PropertiesFile.getPropValue("POSTGRES_DB_QUERY_USER").replace("phone", getKey);
         dataBase.queryDb(query);
         String birthDay = getBirthDay(keyword.getText(Locator.USER_INFORM_LBL_BIRTH_DAY));
         String gender = getGender(keyword.getText(Locator.USER_INFORM_LBL_GENDER));
