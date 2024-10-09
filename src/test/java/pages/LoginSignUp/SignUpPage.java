@@ -1,7 +1,58 @@
 package pages.LoginSignUp;
 
 import core.BasePage;
+import helpers.DataBase;
+import helpers.LogHelper;
+import io.qameta.allure.Step;
+import locator.Locator;
+import org.slf4j.Logger;
+import static constant.Constant.*;
 
 public class SignUpPage extends BasePage {
-
+    private static Logger logger = LogHelper.getLogger();
+    public DataBase dataBase ;
+    public SignUpPage() {
+        dataBase = new DataBase();
+    }
+    public void backFromOTPScreen(){
+        keyword.click(Locator.INPUT_OTP_BTN_BACK);
+    }
+    @Step("Kiểm tra màn hình đặt mật khẩu")
+    public void inFormSetPassWord(){
+        keyword.webDriverWaitForElementPresent(Locator.SET_PASSWORD_LBL_PHONE, 10);
+        keyword.assertEqual(Locator.SET_PASSWORD_LBL_PHONE2, MESSAGE_SET_PASSWORD);
+        keyword.assertEqual(Locator.SET_PASSWORD_LBL_PHONE, MESSAGE_HELLO_SET_PASSWORD);
+    }
+    @Step("Nhập mật khẩu: {0}")
+    public void inputPassWord(String passWord){
+        logger.info("Input pass word " + passWord);
+        keyword.sendKeys(Locator.LOGIN_TXT_PASSWORD, passWord);
+    }
+    @Step("Xác nhận lại mật khẩu: {0}")
+    public void inputConfirmPassWord(String passWord){
+        logger.info("Input confirm pass word " + passWord);
+        keyword.sendKeys(Locator.LOGIN_TXT_CONFIRM_PASSWORD, passWord);
+    }
+    public void setPassWord(String passWord){
+        logger.info("set pass word " + passWord);
+        inputPassWord(passWord);
+        inputConfirmPassWord(passWord);
+        keyword.click(Locator.LOGIN_BTN_CONTINUE);
+    }
+    @Step("Hiện thị mật khẩu ẩn: {0}")
+    public void showPass(String passWord){
+        keyword.click(Locator.SIGN_UP_BTN_SHOW_PASS);
+    }
+    @Step("Hiển thị mật khẩu nhập lại: {0}")
+    public void showAgainPass(String passWord){
+        keyword.click(Locator.SIGN_UP_BTN_SHOW_AGAIN_PASS);
+    }
+    @Step("Xóa mật khẩu")
+    public void clearPass(){
+        keyword.click(Locator.SIGN_UP_BTN_CLEAR_PASS);
+    }
+    @Step("Xóa mật khẩu")
+    public void clearAgainPass(){
+        keyword.click(Locator.SIGN_UP_BTN_CLEAR_AGAIN_PASS);
+    }
 }

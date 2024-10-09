@@ -29,4 +29,7 @@ public class Constant {
     public static final String TITLE_POLICY_TERM_1 = "1. KHAI BÁO KHI SỬ DỤNG";
     public static final String TITLE_INPUT_CODE = "Nhập mã khuyến mại";
     public static final String TEXT_BOX_INPUT_CODE = "Mã gồm 6 ký tự";
+    public static final String MESSAGE_ERROR_PASS = "Mật khẩu phải từ 6 ký tự trở lên";
+    public static final String MESSAGE_SET_PASSWORD = "Vui lòng tạo mật khẩu từ 6 ký tự trở lên";
+    public static final String MESSAGE_HELLO_SET_PASSWORD = "Xin chào";
 }

@@ -3,7 +3,6 @@ package helpers;
 import core.BaseTest;
 import io.qameta.allure.Step;
 import org.slf4j.Logger;
-
 import java.sql.*;
 import java.util.HashMap;
 
@@ -49,6 +48,14 @@ public class DataBase extends BaseTest {
             throw new RuntimeException(e);
         }
     }
+    @Step("Set up kết nốt Redis")
+    public void setUpRedis(String url, String user, String passWord) {
+        logger.info("Set Up Redis");
+    }
+
+
+
+
     @Step("Thực hiện truy vấn dữ liệu : {0}")
     public void queryDb(String query) {
         logger.info("Query DB: " + query );

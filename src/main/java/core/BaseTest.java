@@ -46,7 +46,7 @@ public class BaseTest {
         dc.setCapability("platformVersion", platformVersion);
         dc.setCapability("deviceName", name);
         dc.setCapability("automationName", "UiAutomator2");
-        dc.setCapability("noReset", true);
+        dc.setCapability("noReset", false);
         dc.setCapability("appWaitForLaunch", false);
         dc.setCapability("app", projectPath + "app\\" + appName);
         URL url = new URL("http://127.0.0.1:4723/wd/hub");
@@ -60,6 +60,9 @@ public class BaseTest {
     }
     @AfterTest
     public void afterTest() throws Exception {
+        if(con != null){
+            con.close();
+        }
 //        driver.quit();
     }
     @AfterMethod

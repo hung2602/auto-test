@@ -68,7 +68,7 @@ public class ReadExcel {
     }
     public static int getIndexRowFromKey(String key){
         int index = 0;
-        System.out.println("Number col: " + sh.getPhysicalNumberOfRows());
+        System.out.println("Number rows: " + sh.getPhysicalNumberOfRows());
         for (int i = 0; i < sh.getPhysicalNumberOfRows(); i++) {
             System.out.println("Value colum " + sh.getRow(i).getCell(0).getStringCellValue());
             if(sh.getRow(i).getCell(0).getStringCellValue().equals(key)){
@@ -76,11 +76,24 @@ public class ReadExcel {
                 break;
             }
         }
-        logger.info("index " + index);
+        logger.info("Index row: " + index);
+        return index;
+    }
+    public static int getIndexCellFromKey(String key){
+        int index = 0;
+        System.out.println("Number colum: " + sh.getRow(0).getPhysicalNumberOfCells());
+        for (int i = 0; i < sh.getRow(0).getPhysicalNumberOfCells(); i++) {
+            if(sh.getRow(0).getCell(i).getStringCellValue().equals(key)){
+                index = i;
+                break;
+            }
+        }
+        logger.info("Index cell: " + index);
         return index;
     }
     public static void setCell(String value, int rowNumber, int cellNumber){
         try {
+            logger.info("Set cell: " + value + " On row: " + rowNumber + " On cell: " + cellNumber);
             Row row = sh.getRow(rowNumber);
             Cell cell = row.getCell(cellNumber);
             cell.setCellValue(value);

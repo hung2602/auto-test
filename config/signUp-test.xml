@@ -13,10 +13,15 @@
         <classes>
             <class name="tests.LoginSignUp.SignUpTest" >
                 <methods>
-                    <include name="SU_1"/>
-                    <include name="SU_2"/>
+                    <include name="SU_1_2"/>
                     <include name="SU_3"/>
-<!--                    1,9,8,7,6,5,10,3,2,12,13,14,15,16,17,19,18,20-->
+                    <include name="SU_4"/>
+                    <include name="SU_5"/>
+                    <include name="SU_6"/>
+                    <include name="SU_7_8"/>
+                    <include name="SU_9"/>
+                    <include name="SU_10"/>
+                    <include name="SU_11"/>
                 </methods>
             </class>
         </classes>

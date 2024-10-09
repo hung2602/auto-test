@@ -25,7 +25,8 @@ public class LoginPage extends BasePage {
     public String getPhoneNumber(){
         String number = "0363";
         int ranNum = ThreadLocalRandom.current().nextInt(100000,999999);
-        return number + Integer.toString(ranNum);
+        logger.info("Get phone number " + ranNum);
+        return number + ranNum;
     }
     @Step("Đăng nhập thành công")
     public void loginSuccess(String phoneNumber, String passWord) {
@@ -38,6 +39,7 @@ public class LoginPage extends BasePage {
     @Step("Nhập số điện thoại: {0}")
     public void inputUserName(String name){
         logger.info("inputUserName ");
+        keyword.clearText(Locator.LOGIN_TXT_USER_NAME);
         keyword.sendKeys(Locator.LOGIN_TXT_USER_NAME, name);
         keyword.click(Locator.LOGIN_BTN_CONTINUE);
     }
@@ -132,7 +134,7 @@ public class LoginPage extends BasePage {
         }
         goBack();
     }
-    @Step("Nhập mã otp: {1} ")
+    @Step("Nhập mã otp: {0} ")
     public void inputOtp(String otp, String flag){
         List<WebElement> weblist = keyword.getListElement(Locator.SIGN_UP_TXT_EDIT_OPT);
         for (int i = 0; i < weblist.size(); i++) {
@@ -145,6 +147,13 @@ public class LoginPage extends BasePage {
         }
         else {
             keyword.webDriverWaitForElementPresent(Locator.LOGIN_TXT_PASSWORD,10);
+        }
+    }
+    @Step("Xóa otp")
+    public void deleteOtp(){
+        List<WebElement> weblist = keyword.getListElement(Locator.SIGN_UP_TXT_EDIT_OPT);
+        for (int i = 0; i < weblist.size(); i++) {
+            weblist.get(i).clear();
         }
     }
     @Step("Đăng xuất khỏi thiết bị: {0}")
@@ -162,12 +171,14 @@ public class LoginPage extends BasePage {
         }
     }
     @Step("Đợi đến khi otp hết hạn")
-    public void waitTimeOtp(String otp, String flag){
-        for (int i = 0; i < 10; i++) {
+    public void waitTimeOtp(){
+        while (true){
             keyword.sleep(5);
+            if(keyword.verifyElementPresent(Locator.SIGN_UP_BTN_RESEND_OTP)){
+                break;
+            }
             keyword.click(Locator.LBL_TIME_EXPIRED_OTP);
         }
-        keyword.webDriverWaitForElementPresent(Locator.SIGN_UP_BTN_RESEND_OTP,10);
         keyword.assertEqual(Locator.LBL_TIME_EXPIRED_OTP, MESSAGE_EXPIRED_OTP);
     }
     @Step("Gửi lại mã opt")

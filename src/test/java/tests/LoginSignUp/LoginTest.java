@@ -131,7 +131,7 @@ public class LoginTest extends BaseTest {
         loginPage.goToLogin();
         int indexRow = getIndexRowFromKey(getNameMethod());
         String phone = loginPage.getPhoneNumber();
-        setCell(phone, indexRow ,1);
+        setCell(phone, indexRow ,getIndexCellFromKey("User name"));
         dataLogin = getTestDataInMap(indexRow);
         loginPage.inputUserName(dataLogin.get("User name"));
     }

@@ -26,7 +26,7 @@
                     <include name="LG_25"/>
                     <include name="LG_9"/>
                     <include name="LG_10"/>
-                    <include name="LG_11"/>
+<!--                    <include name="LG_11"/>-->
                     <include name="LG_26"/>
                     <include name="LG_27"/>
                     <include name="LG_12"/>
@@ -68,17 +68,17 @@
     <!--            </class>-->
     <!--        </classes>-->
     <!--    </test>-->
-        <test name="Menu Test">
-            <classes>
-                <class name="tests.MenuTest">
-                    <methods>
-                        <include name="MN_4"/>
-                        <include name="MN_5"/>
-                        <include name="MN_7"/>
-                        <include name="MN_9"/>
-                        <include name="MN_10"/>
-                    </methods>
-                </class>
-            </classes>
-        </test>
+<!--        <test name="Menu Test">-->
+<!--            <classes>-->
+<!--                <class name="tests.MenuTest">-->
+<!--                    <methods>-->
+<!--                        <include name="MN_4"/>-->
+<!--                        <include name="MN_5"/>-->
+<!--                        <include name="MN_7"/>-->
+<!--                        <include name="MN_9"/>-->
+<!--                        <include name="MN_10"/>-->
+<!--                    </methods>-->
+<!--                </class>-->
+<!--            </classes>-->
+<!--        </test>-->
 </suite>

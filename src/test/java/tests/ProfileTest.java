@@ -154,7 +154,7 @@ public class ProfileTest extends BaseTest {
         loginPage.viewUserInform();
         keyword.assertEqualData(gender, loginPage.getUserInform("gender"));
     }
-    @Test(priority = 18, description = "Kiểm tra thay đổi avatar thành công")
+    @Test(priority = 18,dependsOnMethods = "PF_16", description = "Kiểm tra thay đổi avatar thành công")
     public void PF_17(){
         profilePage.clickEdit();
         profilePage.editAvatar();

@@ -14,6 +14,7 @@ public class Locator {
     public static final By LOGIN_BTN = By.id("com.vtvcab.onsports.dev:id/button_login");
     public static final By LOGIN_TXT_USER_NAME = By.id("com.vtvcab.onsports.dev:id/ed_phone");
     public static final By LOGIN_TXT_PASSWORD = By.id("com.vtvcab.onsports.dev:id/ed_password");
+    public static final By LOGIN_TXT_CONFIRM_PASSWORD = By.id("com.vtvcab.onsports.dev:id/ed_password_again");
     public static final By LOGIN_BTN_CONTINUE = By.id("com.vtvcab.onsports.dev:id/button_next");
     public static final By LOGIN_TOAST_SUCCESS = By.xpath("//android.widget.TextView[@resource-id='com.vtvcab.onsports.dev:id/tv_message']");
     public static final By LOGIN_TOAST_INCORRECT_PASSWORD = By.id("com.vtvcab.onsports.dev:id/tv_message");
@@ -74,6 +75,16 @@ public class Locator {
     public static final By POLICY_TERM_LBL_TITLE_MAIN  = By.xpath("//android.widget.TextView[@resource-id=\"com.vtvcab.onsports.dev:id/tv_title\"]");
     public static final String POLICY_TERM_LBL_TITLE_1  = "//android.widget.TextView[@text=\"1. KHAI BÁO KHI SỬ DỤNG\"]";
     public static final By POLICY_TERM_BASE_VIEW = By.id("com.vtvcab.onsports.dev:id/base_view");
+    public static final By LOGIN_LBL_ERROR = By.id("com.vtvcab.onsports.dev:id/error_text");
+    public static final By SIGN_UP_BTN_SHOW_PASS = By.id("com.vtvcab.onsports.dev:id/show_pass_btn");
+    public static final By SIGN_UP_BTN_SHOW_AGAIN_PASS = By.id("com.vtvcab.onsports.dev:id/show_password_again_btn");
+    public static final By SIGN_UP_BTN_CLEAR_PASS = By.id("com.vtvcab.onsports.dev:id/clear_pass_btn");
+    public static final By SIGN_UP_BTN_CLEAR_AGAIN_PASS = By.id("com.vtvcab.onsports.dev:id/clear_pass_again_btn");
+    public static final By INPUT_OTP_BTN_BACK = By.id("com.vtvcab.onsports.dev:id/back_image");
+
+    public static final By SET_PASSWORD_LBL_PHONE = By.id("com.vtvcab.onsports.dev:id/label_phone");
+
+    public static final By SET_PASSWORD_LBL_PHONE2 = By.xpath("//android.widget.TextView[@text=\"Vui lòng tạo mật khẩu từ 6 ký tự trở lên\"]");
 
 
 }
