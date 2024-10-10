@@ -6,6 +6,7 @@ import locator.Locator;
 import org.testng.annotations.*;
 import pages.HomePage;
 import pages.LoginSignUp.LoginPage;
+import pages.LoginSignUp.SignUpPage;
 
 import java.util.HashMap;
 
@@ -17,12 +18,14 @@ import static utilities.ReadExcel.*;
 public class LoginTest extends BaseTest {
     public DataBase dataBase ;
     public LoginPage loginPage;
+    public SignUpPage signUpPage;
     public HomePage homePage;
     private HashMap<String, String> dataLogin;
     public LoginTest(){
         loginPage = new LoginPage();
         homePage = new HomePage();
         dataBase = new DataBase();
+        signUpPage = new SignUpPage();
     }
     @BeforeClass
     public void setDb(){
@@ -138,7 +141,8 @@ public class LoginTest extends BaseTest {
     @Test(priority = 13, dependsOnMethods = "LG_13" ,description = "Kiểm tra nhập mã OTP sai")
     public void LG_14(){
         dataLogin = getTestDataInMap(getIndexRowFromKey(getNameMethod()));
-        loginPage.inputOtp(dataLogin.get("OTP"),"không tồn tại");
+        loginPage.inputOtp(dataLogin.get("OTP"));
+        loginPage.continueOtp("không tồn tại");
     }
     @Test(priority = 14 ,description = "Kiểm tra đăng nhập khi tài khoản đăng nhập 3 thiết bị")
     public void LG_21(){

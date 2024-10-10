@@ -47,13 +47,14 @@ public class Locator {
     public static final By USER_INFORM_BTN_FEMALE_GENDER = By.id("com.vtvcab.onsports.dev:id/rela_female");
     public static final By USER_INFORM_BTN_EDIT = By.id("com.vtvcab.onsports.dev:id/tvEdit");
     public static final By USER_INFORM_TOAST_UPDATE_SUCCESS = By.xpath("//android.widget.Toast[@text=\"Cập nhật thành công\"]");
+    public static final By USER_INFORM_TOAST_UPDATE_AVATAR = By.xpath("//android.widget.Toast[@text=\"Cập nhật ảnh thành công\"]");
     public static final By USER_INFORM_TOAST_UPDATE_FAIL_EMAIL = By.xpath("//android.widget.Toast[1]");
     public static final By USER_INFORM_BTN_EDIT_AVT = By.id("com.vtvcab.onsports.dev:id/imgEditAvatar");
     public static final By USER_INFORM_BTN_LIST_AVT = By.xpath("//android.support.v7.widget.RecyclerView/android.widget.RelativeLayout[3]");
     public static final By USER_INFORM_BTN_AVT = By.className("android.widget.ImageView");
     public static final By USER_INFORM_BTN_EDIT_DATE = new AppiumBy.ByAccessibilityId(PropertiesFile.getPropValue("ID_DATE"));
-    public static final By USER_INFORM_BTN_OKE_EDIT_DATE = By.id("android:id/button1");
-    public static final By USER_INFORM_BTN_CANCEL_EDIT_DATE = By.id("android:id/button2");
+    public static final By USER_INFORM_BTN_OKE_EDIT_DATE = By.xpath("//android.widget.Button[@text=\"OK\"]");
+    public static final By USER_INFORM_BTN_CANCEL_EDIT_DATE = By.xpath("//android.widget.Button[@text=\"CANCEL\"]");
     public static final By MENU_LBL_LOGIN_NOTICE = By.id("com.vtvcab.onsports.dev:id/body");
     public static final By MENU_BTN_SUB_HISTORY = By.id("com.vtvcab.onsports.dev:id/sub_history");
     public static final By MENU_BTN_INPUT_COUPON = By.id("com.vtvcab.onsports.dev:id/coupon_layout");
@@ -81,10 +82,13 @@ public class Locator {
     public static final By SIGN_UP_BTN_CLEAR_PASS = By.id("com.vtvcab.onsports.dev:id/clear_pass_btn");
     public static final By SIGN_UP_BTN_CLEAR_AGAIN_PASS = By.id("com.vtvcab.onsports.dev:id/clear_pass_again_btn");
     public static final By INPUT_OTP_BTN_BACK = By.id("com.vtvcab.onsports.dev:id/back_image");
-
     public static final By SET_PASSWORD_LBL_PHONE = By.id("com.vtvcab.onsports.dev:id/label_phone");
-
     public static final By SET_PASSWORD_LBL_PHONE2 = By.xpath("//android.widget.TextView[@text=\"Vui lòng tạo mật khẩu từ 6 ký tự trở lên\"]");
+    public static final By ALLOW_BTN = By.id("com.android.permissioncontroller:id/permission_allow_button");
+    public static final By NOT_ALLOW_BTN = By.id("com.android.permissioncontroller:id/permission_deny_button");
+    public static final By NOTICE_BTN_LATE = By.id("com.vtvcab.onsports.dev:id/buttonLatter");
+    public static final By FORGOT_PASS_BTN = By.id("com.vtvcab.onsports.dev:id/text_forgot_password");
+    public static final By CONFIRM_OTP_TITLE = By.id("com.vtvcab.onsports.dev:id/title_phone");
 
 
 }

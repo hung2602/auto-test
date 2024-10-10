@@ -39,8 +39,7 @@ public class LoginPage extends BasePage {
     @Step("Nhập số điện thoại: {0}")
     public void inputUserName(String name){
         logger.info("inputUserName ");
-        keyword.clearText(Locator.LOGIN_TXT_USER_NAME);
-        keyword.sendKeys(Locator.LOGIN_TXT_USER_NAME, name);
+        keyword.clearTextAndSendKey(Locator.LOGIN_TXT_USER_NAME, name);
         keyword.click(Locator.LOGIN_BTN_CONTINUE);
     }
     @Step("Nhập mật khẩu: {0}")
@@ -82,7 +81,7 @@ public class LoginPage extends BasePage {
     public void logOut(String flag){
         logger.info("logOut ");
         keyword.click(Locator.LOGOUT_BTN);
-        keyword.sleep(0.1);
+        keyword.sleep(0.2);
         if(flag.equals("Thành công")) {
             keyword.click(Locator.LOGOUT_BTN_CONFIRM);
             keyword.assertEqual(Locator.LOGOUT_TOAST_SUCCESS, MESSAGE_SUCCESS_LOGOUT);
@@ -105,6 +104,11 @@ public class LoginPage extends BasePage {
                 break;
             case "Thông báo":
                 keyword.click(Locator.MENU_BTN_THONG_BAO);
+                if (keyword.verifyElementPresent(Locator.NOT_ALLOW_BTN)){
+                    keyword.click(Locator.NOT_ALLOW_BTN);
+                    keyword.sleep(0.2);
+                    keyword.click(Locator.LOGOUT_BTN_CANCEL);
+                }
                 break;
         }
         keyword.assertEqual(Locator.MENU_LBL_LOGIN_NOTICE, MESSAGE_LOGIN_NOTICE);
@@ -135,18 +139,21 @@ public class LoginPage extends BasePage {
         goBack();
     }
     @Step("Nhập mã otp: {0} ")
-    public void inputOtp(String otp, String flag){
+    public void inputOtp(String otp){
         List<WebElement> weblist = keyword.getListElement(Locator.SIGN_UP_TXT_EDIT_OPT);
         for (int i = 0; i < weblist.size(); i++) {
             weblist.get(i).sendKeys(otp.split("")[i]);
         }
+    }
+    @Step("Nhấn tiếp tục xác thực otp: {0} ")
+    public void continueOtp(String flag){
         keyword.click(Locator.LOGIN_BTN_CONTINUE);
-        if(flag.equals("không tồn tại")){
+        if(flag.equals("hợp lệ")){
 //            keyword.webDriverWaitForElementPresent(Locator.LOGIN_TOAST_INCORRECT_PASSWORD,15);
-            keyword.assertEqual(Locator.LOGIN_TOAST_INCORRECT_PASSWORD, MESSAGE_INVALID_OTP);
+            keyword.webDriverWaitForElementPresent(Locator.LOGIN_TXT_PASSWORD,10);
         }
         else {
-            keyword.webDriverWaitForElementPresent(Locator.LOGIN_TXT_PASSWORD,10);
+            keyword.assertEqual(Locator.LOGIN_TOAST_INCORRECT_PASSWORD, MESSAGE_INVALID_OTP);
         }
     }
     @Step("Xóa otp")
@@ -237,8 +244,7 @@ public class LoginPage extends BasePage {
         }
         String query = PropertiesFile.getPropValue("POSTGRES_DB_QUERY_USER").replace("phone", getKey);
         dataBase.queryDb(query);
-        String birthDay = getBirthDay(keyword.getText(Locator.USER_INFORM_LBL_BIRTH_DAY));
-        String gender = getGender(keyword.getText(Locator.USER_INFORM_LBL_GENDER));
+        String birthDay = ""; String gender = "";
         dataBase.getResultDataBase();
         switch (cases) {
             case "name":
@@ -248,15 +254,19 @@ public class LoginPage extends BasePage {
                 dataBase.checkDataBase("email", keyword.getText(Locator.USER_INFORM_LBL_EMAIL));
                 break;
             case "birth day":
+                birthDay = getBirthDay(keyword.getText(Locator.USER_INFORM_LBL_BIRTH_DAY));
                 dataBase.checkDataBase("dob", birthDay);
                 break;
             case "gender":
+                gender = getGender(keyword.getText(Locator.USER_INFORM_LBL_GENDER));
                 dataBase.checkDataBase("gender", gender);
                 break;
             case "all":
+                birthDay = getBirthDay(keyword.getText(Locator.USER_INFORM_LBL_BIRTH_DAY));
+                gender = getGender(keyword.getText(Locator.USER_INFORM_LBL_GENDER));
                 dataBase.checkDataBase("name,fullname,email,dob,gender",
-                        keyword.getText(Locator.USER_INFORM_LBL_PHONE) + "," + keyword.getText(Locator.USER_INFORM_LBL_FULL_NAME) + "," + keyword.getText(Locator.USER_INFORM_LBL_EMAIL) + "," +
-                                birthDay + "," + gender);
+                        keyword.getText(Locator.USER_INFORM_LBL_PHONE) + "," + keyword.getText(Locator.USER_INFORM_LBL_FULL_NAME)
+                                + "," + keyword.getText(Locator.USER_INFORM_LBL_EMAIL) + "," + birthDay + "," + gender);
                 break;
         }
     }

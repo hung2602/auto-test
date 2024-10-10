@@ -28,7 +28,7 @@ public class XmlParse {
         try {
             DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
             DocumentBuilder builder = factory.newDocumentBuilder();
-            File xmlFile = new File( projectPath + "config\\" + "profile-test.xml");
+            File xmlFile = new File( projectPath + "config\\" + "all-test.xml");
             Document doc = builder.parse(xmlFile);
             doc.getDocumentElement().normalize();
             int size = doc.getElementsByTagName("parameter").getLength();
@@ -45,7 +45,7 @@ public class XmlParse {
             TransformerFactory transformerFactory = TransformerFactory.newInstance();
             Transformer transformer = transformerFactory.newTransformer();
             DOMSource source = new DOMSource(doc);
-            StreamResult result = new StreamResult(new File(projectPath + "config\\" + "profile-test.xml"));
+            StreamResult result = new StreamResult(new File(projectPath + "config\\" + "all-test.xml"));
             transformer.setOutputProperty(OutputKeys.INDENT, "yes");
             removeWhitespaceNodes(doc.getDocumentElement());
             transformer.transform(source, result);

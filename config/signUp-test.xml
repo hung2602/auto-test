@@ -22,6 +22,14 @@
                     <include name="SU_9"/>
                     <include name="SU_10"/>
                     <include name="SU_11"/>
+                    <include name="SU_12"/>
+                    <include name="SU_13"/>
+                    <include name="SU_15"/>
+                    <include name="SU_16"/>
+                    <include name="SU_17"/>
+                    <include name="SU_18"/>
+                    <include name="SU_19"/>
+                    <include name="SU_20"/>
                 </methods>
             </class>
         </classes>

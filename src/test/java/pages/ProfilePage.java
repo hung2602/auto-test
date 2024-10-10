@@ -54,12 +54,17 @@ public class ProfilePage extends BasePage {
     @Step("Sửa ảnh đại diện")
     public void editAvatar() {
         keyword.click(Locator.USER_INFORM_BTN_EDIT_AVT);
+        keyword.sleep(0.5);
+        if (keyword.verifyElementPresent(Locator.ALLOW_BTN)){
+            keyword.click(Locator.ALLOW_BTN);
+        }
         keyword.click(Locator.USER_INFORM_BTN_LIST_AVT);
         keyword.click(Locator.USER_INFORM_BTN_AVT);
+        keyword.webDriverWaitInvisibleElement(Locator.USER_INFORM_TOAST_UPDATE_AVATAR,10);
     }
     @Step("Click sửa thông tin")
     public void clickEdit(){
-        keyword.sleep(0.3);
+        keyword.sleep(1);
         keyword.click(Locator.USER_INFORM_BTN_EDIT);
         keyword.webDriverWaitForElementPresent(Locator.USER_INFORM_BTN_EDIT_BIRTH_DAY,5);
     }
@@ -68,6 +73,7 @@ public class ProfilePage extends BasePage {
         keyword.click(Locator.USER_INFORM_BTN_EDIT);
         switch (flag) {
             case "Thành công":
+                keyword.sleep(0.3);
                 keyword.assertEqual(Locator.USER_INFORM_TOAST_UPDATE_SUCCESS, MESSAGE_UPDATE_SUCCESS_INFORM);
                 keyword.webDriverWaitInvisibleElement(Locator.USER_INFORM_TOAST_UPDATE_SUCCESS,10);
                 break;

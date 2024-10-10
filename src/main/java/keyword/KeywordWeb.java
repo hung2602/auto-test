@@ -78,13 +78,14 @@ public class KeywordWeb {
     }
     @Step("Click: {0}")
     public void click(By by){
-        webDriverWaitForElementPresent(by, 10);
+        sleep(0.3);
+//        webDriverWaitForElementPresent(by, 10);
         logger.info("click " + by);
         driver.findElement(by).click();
     }
     @Step("So sánh message: {1}")
     public void assertEqual(By by, String text){
-        sleep(0.2);
+        sleep(0.3);
         String content = PropertiesFile.getPropValue(text);
         logger.info("Compare message" + by + " with " + text);
         if (content == null) {
@@ -120,6 +121,7 @@ public class KeywordWeb {
     }
     @Step("Xác thực hiển thị and click: {0}")
     public void verifyPresentAndClick(By by){
+        sleep(0.5);
         logger.info("Verify Present And Click" + by);
         if(verifyElementPresent(by)) {
             click(by);
@@ -158,7 +160,7 @@ public class KeywordWeb {
     @Step("Xóa: {0} và nhập giá trị {1}")
     public void clearTextAndSendKey(By by, String contents){
         logger.info("Clear and send keys" + by + "with " + contents);
-        webDriverWaitForElementPresent(by, 20);
+        webDriverWaitForElementPresent(by, 10);
         String content = PropertiesFile.getPropValue(contents);
         if (content == null) {
             content = contents;

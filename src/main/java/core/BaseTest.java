@@ -38,7 +38,7 @@ public class BaseTest {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        insertInformDevices("PLAT_FORM_VERSION","ID_DEVICE");
+//        insertInformDevices("PLAT_FORM_VERSION","ID_DEVICE");
     }
     public void setUp(String platFrom, String platformVersion, String name) throws Exception {
         DesiredCapabilities dc = new DesiredCapabilities();

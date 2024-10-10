@@ -32,4 +32,9 @@ public class Constant {
     public static final String MESSAGE_ERROR_PASS = "Mật khẩu phải từ 6 ký tự trở lên";
     public static final String MESSAGE_SET_PASSWORD = "Vui lòng tạo mật khẩu từ 6 ký tự trở lên";
     public static final String MESSAGE_HELLO_SET_PASSWORD = "Xin chào";
+    public static final String TEXT_INPUT_PASSWORD = "Nhập mật khẩu của bạn";
+    public static final String TEXT_INPUT_CONFIRM_PASSWORD = "Nhập lại mật khẩu";
+    public static final String MESS_SIGN_UP_COMPARE_PASS = "Mật khẩu xác nhận chưa trùng khớp";
+    public static final String TITLE_INPUT_OTP = "Nhập mã OTP được gửi tới số phone ";
+
 }

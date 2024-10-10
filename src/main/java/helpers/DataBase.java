@@ -70,7 +70,7 @@ public class DataBase extends BaseTest {
             throw new RuntimeException(e);
         }
     }
-    @Step("Kiểm tra dữ liệu Các cột {0}")
+    @Step("Lấy dữ liệu từ các cột db")
     public static HashMap<String, String> getResultDataBase() {
         logger.info("Get result DB: ");
         try {
@@ -80,7 +80,6 @@ public class DataBase extends BaseTest {
                     dataMap.put(md.getColumnName(i), res.getString(i));
                 }
             }
-//            con.close();
         }
         catch(SQLException e)
         {
