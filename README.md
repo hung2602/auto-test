@@ -8,3 +8,6 @@
 1. Mở terminal trên intellij
 2. Chạy lệnh: allure serve target/allure-results
    //  allure generate --single-file allure-results --clean      để ghi đè lên file cũ
+
+**Run mvn**
+1. mvn test -P login-test

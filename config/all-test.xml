@@ -81,14 +81,31 @@
             </class>
         </classes>
     </test>
-<!--    <test name="Forgot Password Test">-->
-<!--        <classes>-->
-<!--            <class name="tests.ForgotPasswordTest">-->
-<!--                <methods>-->
-<!--                </methods>-->
-<!--            </class>-->
-<!--        </classes>-->
-<!--    </test>-->
+    <test name="Forgot Password Test">
+        <classes>
+            <class name="tests.ForgotPasswordTest">
+                <methods>
+                    <include name="FP_1"/>
+                    <include name="FP_2"/>
+                    <include name="FP_3"/>
+                    <include name="FP_4"/>
+                    <include name="FP_5"/>
+                    <include name="FP_6"/>
+                    <include name="FP_7"/>
+                    <include name="FP_8"/>
+                    <include name="FP_9"/>
+                    <include name="FP_10"/>
+                    <include name="FP_11"/>
+                    <include name="FP_12"/>
+                    <include name="FP_13"/>
+                    <include name="FP_14"/>
+                    <include name="FP_15_16"/>
+                    <include name="FP_17"/>
+                    <include name="FP_18"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
 <!--        <test name="Menu Test">-->
 <!--            <classes>-->
 <!--                <class name="tests.MenuTest">-->

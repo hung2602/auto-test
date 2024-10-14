@@ -28,9 +28,10 @@ public class LoginTest extends BaseTest {
         signUpPage = new SignUpPage();
     }
     @BeforeClass
-    public void setDb(){
+    public void firstSteps(){
         ExcelOperations("Login");
-        dataBase.setUpDB("POSTGRES_DB_URL","POSTGRES_DB_USER","POSTGRES_DB_PASSWORD");
+//        dataBase.setUpDB("POSTGRES_DB_URL","POSTGRES_DB_USER","POSTGRES_DB_PASSWORD");
+        loginPage.isUserLogout();
     }
     @Test(description = "Kiểm tra text ẩn, nhập sđt bỏ trống")
     public void LG_1(){
@@ -59,7 +60,7 @@ public class LoginTest extends BaseTest {
         dataLogin = getTestDataInMap(getIndexRowFromKey(getNameMethod()));
         loginPage.inputUserName(dataLogin.get("User name"));
         loginPage.inputPassWord(dataLogin.get("Pass word"));
-        loginPage.compareMessLoginIncorrectPass();
+        loginPage.compareMessLoginIncorrectPass(dataLogin.get("User name"));
     }
     @Test(priority = 2, dependsOnMethods = "LG_5", description = "Kiểm tra text ẩn của trường mật khẩu")
     public void LG_6(){
@@ -111,7 +112,7 @@ public class LoginTest extends BaseTest {
     }
     @Test(priority = 9 ,description = "Đăng xuất thiết bị không thành công")
     public void LG_27(){
-        loginPage.loginSuccess(dataLogin.get("User name"), dataLogin.get("Pass word"));
+        loginPage.login(dataLogin.get("User name"), dataLogin.get("Pass word"));
         keyword.click(Locator.MENU_BTN_QUAN_LY);
         loginPage.logOutDevice("Thất bại");
     }
@@ -123,7 +124,7 @@ public class LoginTest extends BaseTest {
     @Test(priority = 11, description = "Kiểm tra đăng nhập 2 sdt trên 1 thiết bị")
     public void LG_12(){
         dataLogin = getTestDataInMap(getIndexRowFromKey(getNameMethod()));
-        loginPage.loginSuccess(dataLogin.get("User name") ,dataLogin.get("Pass word"));
+        loginPage.login(dataLogin.get("User name") ,dataLogin.get("Pass word"));
         loginPage.viewUserInform();
         loginPage.checkUserInform(dataLogin.get("User name"),"all");
     }

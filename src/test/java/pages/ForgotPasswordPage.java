@@ -20,6 +20,7 @@ public class ForgotPasswordPage extends BasePage {
     }
     @Step("Hiển thị màn hình nhập mã OTP")
     public void checkOTPScreen(String phone){
+        keyword.webDriverWaitForElementPresent(Locator.CONFIRM_OTP_TITLE,10);
        String title =  keyword.getText(Locator.CONFIRM_OTP_TITLE);
        keyword.assertEqualData(title, TITLE_INPUT_OTP + phone);
     }

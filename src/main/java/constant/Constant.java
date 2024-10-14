@@ -5,7 +5,7 @@ public class Constant {
     public static final String TEXT_BOX_USERNAME = "Nhập số điện thoại của bạn";
     public static final String TEXT_BOX_PASSWORD = "Nhập mật khẩu";
     public static final String MESSAGE_SUCCESS_LOGIN = "Đăng nhập thành công";
-    public static final String MESSAGE_FAIL_LOGIN = "Tên đăng nhập hoặc mật khẩu sai 0363789036";
+    public static final String MESSAGE_FAIL_LOGIN = "Tên đăng nhập hoặc mật khẩu sai ";
     public static final String MESSAGE_SUCCESS_LOGOUT = "Đăng xuất thành công";
     public static final String TITLE_LOGIN_SMART_TV = "ĐĂNG NHẬP SMART TV, WEBSITE";
     public static final String TITLE_DEVICE_MANAGE = "QUẢN LÝ THIẾT BỊ";
@@ -35,6 +35,7 @@ public class Constant {
     public static final String TEXT_INPUT_PASSWORD = "Nhập mật khẩu của bạn";
     public static final String TEXT_INPUT_CONFIRM_PASSWORD = "Nhập lại mật khẩu";
     public static final String MESS_SIGN_UP_COMPARE_PASS = "Mật khẩu xác nhận chưa trùng khớp";
-    public static final String TITLE_INPUT_OTP = "Nhập mã OTP được gửi tới số phone ";
+    public static final String TITLE_INPUT_OTP = "Nhập mã OTP được gửi tới số ";
+    public static final String MESS_ERROR_FORGOT_PASS = "Password không được để trống";
 
 }

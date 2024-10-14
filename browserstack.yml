@@ -1,0 +1,13 @@
+userName: ccng_C7EsqA
+accessKey: iPqpMsa525Z8L6xzhwGs
+projectName: Android onPlus
+framework: testng
+app: ./onplus-dev-8074005.apk
+platforms:
+  - platformName: android
+    deviceName: Google Pixel 7 Pro
+    platformVersion: 13.0
+parallelsPerPlatform: 1
+debug: false # <boolean> # Set to true if you need screenshots for every selenium command ran
+networkLogs: false # <boolean> Set to true to enable HAR logs capturing
+consoleLogs: errors # <string> Remote browser's console debug levels to be printed (Default: errors)

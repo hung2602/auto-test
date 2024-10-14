@@ -22,14 +22,34 @@ public class LoginPage extends BasePage {
     public LoginPage() {
         dataBase = new DataBase();
     }
+    @Step("Tài khoản đã logout")
+    public void isUserLogout() {
+        keyword.click(Locator.HOME_BTN_MENU);
+        if (keyword.verifyElementPresent(Locator.PROFILE_BTN_VIEW_USER_INFORM)) {
+            viewUserInform();
+            logOut("Thành công");
+        } else {
+            keyword.click(Locator.HOME_BTN_HOME);
+        }
+    }
     public String getPhoneNumber(){
         String number = "0363";
         int ranNum = ThreadLocalRandom.current().nextInt(100000,999999);
         logger.info("Get phone number " + ranNum);
         return number + ranNum;
     }
+    @Step("Vào màn hình đăng nhập")
+    public void goToLogin() {
+        logger.info("goToLogin ");
+        keyword.click(Locator.HOME_BTN_MENU);
+        keyword.click(Locator.LOGIN_BTN);
+    }
+    @Step("Click quay lại")
+    public void goBack() {
+        keyword.click(Locator.LOGIN_SMART_TV_BTN_BACK);
+    }
     @Step("Đăng nhập thành công")
-    public void loginSuccess(String phoneNumber, String passWord) {
+    public void login(String phoneNumber, String passWord) {
         logger.info("loginSuccess ");
         keyword.click(Locator.HOME_BTN_MENU);
         keyword.click(Locator.LOGIN_BTN);
@@ -45,24 +65,15 @@ public class LoginPage extends BasePage {
     @Step("Nhập mật khẩu: {0}")
     public void inputPassWord(String pass){
         logger.info("inputPassWord ");
-        keyword.sendKeys(Locator.LOGIN_TXT_PASSWORD,pass);
+        keyword.clearTextAndSendKey(Locator.LOGIN_TXT_PASSWORD,pass);
         keyword.click(Locator.LOGIN_BTN_CONTINUE);
     }
-    @Step("Vào màn hình đăng nhập")
-    public void goToLogin() {
-        logger.info("goToLogin ");
-        keyword.click(Locator.HOME_BTN_MENU);
-        keyword.click(Locator.LOGIN_BTN);
-    }
-    @Step("Click quay lại")
-    public void goBack() {
-        keyword.click(Locator.LOGIN_SMART_TV_BTN_BACK);
-    }
     public void compareMessLoginSuccess(){
+        keyword.sleep(1);
         keyword.assertEqual(Locator.LOGIN_TOAST_SUCCESS, MESSAGE_SUCCESS_LOGIN);
     }
-    public void compareMessLoginIncorrectPass(){
-        keyword.assertEqual(Locator.LOGIN_TOAST_INCORRECT_PASSWORD, MESSAGE_FAIL_LOGIN);
+    public void compareMessLoginIncorrectPass(String phone){
+        keyword.assertEqual(Locator.LOGIN_TOAST_INCORRECT_PASSWORD, MESSAGE_FAIL_LOGIN + phone);
         keyword.webDriverWaitInvisibleElement(Locator.LOGIN_TOAST_INCORRECT_PASSWORD,10);
     }
     @Step("Hiển thị text ẩn {0}")
@@ -159,8 +170,10 @@ public class LoginPage extends BasePage {
     @Step("Xóa otp")
     public void deleteOtp(){
         List<WebElement> weblist = keyword.getListElement(Locator.SIGN_UP_TXT_EDIT_OPT);
-        for (int i = 0; i < weblist.size(); i++) {
-            weblist.get(i).clear();
+        if(!weblist.get(0).getText().equals("")) {
+            for (int i = 0; i < weblist.size(); i++) {
+                weblist.get(i).clear();
+            }
         }
     }
     @Step("Đăng xuất khỏi thiết bị: {0}")

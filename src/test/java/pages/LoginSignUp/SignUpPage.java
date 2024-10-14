@@ -8,6 +8,8 @@ import locator.Locator;
 import org.slf4j.Logger;
 
 import java.util.HashMap;
+import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
 
 import static constant.Constant.*;
 
@@ -19,18 +21,34 @@ public class SignUpPage extends BasePage {
         dataBase = new DataBase();
         loginPage = new LoginPage();
     }
-    public HashMap<String, String> queryAndInputOtp(String key){
-        String query = PropertiesFile.getPropValue("POSTGRES_DB_QUERY_USER").replace("phone", key);
-        loginPage.deleteOtp();
+    public HashMap<String, String> queryAndGetDb(String flag, String key){
+        String query = "";
+        if(flag.equals("PostGre")) {
+            query = PropertiesFile.getPropValue("POSTGRES_DB_QUERY_USER").replace("phone", key);
+        }
+        else if (flag.equals("Mongo")){
+            query = PropertiesFile.getPropValue("MONGO_DB_QUERY_DEVICE").replace("idUser", key);
+        }
         dataBase.queryDb(query);
         HashMap<String, String> dbData = dataBase.getResultDataBase();
-        loginPage.deleteOtp();
-        loginPage.inputOtp(dbData.get("otp_code"));
         return dbData;
     }
     public void backFromOTPScreen(){
         keyword.click(Locator.INPUT_OTP_BTN_BACK);
         keyword.sleep(0.2);
+    }
+    public String getPassWord(){
+        String chars = "?!@#$%^&*()+";
+        Random random = new Random();
+        char c = chars.charAt(random.nextInt(chars.length()));
+        int ranNum = random.nextInt(1,10);
+        logger.info("Get pass word " + ranNum);
+        return "AutoTest" + c + ranNum;
+    }
+    @Step("Hiển thị thông báo lỗi mật khẩu")
+    public void verifyMessPassWord(String mess){
+        keyword.sleep(0.5);
+        keyword.assertEqual(Locator.LOGIN_LBL_ERROR, mess);
     }
     @Step("Kiểm tra màn hình đặt mật khẩu")
     public void inFormSetPassWord(){

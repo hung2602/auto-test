@@ -24,13 +24,14 @@ public class ProfileTest extends BaseTest {
         dataBase = new DataBase();
     }
     @BeforeClass
-    public void setDb(){
+    public void firstSteps(){
         ExcelOperations("Profile");
         dataBase.setUpDB("POSTGRES_DB_URL","POSTGRES_DB_USER","POSTGRES_DB_PASSWORD");
+        loginPage.isUserLogout();
     }
     @Test(priority = 1, description = "Kiểm tra cập nhật profile khi nhập các thông tin hợp lệ")
     public void PF_1(){
-        loginPage.loginSuccess("PHONE_NUMBER","PASS_WORD");
+        loginPage.login("PHONE_NUMBER","PASS_WORD");
         loginPage.viewUserInform();
         profilePage.clickEdit();
         dataProfile = getTestDataInMap(getIndexRowFromKey(getNameMethod()));
@@ -159,9 +160,5 @@ public class ProfileTest extends BaseTest {
         profilePage.clickEdit();
         profilePage.editAvatar();
         profilePage.saveInform("Thành công");
-    }
-    @AfterClass
-    public void logout(){
-        loginPage.logOut("Thành công");
     }
 }

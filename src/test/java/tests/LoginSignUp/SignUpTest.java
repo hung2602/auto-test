@@ -1,8 +1,6 @@
 package tests.LoginSignUp;
-
 import core.BaseTest;
 import helpers.DataBase;
-import helpers.PropertiesFile;
 import io.qameta.allure.Severity;
 import locator.Locator;
 import org.testng.annotations.AfterClass;
@@ -30,9 +28,10 @@ public class SignUpTest extends BaseTest {
         dataBase = new DataBase();
     }
     @BeforeClass
-    public void setDb(){
+    public void firstSteps(){
         ExcelOperations("SignUp");
         dataBase.setUpDB("POSTGRES_DB_URL","POSTGRES_DB_USER","POSTGRES_DB_PASSWORD");
+        loginPage.isUserLogout();
     }
     @Severity(CRITICAL)
     @Test(description = "Kiểm tra nhập sdt chưa đăng ký - Bỏ trống mã OTP")
@@ -54,7 +53,8 @@ public class SignUpTest extends BaseTest {
     public void SU_4(){
         loginPage.deleteOtp();
         dataSignUp = getTestDataInMap(getIndexRowFromKey("SU_1_2"));
-        HashMap<String, String> dbData = signUpPage.queryAndInputOtp(dataSignUp.get("User name"));
+        HashMap<String, String> dbData = signUpPage.queryAndGetDb("PostGre", dataSignUp.get("User name"));
+        loginPage.inputOtp(dbData.get("otp_code"));
         loginPage.continueOtp("hợp lệ");
         signUpPage.inFormSetPassWord();
         signUpPage.backFromOTPScreen();
@@ -71,7 +71,9 @@ public class SignUpTest extends BaseTest {
     @Test(priority = 4, description = "Kiểm tra nhập mã OTP đã hết hạn", dependsOnMethods = "SU_5")
     public void SU_6(){
         loginPage.waitTimeOtp();
-        HashMap<String, String> dbData = signUpPage.queryAndInputOtp(dataSignUp.get("User name"));
+        loginPage.deleteOtp();
+        HashMap<String, String> dbData = signUpPage.queryAndGetDb("PostGre", dataSignUp.get("User name"));
+        loginPage.inputOtp(dbData.get("otp_code"));
         loginPage.continueOtp("không tồn tại");
         setCell(dbData.get("otp_code"), getIndexRowFromKey(getNameMethod()) ,getIndexCellFromKey("OTP"));
     }
@@ -88,7 +90,8 @@ public class SignUpTest extends BaseTest {
     @Severity(CRITICAL)
     @Test(priority = 6, description = "Kiểm tra nhập mã OTP hợp lệ", dependsOnMethods = "SU_1_2")
     public void SU_9(){
-        HashMap<String, String> dbData = signUpPage.queryAndInputOtp(dataSignUp.get("User name"));
+        HashMap<String, String> dbData = signUpPage.queryAndGetDb("PostGre", dataSignUp.get("User name"));
+        loginPage.inputOtp(dbData.get("otp_code"));
         loginPage.continueOtp("hợp lệ");
         setCell(dbData.get("otp_code"), getIndexRowFromKey(getNameMethod()) ,getIndexCellFromKey("OTP"));
     }
@@ -108,8 +111,7 @@ public class SignUpTest extends BaseTest {
     public void SU_12(){
         dataSignUp = getTestDataInMap(getIndexRowFromKey(getNameMethod()));
         signUpPage.inputPassWord(dataSignUp.get("Pass word"));
-        keyword.sleep(0.5);
-        keyword.assertEqual(Locator.LOGIN_LBL_ERROR, MESSAGE_ERROR_PASS);
+        signUpPage.verifyMessPassWord(MESSAGE_ERROR_PASS);
     }
     @Test(priority = 10, description = "Kiểm tra nhập pass chỉ gồm chữ hoặc số")
     public void SU_13(){
@@ -132,7 +134,7 @@ public class SignUpTest extends BaseTest {
     public void SU_16(){
         dataSignUp = getTestDataInMap(getIndexRowFromKey(getNameMethod()));
         signUpPage.setPassWord(dataSignUp.get("Pass word"), dataSignUp.get("Password confirm"));
-        keyword.assertEqual(Locator.LOGIN_LBL_ERROR, MESS_SIGN_UP_COMPARE_PASS);
+        signUpPage.verifyMessPassWord(MESS_SIGN_UP_COMPARE_PASS);
     }
     @Test(priority = 14, description = "Kiểm tra nhập pass trùng pass nhập lại")
     public void SU_17(){
@@ -157,9 +159,4 @@ public class SignUpTest extends BaseTest {
         loginPage.viewUserInform();
         loginPage.checkUserInform("name", phone);
     }
-    @AfterClass
-    public void tearDown(){
-        loginPage.logOut("Thành công");
-    }
-
 }

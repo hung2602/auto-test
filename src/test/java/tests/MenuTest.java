@@ -6,6 +6,7 @@ import helpers.PropertiesFile;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import pages.LoginSignUp.LoginPage;
+import pages.LoginSignUp.SignUpPage;
 import pages.MenuPage;
 
 import java.util.HashMap;
@@ -14,19 +15,22 @@ public class MenuTest extends BaseTest {
     public DataBase dataBase ;
     public LoginPage loginPage;
     public MenuPage menuPage;
+    public SignUpPage signUpPage;
     private static String query;
     public MenuTest(){
         menuPage = new MenuPage();
         loginPage = new LoginPage();
+        signUpPage = new SignUpPage();
         dataBase = new DataBase();
     }
     @BeforeClass
-    public void connectDb(){
+    public void firstSteps(){
         dataBase.setUpDB("POSTGRES_DB_URL","POSTGRES_DB_USER","POSTGRES_DB_PASSWORD");
+        loginPage.isUserLogout();
     }
     @Test(description = "Kiểm tra lịch sử mua gói")
     public void MN_4(){
-        loginPage.loginSuccess("PHONE_NUMBER","PASS_WORD");
+        loginPage.login("PHONE_NUMBER","PASS_WORD");
         menuPage.goToSubHistory();
         menuPage.checkSubHistory();
     }
@@ -39,13 +43,9 @@ public class MenuTest extends BaseTest {
     @Test(description = "Kiểm tra màn hình quản lý thiết bị")
     public void MN_7(){
         loginPage.goBack();
-        query = PropertiesFile.getPropValue("POSTGRES_DB_QUERY_USER").replace("phone", PropertiesFile.getPropValue("PHONE_NUMBER"));
-        dataBase.queryDb(query);
-        HashMap<String, String> dbData = dataBase.getResultDataBase();
-        query = PropertiesFile.getPropValue("MONGO_DB_QUERY_DEVICE").replace("idUser", dbData.get("id"));
+        HashMap<String, String> dbData = signUpPage.queryAndGetDb("PostGre", PropertiesFile.getPropValue("PHONE_NUMBER"));
         dataBase.setUpMonGoDb("MONGO_DB_URL","MONGO_DB_USER","MONGO_DB_PASSWORD");
-        dataBase.queryDb(query);
-        dbData = dataBase.getResultDataBase();
+        dbData = signUpPage.queryAndGetDb("Mongo", dbData.get("id"));
         menuPage.goToDeviceManage();
         keyword.assertEqualData(dbData.get("device_name"), menuPage.getDeviceInform());
     }
