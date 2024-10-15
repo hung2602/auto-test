@@ -30,7 +30,7 @@ public class LoginTest extends BaseTest {
     @BeforeClass
     public void firstSteps(){
         ExcelOperations("Login");
-//        dataBase.setUpDB("POSTGRES_DB_URL","POSTGRES_DB_USER","POSTGRES_DB_PASSWORD");
+        dataBase.setUpDB("POSTGRES_DB_URL","POSTGRES_DB_USER","POSTGRES_DB_PASSWORD");
         loginPage.isUserLogout();
     }
     @Test(description = "Kiểm tra text ẩn, nhập sđt bỏ trống")
@@ -110,7 +110,7 @@ public class LoginTest extends BaseTest {
         loginPage.viewUserInform();
         loginPage.logOut("Thành công");
     }
-    @Test(priority = 9 ,description = "Đăng xuất thiết bị không thành công")
+    @Test(priority = 9 ,dependsOnMethods = "LG_10", description = "Đăng xuất thiết bị không thành công")
     public void LG_27(){
         loginPage.login(dataLogin.get("User name"), dataLogin.get("Pass word"));
         keyword.click(Locator.MENU_BTN_QUAN_LY);
@@ -121,7 +121,7 @@ public class LoginTest extends BaseTest {
         loginPage.logOutDevice("Thành công");
     }
     @Severity(CRITICAL)
-    @Test(priority = 11, description = "Kiểm tra đăng nhập 2 sdt trên 1 thiết bị")
+    @Test(priority = 11, dependsOnMethods = "LG_26", description = "Kiểm tra đăng nhập 2 sdt trên 1 thiết bị")
     public void LG_12(){
         dataLogin = getTestDataInMap(getIndexRowFromKey(getNameMethod()));
         loginPage.login(dataLogin.get("User name") ,dataLogin.get("Pass word"));
@@ -129,7 +129,7 @@ public class LoginTest extends BaseTest {
         loginPage.checkUserInform(dataLogin.get("User name"),"all");
     }
     @Severity(CRITICAL)
-    @Test(priority = 12,description = "Kiểm tra đăng nhập với sdt chưa đăng ký")
+    @Test(priority = 12,dependsOnMethods = "LG_12", description = "Kiểm tra đăng nhập với sdt chưa đăng ký")
     public void LG_13(){
         loginPage.logOut("Thành công");
         loginPage.goToLogin();

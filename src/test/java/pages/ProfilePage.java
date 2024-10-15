@@ -64,9 +64,10 @@ public class ProfilePage extends BasePage {
     }
     @Step("Click sửa thông tin")
     public void clickEdit(){
-        keyword.sleep(1);
+        keyword.webDriverWaitForElementPresent(Locator.USER_INFORM_BTN_EDIT,10);
+        keyword.sleep(0.5);
         keyword.click(Locator.USER_INFORM_BTN_EDIT);
-        keyword.webDriverWaitForElementPresent(Locator.USER_INFORM_BTN_EDIT_BIRTH_DAY,5);
+        keyword.webDriverWaitForElementPresent(Locator.USER_INFORM_BTN_EDIT_BIRTH_DAY,10);
     }
     @Step("Lưu thông tin: {0}")
     public void saveInform(String flag){

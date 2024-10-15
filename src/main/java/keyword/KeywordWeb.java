@@ -1,6 +1,5 @@
 package keyword;
 import helpers.PropertiesFile;
-import io.appium.java_client.MobileBy;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.touch.WaitOptions;
 import io.appium.java_client.touch.offset.PointOption;
@@ -246,6 +245,9 @@ public class KeywordWeb {
         }
         list.add(data);
     }
+    public void waitPageLoad(){
+        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(30));
+    }
     public void dragAndDropToObj(String startElement, String endElement) {
         logger.info("drag from" + startElement + " to" + endElement);
         String xPathElement1 = PropertiesFile.getPropValue(startElement);
@@ -413,14 +415,13 @@ public class KeywordWeb {
 
         }
     }
-    public void untilJqueryIsDone(Long timeoutInSeconds) throws InterruptedException {
+    public void untilJqueryIsDone(Long timeoutInSeconds){
         until((d) ->
         {
             Boolean isJqueryCallDone = (Boolean) ((JavascriptExecutor) driver).executeScript("return jQuery.active==0");
             if (!isJqueryCallDone) System.out.println("JQuery call is in Progress");
             return isJqueryCallDone;
         }, timeoutInSeconds);
-        Thread.sleep(1000);
     }
 
     public String waitForElementNotVisible(int timeOutInSeconds, String elementXPath) {

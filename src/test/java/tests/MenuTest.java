@@ -16,7 +16,6 @@ public class MenuTest extends BaseTest {
     public LoginPage loginPage;
     public MenuPage menuPage;
     public SignUpPage signUpPage;
-    private static String query;
     public MenuTest(){
         menuPage = new MenuPage();
         loginPage = new LoginPage();

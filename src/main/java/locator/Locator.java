@@ -70,7 +70,7 @@ public class Locator {
     public static final By LIST_SUB_BTN_CHOOSE = By.xpath("com.vtvcab.onsports.dev:id/button_buy");
     public static final By LIST_SUB_BTN_SELECT_SUB = By.xpath("(//android.widget.ImageView[@resource-id=\"com.vtvcab.onsports.dev:id/test1\"])[2]");
     public static final By DEVICE_MANAGE_LBL_NAME_DEVICE = By.xpath("(//android.widget.TextView[@resource-id=\"com.vtvcab.onsports.dev:id/deviceName\"])[2]");
-    public static final String POLICY_TERM_LBL_TITLE  = "//android.view.View[@text=\"CHÍNH SÁCH BẢO MẬT & ĐIỀU KHOẢN SỬ DỤNG\"]";
+    public static final By POLICY_TERM_LBL_TITLE  = By.xpath("//android.view.View[@text=\"CHÍNH SÁCH BẢO MẬT & ĐIỀU KHOẢN SỬ DỤNG\"]");
     public static final By MENU_BTN_POLICY_TERM  = By.xpath("//android.widget.TextView[@resource-id=\"com.vtvcab.onsports.dev:id/txt_info\" and @text=\"Điều khoản & chính sách\"]");
     public static final By DISCOUNT_CODE_BTN_APPLY  = By.xpath("//android.widget.TextView[@resource-id=\"com.vtvcab.onsports.dev:id/button_next\"]");
     public static final By DISCOUNT_CODE_TXT_INPUT  = By.xpath("//android.widget.EditText[@resource-id=\"com.vtvcab.onsports.dev:id/ed_coupon\"]");

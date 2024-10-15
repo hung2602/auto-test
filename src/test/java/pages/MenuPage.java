@@ -43,14 +43,15 @@ public class MenuPage extends BasePage {
     }
     @Step("Vào điều khoản chính sách")
     public void goToPolicyTerm() {
-        keyword.scrollDownTo(100,-200);
+//        keyword.scrollDownTo(100,-200);
         keyword.click(Locator.MENU_BTN_POLICY_TERM);
     }
     @Step("Kiểm tra màn điều khoản chính sách")
     public void checkPolicyTerm() {
         keyword.assertEqual(Locator.POLICY_TERM_LBL_TITLE_MAIN, TITLE_MAIN_POLICY_TERM);
         keyword.verifyElementDisplay(Locator.POLICY_TERM_BASE_VIEW, true);
-//        String policy = keyword.action(Locator.POLICY_TERM_LBL_TITLE,"getText");
+        keyword.sleep(1);
+//        String policy = keyword.getText(Locator.POLICY_TERM_LBL_TITLE);
 //        keyword.assertEqualData(policy, TITLE_POLICY_TERM);
 //        String policy1 = keyword.action(Locator.POLICY_TERM_LBL_TITLE_1,"getText");
 //        keyword.assertEqualData(policy1, TITLE_POLICY_TERM_1);

@@ -86,7 +86,7 @@ public class LoginPage extends BasePage {
     public void viewUserInform(){
         logger.info("viewUserInform ");
         keyword.webDriverWaitInvisibleElement(Locator.LOGIN_TOAST_SUCCESS,10);
-        keyword.click(Locator.MENU_BTN_LAYOUT_AVATAR);
+        keyword.click(Locator.PROFILE_BTN_VIEW_USER_INFORM);
     }
     @Step("Đăng xuất: {0}")
     public void logOut(String flag){
@@ -115,10 +115,9 @@ public class LoginPage extends BasePage {
                 break;
             case "Thông báo":
                 keyword.click(Locator.MENU_BTN_THONG_BAO);
+                keyword.sleep(0.5);
                 if (keyword.verifyElementPresent(Locator.NOT_ALLOW_BTN)){
-                    keyword.click(Locator.NOT_ALLOW_BTN);
-                    keyword.sleep(0.2);
-                    keyword.click(Locator.LOGOUT_BTN_CANCEL);
+                    keyword.click(Locator.ALLOW_BTN);
                 }
                 break;
         }
@@ -151,6 +150,7 @@ public class LoginPage extends BasePage {
     }
     @Step("Nhập mã otp: {0} ")
     public void inputOtp(String otp){
+        System.out.println("OTP " + otp);
         List<WebElement> weblist = keyword.getListElement(Locator.SIGN_UP_TXT_EDIT_OPT);
         for (int i = 0; i < weblist.size(); i++) {
             weblist.get(i).sendKeys(otp.split("")[i]);

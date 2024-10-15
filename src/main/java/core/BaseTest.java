@@ -14,6 +14,7 @@ import helpers.LogHelper;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.time.Duration;
 import java.util.HashMap;
 
 import static helpers.MyListener.saveScreenshotPNG;
@@ -27,8 +28,8 @@ public class BaseTest {
     protected KeywordWeb keyword;
     public static AndroidDriver driver;
     public static String appName = PathHelper.getFileName("app");
-    private String userName = "duy_u6ydwV";
-    private  String accessKey =  "2BffbhMipdqx47LAydRi";
+    private String userName = "ccng_C7EsqA";
+    private  String accessKey =  "iPqpMsa525Z8L6xzhwGs";
     public BaseTest() {
         keyword = new KeywordWeb();
     }
@@ -54,21 +55,20 @@ public class BaseTest {
         dc.setCapability("automationName", "UiAutomator2");
         dc.setCapability("noReset", false);
         dc.setCapability("appWaitForLaunch", false);
+        dc.setCapability("app", projectPath + "app\\" + appName);
         URL url = new URL("http://127.0.0.1:4723/wd/hub");
         driver = new AndroidDriver(url, dc);
     }
-    public void setUpBrowseStack() throws Exception {
-        HashMap<String, Object> browserstackOptions = new HashMap<String, Object>();
+    public void setUpBrowseStack(String platformName, String platformVersion, String name) throws Exception {
+        HashMap<String, Object> browserstackOptions = new HashMap<>();
         browserstackOptions.put("userName", userName);
         browserstackOptions.put("accessKey", accessKey);
-        browserstackOptions.put("buildName", "$buildName");
-
         URL remoteUrl = new URL("http://hub.browserstack.com/wd/hub");
         DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
-        desiredCapabilities.setCapability("appium:deviceName", "Google Pixel 7");
-        desiredCapabilities.setCapability("appium:os_version", "13.0");
-        desiredCapabilities.setCapability("appium:app", "bs://8ee19b5f6eee596f88a01e52651594974b7f08fc");
-        desiredCapabilities.setCapability("platformName", "Android");
+        desiredCapabilities.setCapability("appium:deviceName", name);
+        desiredCapabilities.setCapability("appium:os_version", platformVersion);
+        desiredCapabilities.setCapability("platformName", platformName);
+        desiredCapabilities.setCapability("appium:app", "bs://5ec4ce0869051e2bcc8f2ab8b8d0ead1b868b950");
         desiredCapabilities.setCapability("networkLogs", "true");
         desiredCapabilities.setCapability("bstack:options", browserstackOptions);
         driver = new AndroidDriver(remoteUrl, desiredCapabilities);
@@ -76,15 +76,15 @@ public class BaseTest {
     @BeforeTest(alwaysRun = true)
     @Parameters({"platformName","platformVersion","deviceName"})
     public void setUpDevice(String platFrom, String platformVersion, String name) throws Exception{
-        setUpBrowseStack();
-//        setUp(platFrom, platformVersion, name);
+//        setUpBrowseStack(platFrom, platformVersion, name);
+        setUp(platFrom, platformVersion, name);
     }
     @AfterTest
     public void afterTest() throws Exception {
         if(con != null){
             con.close();
         }
-//        driver.quit();
+        driver.quit();
     }
     @AfterMethod
     public void tearDown(ITestResult testResult) {

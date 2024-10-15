@@ -91,6 +91,7 @@ public class SignUpTest extends BaseTest {
     @Test(priority = 6, description = "Kiểm tra nhập mã OTP hợp lệ", dependsOnMethods = "SU_1_2")
     public void SU_9(){
         HashMap<String, String> dbData = signUpPage.queryAndGetDb("PostGre", dataSignUp.get("User name"));
+        loginPage.deleteOtp();
         loginPage.inputOtp(dbData.get("otp_code"));
         loginPage.continueOtp("hợp lệ");
         setCell(dbData.get("otp_code"), getIndexRowFromKey(getNameMethod()) ,getIndexCellFromKey("OTP"));
