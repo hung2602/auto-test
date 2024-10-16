@@ -3,6 +3,7 @@ import helpers.PathHelper;
 import helpers.PropertiesFile;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.options.UiAutomator2Options;
+import io.appium.java_client.ios.IOSDriver;
 import keyword.KeywordWeb;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.MutableCapabilities;
@@ -27,6 +28,7 @@ public class BaseTest {
 
     protected KeywordWeb keyword;
     public static AndroidDriver driver;
+    public static IOSDriver iosDriver;
     public static String appName = PathHelper.getFileName("app");
     private String userName = "ccng_C7EsqA";
     private  String accessKey =  "iPqpMsa525Z8L6xzhwGs";
@@ -39,7 +41,7 @@ public class BaseTest {
         PropertiesFile.setPropertiesFile();
         try {
             if (PropertiesFile.getPropValue("OVER_WRITE_REPORT").equals("YES")) {
-                FileUtils.deleteDirectory(new File("allure-results"));
+                FileUtils.deleteDirectory(new File("target\\allure-results"));
                 logger.info("Deleted directory allure-results");
             }
         } catch (IOException e) {
@@ -72,12 +74,15 @@ public class BaseTest {
         desiredCapabilities.setCapability("networkLogs", "true");
         desiredCapabilities.setCapability("bstack:options", browserstackOptions);
         driver = new AndroidDriver(remoteUrl, desiredCapabilities);
+//        UiAutomator2Options options = new UiAutomator2Options();
+//        driver = new AndroidDriver(new URL("http://hub-cloud.browserstack.com/wd/hub"), options);
+
     }
     @BeforeTest(alwaysRun = true)
     @Parameters({"platformName","platformVersion","deviceName"})
     public void setUpDevice(String platFrom, String platformVersion, String name) throws Exception{
-//        setUpBrowseStack(platFrom, platformVersion, name);
-        setUp(platFrom, platformVersion, name);
+        setUpBrowseStack(platFrom, platformVersion, name);
+//        setUp(platFrom, platformVersion, name);
     }
     @AfterTest
     public void afterTest() throws Exception {

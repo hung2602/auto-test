@@ -1,15 +1,13 @@
-
 userName: ccng_C7EsqA
 accessKey: iPqpMsa525Z8L6xzhwGs
-projectName: BrowserStack Samples
-buildName: browserstack build
 framework: testng
+app: bs://5ec4ce0869051e2bcc8f2ab8b8d0ead1b868b950
 platforms:
   - deviceName: Samsung Galaxy S22 Ultra
     osVersion: 12.0
     platformName: android
-run_settings:
-  app: "bs://5ec4ce0869051e2bcc8f2ab8b8d0ead1b868b950"
-  test_suite: "src/test/java/tests"
-  local: false
-  debug: true
+parallelsPerPlatform: 1
+browserstackLocal: true
+buildName: browserstack-build-1
+projectName: BrowserStack Sample
+debug: false

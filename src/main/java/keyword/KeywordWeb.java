@@ -159,7 +159,7 @@ public class KeywordWeb {
     @Step("Xóa: {0} và nhập giá trị {1}")
     public void clearTextAndSendKey(By by, String contents){
         logger.info("Clear and send keys" + by + "with " + contents);
-        webDriverWaitForElementPresent(by, 10);
+        webDriverWaitForElementPresent(by, 5);
         String content = PropertiesFile.getPropValue(contents);
         if (content == null) {
             content = contents;

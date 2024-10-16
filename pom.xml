@@ -162,7 +162,7 @@
                         <suiteXmlFile>config/login-test.xml</suiteXmlFile>
                     </suiteXmlFiles>
                     <systemPropertyVariables>
-                        <allure.results.directory>allure-results</allure.results.directory>
+                        <allure.results.directory>target/allure-results</allure.results.directory>
                     </systemPropertyVariables>
                 </configuration>
             </plugin>
