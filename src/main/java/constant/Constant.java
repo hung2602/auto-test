@@ -38,4 +38,6 @@ public class Constant {
     public static final String TITLE_INPUT_OTP = "Nhập mã OTP được gửi tới số ";
     public static final String MESS_ERROR_FORGOT_PASS = "Password không được để trống";
 
+    public static final String MESS_NOTICE_MORE_3_DEVICES = "Tài khoản của bạn đã đăng nhập quá 3 thiết bị. Vui lòng chọn tiếp tục để đăng xuất khỏi thiết bị đã đăng nhập cũ nhất.";
+
 }

@@ -3,7 +3,6 @@ import helpers.PathHelper;
 import helpers.PropertiesFile;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.options.UiAutomator2Options;
-import io.appium.java_client.ios.IOSDriver;
 import keyword.KeywordWeb;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.MutableCapabilities;
@@ -12,6 +11,8 @@ import org.slf4j.Logger;
 import org.testng.ITestResult;
 import org.testng.annotations.*;
 import helpers.LogHelper;
+import org.testng.xml.XmlTest;
+
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -28,10 +29,9 @@ public class BaseTest {
 
     protected KeywordWeb keyword;
     public static AndroidDriver driver;
-    public static IOSDriver iosDriver;
     public static String appName = PathHelper.getFileName("app");
-    private String userName = "ccng_C7EsqA";
-    private  String accessKey =  "iPqpMsa525Z8L6xzhwGs";
+    private String userName = "duy_u6ydwV";
+    private  String accessKey =  "2BffbhMipdqx47LAydRi";
     public BaseTest() {
         keyword = new KeywordWeb();
     }
@@ -49,40 +49,33 @@ public class BaseTest {
         }
 //        insertInformDevices("PLAT_FORM_VERSION","ID_DEVICE");
     }
-    public void setUp(String platFrom, String platformVersion, String name) throws Exception {
+    public void setUp(String platformName, String platformVersion, String name, String cloudPlatform) throws Exception {
         DesiredCapabilities dc = new DesiredCapabilities();
-        dc.setCapability("platformName", platFrom);
-        dc.setCapability("platformVersion", platformVersion);
-        dc.setCapability("deviceName", name);
-        dc.setCapability("automationName", "UiAutomator2");
-        dc.setCapability("noReset", false);
-        dc.setCapability("appWaitForLaunch", false);
-        dc.setCapability("app", projectPath + "app\\" + appName);
-        URL url = new URL("http://127.0.0.1:4723/wd/hub");
-        driver = new AndroidDriver(url, dc);
-    }
-    public void setUpBrowseStack(String platformName, String platformVersion, String name) throws Exception {
-        HashMap<String, Object> browserstackOptions = new HashMap<>();
-        browserstackOptions.put("userName", userName);
-        browserstackOptions.put("accessKey", accessKey);
-        URL remoteUrl = new URL("http://hub.browserstack.com/wd/hub");
-        DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
-        desiredCapabilities.setCapability("appium:deviceName", name);
-        desiredCapabilities.setCapability("appium:os_version", platformVersion);
-        desiredCapabilities.setCapability("platformName", platformName);
-        desiredCapabilities.setCapability("appium:app", "bs://5ec4ce0869051e2bcc8f2ab8b8d0ead1b868b950");
-        desiredCapabilities.setCapability("networkLogs", "true");
-        desiredCapabilities.setCapability("bstack:options", browserstackOptions);
-        driver = new AndroidDriver(remoteUrl, desiredCapabilities);
-//        UiAutomator2Options options = new UiAutomator2Options();
-//        driver = new AndroidDriver(new URL("http://hub-cloud.browserstack.com/wd/hub"), options);
-
+        dc.setCapability("appium:deviceName", name);
+        dc.setCapability("appium:os_version", platformVersion);
+        dc.setCapability("platformName", platformName);
+        String url = "";
+        if (cloudPlatform.equals("browserStack")){
+            HashMap<String, Object> browserstackOptions = new HashMap<>();
+            browserstackOptions.put("userName", userName);
+            browserstackOptions.put("accessKey", accessKey);
+            dc.setCapability("app", "bs://8ee19b5f6eee596f88a01e52651594974b7f08fc");
+            dc.setCapability("bstack:options", browserstackOptions);
+            url = "http://hub.browserstack.com/wd/hub";
+        }
+        else {
+            dc.setCapability("automationName", "UiAutomator2");
+            dc.setCapability("noReset", false);
+            dc.setCapability("appWaitForLaunch", false);
+            dc.setCapability("app", projectPath + "app\\" + appName);
+            url ="http://127.0.0.1:4723/wd/hub";
+        }
+        driver = new AndroidDriver(new URL(url), dc);
     }
     @BeforeTest(alwaysRun = true)
-    @Parameters({"platformName","platformVersion","deviceName"})
-    public void setUpDevice(String platFrom, String platformVersion, String name) throws Exception{
-        setUpBrowseStack(platFrom, platformVersion, name);
-//        setUp(platFrom, platformVersion, name);
+    @Parameters({"platformName","platformVersion","deviceName","cloudPlatform"})
+    public void setUpDevice(String platFrom, String platformVersion, String name, String cloudPlatform) throws Exception{
+        setUp(platFrom, platformVersion, name, cloudPlatform);
     }
     @AfterTest
     public void afterTest() throws Exception {

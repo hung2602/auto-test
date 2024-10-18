@@ -69,9 +69,9 @@ public class LoginTest extends BaseTest {
     @Severity(CRITICAL)
     @Test(priority = 3, dependsOnMethods = "LG_5", description = "Đăng nhập thành công")
     public void LG_7_8(){
-//        loginPage.goBack();
+        loginPage.goBack();
         dataLogin = getTestDataInMap(getIndexRowFromKey(getNameMethod()));
-//        loginPage.inputUserName(dataLogin.get("User name"));
+        loginPage.inputUserName(dataLogin.get("User name"));
         loginPage.inputPassWord(dataLogin.get("Pass word"));
         loginPage.compareMessLoginSuccess();
     }

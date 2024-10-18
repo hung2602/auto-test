@@ -55,6 +55,7 @@ public class LoginPage extends BasePage {
         keyword.click(Locator.LOGIN_BTN);
         inputUserName(phoneNumber);
         inputPassWord(passWord);
+        isMore3Devices();
     }
     @Step("Nhập số điện thoại: {0}")
     public void inputUserName(String name){
@@ -82,6 +83,13 @@ public class LoginPage extends BasePage {
         keyword.sleep(0.3);
         keyword.assertEqual(locator, text);
     }
+    public void isMore3Devices(){
+        if(keyword.verifyElementPresent(Locator.NOTICE_LBL_MORE_3_DEVICE))
+        {
+            keyword.assertEqual(Locator.NOTICE_LBL_MORE_3_DEVICE, MESS_NOTICE_MORE_3_DEVICES);
+            keyword.click(Locator.LOGOUT_BTN_CONFIRM);
+        }
+    }
     @Step("Xem thông tin tài khoản")
     public void viewUserInform(){
         logger.info("viewUserInform ");
@@ -92,7 +100,6 @@ public class LoginPage extends BasePage {
     public void logOut(String flag){
         logger.info("logOut ");
         keyword.click(Locator.LOGOUT_BTN);
-        keyword.sleep(0.2);
         if(flag.equals("Thành công")) {
             keyword.click(Locator.LOGOUT_BTN_CONFIRM);
             keyword.assertEqual(Locator.LOGOUT_TOAST_SUCCESS, MESSAGE_SUCCESS_LOGOUT);

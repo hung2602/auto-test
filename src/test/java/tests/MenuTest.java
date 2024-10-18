@@ -25,7 +25,7 @@ public class MenuTest extends BaseTest {
     @BeforeClass
     public void firstSteps(){
         dataBase.setUpDB("POSTGRES_DB_URL","POSTGRES_DB_USER","POSTGRES_DB_PASSWORD");
-        loginPage.isUserLogout();
+//        loginPage.isUserLogout();
     }
     @Test(description = "Kiểm tra lịch sử mua gói")
     public void MN_4(){

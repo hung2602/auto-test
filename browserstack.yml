@@ -1,5 +1,5 @@
-userName: ccng_C7EsqA
-accessKey: iPqpMsa525Z8L6xzhwGs
+userName: duy_u6ydwV
+accessKey: 2BffbhMipdqx47LAydRi
 framework: testng
 app: bs://5ec4ce0869051e2bcc8f2ab8b8d0ead1b868b950
 platforms:
@@ -11,3 +11,5 @@ browserstackLocal: true
 buildName: browserstack-build-1
 projectName: BrowserStack Sample
 debug: false
+#integrations:
+#  ci: jenkins

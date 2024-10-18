@@ -4,6 +4,7 @@
     <parameter name="platformName" value="android"></parameter>
     <parameter name="platformVersion" value="11"></parameter>
     <parameter name="deviceName" value="Google Pixel 4"></parameter>
+    <parameter name="cloudPlatform" value="browserStack"></parameter>
 <!--    <parameter name="platformName" value="Android"/>-->
 <!--    <parameter name="platformVersion" value="13"/>-->
 <!--    <parameter name="deviceName" value="99181FFAZ002RG"/>-->

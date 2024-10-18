@@ -34,14 +34,14 @@ public class ForgotPasswordTest extends BaseTest {
         loginPage.isUserLogout();
         loginPage.goToLogin();
     }
-    @Test(description = "Kiểm tra nhấn quên pass")
+    @Test(priority = 1, description = "Kiểm tra nhấn quên pass")
     public void FP_1(){
         dataForgot = getTestDataInMap(getIndexRowFromKey(getNameMethod()));
         loginPage.inputUserName(dataForgot.get("User name"));
         forgotPasswordPage.clickForgot();
         forgotPasswordPage.checkOTPScreen(dataForgot.get("User name"));
     }
-    @Test(priority = 1, description = "Kiểm tra nhập OTP đã dùng", dependsOnMethods = "FP_1")
+    @Test(priority = 2, description = "Kiểm tra nhập OTP đã dùng", dependsOnMethods = "FP_1")
     public void FP_2(){
         dataForgot = getTestDataInMap(getIndexRowFromKey(getNameMethod()));
         loginPage.inputOtp(dataForgot.get("OTP"));

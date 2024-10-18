@@ -93,7 +93,7 @@ public class Locator {
     public static final By NOTICE_BTN_LATE = By.id("com.vtvcab.onsports.dev:id/buttonLatter");
     public static final By FORGOT_PASS_BTN = By.id("com.vtvcab.onsports.dev:id/text_forgot_password");
     public static final By CONFIRM_OTP_TITLE = By.id("com.vtvcab.onsports.dev:id/title_phone");
-
+    public static final By NOTICE_LBL_MORE_3_DEVICE = By.id("com.vtvcab.onsports.dev:id/textLogout");
 
 }
 

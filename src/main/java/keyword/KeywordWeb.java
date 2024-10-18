@@ -84,7 +84,7 @@ public class KeywordWeb {
     }
     @Step("So sánh message: {1}")
     public void assertEqual(By by, String text){
-        sleep(0.3);
+        sleep(0.5);
         String content = PropertiesFile.getPropValue(text);
         logger.info("Compare message" + by + " with " + text);
         if (content == null) {
@@ -120,7 +120,7 @@ public class KeywordWeb {
     }
     @Step("Xác thực hiển thị and click: {0}")
     public void verifyPresentAndClick(By by){
-        sleep(0.5);
+        sleep(2);
         logger.info("Verify Present And Click" + by);
         if(verifyElementPresent(by)) {
             click(by);

@@ -53,9 +53,6 @@ public class DataBase extends BaseTest {
         logger.info("Set Up Redis");
     }
 
-
-
-
     @Step("Thực hiện truy vấn dữ liệu : {0}")
     public void queryDb(String query) {
         logger.info("Query DB: " + query );
