@@ -9,6 +9,7 @@ public class Locator {
     public static final By HOME_BTN_HOME = new AppiumBy.ByAccessibilityId("Trang chủ");
     public static final By HOME_BTN_LIVE_SCORE = new AppiumBy.ByAccessibilityId("Livescore");
     public static final By HOME_BTN_FOLLOWING = new AppiumBy.ByAccessibilityId("Yêu thích");
+    public static final By HOME_BTN_SEARCH = By.id("com.vtvcab.onsports.dev:id/imageButtonSearch");
     public static final By LOGOUT_BTN = By.id("com.vtvcab.onsports.dev:id/layout_logout");
     public static final By LOGOUT_BTN_CONFIRM = By.id("com.vtvcab.onsports.dev:id/btnLogout");
     public static final By MENU_BTN_LAYOUT_AVATAR = By.id("com.vtvcab.onsports.dev:id/layout_avatar");
@@ -94,6 +95,12 @@ public class Locator {
     public static final By FORGOT_PASS_BTN = By.id("com.vtvcab.onsports.dev:id/text_forgot_password");
     public static final By CONFIRM_OTP_TITLE = By.id("com.vtvcab.onsports.dev:id/title_phone");
     public static final By NOTICE_LBL_MORE_3_DEVICE = By.id("com.vtvcab.onsports.dev:id/textLogout");
+    public static final By SEARCH_TXT_INPUT = By.id("com.vtvcab.onsports.dev:id/search_src_text");
+    public static final By SEARCH_LBL_NO_RESULT = By.xpath("//android.widget.TextView[@text=\"Không có kết quả tìm kiếm\"]");
+    public static final By SEARCH_LBL_FIND_OTHER_RESULT = By.xpath("//android.widget.TextView[@text=\"Hãy thử tìm kiếm với từ khóa khác.\"]");
+
+    public static final By SEARCH_LBL_TITLE_RESULT = By.id("com.vtvcab.onsports.dev:id/title_text");
+
 
 }
 

@@ -22,6 +22,12 @@ public class LoginPage extends BasePage {
     public LoginPage() {
         dataBase = new DataBase();
     }
+    @Step("Hiển thị text ẩn {0}")
+    public void checkHiddenText(By locator, String text){
+        keyword.clearText(locator);
+        keyword.sleep(0.3);
+        keyword.assertEqual(locator, text);
+    }
     @Step("Tài khoản đã logout")
     public void isUserLogout() {
         keyword.click(Locator.HOME_BTN_MENU);
@@ -76,12 +82,6 @@ public class LoginPage extends BasePage {
     public void compareMessLoginIncorrectPass(String phone){
         keyword.assertEqual(Locator.LOGIN_TOAST_INCORRECT_PASSWORD, MESSAGE_FAIL_LOGIN + phone);
         keyword.webDriverWaitInvisibleElement(Locator.LOGIN_TOAST_INCORRECT_PASSWORD,10);
-    }
-    @Step("Hiển thị text ẩn {0}")
-    public void checkHiddenText(By locator, String text){
-        keyword.clearText(locator);
-        keyword.sleep(0.3);
-        keyword.assertEqual(locator, text);
     }
     public void isMore3Devices(){
         if(keyword.verifyElementPresent(Locator.NOTICE_LBL_MORE_3_DEVICE))

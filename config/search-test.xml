@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<suite name="OnPlus Android">
+    <parameter name="cloudPlatform" value="browserStack"></parameter>
+    <parameter name="platformName" value="Android"/>
+    <parameter name="platformVersion" value="13"/>
+    <parameter name="deviceName" value="Google Pixel 7 Pro"/>
+    <listeners>
+        <listener class-name="helpers.MyListener"/>
+    </listeners>
+    <test name="Profile Test">
+        <classes>
+            <class name="tests.Home.SearchTest">
+                <methods>
+                    <include name="SA_1_2"/>
+                    <include name="SA_3"/>
+                    <include name="SA_4"/>
+                    <include name="SA_5"/>
+                    <include name="SA_6"/>
+                    <include name="SA_7"/>
+                    <include name="SA_8"/>
+                    <include name="SA_9"/>
+                    <include name="SA_10"/>
+
+<!--                    <include name="SA_11"/>-->
+<!--                    <include name="SA_12"/>-->
+<!--                    <include name="SA_13"/>-->
+<!--                    <include name="SA_14"/>-->
+<!--                    <include name="SA_15"/>-->
+<!--                    <include name="SA_16"/>-->
+<!--                    <include name="SA_17"/>-->
+
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

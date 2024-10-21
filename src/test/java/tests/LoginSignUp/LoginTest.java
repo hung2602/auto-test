@@ -4,7 +4,7 @@ import helpers.DataBase;
 import io.qameta.allure.Severity;
 import locator.Locator;
 import org.testng.annotations.*;
-import pages.HomePage;
+import pages.Home.HomePage;
 import pages.LoginSignUp.LoginPage;
 import pages.LoginSignUp.SignUpPage;
 

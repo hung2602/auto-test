@@ -106,6 +106,11 @@ public class KeywordWeb {
             Assert.assertEquals(arrDb[i], arrExp[i]);
         }
     }
+    @Step("Assert true {0} và {1}")
+    public void containsTrue(String actual, String expect){
+        logger.info("Compare true: " + actual + " with " + expect);
+        Assert.assertTrue(actual.contains(expect));
+    }
     @Step("Chờ element hiển thị: {0}")
     public void webDriverWaitForElementPresent(By by, long timeout){
         logger.info("Wait For Element Present" + by);
@@ -137,10 +142,10 @@ public class KeywordWeb {
             return false;
         }
     }
-    @Step("Lấy danh sách elementị: {0}")
+    @Step("Lấy danh sách element: {0}")
     public List<WebElement> getListElement(By by) {
         logger.info("get list element: " + by);
-        webDriverWaitForElementPresent(by, 20);
+        webDriverWaitForElementPresent(by, 10);
         List<WebElement> weblist = driver.findElements(by);
         return weblist;
     }

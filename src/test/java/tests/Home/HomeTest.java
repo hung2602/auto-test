@@ -1,4 +1,4 @@
-package tests;
+package tests.Home;
 
 import core.BaseTest;
 import helpers.DataBase;
