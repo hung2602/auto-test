@@ -11,7 +11,6 @@ import pages.LoginSignUp.SignUpPage;
 import java.util.HashMap;
 import static constant.Constant.*;
 import static helpers.PathHelper.getNameMethod;
-import static io.qameta.allure.SeverityLevel.CRITICAL;
 import static utilities.ReadExcel.*;
 import static utilities.ReadExcel.getTestDataInMap;
 
@@ -28,18 +27,19 @@ public class SearchTest extends BaseTest {
     }
     @BeforeClass
     public void firstSteps(){
-        ExcelOperations("Search");
-        loginPage.isUserLogout();
+        dataBase.setUpDB("POSTGRES_ON_TV_URL","POSTGRES_ON_TV_USER","POSTGRES_ON_TV_PASS");
+//        ExcelOperations("Search");
+//        loginPage.isUserLogout();
     }
-    @Test(description = "Kiểm tra tìm kiếm nhưng không nhập dữ liệu")
+    @Test(description = "Kiểm tra tìm kiếm nhưng không nhập dữ liệu, nội dung đã xóa")
     public void SA_1_2(){
         searchPage.search();
         loginPage.checkHiddenText(Locator.HOME_BTN_SEARCH, TEXT_INPUT_SEARCH);
-        dataSearch = getTestDataInMap(getIndexRowFromKey(getNameMethod()));
+        HashMap<String, String> dbData = dataBase.queryAndGetDb("POSTGRES_DB_QUERY_TV", "false");
         searchPage.inputSearch(dataSearch.get("Key"));
         searchPage.noResultFound();
     }
-    @Test(priority = 1, dependsOnMethods = "SA_1_2",description = "Kiểm tra tìm kiếm theo tag")
+    @Test(dependsOnMethods = "SA_1_2",description = "Kiểm tra tìm kiếm theo tag")
     public void SA_3(){
         dataSearch = getTestDataInMap(getIndexRowFromKey(getNameMethod()));
         searchPage.inputSearch(dataSearch.get("Key"));
@@ -103,24 +103,51 @@ public class SearchTest extends BaseTest {
     public void SA_16(){
         dataSearch = getTestDataInMap(getIndexRowFromKey(getNameMethod()));
     }
-    @Test(description = "Kiểm tra click vào video tìm kiếm có drm đã login")
+    @Test(description = "Kiểm tra login thành công khi click vào live tìm kiếm có drm chưa login")
     public void SA_17(){
         dataSearch = getTestDataInMap(getIndexRowFromKey(getNameMethod()));
+        searchPage.confirmLoginToUseFeature("yes");
+        loginPage.inputUserName("PHONE_NUMBER");
+        loginPage.inputPassWord("PASS_WORD");
     }
     @Test(description = "Kiểm tra click vào video tìm kiếm không drm đã login")
     public void SA_18(){
         dataSearch = getTestDataInMap(getIndexRowFromKey(getNameMethod()));
     }
-    @Test(description = "Kiểm tra click vào live tìm kiếm có drm đã login")
+    @Test(description = "Kiểm tra click vào video tìm kiếm có drm đã login")
     public void SA_19(){
         dataSearch = getTestDataInMap(getIndexRowFromKey(getNameMethod()));
     }
-    @Test(description = "Kiểm tra click vào live tìm kiếm khng drm đã login")
+    @Test(description = "Kiểm tra click vào live tìm kiếm không drm đã login")
     public void SA_20(){
         dataSearch = getTestDataInMap(getIndexRowFromKey(getNameMethod()));
     }
-    @Test(description = "Kiểm tra click vào live tìm kiếm khng drm đã login")
-    public void SA_22(){
+    @Test(description = "Kiểm tra click vào live tìm kiếm có drm đã login")
+    public void SA_21(){
+        dataSearch = getTestDataInMap(getIndexRowFromKey(getNameMethod()));
+    }
+    @Test(description = "Kiểm tra tìm kiếm thành công rồi back lại")
+    public void SA_23(){
+        dataSearch = getTestDataInMap(getIndexRowFromKey(getNameMethod()));
+    }
+    @Test(description = "Kiểm tra xem video từ tìm kiếm rồi back lại")
+    public void SA_24(){
+        dataSearch = getTestDataInMap(getIndexRowFromKey(getNameMethod()));
+    }
+    @Test(description = "Kiểm tra tìm kiếm với ký tự đb")
+    public void SA_25(){
+        dataSearch = getTestDataInMap(getIndexRowFromKey(getNameMethod()));
+    }
+    @Test(description = "Kiểm tra tìm kiếm với ký tự số")
+    public void SA_26(){
+        dataSearch = getTestDataInMap(getIndexRowFromKey(getNameMethod()));
+    }
+    @Test(description = "Kiểm tra tìm kiếm với khoảng trắng")
+    public void SA_27(){
+        dataSearch = getTestDataInMap(getIndexRowFromKey(getNameMethod()));
+    }
+    @Test(description = "Kiểm tra tìm kiếm với ký tự đb, số, khoảng trắng")
+    public void SA_28(){
         dataSearch = getTestDataInMap(getIndexRowFromKey(getNameMethod()));
     }
 }

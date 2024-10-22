@@ -42,9 +42,9 @@ public class MenuTest extends BaseTest {
     @Test(description = "Kiểm tra màn hình quản lý thiết bị")
     public void MN_7(){
         loginPage.goBack();
-        HashMap<String, String> dbData = signUpPage.queryAndGetDb("PostGre", PropertiesFile.getPropValue("PHONE_NUMBER"));
-        dataBase.setUpMonGoDb("MONGO_DB_URL","MONGO_DB_USER","MONGO_DB_PASSWORD");
-        dbData = signUpPage.queryAndGetDb("Mongo", dbData.get("id"));
+        HashMap<String, String> dbData = dataBase.queryAndGetDb("POSTGRES_DB_QUERY_USER", "PHONE_NUMBER");
+        dataBase.setUpDB("MONGO_DB_URL","MONGO_DB_USER","MONGO_DB_PASSWORD");
+        dbData = dataBase.queryAndGetDb("MONGO_DB_QUERY_DEVICE", dbData.get("id"));
         menuPage.goToDeviceManage();
         keyword.assertEqualData(dbData.get("device_name"), menuPage.getDeviceInform());
     }

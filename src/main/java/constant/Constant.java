@@ -41,4 +41,5 @@ public class Constant {
     public static final String TEXT_INPUT_SEARCH = "Nhập nội dung cần tìm kiếm";
     public static final String MESS_NO_RESULT_FOUND = "Không có kết quả tìm kiếm";
     public static final String MESS_FIND_OTHER_RESULT = "Hãy thử tìm kiếm với từ khóa khác.";
+    public static final String MESS_SIGNING_INTO_DEVICES = "Đang đăng nhập thiết bị";
 }

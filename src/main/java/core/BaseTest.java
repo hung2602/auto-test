@@ -2,23 +2,17 @@ package core;
 import helpers.PathHelper;
 import helpers.PropertiesFile;
 import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.android.options.UiAutomator2Options;
 import keyword.KeywordWeb;
 import org.apache.commons.io.FileUtils;
-import org.openqa.selenium.MutableCapabilities;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.slf4j.Logger;
 import org.testng.ITestResult;
 import org.testng.annotations.*;
 import helpers.LogHelper;
-import org.testng.xml.XmlTest;
-
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
-import java.time.Duration;
 import java.util.HashMap;
-
 import static helpers.MyListener.saveScreenshotPNG;
 import static helpers.DataBase.con;
 import static helpers.PathHelper.*;
@@ -65,7 +59,7 @@ public class BaseTest {
         }
         else {
             dc.setCapability("automationName", "UiAutomator2");
-            dc.setCapability("noReset", false);
+            dc.setCapability("noReset", true);
             dc.setCapability("appWaitForLaunch", false);
             dc.setCapability("app", projectPath + "app\\" + appName);
             url ="http://127.0.0.1:4723/wd/hub";
@@ -82,7 +76,7 @@ public class BaseTest {
         if(con != null){
             con.close();
         }
-        driver.quit();
+//        driver.quit();
     }
     @AfterMethod
     public void tearDown(ITestResult testResult) {

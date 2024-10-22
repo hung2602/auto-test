@@ -36,6 +36,7 @@ public class MenuPage extends BasePage {
     @Step("Vào quản lý thiết bị")
     public void goToDeviceManage() {
         keyword.click(Locator.MENU_BTN_QUAN_LY);
+        keyword.assertEqual(Locator.MENU_LBL_SIGNING, MESS_SIGNING_INTO_DEVICES);
     }
     @Step("Lấy thông tin thiết bị")
     public String getDeviceInform() {

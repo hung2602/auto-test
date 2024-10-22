@@ -19,7 +19,6 @@ public class ReadExcel {
     public static int getRowCount() {
         return sh.getLastRowNum();
     }
-    //ger column count
     public static int getColCount() {
         return sh.getRow(0).getLastCellNum();
     }

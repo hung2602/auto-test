@@ -98,8 +98,11 @@ public class Locator {
     public static final By SEARCH_TXT_INPUT = By.id("com.vtvcab.onsports.dev:id/search_src_text");
     public static final By SEARCH_LBL_NO_RESULT = By.xpath("//android.widget.TextView[@text=\"Không có kết quả tìm kiếm\"]");
     public static final By SEARCH_LBL_FIND_OTHER_RESULT = By.xpath("//android.widget.TextView[@text=\"Hãy thử tìm kiếm với từ khóa khác.\"]");
-
     public static final By SEARCH_LBL_TITLE_RESULT = By.id("com.vtvcab.onsports.dev:id/title_text");
+    public static final By VIEW_VIDEO_BTN_CLOSE = By.id("com.vtvcab.onsports.dev:id/close_imageView");
+    public static final By VIEW_VIDEO_BTN_PLAY = By.id("com.vtvcab.onsports.dev:id/play_imageView");
+    public static final By MENU_LBL_SIGNING = By.id("com.vtvcab.onsports.dev:id/info");
+
 
 
 }

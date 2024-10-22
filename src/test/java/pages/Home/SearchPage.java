@@ -32,6 +32,13 @@ public class SearchPage extends BasePage {
         keyword.sleep(0.3);
         keyword.clearTextAndSendKey(Locator.SEARCH_TXT_INPUT, content);
     }
+    @Step("Chọn nội dung")
+    public void selectSearch(){
+        logger.info("Chọn nội dung");
+        keyword.sleep(1);
+        keyword.click(Locator.SEARCH_LBL_TITLE_RESULT);
+    }
+
     @Step("Không hiển thị kết quả")
     public void noResultFound(){
         keyword.verifyElementPresent(Locator.SEARCH_LBL_NO_RESULT);
@@ -42,7 +49,7 @@ public class SearchPage extends BasePage {
     @Step("Kiểm tra kết quả hiển thị: {0}")
     public void checkResult(String content){
         logger.info("Kiểm tra kết quả hiển thị");
-        keyword.sleep(0.5);
+        keyword.sleep(1);
         Boolean check = false;
         List<WebElement> weblist = keyword.getListElement(Locator.SEARCH_LBL_TITLE_RESULT);
         for (int i = 0; i < weblist.size(); i++) {
@@ -52,6 +59,23 @@ public class SearchPage extends BasePage {
             }
         }
         Assert.assertTrue(check);
+    }
+    @Step("Đăng nhập để sử dụng tính năng : {0}")
+    public void confirmLoginToUseFeature(String flag){
+        keyword.assertEqual(Locator.MENU_LBL_LOGIN_NOTICE, MESSAGE_LOGIN_NOTICE);
+        if (flag.equals("yes")){
+            keyword.click(Locator.LOGIN_BTN_ACCEPT);
+        }
+        else {
+            keyword.click(Locator.LOGOUT_BTN_CANCEL);
+        }
+    }
+    @Step("Đăng nhập để sử dụng tính năng : {0}")
+    public void scrollHiddenVideo(){
+        keyword.sleep(1);
+        keyword.webDriverWaitInvisibleElement(Locator.LOGIN_TOAST_SUCCESS,10);
+        keyword.scrollDownTo(100, 500);
+        keyword.click(Locator.VIEW_VIDEO_BTN_CLOSE);
     }
 
 

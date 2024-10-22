@@ -5,6 +5,7 @@ import io.qameta.allure.Step;
 import org.slf4j.Logger;
 import java.sql.*;
 import java.util.HashMap;
+import java.util.Set;
 
 public class DataBase extends BaseTest {
     private static Logger logger = LogHelper.getLogger();
@@ -18,26 +19,16 @@ public class DataBase extends BaseTest {
         this.res = res;
         this.stmt = stmt;
     }
-    @Step("Set up kết nốt Data PostGresSQL: {0}")
+    @Step("Kết nốt data base : {0}")
     public void setUpDB(String url, String user, String passWord) {
         logger.info("Set Up DB " + url );
         try {
-            Class.forName("org.postgresql.Driver");
-            String dbUrl = PropertiesFile.getPropValue(url);
-            String dbUser = PropertiesFile.getPropValue(user);
-            String dbPass = PropertiesFile.getPropValue(passWord);
-            con = DriverManager.getConnection(dbUrl, dbUser, dbPass);
-            stmt = con.createStatement();
-        }
-        catch (ClassNotFoundException | SQLException e) {
-            throw new RuntimeException(e);
-        }
-    }
-    @Step("Set up kết nốt Data MonGoDb")
-    public void setUpMonGoDb(String url, String user, String passWord){
-        logger.info("Set Up MonGo DB");
-        try {
-            Class.forName("cdata.jdbc.mongodb.MongoDBDriver");
+            if (url.contains("postgresql")) {
+                Class.forName("org.postgresql.Driver");
+            }
+            else {
+                Class.forName("cdata.jdbc.mongodb.MongoDBDriver");
+            }
             String dbUrl = PropertiesFile.getPropValue(url);
             String dbUser = PropertiesFile.getPropValue(user);
             String dbPass = PropertiesFile.getPropValue(passWord);
@@ -70,9 +61,12 @@ public class DataBase extends BaseTest {
     @Step("Lấy dữ liệu từ các cột db")
     public static HashMap<String, String> getResultDataBase() {
         logger.info("Get result DB: ");
+        int k = 0;
         try {
             ResultSetMetaData md = res.getMetaData();
+            System.out.println("Số cột " + md.getColumnCount());
             while (res.next()) {
+                System.out.println("Hàng" + k++);
                 for (int i = 1; i <= md.getColumnCount(); i++) {
                     dataMap.put(md.getColumnName(i), res.getString(i));
                 }
@@ -92,5 +86,22 @@ public class DataBase extends BaseTest {
         for (int i = 0; i < expect.length; i++) {
             keyword.assertEqualData(dataMap.get(actual[i]), expect[i]);
         }
+    }
+    public HashMap<String, String> queryAndGetDb(String defaultQuery, String key){
+        String content= PropertiesFile.getPropValue(key);
+        if (content == null) {
+            content = key;
+        }
+        String query = PropertiesFile.getPropValue(defaultQuery);
+        if (query == null) {
+            query = defaultQuery;
+        }
+        queryDb(query.replace("key", content));
+        HashMap<String, String> dbData = getResultDataBase();
+        Set<String> set = dbData.keySet();
+        for (String c : set) {
+            System.out.println(c + " " + dbData.get(c));
+        }
+        return dbData;
     }
 }
