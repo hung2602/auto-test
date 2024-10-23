@@ -23,7 +23,7 @@ public class DataBase extends BaseTest {
     public void setUpDB(String url, String user, String passWord) {
         logger.info("Set Up DB " + url );
         try {
-            if (url.contains("postgresql")) {
+            if (PropertiesFile.getPropValue(url).contains("postgresql")) {
                 Class.forName("org.postgresql.Driver");
             }
             else {

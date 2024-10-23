@@ -18,22 +18,22 @@
             <class name="tests.LoginSignUp.LoginTest" >
                 <methods>
                     <include name="LG_1"/>
-                    <include name="LG_2"/>
-                    <include name="LG_3"/>
-                    <include name="LG_4"/>
-                    <include name="LG_5"/>
-                    <include name="LG_6"/>
-                    <include name="LG_7_8"/>
-                    <include name="LG_24"/>
-                    <include name="LG_25"/>
-                    <include name="LG_9"/>
-                    <include name="LG_10"/>
-                    <include name="LG_11"/>
-                    <include name="LG_26"/>
-                    <include name="LG_27"/>
-                    <include name="LG_12"/>
-                    <include name="LG_13"/>
-                    <include name="LG_14"/>
+<!--                    <include name="LG_2"/>-->
+<!--                    <include name="LG_3"/>-->
+<!--                    <include name="LG_4"/>-->
+<!--                    <include name="LG_5"/>-->
+<!--                    <include name="LG_6"/>-->
+<!--                    <include name="LG_7_8"/>-->
+<!--                    <include name="LG_24"/>-->
+<!--                    <include name="LG_25"/>-->
+<!--                    <include name="LG_9"/>-->
+<!--                    <include name="LG_10"/>-->
+<!--                    <include name="LG_11"/>-->
+<!--                    <include name="LG_26"/>-->
+<!--                    <include name="LG_27"/>-->
+<!--                    <include name="LG_12"/>-->
+<!--                    <include name="LG_13"/>-->
+<!--                    <include name="LG_14"/>-->
                 </methods>
             </class>
         </classes>

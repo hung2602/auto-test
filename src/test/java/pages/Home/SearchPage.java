@@ -79,6 +79,10 @@ public class SearchPage extends BasePage {
     }
 
 
-
+    /*
+     Comment nhiều dòng
+     Dòng 1
+     */
+     // Comment 1 dòng
 
 }

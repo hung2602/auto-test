@@ -2,17 +2,23 @@ package core;
 import helpers.PathHelper;
 import helpers.PropertiesFile;
 import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.android.options.UiAutomator2Options;
 import keyword.KeywordWeb;
 import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.MutableCapabilities;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.slf4j.Logger;
 import org.testng.ITestResult;
 import org.testng.annotations.*;
 import helpers.LogHelper;
+import utilities.readYaml;
+
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.HashMap;
+import java.util.Map;
+
 import static helpers.MyListener.saveScreenshotPNG;
 import static helpers.DataBase.con;
 import static helpers.PathHelper.*;
@@ -50,10 +56,11 @@ public class BaseTest {
         dc.setCapability("platformName", platformName);
         String url = "";
         if (cloudPlatform.equals("browserStack")){
+            Map<String, Object> config = readYaml.loadConfig(projectPath + "browserstack.yml");
             HashMap<String, Object> browserstackOptions = new HashMap<>();
-            browserstackOptions.put("userName", userName);
-            browserstackOptions.put("accessKey", accessKey);
-            dc.setCapability("app", "bs://8ee19b5f6eee596f88a01e52651594974b7f08fc");
+            browserstackOptions.put("userName", config.get("userName"));
+            browserstackOptions.put("accessKey", config.get("accessKey"));
+            dc.setCapability("app", config.get("app"));
             dc.setCapability("bstack:options", browserstackOptions);
             url = "http://hub.browserstack.com/wd/hub";
         }
@@ -76,7 +83,7 @@ public class BaseTest {
         if(con != null){
             con.close();
         }
-//        driver.quit();
+        driver.quit();
     }
     @AfterMethod
     public void tearDown(ITestResult testResult) {
