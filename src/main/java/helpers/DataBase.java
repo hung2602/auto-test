@@ -33,7 +33,7 @@ public class DataBase extends BaseTest {
             String dbUser = PropertiesFile.getPropValue(user);
             String dbPass = PropertiesFile.getPropValue(passWord);
             con = DriverManager.getConnection(dbUrl, dbUser, dbPass);
-            stmt = con.createStatement();
+            stmt = con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
         }
         catch (ClassNotFoundException | SQLException e) {
             throw new RuntimeException(e);
@@ -65,6 +65,8 @@ public class DataBase extends BaseTest {
         try {
             ResultSetMetaData md = res.getMetaData();
             System.out.println("Số cột " + md.getColumnCount());
+            res.last();
+            System.out.println("Số hàng " + res.getRow());
             while (res.next()) {
                 System.out.println("Hàng" + k++);
                 for (int i = 1; i <= md.getColumnCount(); i++) {
@@ -97,11 +99,6 @@ public class DataBase extends BaseTest {
             query = defaultQuery;
         }
         queryDb(query.replace("key", content));
-        HashMap<String, String> dbData = getResultDataBase();
-        Set<String> set = dbData.keySet();
-        for (String c : set) {
-            System.out.println(c + " " + dbData.get(c));
-        }
-        return dbData;
+        return getResultDataBase();
     }
 }

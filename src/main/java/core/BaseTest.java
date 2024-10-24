@@ -2,16 +2,14 @@ package core;
 import helpers.PathHelper;
 import helpers.PropertiesFile;
 import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.android.options.UiAutomator2Options;
 import keyword.KeywordWeb;
 import org.apache.commons.io.FileUtils;
-import org.openqa.selenium.MutableCapabilities;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.slf4j.Logger;
 import org.testng.ITestResult;
 import org.testng.annotations.*;
 import helpers.LogHelper;
-import utilities.readYaml;
+import helpers.readYaml;
 
 import java.io.File;
 import java.io.IOException;
@@ -22,7 +20,7 @@ import java.util.Map;
 import static helpers.MyListener.saveScreenshotPNG;
 import static helpers.DataBase.con;
 import static helpers.PathHelper.*;
-import static utilities.XmlParse.*;
+import static helpers.logCat.getLog;
 
 public class BaseTest {
     private static Logger logger = LogHelper.getLogger();
@@ -30,8 +28,7 @@ public class BaseTest {
     protected KeywordWeb keyword;
     public static AndroidDriver driver;
     public static String appName = PathHelper.getFileName("app");
-    private String userName = "duy_u6ydwV";
-    private  String accessKey =  "2BffbhMipdqx47LAydRi";
+
     public BaseTest() {
         keyword = new KeywordWeb();
     }
@@ -83,6 +80,7 @@ public class BaseTest {
         if(con != null){
             con.close();
         }
+        getLog();
         driver.quit();
     }
     @AfterMethod
