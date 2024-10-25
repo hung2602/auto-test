@@ -60,18 +60,18 @@ public class DataBase extends BaseTest {
     }
     @Step("Lấy dữ liệu từ các cột db")
     public static HashMap<String, String> getResultDataBase() {
-        logger.info("Get result DB: ");
+        logger.info("Get result DB:");
         int k = 0;
         try {
             ResultSetMetaData md = res.getMetaData();
-            System.out.println("Số cột " + md.getColumnCount());
             res.last();
-            System.out.println("Số hàng " + res.getRow());
+            int row = res.getRow();
+            res.first();
             while (res.next()) {
-                System.out.println("Hàng" + k++);
                 for (int i = 1; i <= md.getColumnCount(); i++) {
                     dataMap.put(md.getColumnName(i), res.getString(i));
                 }
+                if(row > 1){break;}
             }
         }
         catch(SQLException e)

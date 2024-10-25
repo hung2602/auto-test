@@ -262,7 +262,7 @@ public class LoginPage extends BasePage {
         if(getKey == null){
             getKey = key;
         }
-        String query = PropertiesFile.getPropValue("POSTGRES_DB_QUERY_USER").replace("key", getKey);
+        String query = PropertiesFile.getPropValue("SPORTS_ID_QUERY_USER").replace("key", getKey);
         dataBase.queryDb(query);
         String birthDay = ""; String gender = "";
         dataBase.getResultDataBase();

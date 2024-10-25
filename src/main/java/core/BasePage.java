@@ -2,6 +2,7 @@ package core;
 
 import keyword.KeywordWeb;
 import java.text.Normalizer;
+import java.util.Arrays;
 import java.util.Locale;
 import java.util.regex.Pattern;
 

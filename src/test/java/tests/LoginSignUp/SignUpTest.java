@@ -53,7 +53,7 @@ public class SignUpTest extends BaseTest {
     public void SU_4(){
         loginPage.deleteOtp();
         dataSignUp = getTestDataInMap(getIndexRowFromKey("SU_1_2"));
-        HashMap<String, String> dbData = dataBase.queryAndGetDb("POSTGRES_DB_QUERY_USER", dataSignUp.get("User name"));
+        HashMap<String, String> dbData = dataBase.queryAndGetDb("SPORTS_ID_QUERY_USER", dataSignUp.get("User name"));
         loginPage.inputOtp(dbData.get("otp_code"));
         loginPage.continueOtp("hợp lệ");
         signUpPage.inFormSetPassWord();
@@ -72,7 +72,7 @@ public class SignUpTest extends BaseTest {
     public void SU_6(){
         loginPage.waitTimeOtp();
         loginPage.deleteOtp();
-        HashMap<String, String> dbData = dataBase.queryAndGetDb("POSTGRES_DB_QUERY_USER", dataSignUp.get("User name"));
+        HashMap<String, String> dbData = dataBase.queryAndGetDb("SPORTS_ID_QUERY_USER", dataSignUp.get("User name"));
         loginPage.inputOtp(dbData.get("otp_code"));
         loginPage.continueOtp("không tồn tại");
         setCell(dbData.get("otp_code"), getIndexRowFromKey(getNameMethod()) ,getIndexCellFromKey("OTP"));
@@ -90,7 +90,7 @@ public class SignUpTest extends BaseTest {
     @Severity(CRITICAL)
     @Test(priority = 6, description = "Kiểm tra nhập mã OTP hợp lệ", dependsOnMethods = "SU_1_2")
     public void SU_9(){
-        HashMap<String, String> dbData = dataBase.queryAndGetDb("POSTGRES_DB_QUERY_USER", dataSignUp.get("User name"));
+        HashMap<String, String> dbData = dataBase.queryAndGetDb("SPORTS_ID_QUERY_USER", dataSignUp.get("User name"));
         loginPage.deleteOtp();
         loginPage.inputOtp(dbData.get("otp_code"));
         loginPage.continueOtp("hợp lệ");
