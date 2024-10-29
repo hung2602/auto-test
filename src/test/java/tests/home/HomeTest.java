@@ -1,11 +1,11 @@
-package tests.Home;
+package tests.home;
 
 import core.BaseTest;
 import helpers.DataBase;
 import org.testng.annotations.BeforeClass;
 import pages.ForgotPasswordPage;
-import pages.LoginSignUp.LoginPage;
-import pages.LoginSignUp.SignUpPage;
+import pages.loginsignup.LoginPage;
+import pages.loginsignup.SignUpPage;
 
 import java.util.HashMap;
 

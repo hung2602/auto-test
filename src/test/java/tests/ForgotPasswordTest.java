@@ -6,9 +6,9 @@ import locator.Locator;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import pages.ForgotPasswordPage;
-import pages.LoginSignUp.LoginPage;
-import pages.LoginSignUp.SignUpPage;
-import pages.ProfilePage;
+import pages.loginsignup.LoginPage;
+import pages.loginsignup.SignUpPage;
+
 import java.util.HashMap;
 import static constant.Constant.*;
 import static helpers.PathHelper.getNameMethod;

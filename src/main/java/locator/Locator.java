@@ -101,11 +101,24 @@ public class Locator {
     public static final By SEARCH_LBL_TITLE_RESULT = By.id("com.vtvcab.onsports.dev:id/title_text");
     public static final By SEARCH_BTN_TAG = By.id("com.vtvcab.onsports.dev:id/textview");
     public static final By SEARCH_BTN_BACK = By.id("com.vtvcab.onsports.dev:id/imageButtonBack");
-
     public static final By SEARCH_BTN_TAG_ALL = By.xpath("//android.widget.TextView[@resource-id=\"com.vtvcab.onsports.dev:id/textview\" and @text=\"Tất cả\"]");
     public static final By VIEW_VIDEO_BTN_CLOSE = By.id("com.vtvcab.onsports.dev:id/close_imageView");
     public static final By VIEW_VIDEO_BTN_PLAY = By.id("com.vtvcab.onsports.dev:id/play_imageView");
     public static final By MENU_LBL_SIGNING = By.id("com.vtvcab.onsports.dev:id/info");
+    public static final By PLAYER_VIEW_BTN_PLAY = By.id("com.vtvcab.onsports.dev:id/onsport_play");
+    public static final By PLAYER_VIEW_BTN_REWIND = By.id("com.vtvcab.onsports.dev:id/ivRewind");
+    public static final By PLAYER_VIEW_BTN_FORWARD = By.id("com.vtvcab.onsports.dev:id/ivForward");
+    public static final By PLAYER_VIEW_LBL_TIME_LINE = By.id("com.vtvcab.onsports.dev:id/onsport_position");
+    public static final By PLAYER_VIEW_LBL_TIME_DURATION = By.id("com.vtvcab.onsports.dev:id/onsport_duration");
+    public static final By PLAYER_VIEW_BTN_FULL_SCREEN = By.id("com.vtvcab.onsports.dev:id/btnFullScreen");
+
+
+
+
+
+
+
+
 
 
 

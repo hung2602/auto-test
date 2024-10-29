@@ -2,11 +2,10 @@ package tests;
 
 import core.BaseTest;
 import helpers.DataBase;
-import helpers.PropertiesFile;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-import pages.LoginSignUp.LoginPage;
-import pages.LoginSignUp.SignUpPage;
+import pages.loginsignup.LoginPage;
+import pages.loginsignup.SignUpPage;
 import pages.MenuPage;
 
 import java.util.HashMap;

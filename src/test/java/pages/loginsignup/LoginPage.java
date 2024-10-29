@@ -1,4 +1,4 @@
-package pages.LoginSignUp;
+package pages.loginsignup;
 import core.BasePage;
 import helpers.DataBase;
 import helpers.LogHelper;
@@ -9,9 +9,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.slf4j.Logger;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
 import static constant.Constant.*;

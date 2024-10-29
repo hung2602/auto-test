@@ -1,20 +1,20 @@
-package tests.Home;
+package tests.home;
 import core.BaseTest;
 import helpers.DataBase;
 import io.qameta.allure.Severity;
 import locator.Locator;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-import pages.Home.SearchPage;
-import pages.LoginSignUp.LoginPage;
-import pages.LoginSignUp.SignUpPage;
+import pages.home.SearchPage;
+import pages.loginsignup.LoginPage;
+
 import java.util.HashMap;
 import static constant.Constant.*;
 import static helpers.PathHelper.getNameMethod;
 import static io.qameta.allure.SeverityLevel.CRITICAL;
 import static utilities.ReadExcel.*;
 import static utilities.ReadExcel.getTestDataInMap;
-import static utilities.removeAccent.removeAccent;
+import static utilities.RemoveAccent.removeAccent;
 
 public class SearchTest extends BaseTest {
     public DataBase dataBase ;

@@ -5,7 +5,7 @@ import java.io.InputStream;
 import java.util.Map;
 import java.util.Set;
 
-public class readYaml {
+public class ReadYaml {
     @SuppressWarnings("unchecked")
     public static Map<String, Object> loadConfig(String path){
         Yaml yaml = new Yaml();

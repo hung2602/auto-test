@@ -1,16 +1,12 @@
-package pages.LoginSignUp;
+package pages.loginsignup;
 import core.BasePage;
 import helpers.DataBase;
 import helpers.LogHelper;
-import helpers.PropertiesFile;
 import io.qameta.allure.Step;
 import locator.Locator;
 import org.slf4j.Logger;
 
-import java.util.HashMap;
 import java.util.Random;
-import java.util.Set;
-import java.util.concurrent.ThreadLocalRandom;
 
 import static constant.Constant.*;
 

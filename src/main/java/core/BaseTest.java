@@ -9,16 +9,17 @@ import org.slf4j.Logger;
 import org.testng.ITestResult;
 import org.testng.annotations.*;
 import helpers.LogHelper;
-import helpers.readYaml;
+import helpers.ReadYaml;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
-import static helpers.MyListener.saveScreenshotPNG;
+import static helpers.MyListener.*;
 import static helpers.DataBase.con;
+import static helpers.MyListener.logDevices;
 import static helpers.PathHelper.*;
-import static helpers.logCat.getLog;
+import static utilities.XmlParse.insertInformDevices;
 
 public class BaseTest {
     private static Logger logger = LogHelper.getLogger();
@@ -26,6 +27,9 @@ public class BaseTest {
     protected KeywordWeb keyword;
     public static AndroidDriver driver;
     public static String appName = PathHelper.getFileName("app");
+    private final String app = "bs://8ee19b5f6eee596f88a01e52651594974b7f08fc";
+    private final String userName = "duy_u6ydwV";
+    private final String accessKey = "2BffbhMipdqx47LAydRi";
 
     public BaseTest() {
         keyword = new KeywordWeb();
@@ -51,11 +55,10 @@ public class BaseTest {
         dc.setCapability("platformName", platformName);
         String url = "";
         if (cloudPlatform.equals("browserStack")){
-            Map<String, Object> config = readYaml.loadConfig(projectPath + "browserstack.yml");
             HashMap<String, Object> browserstackOptions = new HashMap<>();
-            browserstackOptions.put("userName", config.get("userName"));
-            browserstackOptions.put("accessKey", config.get("accessKey"));
-            dc.setCapability("app", config.get("app"));
+            browserstackOptions.put("userName", userName);
+            browserstackOptions.put("accessKey", accessKey);
+            dc.setCapability("app", app);
             dc.setCapability("bstack:options", browserstackOptions);
             url = "http://hub.browserstack.com/wd/hub";
         }
@@ -85,6 +88,7 @@ public class BaseTest {
     public void tearDown(ITestResult testResult) {
         if (testResult.getStatus() == ITestResult.FAILURE) {
             saveScreenshotPNG();
+            logDevices(projectPath + "mylog.txt");
         }
     }
 }

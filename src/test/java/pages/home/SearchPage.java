@@ -1,4 +1,4 @@
-package pages.Home;
+package pages.home;
 
 import core.BasePage;
 import helpers.DataBase;
@@ -8,12 +8,10 @@ import locator.Locator;
 import org.openqa.selenium.WebElement;
 import org.slf4j.Logger;
 import org.testng.Assert;
-import pages.LoginSignUp.LoginPage;
-
+import pages.loginsignup.LoginPage;
 import java.util.HashMap;
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
-
 import static constant.Constant.*;
 
 public class SearchPage extends BasePage {
@@ -115,7 +113,6 @@ public class SearchPage extends BasePage {
         keyword.sleep(1);
         keyword.webDriverWaitInvisibleElement(Locator.LOGIN_TOAST_SUCCESS,10);
         keyword.scrollDownTo(100, 500);
-        keyword.click(Locator.VIEW_VIDEO_BTN_CLOSE);
     }
     @Step("Back")
     public void backSearch(){
@@ -126,4 +123,9 @@ public class SearchPage extends BasePage {
     public void invisiblePlayButton(){
         keyword.verifyElementDisplay(Locator.VIEW_VIDEO_BTN_PLAY, false);
     }
+    @Step("Tắt video")
+    public void closeVideo(){
+        keyword.click(Locator.VIEW_VIDEO_BTN_CLOSE);
+    }
 }
+
