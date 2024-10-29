@@ -60,23 +60,25 @@ public class DataBase extends BaseTest {
     }
     @Step("Lấy dữ liệu từ các cột db")
     public static HashMap<String, String> getResultDataBase() {
-        logger.info("Get result DB:");
-        int k = 0;
         try {
             ResultSetMetaData md = res.getMetaData();
-            res.last();
-            int row = res.getRow();
-            res.first();
+//            res.last();
+//            int row = res.getRow();
+//            res.first();
             while (res.next()) {
                 for (int i = 1; i <= md.getColumnCount(); i++) {
                     dataMap.put(md.getColumnName(i), res.getString(i));
                 }
-                if(row > 1){break;}
             }
         }
         catch(SQLException e)
         {
-            e.printStackTrace(); // hiển thị tổng quan về lỗi
+            e.printStackTrace();
+        }
+        logger.info("Get result DB:");
+        Set<String> set = dataMap.keySet();
+        for (String key : set) {
+            System.out.println("Key: " + key + "   Value: " + dataMap.get(key));
         }
         return dataMap;
     }
@@ -90,13 +92,13 @@ public class DataBase extends BaseTest {
         }
     }
     public HashMap<String, String> queryAndGetDb(String defaultQuery, String key){
-        String content= PropertiesFile.getPropValue(key);
-        if (content == null) {
-            content = key;
-        }
         String query = PropertiesFile.getPropValue(defaultQuery);
         if (query == null) {
             query = defaultQuery;
+        }
+        String content= PropertiesFile.getPropValue(key);
+        if (content == null) {
+            content = key;
         }
         queryDb(query.replace("key", content));
         return getResultDataBase();

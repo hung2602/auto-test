@@ -106,13 +106,14 @@ public class Locator {
     public static final By VIEW_VIDEO_BTN_PLAY = By.id("com.vtvcab.onsports.dev:id/play_imageView");
     public static final By MENU_LBL_SIGNING = By.id("com.vtvcab.onsports.dev:id/info");
     public static final By PLAYER_VIEW_BTN_PLAY = By.id("com.vtvcab.onsports.dev:id/onsport_play");
+    public static final By PLAYER_VIEW_BTN_PAUSE = By.id("com.vtvcab.onsports.dev:id/onsport_pause");
     public static final By PLAYER_VIEW_BTN_REWIND = By.id("com.vtvcab.onsports.dev:id/ivRewind");
     public static final By PLAYER_VIEW_BTN_FORWARD = By.id("com.vtvcab.onsports.dev:id/ivForward");
     public static final By PLAYER_VIEW_LBL_TIME_LINE = By.id("com.vtvcab.onsports.dev:id/onsport_position");
     public static final By PLAYER_VIEW_LBL_TIME_DURATION = By.id("com.vtvcab.onsports.dev:id/onsport_duration");
     public static final By PLAYER_VIEW_BTN_FULL_SCREEN = By.id("com.vtvcab.onsports.dev:id/btnFullScreen");
-
-
+    public static final By PLAYER_VIEW_BTN_FRAME_SCREEN = By.id("com.vtvcab.onsports.dev:id/exo_content_frame");
+    public static final By CONTENT_LBL_LIVE = By.id("com.vtvcab.onsports.dev:id/include_live_text");
 
 
 

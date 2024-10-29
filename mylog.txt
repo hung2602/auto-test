@@ -1,127 +1,859 @@
 --------- beginning of main
-10-29 15:12:30.438 10696 10717 W tomator2.server: Accessing hidden field Landroid/view/accessibility/AccessibilityNodeInfo;->mSourceNodeId:J (unsupported, reflection, allowed)
-10-29 15:12:31.721 10727 10727 W Glide   : Load failed for https://stvinadev.vtvcab.vn/400X600/news-australia-duoc-khoi-phuc-suat-du-vong-loai-giai-u20-chau-a-2023-banjy1vWqa_Poster.jpg with size [340x509]
-10-29 15:12:31.721 10727 10727 W Glide   : class com.bumptech.glide.load.engine.GlideException: Failed to load resource
-10-29 15:12:31.721 10727 10727 W Glide   : There was 1 root cause:
-10-29 15:12:31.721 10727 10727 W Glide   : com.bumptech.glide.load.HttpException(Failed to connect or obtain data, status code: 404)
-10-29 15:12:31.721 10727 10727 W Glide   :  call GlideException#logRootCauses(String) for more detail
-10-29 15:12:31.721 10727 10727 W Glide   :   Cause (1 of 1): class com.bumptech.glide.load.engine.GlideException: Fetching data failed, class java.io.InputStream, REMOTE
-10-29 15:12:31.721 10727 10727 W Glide   : There was 1 root cause:
-10-29 15:12:31.721 10727 10727 W Glide   : com.bumptech.glide.load.HttpException(Failed to connect or obtain data, status code: 404)
-10-29 15:12:31.721 10727 10727 W Glide   :  call GlideException#logRootCauses(String) for more detail
-10-29 15:12:31.721 10727 10727 W Glide   :     Cause (1 of 1): class com.bumptech.glide.load.engine.GlideException: Fetch failed
-10-29 15:12:31.721 10727 10727 W Glide   : There was 1 root cause:
-10-29 15:12:31.721 10727 10727 W Glide   : com.bumptech.glide.load.HttpException(Failed to connect or obtain data, status code: 404)
-10-29 15:12:31.721 10727 10727 W Glide   :  call GlideException#logRootCauses(String) for more detail
-10-29 15:12:31.721 10727 10727 W Glide   :       Cause (1 of 1): class com.bumptech.glide.load.HttpException: Failed to connect or obtain data, status code: 404
-10-29 15:12:32.987 10727 10727 W OnBackInvokedCallback: OnBackInvokedCallback is not enabled for the application.
-10-29 15:12:32.987 10727 10727 W OnBackInvokedCallback: Set 'android:enableOnBackInvokedCallback="true"' in the application manifest.
-10-29 15:12:33.016  7070  7070 W ModuleManager: ModuleManager.loadModule():563 Module lgl is not available
-10-29 15:12:33.027  7070  7070 W Keyboard: Keyboard.getKeyboardViewHelper():585 null helper is returned: keyboardDef=kld{processedConditions={enable_more_candidates_view_for_multilingual=false, enable_secondary_symbols=false, variant=qwerty, language=vi-VN, deprecate_long_press_space_for_ime_picker=false, expressions=normal, device=phone, keyboard_mode=normal, show_secondary_digits=true, enable_preemptive_decode=true, rtl_layout=false}, globalConditions={global_theme_key=theme_border_keyboard_mode_screen_size_5_5_keyboard_mode_screen_width_middle_stylesheet_noshadow_pgsans_silkpopup_gm3token_sagm3token_newm3_light_phone, global_locale=vi_VN, global_density_dpi=440, global_orientation=1}, className=.latin.keyboard.LatinPrimeKeyboard, resourceIds=[#0x7f170790, #0x7f1708d8], initialStates=0, keyboardViewDefs=[klr{direction=null, id=#0x7f0b015e, isScalable=true, layoutId=#0x7f0e03b9, type=BODY, touchable=true, defaultShow=true}, klr{direction=null, id=#0x7f0b015e, isScalable=false, layoutId=#0x7f0e01cc, type=FLOATING_CANDIDATES, touchable=false, defaultShow=false}, klr{direction=LOCALE, id=#0x7f0b015e, isScalable=false, layoutId=#0x7f0e05b6, type=HEADER, touchable=true, defaultShow=true}], persistentStates=0, persistentStatesPrefKey=null, popupBubbleLayoutId=#0x7f0e06b6, recentKeyLayoutId=0, recentKeyPopupLayoutId=0, recentKeyType=null, rememberRecentKey=NONE, sessionStates=17592186044419}, type=WIDGET, helpersCreated=[jyd@37a1b09, jyd@130710e, jyd@2e6972f, null], context.getResources().getConfiguration(): {1.0 ?mcc?mnc [vi_VN] ldltr sw392dp w392dp h774dp 440dpi nrml long hdr widecg port finger -keyb/v/h -nav/h winConfig={ mBounds=Rect(0, 0 - 1080, 2280) mAppBounds=Rect(0, 0 - 1080, 2214) mMaxBounds=Rect(0, 0 - 1080, 2280) mDisplayRotation=ROTATION_0 mWindowingMode=fullscreen mDisplayWindowingMode=fullscreen mActivityType=undefined mAlwaysOnTop=undefined mRotation=ROTATION_0} s.14 fontWeightAdjustment=0}
-10-29 15:12:33.041  7070  7070 W SupplementaryKeyboardsWrapper: SupplementaryKeyboardsWrapper.deactivateKeyboard():159 keyboard accessory_candidates_consumer is not activated before!
-10-29 15:12:33.053  6503 10838 W NetworkScheduler: Error inserting flex_time=2847000 job_id=-1 period=5696000 source=16 requires_charging=0 preferred_network_type=1 target_class=com.google.android.gms.measurement.PackageMeasurementTaskService user_id=0 target_package=com.google.android.gms tag=Measurement.PackageMeasurementTaskService.UPLOAD_TASK_TAG task_type=0 required_idleness_state=0 service_kind=0 source_version=244233000 persistence_level=1 preferred_charging_state=1 required_network_type=0 runtime=1730189553050 retry_strategy={"maximum_backoff_seconds":{"3600":0},"initial_backoff_seconds":{"30":0},"retry_policy":{"0":0}} last_runtime=0 [CONTEXT service_id=218 ]
-10-29 15:12:33.053  6503 10838 W NetworkScheduler: android.database.sqlite.SQLiteConstraintException: UNIQUE constraint failed: pending_ops.tag, pending_ops.target_class, pending_ops.target_package, pending_ops.user_id (code 2067 SQLITE_CONSTRAINT_UNIQUE)
-10-29 15:12:33.053  6503 10838 W NetworkScheduler: 	at android.database.sqlite.SQLiteConnection.nativeExecuteForLastInsertedRowId(Native Method)
-10-29 15:12:33.053  6503 10838 W NetworkScheduler: 	at android.database.sqlite.SQLiteConnection.executeForLastInsertedRowId(SQLiteConnection.java:961)
-10-29 15:12:33.053  6503 10838 W NetworkScheduler: 	at android.database.sqlite.SQLiteSession.executeForLastInsertedRowId(SQLiteSession.java:790)
-10-29 15:12:33.053  6503 10838 W NetworkScheduler: 	at android.database.sqlite.SQLiteStatement.executeInsert(SQLiteStatement.java:89)
-10-29 15:12:33.053  6503 10838 W NetworkScheduler: 	at android.database.sqlite.SQLiteDatabase.insertWithOnConflict(SQLiteDatabase.java:1868)
-10-29 15:12:33.053  6503 10838 W NetworkScheduler: 	at android.database.sqlite.SQLiteDatabase.insertOrThrow(SQLiteDatabase.java:1763)
-10-29 15:12:33.053  6503 10838 W NetworkScheduler: 	at dhlz.d(:com.google.android.gms@244233029@24.42.33 (190400-689790151):727)
-10-29 15:12:33.053  6503 10838 W NetworkScheduler: 	at dhjl.n(:com.google.android.gms@244233029@24.42.33 (190400-689790151):29)
-10-29 15:12:33.053  6503 10838 W NetworkScheduler: 	at dhjl.u(:com.google.android.gms@244233029@24.42.33 (190400-689790151):360)
-10-29 15:12:33.053  6503 10838 W NetworkScheduler: 	at dhjl.h(:com.google.android.gms@244233029@24.42.33 (190400-689790151):51)
-10-29 15:12:33.053  6503 10838 W NetworkScheduler: 	at dhee.run(:com.google.android.gms@244233029@24.42.33 (190400-689790151):72)
-10-29 15:12:33.053  6503 10838 W NetworkScheduler: 	at anqu.c(:com.google.android.gms@244233029@24.42.33 (190400-689790151):50)
-10-29 15:12:33.053  6503 10838 W NetworkScheduler: 	at anqu.run(:com.google.android.gms@244233029@24.42.33 (190400-689790151):97)
-10-29 15:12:33.053  6503 10838 W NetworkScheduler: 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
-10-29 15:12:33.053  6503 10838 W NetworkScheduler: 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:644)
-10-29 15:12:33.053  6503 10838 W NetworkScheduler: 	at anwf.run(:com.google.android.gms@244233029@24.42.33 (190400-689790151):8)
-10-29 15:12:33.053  6503 10838 W NetworkScheduler: 	at java.lang.Thread.run(Thread.java:1012)
-10-29 15:12:33.054 10727 10727 W OnBackInvokedCallback: OnBackInvokedCallback is not enabled for the application.
-10-29 15:12:33.054 10727 10727 W OnBackInvokedCallback: Set 'android:enableOnBackInvokedCallback="true"' in the application manifest.
-10-29 15:12:33.055  7070  7070 W TooltipLifecycleManager: TooltipLifecycleManager.dismissTooltips():153 Tooltip with id spell_check_add_to_dictionary not found in tooltipManager.
-10-29 15:12:33.057  7070  7070 W ModuleManager: ModuleManager.loadModule():563 Module lgl is not available
-10-29 15:12:33.064  7070  7070 W Keyboard: Keyboard.getKeyboardViewHelper():585 null helper is returned: keyboardDef=kld{processedConditions={enable_more_candidates_view_for_multilingual=false, enable_secondary_symbols=false, variant=qwerty, language=vi-VN, deprecate_long_press_space_for_ime_picker=false, expressions=normal, device=phone, keyboard_mode=normal, show_secondary_digits=true, enable_preemptive_decode=true, rtl_layout=false}, globalConditions={global_theme_key=theme_border_keyboard_mode_screen_size_5_5_keyboard_mode_screen_width_middle_stylesheet_noshadow_pgsans_silkpopup_gm3token_sagm3token_newm3_light_phone, global_locale=vi_VN, global_density_dpi=440, global_orientation=1}, className=.latin.keyboard.LatinPrimeKeyboard, resourceIds=[#0x7f170790, #0x7f1708d8], initialStates=0, keyboardViewDefs=[klr{direction=null, id=#0x7f0b015e, isScalable=true, layoutId=#0x7f0e03b9, type=BODY, touchable=true, defaultShow=true}, klr{direction=null, id=#0x7f0b015e, isScalable=false, layoutId=#0x7f0e01cc, type=FLOATING_CANDIDATES, touchable=false, defaultShow=false}, klr{direction=LOCALE, id=#0x7f0b015e, isScalable=false, layoutId=#0x7f0e05b6, type=HEADER, touchable=true, defaultShow=true}], persistentStates=0, persistentStatesPrefKey=null, popupBubbleLayoutId=#0x7f0e06b6, recentKeyLayoutId=0, recentKeyPopupLayoutId=0, recentKeyType=null, rememberRecentKey=NONE, sessionStates=17592186044419}, type=WIDGET, helpersCreated=[jyd@37a1b09, jyd@130710e, jyd@2e6972f, null], context.getResources().getConfiguration(): {1.0 ?mcc?mnc [vi_VN] ldltr sw392dp w392dp h774dp 440dpi nrml long hdr widecg port finger -keyb/v/h -nav/h winConfig={ mBounds=Rect(0, 0 - 1080, 2280) mAppBounds=Rect(0, 0 - 1080, 2214) mMaxBounds=Rect(0, 0 - 1080, 2280) mDisplayRotation=ROTATION_0 mWindowingMode=fullscreen mDisplayWindowingMode=fullscreen mActivityType=undefined mAlwaysOnTop=undefined mRotation=ROTATION_0} s.14 fontWeightAdjustment=0}
-10-29 15:12:33.071  7070  7070 W SupplementaryKeyboardsWrapper: SupplementaryKeyboardsWrapper.deactivateKeyboard():159 keyboard accessory_candidates_consumer is not activated before!
-10-29 15:12:33.074 10727 10727 W OnBackInvokedCallback: OnBackInvokedCallback is not enabled for the application.
-10-29 15:12:33.074 10727 10727 W OnBackInvokedCallback: Set 'android:enableOnBackInvokedCallback="true"' in the application manifest.
-10-29 15:12:33.086  7070  7070 W InputContextProxy: InputContextProxy.applyClientDiffInternal():957 Ignore [FetchSuggestions] diff due to stale request: 1338<1342, inputStateId=1035, lastInputStateId=1037
-10-29 15:12:33.108  6503 10389 W achq    : Failed to retrieve prediction data. [CONTEXT service_id=177 ]
-10-29 15:12:33.108  6503 10389 W achq    : java.util.concurrent.ExecutionException: eepc: No data was found for the table autofill-domain-predictions-prod-spanner.
-10-29 15:12:33.108  6503 10389 W achq    : 	at fcbs.s(:com.google.android.gms@244233029@24.42.33 (190400-689790151):21)
-10-29 15:12:33.108  6503 10389 W achq    : 	at fcbs.get(:com.google.android.gms@244233029@24.42.33 (190400-689790151):28)
-10-29 15:12:33.108  6503 10389 W achq    : 	at achq.e(:com.google.android.gms@244233029@24.42.33 (190400-689790151):83)
-10-29 15:12:33.108  6503 10389 W achq    : 	at achq.a(:com.google.android.gms@244233029@24.42.33 (190400-689790151):126)
-10-29 15:12:33.108  6503 10389 W achq    : 	at acew.call(:com.google.android.gms@244233029@24.42.33 (190400-689790151):5)
-10-29 15:12:33.108  6503 10389 W achq    : 	at java.util.concurrent.FutureTask.run(FutureTask.java:264)
-10-29 15:12:33.108  6503 10389 W achq    : 	at anqu.c(:com.google.android.gms@244233029@24.42.33 (190400-689790151):50)
-10-29 15:12:33.108  6503 10389 W achq    : 	at anqu.run(:com.google.android.gms@244233029@24.42.33 (190400-689790151):76)
-10-29 15:12:33.108  6503 10389 W achq    : 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
-10-29 15:12:33.108  6503 10389 W achq    : 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:644)
-10-29 15:12:33.108  6503 10389 W achq    : 	at anwf.run(:com.google.android.gms@244233029@24.42.33 (190400-689790151):8)
-10-29 15:12:33.108  6503 10389 W achq    : 	at java.lang.Thread.run(Thread.java:1012)
-10-29 15:12:33.108  6503 10389 W achq    : Caused by: eepc: No data was found for the table autofill-domain-predictions-prod-spanner.
-10-29 15:12:33.108  6503 10389 W achq    : 	at eeps.a(:com.google.android.gms@244233029@24.42.33 (190400-689790151):223)
-10-29 15:12:33.108  6503 10389 W achq    : 	at fcbw.d(:com.google.android.gms@244233029@24.42.33 (190400-689790151):3)
-10-29 15:12:33.108  6503 10389 W achq    : 	at fcby.run(:com.google.android.gms@244233029@24.42.33 (190400-689790151):42)
-10-29 15:12:33.108  6503 10389 W achq    : 	at fcdk.execute(:com.google.android.gms@244233029@24.42.33 (190400-689790151):1)
-10-29 15:12:33.108  6503 10389 W achq    : 	at fcbs.h(:com.google.android.gms@244233029@24.42.33 (190400-689790151):1)
-10-29 15:12:33.108  6503 10389 W achq    : 	at fcbs.l(:com.google.android.gms@244233029@24.42.33 (190400-689790151):101)
-10-29 15:12:33.108  6503 10389 W achq    : 	at fcbs.r(:com.google.android.gms@244233029@24.42.33 (190400-689790151):28)
-10-29 15:12:33.108  6503 10389 W achq    : 	at fcbw.e(:com.google.android.gms@244233029@24.42.33 (190400-689790151):3)
-10-29 15:12:33.108  6503 10389 W achq    : 	at fcby.run(:com.google.android.gms@244233029@24.42.33 (190400-689790151):48)
-10-29 15:12:33.108  6503 10389 W achq    : 	at fcdk.execute(:com.google.android.gms@244233029@24.42.33 (190400-689790151):1)
-10-29 15:12:33.108  6503 10389 W achq    : 	at fcbs.h(:com.google.android.gms@244233029@24.42.33 (190400-689790151):1)
-10-29 15:12:33.108  6503 10389 W achq    : 	at fcbs.l(:com.google.android.gms@244233029@24.42.33 (190400-689790151):101)
-10-29 15:12:33.108  6503 10389 W achq    : 	at fcbs.o(:com.google.android.gms@244233029@24.42.33 (190400-689790151):15)
-10-29 15:12:33.108  6503 10389 W achq    : 	at fcbr.run(:com.google.android.gms@244233029@24.42.33 (190400-689790151):120)
-10-29 15:12:33.108  6503 10389 W achq    : 	at fcdk.execute(:com.google.android.gms@244233029@24.42.33 (190400-689790151):1)
-10-29 15:12:33.108  6503 10389 W achq    : 	at fcbs.h(:com.google.android.gms@244233029@24.42.33 (190400-689790151):1)
-10-29 15:12:33.108  6503 10389 W achq    : 	at fcbs.l(:com.google.android.gms@244233029@24.42.33 (190400-689790151):101)
-10-29 15:12:33.108  6503 10389 W achq    : 	at fcbs.o(:com.google.android.gms@244233029@24.42.33 (190400-689790151):15)
-10-29 15:12:33.108  6503 10389 W achq    : 	at fcbx.e(:com.google.android.gms@244233029@24.42.33 (190400-689790151):1)
-10-29 15:12:33.108  6503 10389 W achq    : 	at fcby.run(:com.google.android.gms@244233029@24.42.33 (190400-689790151):48)
-10-29 15:12:33.108  6503 10389 W achq    : 	at fcdk.execute(:com.google.android.gms@244233029@24.42.33 (190400-689790151):1)
-10-29 15:12:33.108  6503 10389 W achq    : 	at fcbs.h(:com.google.android.gms@244233029@24.42.33 (190400-689790151):1)
-10-29 15:12:33.108  6503 10389 W achq    : 	at fcbs.l(:com.google.android.gms@244233029@24.42.33 (190400-689790151):101)
-10-29 15:12:33.108  6503 10389 W achq    : 	at fcbs.r(:com.google.android.gms@244233029@24.42.33 (190400-689790151):28)
-10-29 15:12:33.108  6503 10389 W achq    : 	at fceh.run(:com.google.android.gms@244233029@24.42.33 (190400-689790151):5)
-10-29 15:12:33.108  6503 10389 W achq    : 	at fcdk.execute(:com.google.android.gms@244233029@24.42.33 (190400-689790151):1)
-10-29 15:12:33.108  6503 10389 W achq    : 	at fcbs.h(:com.google.android.gms@244233029@24.42.33 (190400-689790151):1)
-10-29 15:12:33.108  6503 10389 W achq    : 	at fcbs.l(:com.google.android.gms@244233029@24.42.33 (190400-689790151):101)
-10-29 15:12:33.108  6503 10389 W achq    : 	at fcbs.r(:com.google.android.gms@244233029@24.42.33 (190400-689790151):28)
-10-29 15:12:33.108  6503 10389 W achq    : 	at fcbw.e(:com.google.android.gms@244233029@24.42.33 (190400-689790151):3)
-10-29 15:12:33.108  6503 10389 W achq    : 	at fcby.run(:com.google.android.gms@244233029@24.42.33 (190400-689790151):48)
-10-29 15:12:33.108  6503 10389 W achq    : 	at fcfm.run(:com.google.android.gms@244233029@24.42.33 (190400-689790151):76)
-10-29 15:12:33.108  6503 10389 W achq    : 	... 6 more
-10-29 15:12:33.126  6503  9657 E adxm    : Failed to get billing customer number [CONTEXT service_id=177 ]
-10-29 15:12:33.126  6503  9657 E adxm    : java.lang.IllegalStateException: Future was expected to be done: fcbx@ca6e88d[status=PENDING, info=[inputFuture=[fcbp@7fa2a42[status=PENDING, info=[inputFuture=[fcfo@f704a53[status=PENDING]], exceptionType=[class ambs], fallback=[akls@8a71f90]]]], function=[abps@4268089]]]
-10-29 15:12:33.126  6503  9657 E adxm    : 	at ewog.w(:com.google.android.gms@244233029@24.42.33 (190400-689790151):14)
-10-29 15:12:33.126  6503  9657 E adxm    : 	at fcep.r(:com.google.android.gms@244233029@24.42.33 (190400-689790151):7)
-10-29 15:12:33.126  6503  9657 E adxm    : 	at adxm.a(:com.google.android.gms@244233029@24.42.33 (190400-689790151):206)
-10-29 15:12:33.126  6503  9657 E adxm    : 	at advy.a(:com.google.android.gms@244233029@24.42.33 (190400-689790151):22)
-10-29 15:12:33.126  6503  9657 E adxm    : 	at adun.c(:com.google.android.gms@244233029@24.42.33 (190400-689790151):8)
-10-29 15:12:33.126  6503  9657 E adxm    : 	at aduj.a(:com.google.android.gms@244233029@24.42.33 (190400-689790151):365)
-10-29 15:12:33.126  6503  9657 E adxm    : 	at fcdg.a(:com.google.android.gms@244233029@24.42.33 (190400-689790151):3)
-10-29 15:12:33.126  6503  9657 E adxm    : 	at fcev.run(:com.google.android.gms@244233029@24.42.33 (190400-689790151):19)
-10-29 15:12:33.126  6503  9657 E adxm    : 	at anqu.c(:com.google.android.gms@244233029@24.42.33 (190400-689790151):50)
-10-29 15:12:33.126  6503  9657 E adxm    : 	at anqu.run(:com.google.android.gms@244233029@24.42.33 (190400-689790151):76)
-10-29 15:12:33.126  6503  9657 E adxm    : 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
-10-29 15:12:33.126  6503  9657 E adxm    : 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:644)
-10-29 15:12:33.126  6503  9657 E adxm    : 	at anwf.run(:com.google.android.gms@244233029@24.42.33 (190400-689790151):8)
-10-29 15:12:33.126  6503  9657 E adxm    : 	at java.lang.Thread.run(Thread.java:1012)
-10-29 15:12:33.226  7070  7070 W TooltipLifecycleManager: TooltipLifecycleManager.dismissTooltips():153 Tooltip with id spell_check_add_to_dictionary not found in tooltipManager.
-10-29 15:12:33.261  7070  7070 W TooltipLifecycleManager: TooltipLifecycleManager.dismissTooltips():153 Tooltip with id spell_check_add_to_dictionary not found in tooltipManager.
-10-29 15:12:33.910  7070  7070 W SessionManager: SessionManager.beginSession():53 Try to begin an already begun session [INPUT_SESSION], end it first
-10-29 15:12:33.910  7070  7070 W SessionManager: SessionManager.endSession():96 Child session [INPUT_VIEW_SESSION] is not ended while ending session [{INPUT_SESSION=1730189553010, IME_SESSION=1730189553059, TRAINING_CACHE_SESSION=1730189553059, INPUT_VIEW_SESSION=1730189553057}], ending it now.
-10-29 15:12:33.910  7070  7070 W SessionManager: SessionManager.endSession():96 Child session [IME_SESSION] is not ended while ending session [{INPUT_SESSION=1730189553010, IME_SESSION=1730189553059, TRAINING_CACHE_SESSION=1730189553059, INPUT_VIEW_SESSION=1730189553057}], ending it now.
-10-29 15:12:33.913  7070  7070 W SessionManager: SessionManager.endSession():88 Try to end a not begun session [IME_SESSION].
-10-29 15:12:33.914  7070  7070 W ModuleManager: ModuleManager.loadModule():563 Module lgl is not available
-10-29 15:12:33.921  7070  7070 W Keyboard: Keyboard.getKeyboardViewHelper():585 null helper is returned: keyboardDef=kld{processedConditions={enable_more_candidates_view_for_multilingual=false, enable_secondary_symbols=false, variant=qwerty, language=vi-VN, deprecate_long_press_space_for_ime_picker=false, expressions=normal, device=phone, keyboard_mode=normal, show_secondary_digits=true, enable_preemptive_decode=true, rtl_layout=false}, globalConditions={global_theme_key=theme_border_keyboard_mode_screen_size_5_5_keyboard_mode_screen_width_middle_stylesheet_noshadow_pgsans_silkpopup_gm3token_sagm3token_newm3_light_phone, global_locale=vi_VN, global_density_dpi=440, global_orientation=1}, className=.latin.keyboard.LatinPrimeKeyboard, resourceIds=[#0x7f170790, #0x7f1708d8], initialStates=0, keyboardViewDefs=[klr{direction=null, id=#0x7f0b015e, isScalable=true, layoutId=#0x7f0e03b9, type=BODY, touchable=true, defaultShow=true}, klr{direction=null, id=#0x7f0b015e, isScalable=false, layoutId=#0x7f0e01cc, type=FLOATING_CANDIDATES, touchable=false, defaultShow=false}, klr{direction=LOCALE, id=#0x7f0b015e, isScalable=false, layoutId=#0x7f0e05b6, type=HEADER, touchable=true, defaultShow=true}], persistentStates=0, persistentStatesPrefKey=null, popupBubbleLayoutId=#0x7f0e06b6, recentKeyLayoutId=0, recentKeyPopupLayoutId=0, recentKeyType=null, rememberRecentKey=NONE, sessionStates=17592186044419}, type=WIDGET, helpersCreated=[jyd@37a1b09, jyd@130710e, jyd@2e6972f, null], context.getResources().getConfiguration(): {1.0 ?mcc?mnc [vi_VN] ldltr sw392dp w392dp h774dp 440dpi nrml long hdr widecg port finger -keyb/v/h -nav/h winConfig={ mBounds=Rect(0, 0 - 1080, 2280) mAppBounds=Rect(0, 0 - 1080, 2214) mMaxBounds=Rect(0, 0 - 1080, 2280) mDisplayRotation=ROTATION_0 mWindowingMode=fullscreen mDisplayWindowingMode=fullscreen mActivityType=undefined mAlwaysOnTop=undefined mRotation=ROTATION_0} s.14 fontWeightAdjustment=0}
-10-29 15:12:33.931  7070  7070 W SupplementaryKeyboardsWrapper: SupplementaryKeyboardsWrapper.deactivateKeyboard():159 keyboard accessory_candidates_consumer is not activated before!
-10-29 15:12:34.120  7070  7070 W TooltipLifecycleManager: TooltipLifecycleManager.dismissTooltips():153 Tooltip with id spell_check_add_to_dictionary not found in tooltipManager.
-10-29 15:12:35.850 10889 10889 W ProcessState: Extra binder thread started, but 0 threads requested. Do not use *startThreadPool when zero threads are requested.
-10-29 15:12:35.875 10889 10889 W binder:10889_1: type=1400 audit(0.0:3865): avc: denied { read } for name="gpu_model" dev="sysfs" ino=64127 scontext=u:r:shell:s0 tcontext=u:object_r:sysfs_msm_subsys:s0 tclass=file permissive=0
-10-29 15:12:35.876 10889 10894 W AdrenoUtils: <ReadGpuID_from_sysfs:197>: Failed to open /sys/class/kgsl/kgsl-3d0/gpu_model
-10-29 15:12:35.876 10889 10894 W AdrenoUtils: <ReadGpuID:221>: Failed to read chip ID from gpu_model. Fallback to use the GSL path
+10-29 15:58:33.149  1762  2354 D ConnectivityService: NetReassign [no changes] [c 1] [a 0] [i 2]
+10-29 15:58:33.208 18209 18231 I appium  : channel read: POST /wd/hub/session/cb636939-470b-43e6-a9e7-9fcac828c7fc/element
+10-29 15:58:33.209 18209 18231 I appium  : FindElement command
+10-29 15:58:33.212 18209 18231 I appium  : method: 'id', selector: 'com.vtvcab.onsports.dev:id/search_src_text'
+10-29 15:58:33.212 18209 18231 I appium  : Waiting up to 10000ms for the device to idle
+10-29 15:58:33.482 18209 18231 I appium  : AppiumResponse: {"sessionId":"cb636939-470b-43e6-a9e7-9fcac828c7fc","value":{"ELEMENT":"00000000-0000-0358-ffff-ffff00000ff4","element-6066-11e4-a52e-4f735466cecf":"00000000-0000-0358-ffff-ffff00000ff4"}}
+10-29 15:58:33.493 18209 18231 I appium  : channel read: GET /wd/hub/session/cb636939-470b-43e6-a9e7-9fcac828c7fc/element/00000000-0000-0358-ffff-ffff00000ff4/attribute/displayed
+10-29 15:58:33.494 18209 18231 I appium  : GetElementAttribute command
+10-29 15:58:33.502 18209 18231 I appium  : AppiumResponse: {"sessionId":"cb636939-470b-43e6-a9e7-9fcac828c7fc","value":"true"}
+10-29 15:58:33.511 18209 18231 I appium  : channel read: GET /wd/hub/session/cb636939-470b-43e6-a9e7-9fcac828c7fc/element/00000000-0000-0358-ffff-ffff00000ff4/attribute/enabled
+10-29 15:58:33.512 18209 18231 I appium  : GetElementAttribute command
+10-29 15:58:33.521 18209 18231 I appium  : AppiumResponse: {"sessionId":"cb636939-470b-43e6-a9e7-9fcac828c7fc","value":"true"}
+10-29 15:58:33.530 18209 18231 I appium  : channel read: POST /wd/hub/session/cb636939-470b-43e6-a9e7-9fcac828c7fc/element
+10-29 15:58:33.531 18209 18231 I appium  : FindElement command
+10-29 15:58:33.533 18209 18231 I appium  : method: 'id', selector: 'com.vtvcab.onsports.dev:id/search_src_text'
+10-29 15:58:33.533 18209 18231 I appium  : Waiting up to 10000ms for the device to idle
+10-29 15:58:33.561 18209 18231 I appium  : AppiumResponse: {"sessionId":"cb636939-470b-43e6-a9e7-9fcac828c7fc","value":{"ELEMENT":"00000000-0000-0358-ffff-ffff00000ff4","element-6066-11e4-a52e-4f735466cecf":"00000000-0000-0358-ffff-ffff00000ff4"}}
+10-29 15:58:33.571 18209 18231 I appium  : channel read: POST /wd/hub/session/cb636939-470b-43e6-a9e7-9fcac828c7fc/element/00000000-0000-0358-ffff-ffff00000ff4/clear
+10-29 15:58:33.573 18209 18231 I appium  : Clear command
+10-29 15:58:33.585 18209 18231 I appium  : AppiumResponse: {"sessionId":"cb636939-470b-43e6-a9e7-9fcac828c7fc","value":null}
+10-29 15:58:33.595 18209 18231 I appium  : channel read: POST /wd/hub/session/cb636939-470b-43e6-a9e7-9fcac828c7fc/element
+10-29 15:58:33.596 18209 18231 I appium  : FindElement command
+10-29 15:58:33.598 18209 18231 I appium  : method: 'id', selector: 'com.vtvcab.onsports.dev:id/search_src_text'
+10-29 15:58:33.598 18209 18231 I appium  : Waiting up to 10000ms for the device to idle
+10-29 15:58:33.610 18209 18231 I appium  : AppiumResponse: {"sessionId":"cb636939-470b-43e6-a9e7-9fcac828c7fc","value":{"ELEMENT":"00000000-0000-0358-ffff-ffff00000ff4","element-6066-11e4-a52e-4f735466cecf":"00000000-0000-0358-ffff-ffff00000ff4"}}
+10-29 15:58:33.620 18209 18231 I appium  : channel read: POST /wd/hub/session/cb636939-470b-43e6-a9e7-9fcac828c7fc/element/00000000-0000-0358-ffff-ffff00000ff4/value
+10-29 15:58:33.621 18209 18231 I appium  : SendKeysToElement command
+10-29 15:58:34.733 18209 18231 I appium  : AppiumResponse: {"sessionId":"cb636939-470b-43e6-a9e7-9fcac828c7fc","value":null}
+10-29 15:58:34.749 18209 18231 I appium  : channel read: POST /wd/hub/session/cb636939-470b-43e6-a9e7-9fcac828c7fc/element
+10-29 15:58:34.750 18209 18231 I appium  : FindElement command
+10-29 15:58:34.752 18209 18231 I appium  : method: 'id', selector: 'com.vtvcab.onsports.dev:id/title_text'
+10-29 15:58:34.752 18209 18231 I appium  : Waiting up to 10000ms for the device to idle
+10-29 15:58:35.236 18240 18315 D TokenDevice: evbzPMOrS1qHDrrDWxahMW:APA91bHgHEtbg-RYqHzH8fxGAMBdXpeGJL5kQ7DBj9EdpbkmnfSHS86KWj7a_1MWLHeWYeHEl2IDyfxuGFrqnPQmXt0Fxlvpjths6HmThmABL2Dmtxm6qrI
+10-29 15:58:35.237 18240 18315 D DeviceName: Google Pixel 4
+10-29 15:58:36.011 18209 18231 I appium  : AppiumResponse: {"sessionId":"cb636939-470b-43e6-a9e7-9fcac828c7fc","value":{"ELEMENT":"00000000-0000-0358-ffff-ffff0000101a","element-6066-11e4-a52e-4f735466cecf":"00000000-0000-0358-ffff-ffff0000101a"}}
+10-29 15:58:36.029 18209 18231 I appium  : channel read: GET /wd/hub/session/cb636939-470b-43e6-a9e7-9fcac828c7fc/element/00000000-0000-0358-ffff-ffff0000101a/attribute/displayed
+10-29 15:58:36.031 18209 18231 I appium  : GetElementAttribute command
+10-29 15:58:36.040 18209 18231 I appium  : AppiumResponse: {"sessionId":"cb636939-470b-43e6-a9e7-9fcac828c7fc","value":"true"}
+10-29 15:58:36.049 18209 18231 I appium  : channel read: GET /wd/hub/session/cb636939-470b-43e6-a9e7-9fcac828c7fc/element/00000000-0000-0358-ffff-ffff0000101a/attribute/enabled
+10-29 15:58:36.050 18209 18231 I appium  : GetElementAttribute command
+10-29 15:58:36.057 18209 18231 I appium  : AppiumResponse: {"sessionId":"cb636939-470b-43e6-a9e7-9fcac828c7fc","value":"true"}
+10-29 15:58:36.168  1762  2354 D ConnectivityService: NetReassign [no changes] [c 0] [a 0] [i 3]
+10-29 15:58:36.381 18209 18231 I appium  : channel read: POST /wd/hub/session/cb636939-470b-43e6-a9e7-9fcac828c7fc/element
+10-29 15:58:36.382 18209 18231 I appium  : FindElement command
+10-29 15:58:36.385 18209 18231 I appium  : method: 'id', selector: 'com.vtvcab.onsports.dev:id/title_text'
+10-29 15:58:36.385 18209 18231 I appium  : Waiting up to 10000ms for the device to idle
+10-29 15:58:36.419 18209 18231 I appium  : AppiumResponse: {"sessionId":"cb636939-470b-43e6-a9e7-9fcac828c7fc","value":{"ELEMENT":"00000000-0000-0358-ffff-ffff0000101a","element-6066-11e4-a52e-4f735466cecf":"00000000-0000-0358-ffff-ffff0000101a"}}
+10-29 15:58:36.429 18209 18231 I appium  : channel read: POST /wd/hub/session/cb636939-470b-43e6-a9e7-9fcac828c7fc/element/00000000-0000-0358-ffff-ffff0000101a/click
+10-29 15:58:36.430 18209 18231 I appium  : Click command
+10-29 15:58:36.474 18209 18231 I appium  : Waiting up to 10000ms for the device to idle
+10-29 15:58:36.476 18209 18231 I appium  : AppiumResponse: {"sessionId":"cb636939-470b-43e6-a9e7-9fcac828c7fc","value":null}
+10-29 15:58:36.485 18209 18231 I appium  : channel read: POST /wd/hub/session/cb636939-470b-43e6-a9e7-9fcac828c7fc/element
+10-29 15:58:36.486 18209 18231 I appium  : FindElement command
+10-29 15:58:36.488 18209 18231 I appium  : method: 'id', selector: 'com.vtvcab.onsports.dev:id/onsport_pause'
+10-29 15:58:36.488 18209 18231 I appium  : Waiting up to 10000ms for the device to idle
+10-29 15:58:36.500 18240 18240 W TabLayout: MODE_SCROLLABLE + GRAVITY_FILL is not supported, GRAVITY_START will be used instead
+10-29 15:58:36.503 18240 18240 W AudioManager: Use of stream types is deprecated for operations other than volume control
+10-29 15:58:36.503 18240 18240 W AudioManager: See the documentation of requestAudioFocus() for what to use instead with android.media.AudioAttributes to qualify your playback use case
+10-29 15:58:36.503  1762  3680 I MediaFocusControl: requestAudioFocus() from uid/pid 10671/18240 AA=USAGE_MEDIA/CONTENT_TYPE_MUSIC clientId=android.media.AudioManager@7727f38 callingPack=com.vtvcab.onsports.dev req=1 flags=0x0 sdk=34
+10-29 15:58:36.504 18240 18315 D TokenDevice: evbzPMOrS1qHDrrDWxahMW:APA91bHgHEtbg-RYqHzH8fxGAMBdXpeGJL5kQ7DBj9EdpbkmnfSHS86KWj7a_1MWLHeWYeHEl2IDyfxuGFrqnPQmXt0Fxlvpjths6HmThmABL2Dmtxm6qrI
+10-29 15:58:36.504 18240 18315 D DeviceName: Google Pixel 4
+10-29 15:58:36.516  7070  7070 I GoogleInputMethodService: GoogleInputMethodService.onFinishInput():3086 
+10-29 15:58:36.517  7070  7070 I GoogleInputMethodService: GoogleInputMethodService.updateDeviceLockedStatus():2155 repeatCheckTimes = 0, locked = false
+10-29 15:58:36.517  7070  7070 I GoogleInputMethodService: GoogleInputMethodService.onStartInput():1899 onStartInput(EditorInfo{EditorInfo{packageName=com.vtvcab.onsports.dev, inputType=0, inputTypeString=NULL, enableLearning=false, autoCorrection=false, autoComplete=false, imeOptions=0, privateImeOptions=null, actionName=UNSPECIFIED, actionLabel=null, initialSelStart=-1, initialSelEnd=-1, initialCapsMode=0, label=null, fieldId=2131297544, fieldName=null, extras=null, hintText=null, hintLocales=[]}}, false)
+10-29 15:58:36.517  7070  7070 I GoogleInputMethodService: GoogleInputMethodService.updateDeviceLockedStatus():2155 repeatCheckTimes = 1, locked = false
+10-29 15:58:36.518  7070  7070 I AndroidIME: InputBundleManager.loadActiveInputBundleId():450 loadActiveInputBundleId: und-Latn-x-password, password
+10-29 15:58:36.549 18209 18231 I appium  : AppiumResponse: {"sessionId":"cb636939-470b-43e6-a9e7-9fcac828c7fc","value":{"error":"no such element","message":"An element could not be located on the page using the given search parameters","stacktrace":"io.appium.uiautomator2.common.exceptions.ElementNotFoundException: An element could not be located on the page using the given search parameters\n\tat io.appium.uiautomator2.handler.FindElement.safeHandle(FindElement.java:70)\n\tat io.appium.uiautomator2.handler.request.SafeRequestHandler.handle(SafeRequestHandler.java:59)\n\tat io.appium.uiautomator2.server.AppiumServlet.handleRequest(AppiumServlet.java:266)\n\tat io.appium.uiautomator2.server.AppiumServlet.handleHttpRequest(AppiumServlet.java:260)\n\tat io.appium.uiautomator2.http.ServerHandler.channelRead(ServerHandler.java:68)\n\tat io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:366)\n\tat io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:352)\n\tat io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:345)\n\tat io.netty.handler.codec.MessageToMessageDecoder.channelRead(MessageToMessageDecoder.java:102)\n\tat io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:366)\n\tat io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:352)\n\tat io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:345)\n\tat io.netty.channel.CombinedChannelDuplexHandler$DelegatingChannelHandlerContext.fireChannelRead(CombinedChannelDuplexHandler.java:435)\n\tat io.netty.handler.codec.ByteToMessageDecoder.fireChannelRead(ByteToMessageDecoder.java:293)\n\tat io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:267)\n\tat io.netty.channel.CombinedChannelDuplexHandler.channelRead(CombinedChannelDuplexHandler.java:250)\n\tat io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:366)\n\tat io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:352)\n\tat io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:345)\n\tat io.netty.handler.timeout.IdleStateHandler.channelRead(IdleStateHandler.java:266)\n\tat io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:366)\n\tat io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:352)\n\tat io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:345)\n\tat io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1294)\n\tat io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:366)\n\tat io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:352)\n\tat io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:911)\n\tat io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:131)\n\tat io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:611)\n\tat io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:552)\n\tat io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:466)\n\tat io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:438)\n\tat io.netty.util.concurrent.SingleThreadEventExecutor$2.run(SingleThreadEventExecutor.java:140)\n\tat io.netty.util.concurrent.DefaultThreadFactory$DefaultRunnableDecorator.run(DefaultThreadFactory.java:144)\n\tat java.lang.Thread.run(Thread.java:1012)\n"}}
+10-29 15:58:36.552 18240 18240 W AudioManager: Use of stream types is deprecated for operations other than volume control
+10-29 15:58:36.552 18240 18240 W AudioManager: See the documentation of requestAudioFocus() for what to use instead with android.media.AudioAttributes to qualify your playback use case
+10-29 15:58:36.553  1762  3680 I MediaFocusControl: requestAudioFocus() from uid/pid 10671/18240 AA=USAGE_MEDIA/CONTENT_TYPE_MUSIC clientId=android.media.AudioManager@7727f38 callingPack=com.vtvcab.onsports.dev req=1 flags=0x0 sdk=34
+10-29 15:58:36.553 18240 18240 I ExoPlayerImpl: Init f1304b9 [ExoPlayerLib/2.11.7] [flame, Pixel 4, Google, 33]
+10-29 15:58:36.554 18240 18240 D EventLogger: surfaceSize [eventTime=0.00, mediaPos=0.00, window=0, 1080, 608]
+10-29 15:58:36.555 18240 18240 D EventLogger: state [eventTime=0.00, mediaPos=0.00, window=0, true, BUFFERING]
+10-29 15:58:36.562  6493  6493 D BoundBrokerSvc: onBind: Intent { act=com.google.android.gms.measurement.START pkg=com.google.android.gms }
+10-29 15:58:36.563  6493  6493 D BoundBrokerSvc: Loading bound service for intent: Intent { act=com.google.android.gms.measurement.START pkg=com.google.android.gms }
+10-29 15:58:36.564 18240 18315 D TokenDevice: evbzPMOrS1qHDrrDWxahMW:APA91bHgHEtbg-RYqHzH8fxGAMBdXpeGJL5kQ7DBj9EdpbkmnfSHS86KWj7a_1MWLHeWYeHEl2IDyfxuGFrqnPQmXt0Fxlvpjths6HmThmABL2Dmtxm6qrI
+10-29 15:58:36.564 18240 18315 D DeviceName: Google Pixel 4
+10-29 15:58:36.578  6493 18437 D AdvertisingIdClient: AdvertisingIdClient already created.
+10-29 15:58:36.578  6493 18437 I AdvertisingIdClient: shouldSendLog 112888825
+10-29 15:58:36.578  6493 18437 I AdvertisingIdClient: GetInfoInternal elapse 0ms
+10-29 15:58:36.594  6503 18427 W NetworkScheduler: Error inserting flex_time=84000 job_id=-1 period=169000 source=16 requires_charging=0 preferred_network_type=1 target_class=com.google.android.gms.measurement.PackageMeasurementTaskService user_id=0 target_package=com.google.android.gms tag=Measurement.PackageMeasurementTaskService.UPLOAD_TASK_TAG task_type=0 required_idleness_state=0 service_kind=0 source_version=244233000 persistence_level=1 preferred_charging_state=1 required_network_type=0 runtime=1730192316590 retry_strategy={"maximum_backoff_seconds":{"3600":0},"initial_backoff_seconds":{"30":0},"retry_policy":{"0":0}} last_runtime=0 [CONTEXT service_id=218 ]
+10-29 15:58:36.594  6503 18427 W NetworkScheduler: android.database.sqlite.SQLiteConstraintException: UNIQUE constraint failed: pending_ops.tag, pending_ops.target_class, pending_ops.target_package, pending_ops.user_id (code 2067 SQLITE_CONSTRAINT_UNIQUE)
+10-29 15:58:36.594  6503 18427 W NetworkScheduler: 	at android.database.sqlite.SQLiteConnection.nativeExecuteForLastInsertedRowId(Native Method)
+10-29 15:58:36.594  6503 18427 W NetworkScheduler: 	at android.database.sqlite.SQLiteConnection.executeForLastInsertedRowId(SQLiteConnection.java:961)
+10-29 15:58:36.594  6503 18427 W NetworkScheduler: 	at android.database.sqlite.SQLiteSession.executeForLastInsertedRowId(SQLiteSession.java:790)
+10-29 15:58:36.594  6503 18427 W NetworkScheduler: 	at android.database.sqlite.SQLiteStatement.executeInsert(SQLiteStatement.java:89)
+10-29 15:58:36.594  6503 18427 W NetworkScheduler: 	at android.database.sqlite.SQLiteDatabase.insertWithOnConflict(SQLiteDatabase.java:1868)
+10-29 15:58:36.594  6503 18427 W NetworkScheduler: 	at android.database.sqlite.SQLiteDatabase.insertOrThrow(SQLiteDatabase.java:1763)
+10-29 15:58:36.594  6503 18427 W NetworkScheduler: 	at dhlz.d(:com.google.android.gms@244233029@24.42.33 (190400-689790151):727)
+10-29 15:58:36.594  6503 18427 W NetworkScheduler: 	at dhjl.n(:com.google.android.gms@244233029@24.42.33 (190400-689790151):29)
+10-29 15:58:36.594  6503 18427 W NetworkScheduler: 	at dhjl.u(:com.google.android.gms@244233029@24.42.33 (190400-689790151):360)
+10-29 15:58:36.594  6503 18427 W NetworkScheduler: 	at dhjl.h(:com.google.android.gms@244233029@24.42.33 (190400-689790151):51)
+10-29 15:58:36.594  6503 18427 W NetworkScheduler: 	at dhee.run(:com.google.android.gms@244233029@24.42.33 (190400-689790151):72)
+10-29 15:58:36.594  6503 18427 W NetworkScheduler: 	at anqu.c(:com.google.android.gms@244233029@24.42.33 (190400-689790151):50)
+10-29 15:58:36.594  6503 18427 W NetworkScheduler: 	at anqu.run(:com.google.android.gms@244233029@24.42.33 (190400-689790151):76)
+10-29 15:58:36.594  6503 18427 W NetworkScheduler: 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+10-29 15:58:36.594  6503 18427 W NetworkScheduler: 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:644)
+10-29 15:58:36.594  6503 18427 W NetworkScheduler: 	at anwf.run(:com.google.android.gms@244233029@24.42.33 (190400-689790151):8)
+10-29 15:58:36.594  6503 18427 W NetworkScheduler: 	at java.lang.Thread.run(Thread.java:1012)
+10-29 15:58:36.674 18240 18539 D TrafficStats: tagSocket(152) with statsTag=0xffffffff, statsUid=-1
+10-29 15:58:36.806 18240 18240 D EventLogger: timeline [eventTime=0.25, mediaPos=0.00, window=0, periodCount=1, windowCount=1, reason=PREPARED
+10-29 15:58:36.806 18240 18240 D EventLogger:   period [608.88]
+10-29 15:58:36.806 18240 18240 D EventLogger:   window [608.88, true, false]
+10-29 15:58:36.806 18240 18240 D EventLogger: ]
+10-29 15:58:36.806 18240 18240 D EventLogger: mediaPeriodCreated [eventTime=0.25, mediaPos=0.00, window=0, period=0]
+10-29 15:58:36.807 18240 18240 D EventLogger: loading [eventTime=0.25, mediaPos=0.00, window=0, period=0, true]
+10-29 15:58:36.807 18240 18240 D EventLogger: decoderEnabled [eventTime=0.25, mediaPos=0.00, window=0, period=0, video]
+10-29 15:58:36.807 18240 18240 D EventLogger: decoderEnabled [eventTime=0.25, mediaPos=0.00, window=0, period=0, audio]
+10-29 15:58:36.807 18240 18240 D EventLogger: tracks [eventTime=0.25, mediaPos=0.00, window=0, period=0
+10-29 15:58:36.807 18240 18240 D EventLogger:   Renderer:0 [
+10-29 15:58:36.807 18240 18240 D EventLogger:     Group:0, adaptive_supported=YES [
+10-29 15:58:36.807 18240 18240 D EventLogger:       [X] Track:0, id=0, mimeType=video/avc, bitrate=991136, codecs=avc1.4d401e, res=640x360, supported=YES
+10-29 15:58:36.807 18240 18240 D EventLogger:       [X] Track:1, id=1, mimeType=video/avc, bitrate=682816, codecs=avc1.42e00d, res=384x216, supported=YES
+10-29 15:58:36.807 18240 18240 D EventLogger:       [X] Track:2, id=2, mimeType=video/avc, bitrate=1710048, codecs=avc1.4d401f, res=960x540, supported=YES
+10-29 15:58:36.807 18240 18240 D EventLogger:       [X] Track:3, id=3, mimeType=video/avc, bitrate=2222912, codecs=avc1.4d401f, res=1280x720, supported=YES
+10-29 15:58:36.807 18240 18240 D EventLogger:     ]
+10-29 15:58:36.807 18240 18240 D EventLogger:     Metadata [
+10-29 15:58:36.807 18240 18240 D EventLogger:       HlsTrackMetadataEntry
+10-29 15:58:36.807 18240 18240 D EventLogger:     ]
+10-29 15:58:36.807 18240 18240 D EventLogger:   ]
+10-29 15:58:36.807 18240 18240 D EventLogger:   Renderer:1 [
+10-29 15:58:36.807 18240 18240 D EventLogger:     Group:0, adaptive_supported=N/A [
+10-29 15:58:36.807 18240 18240 D EventLogger:       [X] Track:0, id=1/15, mimeType=audio/mp4a-latm, channels=2, sample_rate=48000, language=en, supported=YES
+10-29 15:58:36.807 18240 18240 D EventLogger:     ]
+10-29 15:58:36.807 18240 18240 D EventLogger:   ]
+10-29 15:58:36.807 18240 18240 D EventLogger:   Renderer:2 [
+10-29 15:58:36.807 18240 18240 D EventLogger:     Group:0, adaptive_supported=N/A [
+10-29 15:58:36.807 18240 18240 D EventLogger:       [ ] Track:0, id=1/8219, mimeType=application/cea-608, supported=YES
+10-29 15:58:36.807 18240 18240 D EventLogger:     ]
+10-29 15:58:36.807 18240 18240 D EventLogger:   ]
+10-29 15:58:36.807 18240 18240 D EventLogger:   Renderer:3 [
+10-29 15:58:36.807 18240 18240 D EventLogger:     Group:0, adaptive_supported=N/A [
+10-29 15:58:36.807 18240 18240 D EventLogger:       [X] Track:0, id=null, mimeType=application/id3, supported=YES
+10-29 15:58:36.807 18240 18240 D EventLogger:     ]
+10-29 15:58:36.807 18240 18240 D EventLogger:   ]
+10-29 15:58:36.807 18240 18240 D EventLogger: ]
+10-29 15:58:36.812 18240 18545 D TrafficStats: tagSocket(131) with statsTag=0xffffffff, statsUid=-1
+10-29 15:58:36.821 18240 18240 D EventLogger: mediaPeriodReadingStarted [eventTime=0.27, mediaPos=0.00, window=0, period=0]
+10-29 15:58:36.888 18240 18240 D EventLogger: downstreamFormat [eventTime=0.33, mediaPos=0.00, window=0, period=0, id=3, mimeType=null, bitrate=2222912, codecs=avc1.4d401f,mp4a.40.2, res=1280x720]
+10-29 15:58:36.903 18240 18547 D CCodec  : allocate(c2.qti.avc.decoder)
+10-29 15:58:36.905 18240 18547 I CCodec  : setting up 'default' as default (vendor) store
+10-29 15:58:36.906  1113  2474 I vendor.qti.media.c2@1.0-service: missing struct descriptor #Param::CoreIndex(--002) for field mastering of struct #Param::CoreIndex(--180a)
+10-29 15:58:36.907  1113  2474 I QC2Comp : Create: Allocated component[98] for name c2.qti.avc.decoder
+10-29 15:58:36.907  1113  2474 I QC2CompStore: Created component(c2.qti.avc.decoder) id(98)
+10-29 15:58:36.908 18240 18547 I CCodec  : Created component [c2.qti.avc.decoder]
+10-29 15:58:36.908 18240 18547 D CCodecConfig: read media type: video/avc
+10-29 15:58:36.910 18240 18547 D ReflectedParamUpdater: extent() != 1 for single value type: output.buffers.pool-ids.values
+10-29 15:58:36.911 18240 18547 D CCodecConfig: ignoring local param raw.size (0xd2001800) as it is already supported
+10-29 15:58:36.911 18240 18547 D CCodecConfig: ignoring local param default.color (0x5200180b) as it is already supported
+10-29 15:58:36.911 18240 18547 D CCodecConfig: ignoring local param raw.hdr-static-info (0xd200180a) as it is already supported
+10-29 15:58:36.911 18240 18547 I CCodecConfig: query failed after returning 18 values (BAD_INDEX)
+10-29 15:58:36.912 18240 18547 D CCodecConfig: c2 config diff is Dict {
+10-29 15:58:36.912 18240 18547 D CCodecConfig:   c2::u32 algo.low-latency.value = 4294967295
+10-29 15:58:36.912 18240 18547 D CCodecConfig:   c2::i32 algo.priority.value = -1
+10-29 15:58:36.912 18240 18547 D CCodecConfig:   c2::float algo.rate.value = 30
+10-29 15:58:36.912 18240 18547 D CCodecConfig:   c2::u32 algo.secure-mode.value = 0
+10-29 15:58:36.912 18240 18547 D CCodecConfig:   c2::float coded.frame-rate.value = 30
+10-29 15:58:36.912 18240 18547 D CCodecConfig:   c2::u32 coded.pl.level = 20480
+10-29 15:58:36.912 18240 18547 D CCodecConfig:   c2::u32 coded.pl.profile = 20480
+10-29 15:58:36.912 18240 18547 D CCodecConfig:   c2::u32 coded.vui.color.matrix = 0
+10-29 15:58:36.912 18240 18547 D CCodecConfig:   c2::u32 coded.vui.color.primaries = 0
+10-29 15:58:36.912 18240 18547 D CCodecConfig:   c2::u32 coded.vui.color.range = 0
+10-29 15:58:36.912 18240 18547 D CCodecConfig:   c2::u32 coded.vui.color.transfer = 0
+10-29 15:58:36.912 18240 18547 D CCodecConfig:   c2::u32 default.color.matrix = 0
+10-29 15:58:36.912 18240 18547 D CCodecConfig:   c2::u32 default.color.primaries = 0
+10-29 15:58:36.912 18240 18547 D CCodecConfig:   c2::u32 default.color.range = 0
+10-29 15:58:36.912 18240 18547 D CCodecConfig:   c2::u32 default.color.transfer = 0
+10-29 15:58:36.912 18240 18547 D CCodecConfig:   c2::u32 input.buffers.max-size.value = 7077888
+10-29 15:58:36.912 18240 18547 D CCodecConfig:   c2::u32 input.delay.value = 0
+10-29 15:58:36.912 18240 18547 D CCodecConfig:   string input.media-type.value = "video/avc"
+10-29 15:58:36.912 18240 18547 D CCodecConfig:   c2::u32 output.delay.value = 18
+10-29 15:58:36.912 18240 18547 D CCodecConfig:   string output.media-type.value = "video/raw"
+10-29 15:58:36.912 18240 18547 D CCodecConfig:   c2::u32 raw.color.matrix = 0
+10-29 15:58:36.912 18240 18547 D CCodecConfig:   c2::u32 raw.color.primaries = 0
+10-29 15:58:36.912 18240 18547 D CCodecConfig:   c2::u32 raw.color.range = 0
+10-29 15:58:36.912 18240 18547 D CCodecConfig:   c2::u32 raw.color.transfer = 0
+10-29 15:58:36.912 18240 18547 D CCodecConfig:   c2::float raw.hdr-static-info.mastering.blue.x = 0
+10-29 15:58:36.912 18240 18547 D CCodecConfig:   c2::float raw.hdr-static-info.mastering.blue.y = 0
+10-29 15:58:36.912 18240 18547 D CCodecConfig:  
+10-29 15:58:36.912 18240 18547 W ColorUtils: expected specified color aspects (0:0:0:0)
+10-29 15:58:36.913 18240 18546 D SurfaceUtils: connecting to surface 0xb400007071ab5080, reason connectToSurface
+10-29 15:58:36.913 18240 18546 I MediaCodec: [c2.qti.avc.decoder] setting surface generation to 18677763
+10-29 15:58:36.913 18240 18546 D SurfaceUtils: disconnecting from surface 0xb400007071ab5080, reason connectToSurface(reconnect)
+10-29 15:58:36.913 18240 18546 D SurfaceUtils: connecting to surface 0xb400007071ab5080, reason connectToSurface(reconnect)
+10-29 15:58:36.914 18240 18547 D CCodec  : [c2.qti.avc.decoder] buffers are bound to CCodec for this session
+10-29 15:58:36.914 18240 18547 D CCodecConfig: no c2 equivalents for csd-1
+10-29 15:58:36.914 18240 18547 D CCodecConfig: no c2 equivalents for native-window
+10-29 15:58:36.914 18240 18547 D CCodecConfig: no c2 equivalents for flags
+10-29 15:58:36.914  1113  2472 E 855Caps : max size must equal to/greater than output size
+10-29 15:58:36.914 18240 18547 D CCodecConfig: c2 config diff is   c2::i32 algo.priority.value = 0
+10-29 15:58:36.914 18240 18547 D CCodecConfig:   c2::u32 raw.max-size.height = 720
+10-29 15:58:36.914 18240 18547 D CCodecConfig:   c2::u32 raw.max-size.width = 1280
+10-29 15:58:36.914 18240 18547 D CCodecConfig:   c2::u32 raw.size.height = 720
+10-29 15:58:36.914 18240 18547 D CCodecConfig:   c2::u32 raw.size.width = 1280
+10-29 15:58:36.915 18240 18547 W Codec2Client: query -- param skipped: index = 1107298332.
+10-29 15:58:36.915 18240 18547 D CCodec  : client requested max input size 691200, which is smaller than what component recommended (7077888); overriding with component recommendation.
+10-29 15:58:36.915 18240 18547 W CCodec  : This behavior is subject to change. It is recommended that app developers double check whether the requested max input size is in reasonable range.
+10-29 15:58:36.915 18240 18547 D CCodec  : encoding statistics level = 0
+10-29 15:58:36.915 18240 18547 D CCodec  : setup formats input: AMessage(what = 0x00000000) = {
+10-29 15:58:36.915 18240 18547 D CCodec  :   int32_t feature-secure-playback = 0
+10-29 15:58:36.915 18240 18547 D CCodec  :   int32_t frame-rate = 30
+10-29 15:58:36.915 18240 18547 D CCodec  :   int32_t height = 720
+10-29 15:58:36.915 18240 18547 D CCodec  :   int32_t level = 1
+10-29 15:58:36.915 18240 18547 D CCodec  :   int32_t max-input-size = 7077888
+10-29 15:58:36.915 18240 18547 D CCodec  :   string mime = "video/avc"
+10-29 15:58:36.915 18240 18547 D CCodec  :   int32_t priority = 0
+10-29 15:58:36.915 18240 18547 D CCodec  :   int32_t profile = 1
+10-29 15:58:36.915 18240 18547 D CCodec  :   int32_t width = 1280
+10-29 15:58:36.915 18240 18547 D CCodec  :   Rect crop(0, 0, 1279, 719)
+10-29 15:58:36.915 18240 18547 D CCodec  : }
+10-29 15:58:36.915 18240 18547 D CCodec  : setup formats output: AMessage(what = 0x00000000) = {
+10-29 15:58:36.915 18240 18547 D CCodec  :   int32_t android._color-format = 2141391878
+10-29 15:58:36.915 18240 18547 D CCodec  :   int32_t android._video-scaling = 1
+10-29 15:58:36.915 18240 18547 D CCodec  :   int32_t android._dataspace = 260
+10-29 15:58:36.915 18240 18547 D CCodec  :   int32_t color-standard = 1
+10-29 15:58:36.915 18240 18547 D CCodec  :   int32_t color-range = 2
+10-29 15:58:36.915 18240 18547 D CCodec  :   int32_t color-transfer = 3
+10-29 15:58:36.915 18240 18547 D CCodec  :   int32_t sar-height = 1
+10-29 15:58:36.915 18240 18547 D CCodec  :   int32_t rotation-degrees = 0
+10-29 15:58:36.915 18240 18547 D CCodec  :   Buffer hdr-static-info = {
+10-29 15:58:36.915 18240 18547 D CCodec  :     00000000:  00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  ................
+10-29 15:58:36.915 18240 18547 D CCodec  :     00000010:  00 00 00 00 00 00 00 00  00                       .........
+10-29 15:58:36.915 18240 18547 D CCodec  :   }
+10-29 15:58:36.915 18240 18547 D CCodec  :   int32_t sar-width = 1
+10-29 15:58:36.915 18240 18547 D CCodec  :   Rect crop(0, 0, 1279, 719)
+10-29 15:58:36.915 18240 18547 D CCodec  :   int32_t width = 1280
+10-29 15:58:36.915 18240 18547 D CCodec  :   int32_t feature-secure-playback = 0
+10-29 15:58:36.915 18240 18547 D CCodec  :   int32_t frame-rate = 30
+10-29 15:58:36.915 18240 18547 D CCodec  :   int32_t height = 720
+10-29 15:58:36.915 18240 18547 D CCodec  :   int32_t max-height = 720
+10-29 15:58:36.915 18240 18547 D CCodec  :   int32_t max-width = 1280
+10-29 15:58:36.915 18240 18547 D CCodec  :   string mime = "video/raw"
+10-29 15:58:36.915 18240 18547 D CCodec  :   int32_t priority = 0
+10-29 15:58:36.915 18240 18547 D CCodec  :   int32_t color-format = 2130708361
+10-29 15:58:36.915 18240 18547 D CCodec  : }
+10-29 15:58:36.915 18240 18547 I CCodecConfig: query failed after returning 18 values (BAD_INDEX)
+10-29 15:58:36.916  1113 18548 I QC2V4l2Driver: [avcD_98] Device /dev/video32 opened with fd: 7
+10-29 15:58:36.922  1113 18548 W QC2V4l2Codec: [avcD_98] unknown/unsupported param Output::MaxPictureSize index = 0x52002003
+10-29 15:58:36.922  1113 18548 W QC2V4l2Codec: [avcD_98] unknown/unsupported param Input::MaxBufferSize index = 0xC200081E
+10-29 15:58:36.925 18240 18547 W Codec2Client: query -- param skipped: index = 1342179345.
+10-29 15:58:36.925 18240 18547 W Codec2Client: query -- param skipped: index = 2415921170.
+10-29 15:58:36.925 18240 18547 W Codec2Client: query -- param skipped: index = 1610614798.
+10-29 15:58:36.925 18240 18547 D CCodecBufferChannel: [c2.qti.avc.decoder#253] Query input allocators returned 0 params => BAD_INDEX (6)
+10-29 15:58:36.925 18240 18547 D CCodecBufferChannel: [c2.qti.avc.decoder#253] Created input block pool with allocatorID 16 => poolID 21 - OK (0)
+10-29 15:58:36.925 18240 18547 D CCodecBufferChannel: [c2.qti.avc.decoder#253] Query output allocators returned 0 params => BAD_INDEX (6)
+10-29 15:58:36.925 18240 18547 D CCodecBufferChannel: [c2.qti.avc.decoder#253] Query output surface allocator returned 0 params => BAD_INDEX (6)
+10-29 15:58:36.925  1454  1580 D BufferPoolAccessor2.0: bufferpool2 0xb400006e0f76c9d8 : 0(0 size) total buffers - 0(0 size) used buffers - 791/796 (recycle/alloc) - 7/796 (fetch/transfer)
+10-29 15:58:36.925  1454  1580 D BufferPoolAccessor2.0: Destruction - bufferpool2 0xb400006e0f76c9d8 cached: 0/0M, 0/0% in use; allocs: 796, 99% recycled; transfers: 796, 99% unfetched
+10-29 15:58:36.925 18240 18547 I CCodecBufferChannel: [c2.qti.avc.decoder#253] Created output block pool with allocatorID 18 => poolID 100 - OK
+10-29 15:58:36.926 18240 18547 D CCodecBufferChannel: [c2.qti.avc.decoder#253] Configured output block pool ids 100 => OK
+10-29 15:58:36.926 18240 18547 D Codec2-OutputBufferQueue: remote graphic buffer migration 0/0
+10-29 15:58:36.926  1113  2472 E QC2Interface: Few parameters failed to configure
+10-29 15:58:36.926 18240 18547 D Codec2Client: setOutputSurface -- failed to set consumer usage (6/BAD_INDEX)
+10-29 15:58:36.926 18240 18547 D Codec2Client: setOutputSurface -- generation=18677763 consumer usage=0x900
+10-29 15:58:36.926  1113  2472 D C2BqBuffer: local generation change 18677763 , bqId: 78340203479045 migrated buffers # 0
+10-29 15:58:36.926 18240 18547 D Codec2Client: Surface configure completed
+10-29 15:58:36.930  1398  2524 W ResourceManagerService: Ignoring request to add new resource entry with value <= 0
+10-29 15:58:36.930 18240 18464 D BufferPoolAccessor2.0: bufferpool2 0xb400006fd1b78d98 : 0(0 size) total buffers - 0(0 size) used buffers - 0/6 (recycle/alloc) - 6/435 (fetch/transfer)
+10-29 15:58:36.930 18240 18464 D BufferPoolAccessor2.0: Destruction - bufferpool2 0xb400006fd1b78d98 cached: 0/0M, 0/0% in use; allocs: 6, 0% recycled; transfers: 435, 99% unfetched
+10-29 15:58:36.935 18240 18464 D CCodecBufferChannel: [c2.qti.avc.decoder#253] Ignoring stale input buffer done callback: last flush index = 0, frameIndex = 0
+10-29 15:58:36.937 18240 18240 D EventLogger: decoderInitialized [eventTime=0.38, mediaPos=0.00, window=0, period=0, video, c2.qti.avc.decoder]
+10-29 15:58:36.937 18240 18240 D EventLogger: decoderInputFormat [eventTime=0.38, mediaPos=0.00, window=0, period=0, video, id=3, mimeType=video/avc, bitrate=2222912, codecs=avc1.4D401F, res=1280x720]
+10-29 15:58:36.939 18240 18551 D CCodec  : allocate(c2.android.aac.decoder)
+10-29 15:58:36.940 18240 18551 I CCodec  : setting up 'default' as default (vendor) store
+10-29 15:58:36.941  1454  1580 W libc    : Access denied finding property "aac_drc_heavy"
+10-29 15:58:36.941  1454  1580 W libc    : Access denied finding property "aac_drc_reference_level"
+10-29 15:58:36.941  1454  1580 W libc    : Access denied finding property "aac_drc_enc_target_level"
+10-29 15:58:36.941  1454  1580 W libc    : Access denied finding property "aac_drc_boost"
+10-29 15:58:36.941  1454  1580 W libc    : Access denied finding property "aac_drc_cut"
+10-29 15:58:36.941  1454  1580 W libc    : Access denied finding property "ro.aac_drc_effect_type"
+10-29 15:58:36.942  1454  1580 W libc    : Access denied finding property "aac_drc_heavy"
+10-29 15:58:36.942  1454  1580 W libc    : Access denied finding property "aac_drc_reference_level"
+10-29 15:58:36.942  1454  1580 W libc    : Access denied finding property "aac_drc_enc_target_level"
+10-29 15:58:36.942  1454  1580 W libc    : Access denied finding property "aac_drc_boost"
+10-29 15:58:36.942  1454  1580 W libc    : Access denied finding property "aac_drc_cut"
+10-29 15:58:36.942  1454  1580 W libc    : Access denied finding property "ro.aac_drc_effect_type"
+10-29 15:58:36.935  1454  1454 W HwBinder:1454_1: type=1400 audit(0.0:4259): avc: denied { read } for name="u:object_r:aac_drc_prop:s0" dev="tmpfs" ino=3482 scontext=u:r:mediaswcodec:s0 tcontext=u:object_r:aac_drc_prop:s0 tclass=file permissive=0
+10-29 15:58:36.935  1454  1454 W HwBinder:1454_1: type=1400 audit(0.0:4260): avc: denied { read } for name="u:object_r:aac_drc_prop:s0" dev="tmpfs" ino=3482 scontext=u:r:mediaswcodec:s0 tcontext=u:object_r:aac_drc_prop:s0 tclass=file permissive=0
+10-29 15:58:36.935  1454  1454 W HwBinder:1454_1: type=1400 audit(0.0:4261): avc: denied { read } for name="u:object_r:aac_drc_prop:s0" dev="tmpfs" ino=3482 scontext=u:r:mediaswcodec:s0 tcontext=u:object_r:aac_drc_prop:s0 tclass=file permissive=0
+10-29 15:58:36.943 18240 18464 D BufferPoolAccessor2.0: bufferpool2 0xb400006fd1bbcc78 : 0(0 size) total buffers - 0(0 size) used buffers - 1/6 (recycle/alloc) - 5/800 (fetch/transfer)
+10-29 15:58:36.943 18240 18464 D BufferPoolAccessor2.0: Destruction - bufferpool2 0xb400006fd1bbcc78 cached: 0/0M, 0/0% in use; allocs: 6, 17% recycled; transfers: 800, 99% unfetched
+10-29 15:58:36.944 18240 18551 I CCodec  : Created component [c2.android.aac.decoder]
+10-29 15:58:36.944 18240 18551 D CCodecConfig: read media type: audio/mp4a-latm
+10-29 15:58:36.945 18240 18551 D ReflectedParamUpdater: extent() != 1 for single value type: algo.buffers.max-count.values
+10-29 15:58:36.945 18240 18551 D ReflectedParamUpdater: extent() != 1 for single value type: output.subscribed-indices.values
+10-29 15:58:36.945 18240 18551 D ReflectedParamUpdater: extent() != 1 for single value type: input.buffers.allocator-ids.values
+10-29 15:58:36.945 18240 18551 D ReflectedParamUpdater: extent() != 1 for single value type: output.buffers.allocator-ids.values
+10-29 15:58:36.945 18240 18551 D ReflectedParamUpdater: extent() != 1 for single value type: algo.buffers.allocator-ids.values
+10-29 15:58:36.945 18240 18551 D ReflectedParamUpdater: extent() != 1 for single value type: output.buffers.pool-ids.values
+10-29 15:58:36.945 18240 18551 D ReflectedParamUpdater: extent() != 1 for single value type: algo.buffers.pool-ids.values
+10-29 15:58:36.947 18240 18551 I CCodecConfig: query failed after returning 20 values (BAD_INDEX)
+10-29 15:58:36.947 18240 18551 D CCodecConfig: c2 config diff is Dict {
+10-29 15:58:36.947 18240 18551 D CCodecConfig:   c2::u32 coded.aac-packaging.value = 0
+10-29 15:58:36.947 18240 18551 D CCodecConfig:   c2::u32 coded.bitrate.value = 64000
+10-29 15:58:36.947 18240 18551 D CCodecConfig:   c2::u32 coded.pl.level = 0
+10-29 15:58:36.947 18240 18551 D CCodecConfig:   c2::u32 coded.pl.profile = 8192
+10-29 15:58:36.947 18240 18551 D CCodecConfig:   c2::i32 coding.drc.album-mode.value = 0
+10-29 15:58:36.947 18240 18551 D CCodecConfig:   c2::float coding.drc.attenuation-factor.value = 1
+10-29 15:58:36.947 18240 18551 D CCodecConfig:   c2::float coding.drc.boost-factor.value = 1
+10-29 15:58:36.947 18240 18551 D CCodecConfig:   c2::i32 coding.drc.compression-mode.value = 3
+10-29 15:58:36.947 18240 18551 D CCodecConfig:   c2::i32 coding.drc.effect-type.value = 3
+10-29 15:58:36.947 18240 18551 D CCodecConfig:   c2::float coding.drc.encoded-level.value = 0.25
+10-29 15:58:36.947 18240 18551 D CCodecConfig:   c2::float coding.drc.reference-level.value = -16
+10-29 15:58:36.947 18240 18551 D CCodecConfig:   c2::u32 input.buffers.max-size.value = 8192
+10-29 15:58:36.947 18240 18551 D CCodecConfig:   c2::u32 input.delay.value = 0
+10-29 15:58:36.947 18240 18551 D CCodecConfig:   string input.media-type.value = "audio/mp4a-latm"
+10-29 15:58:36.947 18240 18551 D CCodecConfig:   c2::u32 output.delay.value = 2
+10-29 15:58:36.947 18240 18551 D CCodecConfig:   c2::float output.drc.output-loudness.value = 0.25
+10-29 15:58:36.947 18240 18551 D CCodecConfig:   string output.media-type.value = "audio/raw"
+10-29 15:58:36.947 18240 18551 D CCodecConfig:   c2::u32 raw.channel-count.value = 1
+10-29 15:58:36.947 18240 18551 D CCodecConfig:   c2::u32 raw.channel-mask.value = 0
+10-29 15:58:36.947 18240 18551 D CCodecConfig:   c2::u32 raw.max-channel-count.value = 8
+10-29 15:58:36.947 18240 18551 D CCodecConfig:   c2::u32 raw.sample-rate.value = 44100
+10-29 15:58:36.947 18240 18551 D CCodecConfig: }
+10-29 15:58:36.947 18240 18551 D CCodec  : [c2.android.aac.decoder] buffers are bound to CCodec for this session
+10-29 15:58:36.947 18240 18551 D CCodecConfig: no c2 equivalents for flags
+10-29 15:58:36.948 18240 18551 D CCodecConfig: c2 config diff is   c2::u32 raw.channel-count.value = 2
+10-29 15:58:36.948 18240 18551 D CCodecConfig:   c2::u32 raw.sample-rate.value = 48000
+10-29 15:58:36.935  1454  1454 W HwBinder:1454_1: type=1400 audit(0.0:4262): avc: denied { read } for name="u:object_r:aac_drc_prop:s0" dev="tmpfs" ino=3482 scontext=u:r:mediaswcodec:s0 tcontext=u:object_r:aac_drc_prop:s0 tclass=file permissive=0
+10-29 15:58:36.935  1454  1454 W HwBinder:1454_1: type=1400 audit(0.0:4263): avc: denied { read } for name="u:object_r:aac_drc_prop:s0" dev="tmpfs" ino=3482 scontext=u:r:mediaswcodec:s0 tcontext=u:object_r:aac_drc_prop:s0 tclass=file permissive=0
+10-29 15:58:36.948 18240 18551 W Codec2Client: query -- param skipped: index = 1107298332.
+10-29 15:58:36.948 18240 18551 D CCodec  : encoding statistics level = 0
+10-29 15:58:36.948 18240 18551 D CCodec  : setup formats input: AMessage(what = 0x00000000) = {
+10-29 15:58:36.948 18240 18551 D CCodec  :   int32_t aac-drc-album-mode = 0
+10-29 15:58:36.948 18240 18551 D CCodec  :   int32_t aac-drc-boost-level = 127
+10-29 15:58:36.948 18240 18551 D CCodec  :   int32_t aac-drc-cut-level = 127
+10-29 15:58:36.948 18240 18551 D CCodec  :   int32_t aac-drc-effect-type = 3
+10-29 15:58:36.948 18240 18551 D CCodec  :   int32_t aac-encoded-target-level = -1
+10-29 15:58:36.948 18240 18551 D CCodec  :   int32_t aac-max-output-channel_count = 8
+10-29 15:58:36.948 18240 18551 D CCodec  :   int32_t aac-target-ref-level = 64
+10-29 15:58:36.948 18240 18551 D CCodec  :   int32_t bitrate = 64000
+10-29 15:58:36.948 18240 18551 D CCodec  :   int32_t channel-count = 2
+10-29 15:58:36.948 18240 18551 D CCodec  :   int32_t channel-mask = 0
+10-29 15:58:36.948 18240 18551 D CCodec  :   int32_t level = 0
+10-29 15:58:36.948 18240 18551 D CCodec  :   int32_t max-input-size = 8192
+10-29 15:58:36.948 18240 18551 D CCodec  :   int32_t max-output-channel-count = 8
+10-29 15:58:36.948 18240 18551 D CCodec  :   string mime = "audio/mp4a-latm"
+10-29 15:58:36.948 18240 18551 D CCodec  :   int32_t profile = 2
+10-29 15:58:36.948 18240 18551 D CCodec  :   int32_t sample-rate = 48000
+10-29 15:58:36.948 18240 18551 D CCodec  : }
+10-29 15:58:36.948 18240 18551 D CCodec  : setup formats output: AMessage(what = 0x00000000) = {
+10-29 15:58:36.948 18240 18551 D CCodec  :   int32_t aac-drc-album-mode = 0
+10-29 15:58:36.948 18240 18551 D CCodec  :   int32_t aac-drc-boost-level = 127
+10-29 15:58:36.948 18240 18551 D CCodec  :   int32_t aac-drc-cut-level = 127
+10-29 15:58:36.948 18240 18551 D CCodec  :   int32_t aac-drc-effect-type = 3
+10-29 15:58:36.948 18240 18551 D CCodec  :   int32_t aac-drc-output-loudness = -1
+10-29 15:58:36.948 18240 18551 D CCodec  :   int32_t aac-encoded-target-level = -1
+10-29 15:58:36.948 18240 18551 D CCodec  :   int32_t aac-max-output-channel_count = 8
+10-29 15:58:36.948 18240 18551 D CCodec  :   int32_t aac-target-ref-level = 64
+10-29 15:58:36.948 18240 18551 D CCodec  :   int32_t channel-count = 2
+10-29 15:58:36.948 18240 18551 D CCodec  :   int32_t channel-mask = 0
+10-29 15:58:36.948 18240 18551 D CCodec  :   int32_t max-output-channel-count = 8
+10-29 15:58:36.948 18240 18551 D CCodec  :   string mime = "audio/raw"
+10-29 15:58:36.948 18240 18551 D CCodec  :   int32_t sample-rate = 48000
+10-29 15:58:36.948 18240 18551 D CCodec  :   int32_t android._config-pcm-encoding = 2
+10-29 15:58:36.948 18240 18551 D CCodec  : }
+10-29 15:58:36.948 18240 18551 I CCodecConfig: query failed after returning 20 values (BAD_INDEX)
+10-29 15:58:36.948 18240 18551 W Codec2Client: query -- param skipped: index = 1342179345.
+10-29 15:58:36.948 18240 18551 W Codec2Client: query -- param skipped: index = 2415921170.
+10-29 15:58:36.948 18240 18551 W Codec2Client: query -- param skipped: index = 1610614798.
+10-29 15:58:36.949 18240 18551 D CCodecBufferChannel: [c2.android.aac.decoder#605] Created input block pool with allocatorID 16 => poolID 22 - OK (0)
+10-29 15:58:36.949 18240 18551 I CCodecBufferChannel: [c2.android.aac.decoder#605] Created output block pool with allocatorID 16 => poolID 210 - OK
+10-29 15:58:36.949 18240 18551 D CCodecBufferChannel: [c2.android.aac.decoder#605] Configured output block pool ids 210 => OK
+10-29 15:58:36.949  1454  4467 E Codec2-ComponentInterface: We have a failed config
+10-29 15:58:36.950  1454 18552 D SimpleC2Component: Using output block pool with poolID 210 => got 210 - 0
+10-29 15:58:36.952  1454 18552 I C2SoftAacDec: Reconfiguring decoder: 0->48000 Hz, 0->2 channels
+10-29 15:58:36.954 18240 18240 D EventLogger: decoderInitialized [eventTime=0.40, mediaPos=0.00, window=0, period=0, audio, c2.android.aac.decoder]
+10-29 15:58:36.955 18240 18240 D EventLogger: decoderInputFormat [eventTime=0.40, mediaPos=0.00, window=0, period=0, audio, id=1/15, mimeType=audio/mp4a-latm, channels=2, sample_rate=48000, language=en]
+10-29 15:58:36.957 18240 18547 D CCodecConfig: c2 config diff is   c2::u32 output.delay.value = 15
+10-29 15:58:36.957 18240 18547 D CCodecConfig:   c2::u32 raw.crop.height = 720
+10-29 15:58:36.957 18240 18547 D CCodecConfig:   c2::u32 raw.crop.left = 0
+10-29 15:58:36.957 18240 18547 D CCodecConfig:   c2::u32 raw.crop.top = 0
+10-29 15:58:36.957 18240 18547 D CCodecConfig:   c2::u32 raw.crop.width = 1280
+10-29 15:58:36.957 18240 18547 D Codec2-OutputBufferQueue: set max dequeue count 25 from update
+10-29 15:58:36.957 18240 18551 D CCodecConfig: c2 config diff is   c2::u32 raw.channel-mask.value = 12
+10-29 15:58:36.957 18240 18551 D CCodecBuffers: [c2.android.aac.decoder#605:Output[N]] popFromStashAndRegister: at 84000us, output format changed to AMessage(what = 0x00000000) = {
+10-29 15:58:36.957 18240 18551 D CCodecBuffers:   int32_t aac-drc-album-mode = 0
+10-29 15:58:36.957 18240 18551 D CCodecBuffers:   int32_t aac-drc-boost-level = 127
+10-29 15:58:36.957 18240 18551 D CCodecBuffers:   int32_t aac-drc-cut-level = 127
+10-29 15:58:36.957 18240 18551 D CCodecBuffers:   int32_t aac-drc-effect-type = 3
+10-29 15:58:36.957 18240 18551 D CCodecBuffers:   int32_t aac-drc-output-loudness = -1
+10-29 15:58:36.957 18240 18551 D CCodecBuffers:   int32_t aac-encoded-target-level = -1
+10-29 15:58:36.957 18240 18551 D CCodecBuffers:   int32_t aac-max-output-channel_count = 8
+10-29 15:58:36.957 18240 18551 D CCodecBuffers:   int32_t aac-target-ref-level = 64
+10-29 15:58:36.957 18240 18551 D CCodecBuffers:   int32_t channel-count = 2
+10-29 15:58:36.957 18240 18551 D CCodecBuffers:   int32_t channel-mask = 12
+10-29 15:58:36.957 18240 18551 D CCodecBuffers:   int32_t max-output-channel-count = 8
+10-29 15:58:36.957 18240 18551 D CCodecBuffers:   string mime = "audio/raw"
+10-29 15:58:36.957 18240 18551 D CCodecBuffers:   int32_t sample-rate = 48000
+10-29 15:58:36.957 18240 18551 D CCodecBuffers:   int32_t android._config-pcm-encoding = 2
+10-29 15:58:36.957 18240 18551 D CCodecBuffers: }
+10-29 15:58:36.967  1151  4678 D AudioFlinger: Client defaulted notificationFrames to 6000 for frameCount 12000
+10-29 15:58:36.968  1151  4678 D AF::TrackHandle: OpPlayAudio: track:170 usage:1 not muted
+10-29 15:58:36.974   712   754 E qdgralloc: Unknown Color Space = 2
+10-29 15:58:36.974 18240 18240 D EventLogger: videoSize [eventTime=0.42, mediaPos=0.00, window=0, period=0, 1280, 720]
+10-29 15:58:36.974 18240 18240 D EventLogger: renderedFirstFrame [eventTime=0.42, mediaPos=0.00, window=0, period=0, Surface(name=null)/@0xd6a63d4]
+10-29 15:58:36.974 18240 18240 D EventLogger: audioSessionId [eventTime=0.42, mediaPos=0.00, window=0, period=0, 945]
+10-29 15:58:36.993  2613  2613 D Oslo.StatusSensor: setting local audio playback to: true
+10-29 15:58:36.995  1075  1094 D ContextHubHal: Got nanoapp list response with 14 apps
+10-29 15:58:36.996  1089  1185 D CHRE    : @ 113138.513: Nanoapp list request from client ID 1
+10-29 15:58:36.996  1089  1185 D CHRE    : @ 113138.513: Parsed nanoapp message from host: app ID 0x476f6f676c001014, endpoint 0x2, msgType 17, payload size 4
+10-29 15:58:36.996  1089  1185 W OSLO    : @ 113138.513: oslo slpy: Not enough room in fifo to push message of 40 bytes
+10-29 15:58:36.996  1089  1185 E OSLO    : @ 113138.513: oslo slpy: Fifo failed to push payload with id: 14
+10-29 15:58:36.996  1089  1185 E OSLO    : @ 113138.513: oslo slpy: Fifo failed to push PresenceInputParameters
+10-29 15:58:36.996  1069  1122 I EffectsFactory: EffectCreate() create_effect
+10-29 15:58:36.997  1151  4678 W AudioFlinger: moveEffectChain_l() effect chain for session 0 not on source thread 0xb400007ba7c049b0
+10-29 15:58:36.998  1069  2367 E volume_listener: check_and_set_gain_dep_cal: Failed to set gain dep cal level
+10-29 15:58:36.998  1069  2367 E volume_listener: check_and_set_gain_dep_cal: Failed to set gain dep cal level
+10-29 15:58:36.999  1069 17235 D audio_hw_primary: start_output_stream: enter: stream(0xf04464c0)usecase(0: deep-buffer-playback)  devices(0x2) is_haptic_usecase(0)
+10-29 15:58:36.999  1069 17235 D audio_hw_primary: select_devices for use case (deep-buffer-playback)
+10-29 15:58:36.999  1069 17235 I msm8974_platform: platform_check_and_set_codec_backend_cfg:becf: afe: bitwidth 24, samplerate 48000 channels 2, backend_idx 0 usecase = 0 device (speaker)
+10-29 15:58:36.999  1069 17235 I msm8974_platform: platform_check_and_set_codec_backend_cfg: new_snd_devices[0] is 2
+10-29 15:58:36.999  1069 17235 I msm8974_platform: platform_check_codec_backend_cfg:becf: afe: bitwidth 24, samplerate 48000 channels 2, backend_idx 0 usecase = 0 device (speaker)
+10-29 15:58:37.000  1069 17235 D msm8974_platform: platform_check_codec_backend_cfg:becf: updated afe: bitwidth 24, samplerate 48000 channels 2,backend_idx 0 usecase = 0 device (speaker)
+10-29 15:58:37.000  1069 17235 I msm8974_platform: platform_check_codec_backend_cfg:becf: afe: Codec selected backend: 0 updated bit width: 24 and sample rate: 48000
+10-29 15:58:37.000  1069 17235 D audio_hw_primary: check_usecases_codec_backend:becf: force routing 0
+10-29 15:58:37.000  1069 17235 D audio_hw_primary: check_usecases_codec_backend:becf: (78) check_usecases curr device: speaker, usecase device: backends match 0
+10-29 15:58:37.000  1069 17235 D audio_hw_primary: check_usecases_codec_backend:becf: check_usecases num.of Usecases to switch 0
+10-29 15:58:37.000  1069 17235 D hardware_info: hw_info_append_hw_type : device_name = speaker
+10-29 15:58:37.000  1069 17235 D audio_route: Apply path: speaker
+10-29 15:58:37.000  1069 17235 D hardware_info: hw_info_append_hw_type : device_name = vi-feedback
+10-29 15:58:37.000  1069 17235 D audio_hw_primary: enable_snd_device: snd_device(222: vi-feedback)
+10-29 15:58:37.000  1069 17235 D msm8974_platform: platform_get_island_cfg_on_device:island cfg status on snd_device = (vi-feedback 0)
+10-29 15:58:37.000  1069 17235 I soundtrigger: audio_extn_sound_trigger_update_device_status: device 0xde of type 1 for Event 1, with Raise=0
+10-29 15:58:37.000  1069 17235 D audio_route: Apply path: vi-feedback
+10-29 15:58:37.000  1069 17235 D soundtrigger: audio_extn_sound_trigger_update_stream_status: uc_info->id 53 of type 1 for Event 3, with Raise=0
+10-29 15:58:37.000  1069 17235 D audio_hw_utils: audio_extn_utils_send_app_type_cfg: usecase->in_snd_device vi-feedback
+10-29 15:58:37.000  1069 17235 E audio_hw_utils: send_app_type_cfg_for_device: Could not get ctl for mixer cmd - Audio Stream Capture 42 App Type Cfg
+10-29 15:58:37.000  1069 17235 D audio_hw_waves: ma_set_device: 53 is not supported usecase
+10-29 15:58:37.000  1069 17235 D ACDB-LOADER: ACDB -> send_audio_cal, acdb_id = 512, path = 1, app id = 0x11132, sample rate = 8000, afe_sample_rate = 8000
+10-29 15:58:37.000  1069 17235 D ACDB-LOADER: ACDB -> send_asm_topology
+10-29 15:58:37.000  1069 17235 D ACDB-LOADER: ACDB -> ACDB_CMD_GET_AUDPROC_STREAM_TOPOLOGY_ID
+10-29 15:58:37.001  1069 17235 D ACDB-LOADER: ACDB -> send_adm_topology
+10-29 15:58:37.001  1069 17235 D ACDB-LOADER: ACDB -> ACDB_CMD_GET_AUDPROC_COMMON_TOPOLOGY_ID
+10-29 15:58:37.001  1069 17235 D ACDB-LOADER: ACDB -> send_audtable
+10-29 15:58:37.001  1069 17235 D ACDB-LOADER: ACDB -> ACDB_CMD_GET_AUDPROC_INSTANCE_COMMON_TABLE_SIZE
+10-29 15:58:37.001  1069 17235 D android.hardware.audio.service: Failed to fetch the lookup information of the device 00000200 
+10-29 15:58:37.001  1069 17235 D ACDB-LOADER: Error: ACDB_CMD_GET_AUDPROC_INSTANCE_COMMON_TABLE_SIZE Returned = -19
+10-29 15:58:37.001  1069 17235 D ACDB-LOADER: ACDB -> ACDB_CMD_GET_AUDPROC_INSTANCE_COMMON_TABLE
+10-29 15:58:37.001  1069 17235 D android.hardware.audio.service: Failed to fetch the lookup information of the device 00000200 
+10-29 15:58:37.001  1069 17235 D ACDB-LOADER: Error: ACDB audproc returned = -19
+10-29 15:58:37.001  1069 17235 D ACDB-LOADER: ACDB -> AUDIO_SET_AUDPROC_CAL cal_type[11] acdb_id[512] app_type[69938]
+10-29 15:58:37.001  1069 17235 D ACDB-LOADER: ACDB -> ACDB_CMD_GET_AUDPROC_INSTANCE_STREAM_TABLE_SIZE
+10-29 15:58:37.001  1069 17235 D ACDB-LOADER: ACDB -> send_audstrmtable
+10-29 15:58:37.001  1069 17235 D ACDB-LOADER: ACDB -> ACDB_CMD_GET_AUDPROC_INSTANCE_STREAM_TABLE
+10-29 15:58:37.001  1069 17235 D ACDB-LOADER: ACDB -> audstrm_cal->cal_type.cal_data.cal_size = 20
+10-29 15:58:37.001  1069 17235 D ACDB-LOADER: ACDB -> send_afe_topology
+10-29 15:58:37.001  1069 17235 D ACDB-LOADER: ACDB -> ACDB_CMD_GET_AFE_TOPOLOGY_ID
+10-29 15:58:37.001  1069 17235 D ACDB-LOADER: ACDB -> GET_AFE_TOPOLOGY_ID for adcd_id 512, Topology Id 10001ccc
+10-29 15:58:37.001  1069 17235 D ACDB-LOADER: ACDB -> send_afe_cal
+10-29 15:58:37.001  1069 17235 D ACDB-LOADER: ACDB -> ACDB_CMD_GET_AFE_INSTANCE_COMMON_TABLE_SIZE
+10-29 15:58:37.001  1069 17235 D android.hardware.audio.service: Failed to fetch the lookup information of the device 00000200 
+10-29 15:58:37.001  1069 17235 D ACDB-LOADER: Error: ACDB_CMD_GET_AFE_INSTANCE_COMMON_TABLE_SIZE Returned = -19
+10-29 15:58:37.001  1069 17235 D ACDB-LOADER: ACDB -> ACDB_CMD_GET_AFE_INSTANCE_COMMON_TABLE
+10-29 15:58:37.001  1069 17235 D android.hardware.audio.service: Failed to fetch the lookup information of the device 00000200 
+10-29 15:58:37.001  1069 17235 D ACDB-LOADER: Error: ACDB AFE returned = -19
+10-29 15:58:37.001  1069 17235 D ACDB-LOADER: ACDB -> AUDIO_SET_AFE_CAL cal_type[17] acdb_id[512]
+10-29 15:58:37.001  1069 17235 D ACDB-LOADER: ACDB -> send_hw_delay : acdb_id = 512 path = 1
+10-29 15:58:37.001  1069 17235 D ACDB-LOADER: ACDB -> ACDB_AVSYNC_INFO: ACDB_CMD_GET_DEVICE_PROPERTY
+10-29 15:58:37.001  1069 17235 D audio_hw_primary: enable_audio_route: apply mixer and update path: spkr-vi-record vi-feedback
+10-29 15:58:37.002  1069 17235 D audio_route: Apply path: spkr-vi-record vi-feedback
+10-29 15:58:37.004 18240 18240 D EventLogger: state [eventTime=0.45, mediaPos=0.08, window=0, period=0, true, READY]
+10-29 15:58:37.008 18240 18240 D EventLogger: isPlaying [eventTime=0.45, mediaPos=0.08, window=0, period=0, true]
+10-29 15:58:37.009 18240 18554 D TrafficStats: tagSocket(176) with statsTag=0xffffffff, statsUid=-1
+10-29 15:58:37.024   712   754 E qdgralloc: Unknown Color Space = 2
+10-29 15:58:37.029  1069 17235 D soundtrigger: audio_extn_sound_trigger_update_stream_status: uc_info->id 0 of type 0 for Event 3, with Raise=1
+10-29 15:58:37.029  1069 17235 V SoundTriggerHAL: compare_device_type: device types 2 match
+10-29 15:58:37.029  1069 17235 D SoundTriggerHAL: update_rx_conditions: updated rx_concurrency as 1
+10-29 15:58:37.029  1069 17235 D SoundTriggerHAL: sound_trigger_hw_call_back: handle playback stream active
+10-29 15:58:37.029  1069 17235 D audio_hw_utils: audio_extn_utils_send_app_type_cfg: usecase->out_snd_device speaker
+10-29 15:58:37.029  1069 17235 I audio_hw_utils: send_app_type_cfg_for_device PLAYBACK app_type 69940, acdb_dev_id 513, sample_rate 48000, snd_device_be_idx 87
+10-29 15:58:37.029  1069 17235 E ACDB-LOADER: [acdb_loader_adsp_set_audio_cal] active device/stream not found (result=-100) for topology 0x10000aaa and apptype 0x11134
+10-29 15:58:37.029  1069 17235 E ACDB-LOADER: [acdb_loader_adsp_set_audio_cal] set parameters failed with status -100
+10-29 15:58:37.030  1069 17235 D ACDB-LOADER: ACDB -> send_audio_cal, acdb_id = 513, path = 0, app id = 0x11134, sample rate = 48000, afe_sample_rate = 48000
+10-29 15:58:37.030  1069 17235 D ACDB-LOADER: ACDB -> send_asm_topology
+10-29 15:58:37.030  1069 17235 D ACDB-LOADER: ACDB -> ACDB_CMD_GET_AUDPROC_STREAM_TOPOLOGY_ID
+10-29 15:58:37.030  1069 17235 D ACDB-LOADER: ACDB -> send_adm_topology
+10-29 15:58:37.030  1069 17235 D ACDB-LOADER: ACDB -> ACDB_CMD_GET_AUDPROC_COMMON_TOPOLOGY_ID
+10-29 15:58:37.030  1069 17235 D ACDB-LOADER: ACDB -> send_audtable
+10-29 15:58:37.030  1069 17235 D ACDB-LOADER: ACDB -> ACDB_CMD_GET_AUDPROC_INSTANCE_COMMON_TABLE_SIZE
+10-29 15:58:37.030  1069 17235 D ACDB-LOADER: ACDB -> ACDB_CMD_GET_AUDPROC_INSTANCE_COMMON_TABLE
+10-29 15:58:37.030  1069 17235 D ACDB-LOADER: ACDB -> AUDIO_SET_AUDPROC_CAL cal_type[11] acdb_id[513] app_type[69940]
+10-29 15:58:37.030  1069 17235 D ACDB-LOADER: ACDB -> send_audvoltable
+10-29 15:58:37.030  1069 17235 D ACDB-LOADER: ACDB -> ACDB_CMD_GET_AUDPROC_INSTANCE_GAIN_DEP_STEP_TABLE_SIZE
+10-29 15:58:37.030  1069 17235 D android.hardware.audio.service: Failed to fetch the lookup information of the device 00000201 
+10-29 15:58:37.030  1069 17235 D ACDB-LOADER: Error: ACDB_CMD_GET_AUDPROC_INSTANCE_GAIN_DEP_STEP_TABLE_SIZE Returned = -19
+10-29 15:58:37.030  1069 17235 D ACDB-LOADER: ACDB -> ACDB_CMD_GET_AUDPROC_INSTANCE_GAIN_DEP_STEP_TABLE, vol index 0
+10-29 15:58:37.030  1069 17235 D android.hardware.audio.service: Failed to fetch the lookup information of the device 00000201 
+10-29 15:58:37.030  1069 17235 D ACDB-LOADER: Error: ACDB AudProc vol returned = -19
+10-29 15:58:37.030  1069 17235 D ACDB-LOADER: ACDB -> AUDIO_SET_VOL_CAL cal type = 12
+10-29 15:58:37.030  1069 17235 D ACDB-LOADER: ACDB -> ACDB_CMD_GET_AUDPROC_INSTANCE_STREAM_TABLE_SIZE
+10-29 15:58:37.030  1069 17235 D ACDB-LOADER: ACDB -> send_audstrmtable
+10-29 15:58:37.030  1069 17235 D ACDB-LOADER: ACDB -> ACDB_CMD_GET_AUDPROC_INSTANCE_STREAM_TABLE
+10-29 15:58:37.030  1069 17235 D ACDB-LOADER: ACDB -> audstrm_cal->cal_type.cal_data.cal_size = 536
+10-29 15:58:37.030  1069 17235 D ACDB-LOADER: ACDB -> send_afe_topology
+10-29 15:58:37.030  1069 17235 D ACDB-LOADER: ACDB -> ACDB_CMD_GET_AFE_TOPOLOGY_ID
+10-29 15:58:37.030  1069 17235 D ACDB-LOADER: ACDB -> GET_AFE_TOPOLOGY_ID for adcd_id 513, Topology Id 10000ccc
+10-29 15:58:37.030  1069 17235 D ACDB-LOADER: ACDB -> send_afe_cal
+10-29 15:58:37.030  1069 17235 D ACDB-LOADER: ACDB -> ACDB_CMD_GET_AFE_INSTANCE_COMMON_TABLE_SIZE
+10-29 15:58:37.030  1069 17235 D ACDB-LOADER: ACDB -> ACDB_CMD_GET_AFE_INSTANCE_COMMON_TABLE
+10-29 15:58:37.030  1069 17235 D ACDB-LOADER: ACDB -> AUDIO_SET_AFE_CAL cal_type[16] acdb_id[513]
+10-29 15:58:37.030  1069 17235 D ACDB-LOADER: ACDB -> send_hw_delay : acdb_id = 513 path = 0
+10-29 15:58:37.030  1069 17235 D ACDB-LOADER: ACDB -> ACDB_AVSYNC_INFO: ACDB_CMD_GET_DEVICE_PROPERTY
+10-29 15:58:37.030  1069 17235 D audio_hw_primary: enable_audio_route: apply mixer and update path: deep-buffer-playback speaker
+10-29 15:58:37.030  1069 17235 D audio_route: Apply path: deep-buffer-playback speaker
+10-29 15:58:37.034  1069 17235 D msm8974_platform: platform_set_channel_map mixer_ctl_name:Playback Channel Map0
+10-29 15:58:37.034  1069 17235 D msm8974_platform: platform_set_channel_map: set mapping(1 2 0 0 0 0 0 0) for channel:2
+10-29 15:58:37.067 18209 18231 I appium  : channel read: POST /wd/hub/session/cb636939-470b-43e6-a9e7-9fcac828c7fc/element
+10-29 15:58:37.067 18209 18231 I appium  : FindElement command
+10-29 15:58:37.068 18209 18231 I appium  : method: 'id', selector: 'com.vtvcab.onsports.dev:id/onsport_pause'
+10-29 15:58:37.069 18209 18231 I appium  : Waiting up to 10000ms for the device to idle
+10-29 15:58:37.075  1069 17235 D audio_hw_primary: out_write: retry previous failed cal level set
+10-29 15:58:37.075  1069 17235 D ACDB-LOADER: ACDB -> send_audvoltable
+10-29 15:58:37.075  1069 17235 D ACDB-LOADER: ACDB -> ACDB_CMD_GET_AUDPROC_INSTANCE_GAIN_DEP_STEP_TABLE_SIZE
+10-29 15:58:37.075  1069 17235 D android.hardware.audio.service: Failed to fetch the lookup information of the device 00000201 
+10-29 15:58:37.075  1069 17235 D ACDB-LOADER: Error: ACDB_CMD_GET_AUDPROC_INSTANCE_GAIN_DEP_STEP_TABLE_SIZE Returned = -19
+10-29 15:58:37.075  1069 17235 D ACDB-LOADER: ACDB -> ACDB_CMD_GET_AUDPROC_INSTANCE_GAIN_DEP_STEP_TABLE, vol index 5
+10-29 15:58:37.075  1069 17235 D android.hardware.audio.service: Failed to fetch the lookup information of the device 00000201 
+10-29 15:58:37.075  1069 17235 D ACDB-LOADER: Error: ACDB AudProc vol returned = -19
+10-29 15:58:37.075  1069 17235 D ACDB-LOADER: ACDB -> AUDIO_SET_VOL_CAL cal type = 40
+10-29 15:58:37.075  1069 17235 W msm8974_platform: platform_send_gain_dep_cal: Usecase list is empty
+10-29 15:58:37.076  1069 17235 W StreamHAL: Error from HAL stream in function get_presentation_position: Operation not permitted
+10-29 15:58:37.088 18240 18538 D AudioTrack: getTimestamp_l(147): device stall time corrected using current time 57683403838157
+10-29 15:58:37.172  1151  1872 D AudioFlinger: mixer(0xb400007b9f6379b0) throttle end: throttle time(45)
+10-29 15:58:37.175   712   754 E qdgralloc: Unknown Color Space = 2
+10-29 15:58:37.208   712   754 E qdgralloc: Unknown Color Space = 2
+10-29 15:58:37.258   712   754 E qdgralloc: Unknown Color Space = 2
+10-29 15:58:37.292   712   754 E qdgralloc: Unknown Color Space = 2
+10-29 15:58:37.342   712   754 E qdgralloc: Unknown Color Space = 2
+10-29 15:58:37.376   712   754 E qdgralloc: Unknown Color Space = 2
+10-29 15:58:37.426   712   754 E qdgralloc: Unknown Color Space = 2
+10-29 15:58:37.459   712   754 E qdgralloc: Unknown Color Space = 2
+10-29 15:58:37.509   712   754 E qdgralloc: Unknown Color Space = 2
+10-29 15:58:37.543   712   754 E qdgralloc: Unknown Color Space = 2
+10-29 15:58:37.563 18209 18231 I appium  : AppiumResponse: {"sessionId":"cb636939-470b-43e6-a9e7-9fcac828c7fc","value":{"ELEMENT":"00000000-0000-0358-ffff-ffff00001157","element-6066-11e4-a52e-4f735466cecf":"00000000-0000-0358-ffff-ffff00001157"}}
+10-29 15:58:37.576   712   754 E qdgralloc: Unknown Color Space = 2
+10-29 15:58:37.582 18209 18231 I appium  : channel read: GET /wd/hub/session/cb636939-470b-43e6-a9e7-9fcac828c7fc/element/00000000-0000-0358-ffff-ffff00001157/attribute/displayed
+10-29 15:58:37.583 18209 18231 I appium  : GetElementAttribute command
+10-29 15:58:37.589 18209 18231 I appium  : AppiumResponse: {"sessionId":"cb636939-470b-43e6-a9e7-9fcac828c7fc","value":"true"}
+10-29 15:58:37.599 18209 18231 I appium  : channel read: GET /wd/hub/session/cb636939-470b-43e6-a9e7-9fcac828c7fc/element/00000000-0000-0358-ffff-ffff00001157/attribute/enabled
+10-29 15:58:37.600 18209 18231 I appium  : GetElementAttribute command
+10-29 15:58:37.606 18209 18231 I appium  : AppiumResponse: {"sessionId":"cb636939-470b-43e6-a9e7-9fcac828c7fc","value":"true"}
+10-29 15:58:37.615 18209 18231 I appium  : channel read: POST /wd/hub/session/cb636939-470b-43e6-a9e7-9fcac828c7fc/element
+10-29 15:58:37.616 18209 18231 I appium  : FindElement command
+10-29 15:58:37.619 18209 18231 I appium  : method: 'id', selector: 'com.vtvcab.onsports.dev:id/onsport_position'
+10-29 15:58:37.619 18209 18231 I appium  : Waiting up to 10000ms for the device to idle
+10-29 15:58:37.626   712   754 E qdgralloc: Unknown Color Space = 2
+10-29 15:58:37.649 18209 18231 I appium  : AppiumResponse: {"sessionId":"cb636939-470b-43e6-a9e7-9fcac828c7fc","value":{"ELEMENT":"00000000-0000-0358-ffff-ffff0000115e","element-6066-11e4-a52e-4f735466cecf":"00000000-0000-0358-ffff-ffff0000115e"}}
+10-29 15:58:37.658 18209 18231 I appium  : channel read: GET /wd/hub/session/cb636939-470b-43e6-a9e7-9fcac828c7fc/element/00000000-0000-0358-ffff-ffff0000115e/text
+10-29 15:58:37.659 18209 18231 I appium  : GetText command
+10-29 15:58:37.659   712   754 E qdgralloc: Unknown Color Space = 2
+10-29 15:58:37.667 18209 18231 I appium  : AppiumResponse: {"sessionId":"cb636939-470b-43e6-a9e7-9fcac828c7fc","value":"00:00"}
+10-29 15:58:37.703 18240 18240 D EventLogger: loading [eventTime=1.15, mediaPos=0.68, window=0, period=0, false]
+10-29 15:58:37.710   712   754 E qdgralloc: Unknown Color Space = 2
+10-29 15:58:37.743   712   754 E qdgralloc: Unknown Color Space = 2
+10-29 15:58:37.777   712   754 E qdgralloc: Unknown Color Space = 2
+10-29 15:58:37.827   712   754 E qdgralloc: Unknown Color Space = 2
+10-29 15:58:37.860  1454  2461 D BufferPoolAccessor2.0: bufferpool2 0xb400006e0f772af8 : 0(0 size) total buffers - 0(0 size) used buffers - 273/277 (recycle/alloc) - 5/277 (fetch/transfer)
+10-29 15:58:37.860  1454  2461 D BufferPoolAccessor2.0: evictor expired: 2, evicted: 1
+10-29 15:58:37.860   712   754 E qdgralloc: Unknown Color Space = 2
+10-29 15:58:37.861 18240 18463 D BufferPoolAccessor2.0: bufferpool2 0xb400006fd1b60918 : 0(0 size) total buffers - 0(0 size) used buffers - 0/6 (recycle/alloc) - 6/154 (fetch/transfer)
+10-29 15:58:37.862 18240 18463 D BufferPoolAccessor2.0: bufferpool2 0xb400006fd1b546d8 : 0(0 size) total buffers - 0(0 size) used buffers - 1/6 (recycle/alloc) - 7/281 (fetch/transfer)
+10-29 15:58:37.862 18240 18463 D BufferPoolAccessor2.0: evictor expired: 2, evicted: 2
+10-29 15:58:37.910   712   754 E qdgralloc: Unknown Color Space = 2
+10-29 15:58:37.944   712   754 E qdgralloc: Unknown Color Space = 2
+10-29 15:58:37.977   712   754 E qdgralloc: Unknown Color Space = 2
+10-29 15:58:37.979 18209 18231 I appium  : channel read: POST /wd/hub/session/cb636939-470b-43e6-a9e7-9fcac828c7fc/element
+10-29 15:58:37.980 18209 18231 I appium  : FindElement command
+10-29 15:58:37.982 18209 18231 I appium  : method: 'id', selector: 'com.vtvcab.onsports.dev:id/ivForward'
+10-29 15:58:37.982 18209 18231 I appium  : Waiting up to 10000ms for the device to idle
+10-29 15:58:38.011 18209 18231 I appium  : AppiumResponse: {"sessionId":"cb636939-470b-43e6-a9e7-9fcac828c7fc","value":{"ELEMENT":"00000000-0000-0358-ffff-ffff00001154","element-6066-11e4-a52e-4f735466cecf":"00000000-0000-0358-ffff-ffff00001154"}}
+10-29 15:58:38.022 18209 18231 I appium  : channel read: POST /wd/hub/session/cb636939-470b-43e6-a9e7-9fcac828c7fc/element/00000000-0000-0358-ffff-ffff00001154/click
+10-29 15:58:38.023 18209 18231 I appium  : Click command
+10-29 15:58:38.027   712   754 E qdgralloc: Unknown Color Space = 2
+10-29 15:58:38.060   712   754 E qdgralloc: Unknown Color Space = 2
+10-29 15:58:38.144   712   754 E qdgralloc: Unknown Color Space = 2
+10-29 15:58:38.228   712   754 E qdgralloc: Unknown Color Space = 2
+10-29 15:58:38.630 18240 18240 D onTouchEvent: 0
+10-29 15:58:38.631 18240 18240 D onTouchEvent: hasTouchStarted false
+10-29 15:58:38.631 18240 18240 D onTouchEvent: hasTouchStarted
+10-29 15:58:38.634 18240 18240 D onTouchEvent: 1
+10-29 15:58:38.635 18240 18240 D onTouchEvent: actionMasked
+10-29 15:58:38.635 18240 18240 D EventLogger: seekStarted [eventTime=2.08, mediaPos=1.62, window=0, period=0]
+10-29 15:58:38.636 18240 18240 D EventLogger: positionDiscontinuity [eventTime=2.08, mediaPos=11.62, window=0, period=0, SEEK]
+10-29 15:58:38.638  2613  2613 D Oslo.StatusSensor: setting local audio playback to: false
+10-29 15:58:38.639  1089  1185 D CHRE    : @ 113140.157: Nanoapp list request from client ID 1
+10-29 15:58:38.640  1075  1094 D ContextHubHal: Got nanoapp list response with 14 apps
+10-29 15:58:38.640 18240 18464 D CCodecBufferChannel: [c2.qti.avc.decoder#253] Ignoring stale input buffer done callback: last flush index = 66, frameIndex = 62
+10-29 15:58:38.640 18240 18546 I CCodecConfig: query failed after returning 18 values (BAD_INDEX)
+10-29 15:58:38.641  1089  1185 D CHRE    : @ 113140.158: Parsed nanoapp message from host: app ID 0x476f6f676c001014, endpoint 0x2, msgType 17, payload size 2
+10-29 15:58:38.641  1089  1185 W OSLO    : @ 113140.158: oslo slpy: Not enough room in fifo to push message of 40 bytes
+10-29 15:58:38.641  1089  1185 E OSLO    : @ 113140.158: oslo slpy: Fifo failed to push payload with id: 14
+10-29 15:58:38.641  1089  1185 E OSLO    : @ 113140.158: oslo slpy: Fifo failed to push PresenceInputParameters
+10-29 15:58:38.641 18240 18546 D CCodecConfig: c2 config diff is   c2::u32 output.delay.value = 18
+10-29 15:58:38.641 18240 18547 D CCodecBufferChannel: [c2.qti.avc.decoder#253] flushed work; ignored.
+10-29 15:58:38.641 18240 18547 D CCodecBufferChannel: [c2.qti.avc.decoder#253] Discard frames from previous generation.
+10-29 15:58:38.641 18240 18547 D CCodecBufferChannel: [c2.qti.avc.decoder#253] flushed work; ignored.
+10-29 15:58:38.641 18240 18547 D CCodecBufferChannel: [c2.qti.avc.decoder#253] Discard frames from previous generation.
+10-29 15:58:38.641 18240 18547 D CCodecBufferChannel: [c2.qti.avc.decoder#253] flushed work; ignored.
+10-29 15:58:38.641 18240 18547 D CCodecBufferChannel: [c2.qti.avc.decoder#253] Discard frames from previous generation.
+10-29 15:58:38.641 18240 18547 D CCodecBufferChannel: [c2.qti.avc.decoder#253] flushed work; ignored.
+10-29 15:58:38.641 18240 18547 D CCodecBufferChannel: [c2.qti.avc.decoder#253] Discard frames from previous generation.
+10-29 15:58:38.641 18240 18547 D CCodecBufferChannel: [c2.qti.avc.decoder#253] flushed work; ignored.
+10-29 15:58:38.641 18240 18547 D CCodecBufferChannel: [c2.qti.avc.decoder#253] Discard frames from previous generation.
+10-29 15:58:38.641 18240 18546 W Codec2Client: query -- param skipped: index = 1342179345.
+10-29 15:58:38.641 18240 18547 D CCodecBufferChannel: [c2.qti.avc.decoder#253] flushed work; ignored.
+10-29 15:58:38.641 18240 18547 D CCodecBufferChannel: [c2.qti.avc.decoder#253] Discard frames from previous generation.
+10-29 15:58:38.641 18240 18546 W Codec2Client: query -- param skipped: index = 2415921170.
+10-29 15:58:38.641 18240 18547 D CCodecBufferChannel: [c2.qti.avc.decoder#253] flushed work; ignored.
+10-29 15:58:38.641 18240 18547 D CCodecBufferChannel: [c2.qti.avc.decoder#253] Discard frames from previous generation.
+10-29 15:58:38.641 18240 18546 W Codec2Client: query -- param skipped: index = 1610614798.
+10-29 15:58:38.641 18240 18547 D CCodecBufferChannel: [c2.qti.avc.decoder#253] flushed work; ignored.
+10-29 15:58:38.641 18240 18547 D CCodecBufferChannel: [c2.qti.avc.decoder#253] Discard frames from previous generation.
+10-29 15:58:38.642 18240 18551 D CCodecBuffers: [c2.android.aac.decoder#605:1D-Output.Impl[N]] Client returned a buffer it does not own according to our record: 0
+10-29 15:58:38.642 18240 18551 D CCodecBuffers: [c2.android.aac.decoder#605:1D-Output.Impl[N]] Client returned a buffer it does not own according to our record: 1
+10-29 15:58:38.642 18240 18551 I CCodecConfig: query failed after returning 20 values (BAD_INDEX)
+10-29 15:58:38.643 18240 18551 W Codec2Client: query -- param skipped: index = 1342179345.
+10-29 15:58:38.643 18240 18551 W Codec2Client: query -- param skipped: index = 2415921170.
+10-29 15:58:38.643 18240 18551 W Codec2Client: query -- param skipped: index = 1610614798.
+10-29 15:58:38.646 18209 18231 I appium  : Waiting up to 10000ms for the device to idle
+10-29 15:58:38.648 18240 18240 D EventLogger: loading [eventTime=2.09, mediaPos=11.62, window=0, period=0, true]
+10-29 15:58:38.648 18240 18240 D EventLogger: state [eventTime=2.09, mediaPos=11.62, window=0, period=0, true, BUFFERING]
+10-29 15:58:38.648 18240 18240 D EventLogger: isPlaying [eventTime=2.09, mediaPos=11.62, window=0, period=0, false]
+10-29 15:58:38.648 18240 18240 D EventLogger: seekProcessed [eventTime=2.09, mediaPos=11.62, window=0, period=0]
+10-29 15:58:38.648 18209 18231 I appium  : AppiumResponse: {"sessionId":"cb636939-470b-43e6-a9e7-9fcac828c7fc","value":null}
+10-29 15:58:38.652 18240 18464 D CCodecBufferChannel: [c2.qti.avc.decoder#253] Ignoring stale input buffer done callback: last flush index = 66, frameIndex = 66
+10-29 15:58:38.657  1151 14117 D AudioFlinger: Client defaulted notificationFrames to 6000 for frameCount 12000
+10-29 15:58:38.658 18209 18231 I appium  : channel read: POST /wd/hub/session/cb636939-470b-43e6-a9e7-9fcac828c7fc/element
+10-29 15:58:38.659  1151 14117 D AF::TrackHandle: OpPlayAudio: track:171 usage:1 not muted
+10-29 15:58:38.659 18209 18231 I appium  : FindElement command
+10-29 15:58:38.661 18209 18231 I appium  : method: 'id', selector: 'com.vtvcab.onsports.dev:id/onsport_position'
+10-29 15:58:38.661 18209 18231 I appium  : Waiting up to 10000ms for the device to idle
+10-29 15:58:38.755 18240 18240 D EventLogger: renderedFirstFrame [eventTime=2.20, mediaPos=11.62, window=0, period=0, Surface(name=null)/@0xd6a63d4]
+10-29 15:58:38.759 18240 18240 D EventLogger: state [eventTime=2.20, mediaPos=11.62, window=0, period=0, true, READY]
+10-29 15:58:38.760 18240 18240 D EventLogger: isPlaying [eventTime=2.21, mediaPos=11.62, window=0, period=0, true]
+10-29 15:58:38.760  2613  2613 D Oslo.StatusSensor: setting local audio playback to: true
+10-29 15:58:38.762  1089  1185 D CHRE    : @ 113140.280: Nanoapp list request from client ID 1
+10-29 15:58:38.764  1075  1094 D ContextHubHal: Got nanoapp list response with 14 apps
+10-29 15:58:38.764  1089  1185 D CHRE    : @ 113140.282: Parsed nanoapp message from host: app ID 0x476f6f676c001014, endpoint 0x2, msgType 17, payload size 4
+10-29 15:58:38.764  1089  1185 W OSLO    : @ 113140.282: oslo slpy: Not enough room in fifo to push message of 40 bytes
+10-29 15:58:38.764  1089  1185 E OSLO    : @ 113140.282: oslo slpy: Fifo failed to push payload with id: 14
+10-29 15:58:38.764  1089  1185 E OSLO    : @ 113140.282: oslo slpy: Fifo failed to push PresenceInputParameters
+10-29 15:58:38.783 18240 18538 D AudioTrack: getTimestamp_l(148): device stall time corrected using current time 57685099268118
+10-29 15:58:38.845 18240 18240 D EventLogger: loading [eventTime=2.29, mediaPos=11.62, window=0, period=0, false]
+10-29 15:58:38.884  6503 18564 D TrafficStats: tagSocket(137) with statsTag=0x30000900, statsUid=-1
+10-29 15:58:38.885  6503 18564 D TrafficStats: tagSocket(137) with statsTag=0x30000900, statsUid=-1
+10-29 15:58:38.899  6503 17454 I TcpProberController: [gms_cast_prober-1] Failed to connect to socket address: /192.168.201.235, port: 8009
+10-29 15:58:38.900  6503 18427 I CastSocketMultiplexer: Stopping multiplexer...
+10-29 15:58:39.177  1762  2354 D ConnectivityService: NetReassign [no changes] [c 0] [a 0] [i 2]
+10-29 15:58:39.385 18209 18231 I appium  : AppiumResponse: {"sessionId":"cb636939-470b-43e6-a9e7-9fcac828c7fc","value":{"ELEMENT":"00000000-0000-0358-ffff-ffff0000115e","element-6066-11e4-a52e-4f735466cecf":"00000000-0000-0358-ffff-ffff0000115e"}}
+10-29 15:58:39.403 18209 18231 I appium  : channel read: GET /wd/hub/session/cb636939-470b-43e6-a9e7-9fcac828c7fc/element/00000000-0000-0358-ffff-ffff0000115e/text
+10-29 15:58:39.404 18209 18231 I appium  : GetText command
+10-29 15:58:39.411 18209 18231 I appium  : AppiumResponse: {"sessionId":"cb636939-470b-43e6-a9e7-9fcac828c7fc","value":"00:12"}
+10-29 15:58:39.422 18209 18231 I appium  : channel read: POST /wd/hub/session/cb636939-470b-43e6-a9e7-9fcac828c7fc/element
+10-29 15:58:39.424 18209 18231 I appium  : FindElement command
+10-29 15:58:39.426 18209 18231 I appium  : method: 'id', selector: 'com.vtvcab.onsports.dev:id/onsport_position'
+10-29 15:58:39.426 18209 18231 I appium  : Waiting up to 10000ms for the device to idle
+10-29 15:58:39.461 18209 18231 I appium  : AppiumResponse: {"sessionId":"cb636939-470b-43e6-a9e7-9fcac828c7fc","value":{"ELEMENT":"00000000-0000-0358-ffff-ffff0000115e","element-6066-11e4-a52e-4f735466cecf":"00000000-0000-0358-ffff-ffff0000115e"}}
+10-29 15:58:39.482 18209 18231 I appium  : channel read: GET /wd/hub/session/cb636939-470b-43e6-a9e7-9fcac828c7fc/element/00000000-0000-0358-ffff-ffff0000115e/text
+10-29 15:58:39.483 18209 18231 I appium  : GetText command
+10-29 15:58:39.490 18209 18231 I appium  : AppiumResponse: {"sessionId":"cb636939-470b-43e6-a9e7-9fcac828c7fc","value":"00:12"}
+10-29 15:58:39.808 18209 18231 I appium  : channel read: POST /wd/hub/session/cb636939-470b-43e6-a9e7-9fcac828c7fc/element
+10-29 15:58:39.809 18209 18231 I appium  : FindElement command
+10-29 15:58:39.811 18209 18231 I appium  : method: 'id', selector: 'com.vtvcab.onsports.dev:id/exo_content_frame'
+10-29 15:58:39.811 18209 18231 I appium  : Waiting up to 10000ms for the device to idle
+10-29 15:58:39.837 18209 18231 I appium  : AppiumResponse: {"sessionId":"cb636939-470b-43e6-a9e7-9fcac828c7fc","value":{"ELEMENT":"00000000-0000-0358-ffff-ffff0000112b","element-6066-11e4-a52e-4f735466cecf":"00000000-0000-0358-ffff-ffff0000112b"}}
+10-29 15:58:39.847 18209 18231 I appium  : channel read: POST /wd/hub/session/cb636939-470b-43e6-a9e7-9fcac828c7fc/element/00000000-0000-0358-ffff-ffff0000112b/click
+10-29 15:58:39.848 18209 18231 I appium  : Click command
+10-29 15:58:39.869 18240 18240 D onTouchEvent: 0
+10-29 15:58:39.869 18240 18240 D onTouchEvent: hasTouchStarted false
+10-29 15:58:39.869 18240 18240 D onTouchEvent: hasTouchStarted
+10-29 15:58:39.873 18240 18240 D onTouchEvent: 1
+10-29 15:58:39.873 18240 18240 D onTouchEvent: actionMasked
+10-29 15:58:39.883 18240 18240 D EventLogger: state [eventTime=3.33, mediaPos=12.60, window=0, period=0, false, READY]
+10-29 15:58:39.883 18240 18240 D EventLogger: isPlaying [eventTime=3.33, mediaPos=12.60, window=0, period=0, false]
+10-29 15:58:39.884 18209 18231 I appium  : Waiting up to 10000ms for the device to idle
+10-29 15:58:39.884  2613  2613 D Oslo.StatusSensor: setting local audio playback to: false
+10-29 15:58:39.886 18209 18231 I appium  : AppiumResponse: {"sessionId":"cb636939-470b-43e6-a9e7-9fcac828c7fc","value":null}
+10-29 15:58:39.887  1075  1094 D ContextHubHal: Got nanoapp list response with 14 apps
+10-29 15:58:39.887  1089  1185 D CHRE    : @ 113141.404: Nanoapp list request from client ID 1
+10-29 15:58:39.887  1089  1185 D CHRE    : @ 113141.404: Parsed nanoapp message from host: app ID 0x476f6f676c001014, endpoint 0x2, msgType 17, payload size 2
+10-29 15:58:39.887  1089  1185 W OSLO    : @ 113141.404: oslo slpy: Not enough room in fifo to push message of 40 bytes
+10-29 15:58:39.887  1089  1185 E OSLO    : @ 113141.404: oslo slpy: Fifo failed to push payload with id: 14
+10-29 15:58:39.887  1089  1185 E OSLO    : @ 113141.405: oslo slpy: Fifo failed to push PresenceInputParameters
+10-29 15:58:39.893  1069  2367 W msm8974_platform: platform_send_gain_dep_cal: Usecase list is empty
+10-29 15:58:40.095  1069  2367 D audio_hw_waves: ma_set_source_metadata_l: All tracks was removed from app_type(69940) device_type(2)
+10-29 15:58:40.096  1069  2367 D ACDB-LOADER: ACDB -> send_audvoltable
+10-29 15:58:40.096  1069  2367 D ACDB-LOADER: ACDB -> ACDB_CMD_GET_AUDPROC_INSTANCE_GAIN_DEP_STEP_TABLE_SIZE
+10-29 15:58:40.096  1069  2367 D android.hardware.audio.service: Failed to fetch the lookup information of the device 00000201 
+10-29 15:58:40.096  1069  2367 D ACDB-LOADER: Error: ACDB_CMD_GET_AUDPROC_INSTANCE_GAIN_DEP_STEP_TABLE_SIZE Returned = -19
+10-29 15:58:40.096  1069  2367 D ACDB-LOADER: ACDB -> ACDB_CMD_GET_AUDPROC_INSTANCE_GAIN_DEP_STEP_TABLE, vol index 0
+10-29 15:58:40.096  1069  2367 D android.hardware.audio.service: Failed to fetch the lookup information of the device 00000201 
+10-29 15:58:40.096  1069  2367 D ACDB-LOADER: Error: ACDB AudProc vol returned = -19
+10-29 15:58:40.096  1069  2367 D ACDB-LOADER: ACDB -> AUDIO_SET_VOL_CAL cal type = 40
+10-29 15:58:40.096  1069  2367 W msm8974_platform: platform_send_gain_dep_cal: Usecase list is empty
+10-29 15:58:40.096  1069  1123 W msm8974_platform: platform_send_gain_dep_cal: Usecase list is empty
+10-29 15:58:40.098  1151  1517 W AudioFlinger: moveEffectChain_l() effect chain for session 0 not on source thread 0xb400007b9f6379b0
+10-29 15:58:40.202 18209 18231 I appium  : channel read: POST /wd/hub/session/cb636939-470b-43e6-a9e7-9fcac828c7fc/element
+10-29 15:58:40.204 18209 18231 I appium  : FindElement command
+10-29 15:58:40.206 18209 18231 I appium  : method: 'id', selector: 'com.vtvcab.onsports.dev:id/ivRewind'
+10-29 15:58:40.207 18209 18231 I appium  : Waiting up to 10000ms for the device to idle
+10-29 15:58:40.515 18209 18231 I appium  : AppiumResponse: {"sessionId":"cb636939-470b-43e6-a9e7-9fcac828c7fc","value":{"ELEMENT":"00000000-0000-0358-ffff-ffff00001150","element-6066-11e4-a52e-4f735466cecf":"00000000-0000-0358-ffff-ffff00001150"}}
+10-29 15:58:40.533 18209 18231 I appium  : channel read: POST /wd/hub/session/cb636939-470b-43e6-a9e7-9fcac828c7fc/element/00000000-0000-0358-ffff-ffff00001150/click
+10-29 15:58:40.535 18209 18231 I appium  : Click command
+10-29 15:58:40.554 18240 18240 D onTouchEvent: 0
+10-29 15:58:40.554 18240 18240 D onTouchEvent: hasTouchStarted false
+10-29 15:58:40.554 18240 18240 D onTouchEvent: hasTouchStarted
+10-29 15:58:40.558 18240 18240 D onTouchEvent: 1
+10-29 15:58:40.558 18240 18240 D onTouchEvent: actionMasked
+10-29 15:58:40.559 18240 18240 D EventLogger: seekStarted [eventTime=4.01, mediaPos=12.61, window=0, period=0]
+10-29 15:58:40.559 18240 18240 D EventLogger: positionDiscontinuity [eventTime=4.01, mediaPos=2.61, window=0, period=0, SEEK]
+10-29 15:58:40.569 18240 18546 I CCodecConfig: query failed after returning 18 values (BAD_INDEX)
+10-29 15:58:40.569 18240 18546 W Codec2Client: query -- param skipped: index = 1342179345.
+10-29 15:58:40.569 18240 18546 W Codec2Client: query -- param skipped: index = 2415921170.
+10-29 15:58:40.569 18240 18546 W Codec2Client: query -- param skipped: index = 1610614798.
+10-29 15:58:40.569 18209 18231 I appium  : Waiting up to 10000ms for the device to idle
+10-29 15:58:40.570 18240 18546 W CCodecBufferChannel: [c2.qti.avc.decoder#253] start: cannot allocate memory at all
+10-29 15:58:40.570 18240 18546 E CCodec  : Resume request for Input Buffers failed
+10-29 15:58:40.570 18240 18546 E MediaCodec: Codec reported err 0xfffffff4/NO_MEMORY, actionCode 0, while in state 6/STARTED
+10-29 15:58:40.570 18240 18547 D CCodecBufferChannel: [c2.qti.avc.decoder#253] flushed work; ignored.
+10-29 15:58:40.570 18240 18547 D CCodecBufferChannel: [c2.qti.avc.decoder#253] Discard frames from previous generation.
+10-29 15:58:40.570 18240 18546 D SurfaceUtils: disconnecting from surface 0xb400007071ab5080, reason disconnectFromSurface
+10-29 15:58:40.570 18240 18547 D CCodecBufferChannel: [c2.qti.avc.decoder#253] flushed work; ignored.
+10-29 15:58:40.570 18240 18547 D CCodecBufferChannel: [c2.qti.avc.decoder#253] Discard frames from previous generation.
+10-29 15:58:40.570 18240 18547 D CCodecBufferChannel: [c2.qti.avc.decoder#253] flushed work; ignored.
+10-29 15:58:40.570 18240 18547 D CCodecBufferChannel: [c2.qti.avc.decoder#253] Discard frames from previous generation.
+10-29 15:58:40.570 18240 18547 D CCodecBufferChannel: [c2.qti.avc.decoder#253] flushed work; ignored.
+10-29 15:58:40.570 18240 18547 D CCodecBufferChannel: [c2.qti.avc.decoder#253] Discard frames from previous generation.
+10-29 15:58:40.570 18240 18547 D CCodecBufferChannel: [c2.qti.avc.decoder#253] flushed work; ignored.
+10-29 15:58:40.570 18240 18547 D CCodecBufferChannel: [c2.qti.avc.decoder#253] Discard frames from previous generation.
+10-29 15:58:40.570 18240 18547 D CCodecBufferChannel: [c2.qti.avc.decoder#253] flushed work; ignored.
+10-29 15:58:40.570 18240 18547 D CCodecBufferChannel: [c2.qti.avc.decoder#253] Discard frames from previous generation.
+10-29 15:58:40.570 18240 18547 D CCodecBufferChannel: [c2.qti.avc.decoder#253] flushed work; ignored.
+10-29 15:58:40.570 18240 18547 D CCodecBufferChannel: [c2.qti.avc.decoder#253] Discard frames from previous generation.
+10-29 15:58:40.570 18240 18547 D CCodecBufferChannel: [c2.qti.avc.decoder#253] flushed work; ignored.
+10-29 15:58:40.570 18240 18547 D CCodecBufferChannel: [c2.qti.avc.decoder#253] Discard frames from previous generation.
+10-29 15:58:40.570 18240 18551 D CCodecBuffers: [c2.android.aac.decoder#605:1D-Output.Impl[N]] Client returned a buffer it does not own according to our record: 0
+10-29 15:58:40.570 18240 18551 D CCodecBuffers: [c2.android.aac.decoder#605:1D-Output.Impl[N]] Client returned a buffer it does not own according to our record: 1
+10-29 15:58:40.570 18240 18551 D CCodecBuffers: [c2.android.aac.decoder#605:1D-Output.Impl[N]] Client returned a buffer it does not own according to our record: 2
+10-29 15:58:40.570 18240 18551 D CCodecBuffers: [c2.android.aac.decoder#605:1D-Output.Impl[N]] Client returned a buffer it does not own according to our record: 3
+10-29 15:58:40.571 18240 18551 I CCodecConfig: query failed after returning 20 values (BAD_INDEX)
+10-29 15:58:40.571 18240 18551 W Codec2Client: query -- param skipped: index = 1342179345.
+10-29 15:58:40.571 18240 18551 W Codec2Client: query -- param skipped: index = 2415921170.
+10-29 15:58:40.571 18240 18551 W Codec2Client: query -- param skipped: index = 1610614798.
+10-29 15:58:40.572 18209 18231 I appium  : AppiumResponse: {"sessionId":"cb636939-470b-43e6-a9e7-9fcac828c7fc","value":null}
+10-29 15:58:40.574 18240 18240 D EventLogger: loading [eventTime=4.02, mediaPos=2.61, window=0, period=0, true]
+10-29 15:58:40.574 18240 18240 D EventLogger: state [eventTime=4.02, mediaPos=2.61, window=0, period=0, false, BUFFERING]
+10-29 15:58:40.575 18240 18240 D EventLogger: seekProcessed [eventTime=4.02, mediaPos=2.61, window=0, period=0]
+10-29 15:58:40.576 18240 18538 E ExoPlayerImplInternal: Renderer error: index=0, type=video, format=Format(3, null, null, video/avc, avc1.4D401F, 2222912, null, [1280, 720, -1.0], [-1, -1]), rendererSupport=YES
+10-29 15:58:40.576 18240 18538 E ExoPlayerImplInternal:   com.google.android.exoplayer2.ExoPlaybackException: java.lang.IllegalStateException
+10-29 15:58:40.576 18240 18538 E ExoPlayerImplInternal:       at com.google.android.exoplayer2.BaseRenderer.createRendererException(BaseRenderer.java:359)
+10-29 15:58:40.576 18240 18538 E ExoPlayerImplInternal:       at com.google.android.exoplayer2.mediacodec.MediaCodecRenderer.render(MediaCodecRenderer.java:735)
+10-29 15:58:40.576 18240 18538 E ExoPlayerImplInternal:       at com.google.android.exoplayer2.ExoPlayerImplInternal.doSomeWork(ExoPlayerImplInternal.java:599)
+10-29 15:58:40.576 18240 18538 E ExoPlayerImplInternal:       at com.google.android.exoplayer2.ExoPlayerImplInternal.handleMessage(ExoPlayerImplInternal.java:329)
+10-29 15:58:40.576 18240 18538 E ExoPlayerImplInternal:       at android.os.Handler.dispatchMessage(Handler.java:102)
+10-29 15:58:40.576 18240 18538 E ExoPlayerImplInternal:       at android.os.Looper.loopOnce(Looper.java:201)
+10-29 15:58:40.576 18240 18538 E ExoPlayerImplInternal:       at android.os.Looper.loop(Looper.java:288)
+10-29 15:58:40.576 18240 18538 E ExoPlayerImplInternal:       at android.os.HandlerThread.run(HandlerThread.java:67)
+10-29 15:58:40.576 18240 18538 E ExoPlayerImplInternal:   Caused by: java.lang.IllegalStateException
+10-29 15:58:40.576 18240 18538 E ExoPlayerImplInternal:       at android.media.MediaCodec.native_dequeueOutputBuffer(Native Method)
+10-29 15:58:40.576 18240 18538 E ExoPlayerImplInternal:       at android.media.MediaCodec.dequeueOutputBuffer(MediaCodec.java:3573)
+10-29 15:58:40.576 18240 18538 E ExoPlayerImplInternal:       at com.google.android.exoplayer2.mediacodec.MediaCodecRenderer.drainOutputBuffer(MediaCodecRenderer.java:1520)
+10-29 15:58:40.576 18240 18538 E ExoPlayerImplInternal:       at com.google.android.exoplayer2.mediacodec.MediaCodecRenderer.render(MediaCodecRenderer.java:721)
+10-29 15:58:40.576 18240 18538 E ExoPlayerImplInternal:       ... 6 more
+10-29 15:58:40.576 18240 18538 E ExoPlayerImplInternal: Disable failed.
+10-29 15:58:40.576 18240 18538 E ExoPlayerImplInternal:   java.lang.IllegalStateException
+10-29 15:58:40.576 18240 18538 E ExoPlayerImplInternal:       at android.media.MediaCodec.native_flush(Native Method)
+10-29 15:58:40.576 18240 18538 E ExoPlayerImplInternal:       at android.media.MediaCodec.flush(MediaCodec.java:2388)
+10-29 15:58:40.576 18240 18538 E ExoPlayerImplInternal:       at com.google.android.exoplayer2.mediacodec.MediaCodecRenderer.flushOrReleaseCodec(MediaCodecRenderer.java:777)
+10-29 15:58:40.576 18240 18538 E ExoPlayerImplInternal:       at com.google.android.exoplayer2.video.MediaCodecVideoRenderer.flushOrReleaseCodec(MediaCodecVideoRenderer.java:724)
+10-29 15:58:40.576 18240 18538 E ExoPlayerImplInternal:       at com.google.android.exoplayer2.mediacodec.MediaCodecRenderer.onDisabled(MediaCodecRenderer.java:636)
+10-29 15:58:40.576 18240 18538 E ExoPlayerImplInternal:       at com.google.android.exoplayer2.video.MediaCodecVideoRenderer.onDisabled(MediaCodecVideoRenderer.java:569)
+10-29 15:58:40.576 18240 18538 E ExoPlayerImplInternal:       at com.google.android.exoplayer2.BaseRenderer.disable(BaseRenderer.java:168)
+10-29 15:58:40.576 18240 18538 E ExoPlayerImplInternal:       at com.google.android.exoplayer2.ExoPlayerImplInternal.disableRenderer(ExoPlayerImplInternal.java:1142)
+10-29 15:58:40.576 18240 18538 E ExoPlayerImplInternal:       at com.google.android.exoplayer2.ExoPlayerImplInternal.resetInternal(ExoPlayerImplInternal.java:891)
+10-29 15:58:40.576 18240 18538 E ExoPlayerImplInternal:       at com.google.android.exoplayer2.ExoPlayerImplInternal.stopInternal(ExoPlayerImplInternal.java:850)
+10-29 15:58:40.576 18240 18538 E ExoPlayerImplInternal:       at com.google.android.exoplayer2.ExoPlayerImplInternal.handleMessage(ExoPlayerImplInternal.java:382)
+10-29 15:58:40.576 18240 18538 E ExoPlayerImplInternal:       at android.os.Handler.dispatchMessage(Handler.java:102)
+10-29 15:58:40.576 18240 18538 E ExoPlayerImplInternal:       at android.os.Looper.loopOnce(Looper.java:201)
+10-29 15:58:40.576 18240 18538 E ExoPlayerImplInternal:       at android.os.Looper.loop(Looper.java:288)
+10-29 15:58:40.576 18240 18538 E ExoPlayerImplInternal:       at android.os.HandlerThread.run(HandlerThread.java:67)
+10-29 15:58:40.577 18240 18551 I CCodecConfig: query failed after returning 20 values (BAD_INDEX)
+10-29 15:58:40.577 18240 18551 W Codec2Client: query -- param skipped: index = 1342179345.
+10-29 15:58:40.577 18240 18551 W Codec2Client: query -- param skipped: index = 2415921170.
+10-29 15:58:40.577 18240 18551 W Codec2Client: query -- param skipped: index = 1610614798.
+10-29 15:58:40.578  1113  2472 D C2BqBuffer: configuring null producer: igbp_information(0)
+10-29 15:58:40.578 18240 18546 D CCodecBufferChannel: [c2.qti.avc.decoder#253] MediaCodec discarded an unknown buffer
+10-29 15:58:40.578 18240 18546 D CCodecBufferChannel: [c2.qti.avc.decoder#253] MediaCodec discarded an unknown buffer
+10-29 15:58:40.578 18240 18546 D CCodecBufferChannel: [c2.qti.avc.decoder#253] MediaCodec discarded an unknown buffer
+10-29 15:58:40.578 18240 18546 D CCodecBufferChannel: [c2.qti.avc.decoder#253] MediaCodec discarded an unknown buffer
+10-29 15:58:40.579 18240 18538 E ExoPlayerImplInternal: Reset failed.
+10-29 15:58:40.579 18240 18538 E ExoPlayerImplInternal:   java.lang.IllegalStateException
+10-29 15:58:40.579 18240 18538 E ExoPlayerImplInternal:       at android.media.MediaCodec.native_stop(Native Method)
+10-29 15:58:40.579 18240 18538 E ExoPlayerImplInternal:       at android.media.MediaCodec.stop(MediaCodec.java:2338)
+10-29 15:58:40.579 18240 18538 E ExoPlayerImplInternal:       at com.google.android.exoplayer2.mediacodec.MediaCodecRenderer.releaseCodec(MediaCodecRenderer.java:671)
+10-29 15:58:40.579 18240 18538 E ExoPlayerImplInternal:       at com.google.android.exoplayer2.video.MediaCodecVideoRenderer.releaseCodec(MediaCodecVideoRenderer.java:714)
+10-29 15:58:40.579 18240 18538 E ExoPlayerImplInternal:       at com.google.android.exoplayer2.mediacodec.MediaCodecRenderer.onReset(MediaCodecRenderer.java:643)
+10-29 15:58:40.579 18240 18538 E ExoPlayerImplInternal:       at com.google.android.exoplayer2.video.MediaCodecVideoRenderer.onReset(MediaCodecVideoRenderer.java:578)
+10-29 15:58:40.579 18240 18538 E ExoPlayerImplInternal:       at com.google.android.exoplayer2.BaseRenderer.reset(BaseRenderer.java:175)
+10-29 15:58:40.579 18240 18538 E ExoPlayerImplInternal:       at com.google.android.exoplayer2.ExoPlayerImplInternal.resetInternal(ExoPlayerImplInternal.java:900)
+10-29 15:58:40.579 18240 18538 E ExoPlayerImplInternal:       at com.google.android.exoplayer2.ExoPlayerImplInternal.stopInternal(ExoPlayerImplInternal.java:850)
+10-29 15:58:40.579 18240 18538 E ExoPlayerImplInternal:       at com.google.android.exoplayer2.ExoPlayerImplInternal.handleMessage(ExoPlayerImplInternal.java:382)
+10-29 15:58:40.579 18240 18538 E ExoPlayerImplInternal:       at android.os.Handler.dispatchMessage(Handler.java:102)
+10-29 15:58:40.579 18240 18538 E ExoPlayerImplInternal:       at android.os.Looper.loopOnce(Looper.java:201)
+10-29 15:58:40.579 18240 18538 E ExoPlayerImplInternal:       at android.os.Looper.loop(Looper.java:288)
+10-29 15:58:40.579 18240 18538 E ExoPlayerImplInternal:       at android.os.HandlerThread.run(HandlerThread.java:67)
+10-29 15:58:40.579 18240 18551 D CCodecBufferChannel: [c2.android.aac.decoder#605] MediaCodec discarded an unknown buffer
+10-29 15:58:40.579 18240 18551 D CCodecBufferChannel: [c2.android.aac.decoder#605] MediaCodec discarded an unknown buffer
+10-29 15:58:40.579 18240 18551 D CCodecBufferChannel: [c2.android.aac.decoder#605] MediaCodec discarded an unknown buffer
+10-29 15:58:40.579 18240 18551 D CCodecBufferChannel: [c2.android.aac.decoder#605] MediaCodec discarded an unknown buffer
+10-29 15:58:40.580 18240 18551 I hw-BpHwBinder: onLastStrongRef automatically unlinking death recipients
+10-29 15:58:40.580  1454  1580 I hw-BpHwBinder: onLastStrongRef automatically unlinking death recipients
+10-29 15:58:40.580  1454  1580 I hw-BpHwBinder: onLastStrongRef automatically unlinking death recipients
+10-29 15:58:40.581  1454  1580 D BufferPoolAccessor2.0: Destruction - bufferpool2 0xb400006e0f76be48 cached: 0/0M, 0/0% in use; allocs: 0, 0% recycled; transfers: 0, 0% unfetched
+10-29 15:58:40.583  1113 18548 I QC2V4l2Driver: [avcD_98] Closed device driver with fd: 7
+10-29 15:58:40.583  1113 18548 I QC2Comp : NOTE: handleReleaseCodec returning: 0 (OK=0)
+10-29 15:58:40.583  1113  2472 I QC2Comp : NOTE: Release returning: 0 (OK=0)
+10-29 15:58:40.583 18209 18231 I appium  : channel read: POST /wd/hub/session/cb636939-470b-43e6-a9e7-9fcac828c7fc/element
+10-29 15:58:40.584  1113  2472 I hw-BpHwBinder: onLastStrongRef automatically unlinking death recipients
+10-29 15:58:40.584  1113  2472 I QC2CompStore: Deleting component(c2.qti.avc.decoder) id(98)
+10-29 15:58:40.584  1113  2472 I QC2Comp : [avcD_98] Deallocated component c2.qti.avc.decoder [id=98]
+10-29 15:58:40.584 18240 18569 I hw-BpHwBinder: onLastStrongRef automatically unlinking death recipients
+10-29 15:58:40.584 18240 18240 D EventLogger: decoderDisabled [eventTime=4.03, mediaPos=2.61, window=0, period=0, video]
+10-29 15:58:40.585 18240 18240 D EventLogger: decoderDisabled [eventTime=4.03, mediaPos=2.61, window=0, period=0, audio]
+10-29 15:58:40.585 18240 18240 D EventLogger: mediaPeriodReleased [eventTime=4.03, mediaPos=2.61, window=0, period=0]
+10-29 15:58:40.585 18240 18240 E EventLogger: playerFailed [eventTime=4.03, mediaPos=2.61, window=0, period=0
+10-29 15:58:40.585 18240 18240 E EventLogger:   com.google.android.exoplayer2.ExoPlaybackException: java.lang.IllegalStateException
+10-29 15:58:40.585 18240 18240 E EventLogger:       at com.google.android.exoplayer2.BaseRenderer.createRendererException(BaseRenderer.java:359)
+10-29 15:58:40.585 18240 18240 E EventLogger:       at com.google.android.exoplayer2.mediacodec.MediaCodecRenderer.render(MediaCodecRenderer.java:735)
+10-29 15:58:40.585 18240 18240 E EventLogger:       at com.google.android.exoplayer2.ExoPlayerImplInternal.doSomeWork(ExoPlayerImplInternal.java:599)
+10-29 15:58:40.585 18240 18240 E EventLogger:       at com.google.android.exoplayer2.ExoPlayerImplInternal.handleMessage(ExoPlayerImplInternal.java:329)
+10-29 15:58:40.585 18240 18240 E EventLogger:       at android.os.Handler.dispatchMessage(Handler.java:102)
+10-29 15:58:40.585 18240 18240 E EventLogger:       at android.os.Looper.loopOnce(Looper.java:201)
+10-29 15:58:40.585 18240 18240 E EventLogger:       at android.os.Looper.loop(Looper.java:288)
+10-29 15:58:40.585 18240 18240 E EventLogger:       at android.os.HandlerThread.run(HandlerThread.java:67)
+10-29 15:58:40.585 18240 18240 E EventLogger:   Caused by: java.lang.IllegalStateException
+10-29 15:58:40.585 18240 18240 E EventLogger:       at android.media.MediaCodec.native_dequeueOutputBuffer(Native Method)
+10-29 15:58:40.585 18240 18240 E EventLogger:       at android.media.MediaCodec.dequeueOutputBuffer(MediaCodec.java:3573)
+10-29 15:58:40.585 18240 18240 E EventLogger:       at com.google.android.exoplayer2.mediacodec.MediaCodecRenderer.drainOutputBuffer(MediaCodecRenderer.java:1520)
+10-29 15:58:40.585 18240 18240 E EventLogger:       at com.google.android.exoplayer2.mediacodec.MediaCodecRenderer.render(MediaCodecRenderer.java:721)
+10-29 15:58:40.585 18240 18240 E EventLogger:       ... 6 more
+10-29 15:58:40.585 18240 18240 E EventLogger: ]
+10-29 15:58:40.586 18240 18240 I ExoPlayerImpl: Release f1304b9 [ExoPlayerLib/2.11.7] [flame, Pixel 4, Google, 33] [goog.exo.core, goog.exo.ui, goog.exo.hls]
+10-29 15:58:40.587 18240 18240 D EventLogger: loading [eventTime=4.03, mediaPos=2.61, window=0, false]
+10-29 15:58:40.587 18240 18240 D EventLogger: state [eventTime=4.03, mediaPos=2.61, window=0, false, IDLE]
+10-29 15:58:40.587 18209 18231 I appium  : FindElement command
+10-29 15:58:40.589 18209 18231 I appium  : method: 'id', selector: 'com.vtvcab.onsports.dev:id/onsport_position'
+10-29 15:58:40.590 18209 18231 I appium  : Waiting up to 10000ms for the device to idle
+10-29 15:58:41.296 18209 18231 I appium  : AppiumResponse: {"sessionId":"cb636939-470b-43e6-a9e7-9fcac828c7fc","value":{"error":"no such element","message":"An element could not be located on the page using the given search parameters","stacktrace":"io.appium.uiautomator2.common.exceptions.ElementNotFoundException: An element could not be located on the page using the given search parameters\n\tat io.appium.uiautomator2.handler.FindElement.safeHandle(FindElement.java:70)\n\tat io.appium.uiautomator2.handler.request.SafeRequestHandler.handle(SafeRequestHandler.java:59)\n\tat io.appium.uiautomator2.server.AppiumServlet.handleRequest(AppiumServlet.java:266)\n\tat io.appium.uiautomator2.server.AppiumServlet.handleHttpRequest(AppiumServlet.java:260)\n\tat io.appium.uiautomator2.http.ServerHandler.channelRead(ServerHandler.java:68)\n\tat io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:366)\n\tat io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:352)\n\tat io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:345)\n\tat io.netty.handler.codec.MessageToMessageDecoder.channelRead(MessageToMessageDecoder.java:102)\n\tat io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:366)\n\tat io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:352)\n\tat io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:345)\n\tat io.netty.channel.CombinedChannelDuplexHandler$DelegatingChannelHandlerContext.fireChannelRead(CombinedChannelDuplexHandler.java:435)\n\tat io.netty.handler.codec.ByteToMessageDecoder.fireChannelRead(ByteToMessageDecoder.java:293)\n\tat io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:267)\n\tat io.netty.channel.CombinedChannelDuplexHandler.channelRead(CombinedChannelDuplexHandler.java:250)\n\tat io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:366)\n\tat io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:352)\n\tat io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:345)\n\tat io.netty.handler.timeout.IdleStateHandler.channelRead(IdleStateHandler.java:266)\n\tat io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:366)\n\tat io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:352)\n\tat io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:345)\n\tat io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1294)\n\tat io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:366)\n\tat io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:352)\n\tat io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:911)\n\tat io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:131)\n\tat io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:611)\n\tat io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:552)\n\tat io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:466)\n\tat io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:438)\n\tat io.netty.util.concurrent.SingleThreadEventExecutor$2.run(SingleThreadEventExecutor.java:140)\n\tat io.netty.util.concurrent.DefaultThreadFactory$DefaultRunnableDecorator.run(DefaultThreadFactory.java:144)\n\tat java.lang.Thread.run(Thread.java:1012)\n"}}
+10-29 15:58:41.317 18209 18231 I appium  : channel read: GET /wd/hub/session/cb636939-470b-43e6-a9e7-9fcac828c7fc/screenshot
+10-29 15:58:41.319 18209 18231 I appium  : CaptureScreenshot command
+10-29 15:58:41.375 18571 18571 W ProcessState: Extra binder thread started, but 0 threads requested. Do not use *startThreadPool when zero threads are requested.
+10-29 15:58:41.387   656   656 I servicemanager: Could not find android.hardware.graphics.allocator.IAllocator/default in the VINTF manifest.
+10-29 15:58:41.382 18571 18571 W binder:18571_1: type=1400 audit(0.0:4271): avc: denied { read } for name="gpu_model" dev="sysfs" ino=64127 scontext=u:r:shell:s0 tcontext=u:object_r:sysfs_msm_subsys:s0 tclass=file permissive=0
+10-29 15:58:41.388 18571 18576 W AdrenoUtils: <ReadGpuID_from_sysfs:197>: Failed to open /sys/class/kgsl/kgsl-3d0/gpu_model
+10-29 15:58:41.388 18571 18576 W AdrenoUtils: <ReadGpuID:221>: Failed to read chip ID from gpu_model. Fallback to use the GSL path
+10-29 15:58:41.984 18209 18231 I appium  : AppiumResponse: {"sessionId":"cb636939-470b-43e6-a9e7-9fcac828c7fc","value":"iVBORw0KGgoAAAANSUhEUgAABDgAAAjoCAYAAAA5jhrUAAAAAXNSR0IArs4c6QAAAARzQklUCAgI\nCHwIZIgAACAASURBVHic7J13vBRF8sCr4RFEEEFBFBWzqAgKRsw5HuYz54wJjGfABIqnYjzFgDmd\nip5ZEXPWOzw5M/4wiyAggigi8Pr3x+7MdKjqMDP7gtbXD77dme7q6u7q6ureCaL1kutLYBiGYRiG\nYRiGY…
+10-29 15:58:42.198  1762  2354 D ConnectivityService: NetReassign [no changes] [c 0] [a 1] [i 2]

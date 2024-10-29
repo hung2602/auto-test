@@ -60,7 +60,6 @@ public class MyListener implements ITestListener {
     @Override
     public void onTestFailure(ITestResult result) {
         logger.error("Test case " + result.getName() + " is failed.");
-        getLog();
         logger.error(result.getThrowable().toString());
     }
 

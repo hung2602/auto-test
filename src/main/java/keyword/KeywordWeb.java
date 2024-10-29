@@ -111,6 +111,10 @@ public class KeywordWeb {
         logger.info("Compare true: " + actual + " with " + expect);
         Assert.assertTrue(actual.contains(expect));
     }
+    @Step("Assert true {0}")
+    public void assertTrue(boolean condition) {
+        Assert.assertTrue(condition);
+    }
     @Step("Chờ element hiển thị: {0}")
     public void webDriverWaitForElementPresent(By by, long timeout){
         logger.info("Wait For Element Present" + by);
@@ -198,6 +202,11 @@ public class KeywordWeb {
         int size = weblist.size();
         int randNumber = ThreadLocalRandom.current().nextInt(0, size);
         weblist.get(randNumber).click();
+    }
+
+    public int randomNumber(int size) {
+        int randNumber = ThreadLocalRandom.current().nextInt(1, size);
+        return randNumber;
     }
     @Step("Double click: {0}")
     public void doubleClick(String element) {

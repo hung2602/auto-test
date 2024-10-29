@@ -15,6 +15,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
+
+import static helpers.LogCat.*;
 import static helpers.MyListener.*;
 import static helpers.DataBase.con;
 import static helpers.MyListener.logDevices;
@@ -81,13 +83,13 @@ public class BaseTest {
         if(con != null){
             con.close();
         }
-//        getLog();
 //        driver.quit();
     }
     @AfterMethod
     public void tearDown(ITestResult testResult) {
         if (testResult.getStatus() == ITestResult.FAILURE) {
             saveScreenshotPNG();
+            getLog();
             logDevices(projectPath + "mylog.txt");
         }
     }

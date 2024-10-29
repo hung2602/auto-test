@@ -21,7 +21,7 @@ public class LogCat {
         try {
             File filename = new File(projectPath + "mylog.txt");
             FileWriter fileWriter = new FileWriter(filename);
-            String cmd = "adb logcat *:W -d >" + "mylog.txt";
+            String cmd = "adb logcat -d >" + "mylog.txt";
             Process process = Runtime.getRuntime().exec(cmd);
             BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
             String line;
