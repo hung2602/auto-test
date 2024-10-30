@@ -74,7 +74,8 @@ public class LoginPage extends BasePage {
         keyword.click(Locator.LOGIN_BTN_CONTINUE);
     }
     public void compareMessLoginSuccess(){
-        keyword.sleep(1);
+        keyword.webDriverWaitForElementPresent(Locator.LOGIN_TOAST_SUCCESS, 10);
+//        keyword.sleep(1);
         keyword.assertEqual(Locator.LOGIN_TOAST_SUCCESS, MESSAGE_SUCCESS_LOGIN);
     }
     public void compareMessLoginIncorrectPass(String phone){

@@ -133,15 +133,16 @@ public class SearchTest extends BaseTest {
     public void SA_18(){
         dataSearch = getTestDataInMap(getIndexRowFromKey(getNameMethod()));
         searchPage.inputSearch(dataSearch.get("Key"));
-
+        searchPage.chooseLiveVideo();
+        searchPage.showNotice();
     }
     @Severity(CRITICAL)
     @Test(description = "Kiểm tra login thành công khi click vào live tìm kiếm có drm chưa login")
     public void SA_19(){
-        dataSearch = getTestDataInMap(getIndexRowFromKey(getNameMethod()));
         searchPage.confirmLoginToUseFeature("yes");
         loginPage.inputUserName("PHONE_NUMBER");
         loginPage.inputPassWord("PASS_WORD");
+        loginPage.compareMessLoginSuccess();
     }
     @Severity(CRITICAL)
     @Test(description = "Kiểm tra click vào video tìm kiếm không drm đã login")
@@ -166,6 +167,8 @@ public class SearchTest extends BaseTest {
     @Test(description = "Kiểm tra tìm kiếm thành công rồi back lại")
     public void SA_24(){
 //        searchPage.search();
+        searchPage.floatingVideo();
+        searchPage.closeVideo();
         dbData = dataBase.queryAndGetDb("SPORT_TV_QUERY_EVENT_VIDEO", "true");
         searchPage.inputSearch(dbData.get("name"));
         searchPage.backSearch();

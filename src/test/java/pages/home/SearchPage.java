@@ -4,6 +4,7 @@ import helpers.DataBase;
 import helpers.LogHelper;
 import io.qameta.allure.Step;
 import locator.Locator;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.slf4j.Logger;
 import org.testng.Assert;
@@ -12,6 +13,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 import static constant.Constant.*;
+import static core.BaseTest.driver;
 import static utilities.DateTime.*;
 
 
@@ -35,7 +37,7 @@ public class SearchPage extends BasePage {
     @Step("Nhập nội dung cần tìm: {0}")
     public void inputSearch(String content) {
         logger.info("Nhập nội dung cần tìm");
-        keyword.sleep(0.3);
+        keyword.sleep(0.5);
         keyword.clearTextAndSendKey(Locator.SEARCH_TXT_INPUT, content);
     }
 
@@ -115,10 +117,13 @@ public class SearchPage extends BasePage {
         }
         data.clear();
     }
+    @Step("Hiện thị thông báo cần đăng nhập")
+    public void showNotice() {
+        keyword.assertEqual(Locator.MENU_LBL_LOGIN_NOTICE, MESSAGE_LOGIN_NOTICE);
+    }
 
     @Step("Đăng nhập để sử dụng tính năng : {0}")
     public void confirmLoginToUseFeature(String flag) {
-        keyword.assertEqual(Locator.MENU_LBL_LOGIN_NOTICE, MESSAGE_LOGIN_NOTICE);
         if (flag.equals("yes")) {
             keyword.click(Locator.LOGIN_BTN_ACCEPT);
         } else {
@@ -225,11 +230,13 @@ public class SearchPage extends BasePage {
         keyword.assertTrue(getSeconds(startTime) - getSeconds(endTime) > 7);
     }
     @Step("Chọn live video")
-    public void chooseLive() {
-        List<WebElement> webList = keyword.getListElement(Locator.CONTENT_LBL_LIVE);
+    public void chooseLiveVideo() {
+        keyword.webDriverWaitForElementPresent(Locator.CONTENT_LBL_LIVE, 10);
+        keyword.sleep(0.5);
+        List<WebElement> webList = driver.findElements(By.xpath(Locator.CONTENT_IMG_LIVE));
         int random = keyword.randomNumber(webList.size());
-
-
+        webList.get(random).click();
+        keyword.sleep(0.5);
     }
 }
 

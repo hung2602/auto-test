@@ -114,6 +114,9 @@ public class Locator {
     public static final By PLAYER_VIEW_BTN_FULL_SCREEN = By.id("com.vtvcab.onsports.dev:id/btnFullScreen");
     public static final By PLAYER_VIEW_BTN_FRAME_SCREEN = By.id("com.vtvcab.onsports.dev:id/exo_content_frame");
     public static final By CONTENT_LBL_LIVE = By.id("com.vtvcab.onsports.dev:id/include_live_text");
+    public static final String CONTENT_IMG_LIVE  = "//androidx.appcompat.widget.LinearLayoutCompat[@resource-id=\"com.vtvcab.onsports.dev:id/include_live_text\"]/ancestor::android.widget.FrameLayout[@resource-id=\"com.vtvcab.onsports.dev:id/searchCardView\"]";
+
+
 
 
 
