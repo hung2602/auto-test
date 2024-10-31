@@ -29,9 +29,9 @@ public class BaseTest {
     protected KeywordWeb keyword;
     public static AndroidDriver driver;
     public static String appName = PathHelper.getFileName("app");
-    private final String app = "bs://8ee19b5f6eee596f88a01e52651594974b7f08fc";
-    private final String userName = "duy_u6ydwV";
-    private final String accessKey = "2BffbhMipdqx47LAydRi";
+    private final String app = "bs://8223a66b66c48e4e42c5fc779252d85a829d1bdd";
+    private final String userName = "cuongvu_FerjhE";
+    private final String accessKey = "idKAyrfQhD8DzT2su7Xe";
 
     public BaseTest() {
         keyword = new KeywordWeb();
