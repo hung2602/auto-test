@@ -11,8 +11,8 @@ import org.testng.Assert;
 import pages.loginsignup.LoginPage;
 import java.util.HashMap;
 import java.util.List;
-import java.util.concurrent.ThreadLocalRandom;
 import static constant.Constant.*;
+import static constant.Query.*;
 import static core.BaseTest.driver;
 import static utilities.DateTime.*;
 
@@ -110,9 +110,9 @@ public class SearchPage extends BasePage {
         logger.info("Kiểm tra kết quả từ tag đã chọn");
         HashMap<String, String> data = new HashMap<>();
         for (int i = 0; i < listResult.size(); i++) {
-            data = dataBase.queryAndGetDb("SPORT_TV_QUERY_EVENT_TV_NAME", listResult.get(i).getText());
+            data = dataBase.queryAndGetDb(SPORT_TV_QUERY_EVENT_TV_NAME, listResult.get(i).getText());
             System.out.println("ID: " + data.get("id"));
-            data = dataBase.queryAndGetDb("SPORTS_QUERY_EVENT_TV_SCREEN_BLOCK", data.get("id"));
+            data = dataBase.queryAndGetDb(SPORTS_QUERY_EVENT_TV_SCREEN_BLOCK, data.get("id"));
             keyword.assertEqualData(idTag, data.get("screenblock_id"));
         }
         data.clear();

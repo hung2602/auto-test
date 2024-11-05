@@ -13,8 +13,8 @@ import pages.home.SearchPage;
 import pages.loginsignup.LoginPage;
 import java.util.HashMap;
 import java.util.List;
-
 import static constant.Constant.*;
+import static constant.Query.*;
 import static helpers.PathHelper.getNameMethod;
 import static io.qameta.allure.SeverityLevel.CRITICAL;
 import static utilities.ReadExcel.*;
@@ -44,7 +44,7 @@ public class SearchTest extends BaseTest {
     public void SA_1_2(){
         searchPage.search();
         loginPage.checkHiddenText(Locator.SEARCH_TXT_INPUT, TEXT_INPUT_SEARCH);
-        dbData = dataBase.queryAndGetDb("SPORT_TV_QUERY_EVENT_TV_ACTIVE", "false");
+        dbData = dataBase.queryAndGetDb(SPORT_TV_QUERY_EVENT_TV_ACTIVE, "false");
         searchPage.inputSearch(dbData.get("name"));
         searchPage.noResultFound();
     }
@@ -58,13 +58,13 @@ public class SearchTest extends BaseTest {
     @Test(description = "Kiểm tra tìm kiếm theo tag")
     public void SA_4(){
         String tagName = searchPage.selectRandom("tag");
-        dbData = dataBase.queryAndGetDb("SPORT_TV_QUERY_SCREEN_BLOCK", tagName);
+        dbData = dataBase.queryAndGetDb(SPORT_TV_QUERY_SCREEN_BLOCK, tagName);
         List<WebElement> listResult = searchPage.getListResult();
         searchPage.checkTagResult(dbData.get("id"), listResult);
     }
     @Test(description = "Kiểm tra tìm kiếm theo tên")
     public void SA_5(){
-        dbData = dataBase.queryAndGetDb("SPORT_TV_QUERY_EVENT_VIDEO", "true");
+        dbData = dataBase.queryAndGetDb(SPORT_TV_QUERY_EVENT_VIDEO, "true");
         searchPage.inputSearch(dbData.get("name"));
         searchPage.checkResult("tuyệt đối",dbData.get("name"));
     }
@@ -126,7 +126,7 @@ public class SearchTest extends BaseTest {
     @Severity(CRITICAL)
     @Test(description = "Kiểm tra click vào video tìm kiếm có drm chưa login")
     public void SA_17(){
-        dbData = dataBase.queryAndGetDb("SPORT_TV_QUERY_EVENT_VIDEO", "true");
+        dbData = dataBase.queryAndGetDb(SPORT_TV_QUERY_EVENT_VIDEO, "true");
     }
     @Severity(CRITICAL)
     @Test(description = "Kiểm tra click vào live tìm kiếm có drm chưa login")
@@ -169,14 +169,14 @@ public class SearchTest extends BaseTest {
 //        searchPage.search();
         searchPage.floatingVideo();
         searchPage.closeVideo();
-        dbData = dataBase.queryAndGetDb("SPORT_TV_QUERY_EVENT_VIDEO", "true");
+        dbData = dataBase.queryAndGetDb(SPORT_TV_QUERY_EVENT_VIDEO, "true");
         searchPage.inputSearch(dbData.get("name"));
         searchPage.backSearch();
     }
     @Test(dependsOnMethods = "SA_24", description = "Kiểm tra xem video từ tìm kiếm rồi back lại")
     public void SA_25(){
         searchPage.search();
-        dbData = dataBase.queryAndGetDb("SPORT_TV_QUERY_EVENT_VIDEO", "true");
+        dbData = dataBase.queryAndGetDb(SPORT_TV_QUERY_EVENT_VIDEO, "true");
         searchPage.inputSearch(dbData.get("name"));
         searchPage.selectSearch();
         searchPage.floatingVideo();
@@ -189,7 +189,7 @@ public class SearchTest extends BaseTest {
     @Test(dependsOnMethods = "SA_25",description = "Kiểm tra xem video từ tìm kiếm rồi tắt video")
     public void SA_26(){
         searchPage.search();
-        dbData = dataBase.queryAndGetDb("SPORT_TV_QUERY_EVENT_VIDEO", "true");
+        dbData = dataBase.queryAndGetDb(SPORT_TV_QUERY_EVENT_VIDEO, "true");
         searchPage.inputSearch(dbData.get("name"));
         searchPage.selectSearch();
         searchPage.floatingVideo();
@@ -198,7 +198,7 @@ public class SearchTest extends BaseTest {
     }
     @Test(dependsOnMethods = "SA_26",description = "Kiểm tra xem video từ tìm kiếm rồi dừng - bật lại video")
     public void SA_27(){
-        dbData = dataBase.queryAndGetDb("SPORT_TV_QUERY_EVENT_VIDEO_LEAGUE_TAG", "true");
+        dbData = dataBase.queryAndGetDb(SPORT_TV_QUERY_EVENT_VIDEO_LEAGUE_TAG, "true");
         searchPage.inputSearch(dbData.get("name"));
         searchPage.selectSearch();
         searchPage.waitBtnPause();
@@ -209,7 +209,7 @@ public class SearchTest extends BaseTest {
     }
     @Test(dependsOnMethods = "SA_27" ,description = "Kiểm tra xem video từ tìm kiếm rồi tua video")
     public void SA_28(){
-        dbData = dataBase.queryAndGetDb("SPORT_TV_QUERY_EVENT_VIDEO_TAG", "true");
+        dbData = dataBase.queryAndGetDb(SPORT_TV_QUERY_EVENT_VIDEO_TAG, "true");
         searchPage.inputSearch(dbData.get("name"));
         searchPage.selectSearch();
         searchPage.waitBtnPause();

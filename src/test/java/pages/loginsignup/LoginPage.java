@@ -8,11 +8,10 @@ import locator.Locator;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.slf4j.Logger;
-
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
-
 import static constant.Constant.*;
+import static constant.Query.*;
 
 public class LoginPage extends BasePage {
     private static Logger logger = LogHelper.getLogger();
@@ -261,7 +260,7 @@ public class LoginPage extends BasePage {
         if(getKey == null){
             getKey = key;
         }
-        String query = PropertiesFile.getPropValue("SPORTS_ID_QUERY_USER").replace("key", getKey);
+        String query = SPORTS_ID_QUERY_USER.replace("key", getKey);
         dataBase.queryDb(query);
         String birthDay = ""; String gender = "";
         dataBase.getResultDataBase();

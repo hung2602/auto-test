@@ -7,8 +7,8 @@ import org.testng.annotations.Test;
 import pages.loginsignup.LoginPage;
 import pages.loginsignup.SignUpPage;
 import pages.MenuPage;
-
 import java.util.HashMap;
+import static constant.Query.*;
 
 public class MenuTest extends BaseTest {
     public DataBase dataBase ;
@@ -41,9 +41,9 @@ public class MenuTest extends BaseTest {
     @Test(description = "Kiểm tra màn hình quản lý thiết bị")
     public void MN_7(){
         loginPage.goBack();
-        HashMap<String, String> dbData = dataBase.queryAndGetDb("SPORTS_ID_QUERY_USER", "PHONE_NUMBER");
+        HashMap<String, String> dbData = dataBase.queryAndGetDb(SPORTS_ID_QUERY_USER, "PHONE_NUMBER");
         dataBase.setUpDB("MONGO_DB_URL","MONGO_DB_USER","MONGO_DB_PASSWORD");
-        dbData = dataBase.queryAndGetDb("MONGO_DB_QUERY_DEVICE", dbData.get("id"));
+        dbData = dataBase.queryAndGetDb(MON_GO_DB_QUERY_DEVICE, dbData.get("id"));
         menuPage.goToDeviceManage();
         keyword.assertEqualData(dbData.get("device_name"), menuPage.getDeviceInform());
     }

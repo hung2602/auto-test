@@ -1,26 +1,54 @@
 --------- beginning of main
-10-31 10:31:55.587 25643 25664 I appium  : channel read: POST /wd/hub/session/36679d07-8614-4da6-bb45-723425bd8898/element
-10-31 10:31:55.588 25643 25664 I appium  : FindElement command
-10-31 10:31:55.588 25643 25664 I appium  : method: 'id', selector: 'com.vtvcab.onsports.dev:id/btnOk'
-10-31 10:31:55.588 25643 25664 I appium  : Waiting up to 10000ms for the device to idle
-10-31 10:31:55.782 25643 25664 I appium  : AppiumResponse: {"sessionId":"36679d07-8614-4da6-bb45-723425bd8898","value":{"error":"no such element","message":"An element could not be located on the page using the given search parameters","stacktrace":"io.appium.uiautomator2.common.exceptions.ElementNotFoundException: An element could not be located on the page using the given search parameters\n\tat io.appium.uiautomator2.handler.FindElement.safeHandle(FindElement.java:70)\n\tat io.appium.uiautomator2.handler.request.SafeRequestHandler.handle(SafeRequestHandler.java:59)\n\tat io.appium.uiautomator2.server.AppiumServlet.handleRequest(AppiumServlet.java:266)\n\tat io.appium.uiautomator2.server.AppiumServlet.handleHttpRequest(AppiumServlet.java:260)\n\tat io.appium.uiautomator2.http.ServerHandler.channelRead(ServerHandler.java:68)\n\tat io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:366)\n\tat io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:352)\n\tat io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:345)\n\tat io.netty.handler.codec.MessageToMessageDecoder.channelRead(MessageToMessageDecoder.java:102)\n\tat io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:366)\n\tat io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:352)\n\tat io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:345)\n\tat io.netty.channel.CombinedChannelDuplexHandler$DelegatingChannelHandlerContext.fireChannelRead(CombinedChannelDuplexHandler.java:435)\n\tat io.netty.handler.codec.ByteToMessageDecoder.fireChannelRead(ByteToMessageDecoder.java:293)\n\tat io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:267)\n\tat io.netty.channel.CombinedChannelDuplexHandler.channelRead(CombinedChannelDuplexHandler.java:250)\n\tat io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:366)\n\tat io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:352)\n\tat io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:345)\n\tat io.netty.handler.timeout.IdleStateHandler.channelRead(IdleStateHandler.java:266)\n\tat io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:366)\n\tat io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:352)\n\tat io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:345)\n\tat io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1294)\n\tat io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:366)\n\tat io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:352)\n\tat io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:911)\n\tat io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:131)\n\tat io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:611)\n\tat io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:552)\n\tat io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:466)\n\tat io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:438)\n\tat io.netty.util.concurrent.SingleThreadEventExecutor$2.run(SingleThreadEventExecutor.java:140)\n\tat io.netty.util.concurrent.DefaultThreadFactory$DefaultRunnableDecorator.run(DefaultThreadFactory.java:144)\n\tat java.lang.Thread.run(Thread.java:1012)\n"}}
-10-31 10:31:55.801 25643 25664 I appium  : channel read: GET /wd/hub/session/36679d07-8614-4da6-bb45-723425bd8898/screenshot
-10-31 10:31:55.803 25643 25664 I appium  : CaptureScreenshot command
-10-31 10:31:55.860 25938 25938 W ProcessState: Extra binder thread started, but 0 threads requested. Do not use *startThreadPool when zero threads are requested.
-10-31 10:31:55.874   656   656 I servicemanager: Could not find android.hardware.graphics.allocator.IAllocator/default in the VINTF manifest.
-10-31 10:31:55.875 25938 25941 W AdrenoUtils: <ReadGpuID_from_sysfs:197>: Failed to open /sys/class/kgsl/kgsl-3d0/gpu_model
-10-31 10:31:55.875 25938 25941 W AdrenoUtils: <ReadGpuID:221>: Failed to read chip ID from gpu_model. Fallback to use the GSL path
-10-31 10:31:55.870 25938 25938 W binder:25938_1: type=1400 audit(0.0:7365): avc: denied { read } for name="gpu_model" dev="sysfs" ino=64127 scontext=u:r:shell:s0 tcontext=u:object_r:sysfs_msm_subsys:s0 tclass=file permissive=0
-10-31 10:31:55.899  2441  2441 D DLObserver: onReceive(); android.intent.action.BATTERY_CHANGED
-10-31 10:31:55.899  2441  2441 D DLObserver: plugged=2
-10-31 10:31:55.899  2441  2441 D PowerNotificationWarningsGoogleImpl: onReceive: android.intent.action.BATTERY_CHANGED
-10-31 10:31:55.900  2613  2613 D Oslo.StatusSensor: Received intent android.intent.action.BATTERY_CHANGED
-10-31 10:31:55.904   717   717 D qdlights: set_speaker_light_locked mode=0, colorRGB=00000000, onMS=0, offMS=0, rc=-2
-10-31 10:31:55.905  2441  2441 D BatteryInfoBroadcast: onReceive: android.intent.action.BATTERY_CHANGED isPowerSaveMode: false
-10-31 10:31:55.905  2441  2441 D BatteryDefenderNotification: isPlugged: true | isOverheated: false | defenderEnabled: false | isCharged: false
---------- beginning of system
-10-31 10:31:55.906  2441  3513 D PowerUI : can't show warning due to - plugged: true status unknown: false
-10-31 10:31:56.475 12163 25409 I TcpProberController: [gms_cast_prober-2] Failed to connect to socket address: /192.168.201.247, port: 8009
-10-31 10:31:56.475 12163 25409 I TcpProberController: [gms_cast_prober-1] Failed to connect to socket address: /192.168.201.73, port: 8009
-10-31 10:31:56.481 12163 25409 I CastSocketMultiplexer: Stopping multiplexer...
-10-31 10:31:56.579 25643 25664 I appium  : AppiumResponse: {"sessionId":"36679d07-8614-4da6-bb45-723425bd8898","value":"iVBORw0KGgoAAAANSUhEUgAABDgAAAjoCAYAAAA5jhrUAAAAAXNSR0IArs4c6QAAAARzQklUCAgI\nCHwIZIgAACAASURBVHic7J13nBRF2sd/VT1pA0FyUDHniAlRMHumw5yzYj4VzAFMoJgwnqLiqWcO\n6Cmnnog5op4Bs3j4YkIQyZtmprvq/aO6qqt7enZnd2cXVp4vn2Wme6qrqqsrPM/TT1WxVN9tJAiC\nIAiCI…
+11-01 11:25:08.899 14259 14305 I appium  : AppiumResponse: {"sessionId":"d0971632-20af-40bf-a06c-4f65925e604e","value":{"ELEMENT":"00000000-0000-04d2-ffff-ffff00000506","element-6066-11e4-a52e-4f735466cecf":"00000000-0000-04d2-ffff-ffff00000506"}}
+11-01 11:25:08.911 14259 14305 I appium  : channel read: GET /wd/hub/session/d0971632-20af-40bf-a06c-4f65925e604e/element/00000000-0000-04d2-ffff-ffff00000506/attribute/displayed
+11-01 11:25:08.912 14259 14305 I appium  : GetElementAttribute command
+11-01 11:25:08.919 14259 14305 I appium  : AppiumResponse: {"sessionId":"d0971632-20af-40bf-a06c-4f65925e604e","value":"true"}
+11-01 11:25:08.932 14259 14305 I appium  : channel read: GET /wd/hub/session/d0971632-20af-40bf-a06c-4f65925e604e/element/00000000-0000-04d2-ffff-ffff00000506/attribute/enabled
+11-01 11:25:08.934 14259 14305 I appium  : GetElementAttribute command
+11-01 11:25:08.941 14259 14305 I appium  : AppiumResponse: {"sessionId":"d0971632-20af-40bf-a06c-4f65925e604e","value":"true"}
+11-01 11:25:08.954 14259 14305 I appium  : channel read: POST /wd/hub/session/d0971632-20af-40bf-a06c-4f65925e604e/elements
+11-01 11:25:08.955 14259 14305 I appium  : FindElements command
+11-01 11:25:08.958 14259 14305 I appium  : method: 'id', selector: 'com.vtvcab.onsports.dev:id/textview'
+11-01 11:25:08.958 14259 14305 I appium  : Waiting up to 10000ms for the device to idle
+11-01 11:25:09.079 14259 14305 I appium  : Caching 5 found elements
+11-01 11:25:09.081 14259 14305 I appium  : Cached 5 elements
+11-01 11:25:09.087 14259 14305 I appium  : AppiumResponse: {"sessionId":"d0971632-20af-40bf-a06c-4f65925e604e","value":[{"ELEMENT":"00000000-0000-04d2-ffff-ffff00000506","element-6066-11e4-a52e-4f735466cecf":"00000000-0000-04d2-ffff-ffff00000506"},{"ELEMENT":"00000000-0000-04d2-ffff-ffff00000508","element-6066-11e4-a52e-4f735466cecf":"00000000-0000-04d2-fff…
+11-01 11:25:09.100 14259 14305 I appium  : channel read: POST /wd/hub/session/d0971632-20af-40bf-a06c-4f65925e604e/element/00000000-0000-04d2-ffff-ffff00000508/click
+11-01 11:25:09.102 14259 14305 I appium  : Click command
+11-01 11:25:09.145 14314 14419 D TokenDevice: eXBK_xLtSHWpPmayCTYc4g:APA91bER_Lo8Ch0GCozmPCGfyALdSOxRZvMzcia2SEUtHUSClQnrlcq-a_QtIGWEK5fNLsPThiPbiMfdQnyz89DdxBpUKvHbncRGIoEfC4uCv9qdFHtWi7g
+11-01 11:25:09.145 14314 14419 D DeviceName: Google Pixel 4
+11-01 11:25:09.148 14259 14305 I appium  : Waiting up to 10000ms for the device to idle
+11-01 11:25:09.150 14259 14305 I appium  : AppiumResponse: {"sessionId":"d0971632-20af-40bf-a06c-4f65925e604e","value":null}
+11-01 11:25:09.162 14259 14305 I appium  : channel read: GET /wd/hub/session/d0971632-20af-40bf-a06c-4f65925e604e/element/00000000-0000-04d2-ffff-ffff00000508/text
+11-01 11:25:09.163 14259 14305 I appium  : GetText command
+11-01 11:25:09.168 14259 14305 I appium  : AppiumResponse: {"sessionId":"d0971632-20af-40bf-a06c-4f65925e604e","value":"VS8, VS20 - DAY"}
+11-01 11:25:09.198 14259 14305 I appium  : channel read: POST /wd/hub/session/d0971632-20af-40bf-a06c-4f65925e604e/element
+11-01 11:25:09.199 14259 14305 I appium  : FindElement command
+11-01 11:25:09.203 14259 14305 I appium  : method: 'id', selector: 'com.vtvcab.onsports.dev:id/title_text'
+11-01 11:25:09.203 14259 14305 I appium  : Waiting up to 10000ms for the device to idle
+11-01 11:25:09.816 14259 14305 I appium  : AppiumResponse: {"sessionId":"d0971632-20af-40bf-a06c-4f65925e604e","value":{"ELEMENT":"00000000-0000-04d2-ffff-ffff00000592","element-6066-11e4-a52e-4f735466cecf":"00000000-0000-04d2-ffff-ffff00000592"}}
+11-01 11:25:09.831 14259 14305 I appium  : channel read: GET /wd/hub/session/d0971632-20af-40bf-a06c-4f65925e604e/element/00000000-0000-04d2-ffff-ffff00000592/attribute/displayed
+11-01 11:25:09.832 14259 14305 I appium  : GetElementAttribute command
+11-01 11:25:09.843 14259 14305 I appium  : AppiumResponse: {"sessionId":"d0971632-20af-40bf-a06c-4f65925e604e","value":"true"}
+11-01 11:25:09.867 14259 14305 I appium  : channel read: GET /wd/hub/session/d0971632-20af-40bf-a06c-4f65925e604e/element/00000000-0000-04d2-ffff-ffff00000592/attribute/enabled
+11-01 11:25:09.868 14259 14305 I appium  : GetElementAttribute command
+11-01 11:25:09.878 14259 14305 I appium  : AppiumResponse: {"sessionId":"d0971632-20af-40bf-a06c-4f65925e604e","value":"true"}
+11-01 11:25:09.898 14259 14305 I appium  : channel read: POST /wd/hub/session/d0971632-20af-40bf-a06c-4f65925e604e/elements
+11-01 11:25:09.899 14259 14305 I appium  : FindElements command
+11-01 11:25:09.902 14259 14305 I appium  : method: 'id', selector: 'com.vtvcab.onsports.dev:id/title_text'
+11-01 11:25:09.903 14259 14305 I appium  : Waiting up to 10000ms for the device to idle
+11-01 11:25:09.957 14259 14305 I appium  : Caching 2 found elements
+11-01 11:25:09.958 14259 14305 I appium  : Cached 2 elements
+11-01 11:25:09.962 14259 14305 I appium  : AppiumResponse: {"sessionId":"d0971632-20af-40bf-a06c-4f65925e604e","value":[{"ELEMENT":"00000000-0000-04d2-ffff-ffff00000592","element-6066-11e4-a52e-4f735466cecf":"00000000-0000-04d2-ffff-ffff00000592"},{"ELEMENT":"00000000-0000-04d2-ffff-ffff000005a5","element-6066-11e4-a52e-4f735466cecf":"00000000-0000-04d2-fff…
+11-01 11:25:09.981  8405  8405 D BoundBrokerSvc: onUnbind: Intent { act=com.google.android.gms.inappreach.service.START dat=chimera-action:/... cmp=com.google.android.gms/.chimera.GmsApiService }
+11-01 11:25:09.986 14259 14305 I appium  : channel read: GET /wd/hub/session/d0971632-20af-40bf-a06c-4f65925e604e/element/00000000-0000-04d2-ffff-ffff00000592/text
+11-01 11:25:09.988 14259 14305 I appium  : GetText command
+11-01 11:25:09.997 14259 14305 I appium  : AppiumResponse: {"sessionId":"d0971632-20af-40bf-a06c-4f65925e604e","value":"[Combo] Sự kiện multitrack"}
+11-01 11:25:10.056 14259 14305 I appium  : channel read: GET /wd/hub/session/d0971632-20af-40bf-a06c-4f65925e604e/screenshot
+11-01 11:25:10.058 14259 14305 I appium  : CaptureScreenshot command
+11-01 11:25:10.115 14802 14802 W ProcessState: Extra binder thread started, but 0 threads requested. Do not use *startThreadPool when zero threads are requested.
+11-01 11:25:10.131   656   656 I servicemanager: Could not find android.hardware.graphics.allocator.IAllocator/default in the VINTF manifest.
+11-01 11:25:10.132 14802 14805 W AdrenoUtils: <ReadGpuID_from_sysfs:197>: Failed to open /sys/class/kgsl/kgsl-3d0/gpu_model
+11-01 11:25:10.132 14802 14805 W AdrenoUtils: <ReadGpuID:221>: Failed to read chip ID from gpu_model. Fallback to use the GSL path
+11-01 11:25:10.127 14802 14802 W binder:14802_1: type=1400 audit(0.0:9668): avc: denied { read } for name="gpu_model" dev="sysfs" ino=64127 scontext=u:r:shell:s0 tcontext=u:object_r:sysfs_msm_subsys:s0 tclass=file permissive=0
+11-01 11:25:10.464 14259 14305 I appium  : AppiumResponse: {"sessionId":"d0971632-20af-40bf-a06c-4f65925e604e","value":"iVBORw0KGgoAAAANSUhEUgAABDgAAAjoCAYAAAA5jhrUAAAAAXNSR0IArs4c6QAAAARzQklUCAgI\nCHwIZIgAACAASURBVHic7N13WFNnGwbwO5MwBZTtwAEq4m7do6171lm31j1aZ12tW7GOOuqq1m3V\nWqv1a9Varda6V10oiooDVJaI7A3J9wcSiayEJCSB+3ddXuUk5z3vEyuQc+cdAqlLQwWIiIiIiIiI\niEyY0…

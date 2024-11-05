@@ -91,16 +91,8 @@ public class DataBase extends BaseTest {
             keyword.assertEqualData(dataMap.get(actual[i]), expect[i]);
         }
     }
-    public HashMap<String, String> queryAndGetDb(String defaultQuery, String key){
-        String query = PropertiesFile.getPropValue(defaultQuery);
-        if (query == null) {
-            query = defaultQuery;
-        }
-        String content= PropertiesFile.getPropValue(key);
-        if (content == null) {
-            content = key;
-        }
-        queryDb(query.replace("key", content));
+    public HashMap<String, String> queryAndGetDb(String query, String key){
+        queryDb(query.replace("key", key));
         return getResultDataBase();
     }
 }

@@ -11,6 +11,7 @@ import pages.loginsignup.SignUpPage;
 
 import java.util.HashMap;
 import static constant.Constant.*;
+import static constant.Query.*;
 import static helpers.PathHelper.getNameMethod;
 import static utilities.ReadExcel.*;
 import static utilities.ReadExcel.getIndexRowFromKey;
@@ -51,7 +52,7 @@ public class ForgotPasswordTest extends BaseTest {
     public void FP_3(){
         dataForgot = getTestDataInMap(getIndexRowFromKey(getNameMethod()));
         loginPage.waitTimeOtp();
-        HashMap<String, String> dbData = dataBase.queryAndGetDb("SPORTS_ID_QUERY_USER", dataForgot.get("User name"));
+        HashMap<String, String> dbData = dataBase.queryAndGetDb(SPORTS_ID_QUERY_USER, dataForgot.get("User name"));
         loginPage.deleteOtp();
         loginPage.inputOtp(dbData.get("otp_code"));
         loginPage.continueOtp("hết hạn");
@@ -62,7 +63,7 @@ public class ForgotPasswordTest extends BaseTest {
     }
     @Test(priority = 4, description = "Kiểm tra nhập OTP hợp lệ rồi back lại")
     public void FP_5(){
-        HashMap<String, String> dbData = dataBase.queryAndGetDb("SPORTS_ID_QUERY_USER", dataForgot.get("User name"));
+        HashMap<String, String> dbData = dataBase.queryAndGetDb(SPORTS_ID_QUERY_USER, dataForgot.get("User name"));
         loginPage.deleteOtp();
         loginPage.inputOtp(dbData.get("otp_code"));
         signUpPage.backFromOTPScreen();
@@ -71,7 +72,7 @@ public class ForgotPasswordTest extends BaseTest {
     @Test(priority = 5, description = "Kiểm tra back khi ở màn hình đổi mật khẩu", dependsOnMethods = "FP_5")
     public void FP_6(){
         forgotPasswordPage.clickForgot();
-        HashMap<String, String> dbData = dataBase.queryAndGetDb("SPORTS_ID_QUERY_USER", dataForgot.get("User name"));
+        HashMap<String, String> dbData = dataBase.queryAndGetDb(SPORTS_ID_QUERY_USER, dataForgot.get("User name"));
         loginPage.deleteOtp();
         loginPage.inputOtp(dbData.get("otp_code"));
         loginPage.continueOtp("hợp lệ");
@@ -81,7 +82,7 @@ public class ForgotPasswordTest extends BaseTest {
     @Test(priority = 6, description = "Kiểm tra nhập otp hợp lệ")
     public void FP_7(){
         forgotPasswordPage.clickForgot();
-        HashMap<String, String> dbData = dataBase.queryAndGetDb("SPORTS_ID_QUERY_USER", dataForgot.get("User name"));
+        HashMap<String, String> dbData = dataBase.queryAndGetDb(SPORTS_ID_QUERY_USER, dataForgot.get("User name"));
         loginPage.deleteOtp();
         loginPage.inputOtp(dbData.get("otp_code"));
         loginPage.continueOtp("hợp lệ");
