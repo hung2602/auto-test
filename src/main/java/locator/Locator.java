@@ -12,7 +12,6 @@ public class Locator {
     public static final By HOME_BTN_SEARCH = By.id("com.vtvcab.onsports.dev:id/imageButtonSearch");
     public static final By LOGOUT_BTN = By.id("com.vtvcab.onsports.dev:id/layout_logout");
     public static final By LOGOUT_BTN_CONFIRM = By.id("com.vtvcab.onsports.dev:id/btnLogout");
-    public static final By MENU_BTN_LAYOUT_AVATAR = By.id("com.vtvcab.onsports.dev:id/layout_avatar");
     public static final By PROFILE_BTN_VIEW_USER_INFORM = By.id("com.vtvcab.onsports.dev:id/text_show_profile");
     public static final By LOGOUT_TOAST_SUCCESS = By.id("com.vtvcab.onsports.dev:id/tv_message");
     public static final By LOGOUT_BTN_CANCEL = By.id("com.vtvcab.onsports.dev:id/btnCancel");
