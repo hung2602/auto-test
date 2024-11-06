@@ -11,7 +11,7 @@ import org.slf4j.Logger;
 import static helpers.PathHelper.projectPath;
 
 public class ReadExcel {
-    private static final String FILE_PATH = projectPath + "data\\DataTestOnplus.xlsx";
+    private static final String FILE_PATH = projectPath + "data" + File.separator + "DataTestOnplus.xlsx";
     private static Sheet sh;
     private static FileOutputStream fileOut;
     private static Logger logger = LogHelper.getLogger();

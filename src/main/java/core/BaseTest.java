@@ -29,6 +29,7 @@ public class BaseTest {
     protected KeywordWeb keyword;
     public static AndroidDriver driver;
     public static String appName = PathHelper.getFileName("app");
+    public static String appPath  = projectPath + "app" + File.separator;
     private final String app = "bs://8223a66b66c48e4e42c5fc779252d85a829d1bdd";
     private final String userName = "cuongvu_FerjhE";
     private final String accessKey = "idKAyrfQhD8DzT2su7Xe";
@@ -42,7 +43,7 @@ public class BaseTest {
         PropertiesFile.setPropertiesFile();
         try {
             if (PropertiesFile.getPropValue("OVER_WRITE_REPORT").equals("YES")) {
-                FileUtils.deleteDirectory(new File("target\\allure-results"));
+                FileUtils.deleteDirectory(new File("target" + File.separator + "allure-results"));
                 logger.info("Deleted directory allure-results");
             }
         } catch (IOException e) {
@@ -68,7 +69,7 @@ public class BaseTest {
             dc.setCapability("automationName", "UiAutomator2");
             dc.setCapability("noReset", false);
             dc.setCapability("appWaitForLaunch", false);
-            dc.setCapability("app", projectPath + "app\\" + appName);
+            dc.setCapability("app",  appPath + appName);
             url ="http://127.0.0.1:4723/wd/hub";
         }
         driver = new AndroidDriver(new URL(url), dc);
