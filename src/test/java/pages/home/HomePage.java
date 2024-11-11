@@ -6,15 +6,15 @@ import locator.Locator;
 public class HomePage extends BasePage {
     public HomePage() {
     }
-    @Step("Bỏ qua quảng cáo")
+    @Step("Hiển thị btn trang trủ")
     public void visibleHome(){
         keyword.verifyElementDisplay(Locator.HOME_BTN_HOME, true);
     }
-    @Step("Bỏ qua quảng cáo")
+    @Step("Hiển thị live score")
     public void visibleLiveScore(){
         keyword.verifyElementDisplay(Locator.HOME_BTN_LIVE_SCORE, true);
     }
-    @Step("Bỏ qua quảng cáo")
+    @Step("Hiển thị yêu thích")
     public void visibleLike(){
         keyword.verifyElementDisplay(Locator.HOME_BTN_FOLLOWING, true);
     }

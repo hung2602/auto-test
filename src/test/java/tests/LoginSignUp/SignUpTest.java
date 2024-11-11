@@ -5,6 +5,7 @@ import io.qameta.allure.Severity;
 import locator.Locator;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
+import pages.ProfilePage;
 import pages.loginsignup.LoginPage;
 import pages.loginsignup.SignUpPage;
 import java.util.HashMap;
@@ -19,13 +20,14 @@ public class SignUpTest extends BaseTest {
     public LoginPage loginPage;
     public SignUpPage signUpPage;
     private HashMap<String, String> dataSignUp;
-
+    public ProfilePage profilePage;
     private String phone = "";
 
     public SignUpTest(){
         loginPage = new LoginPage();
         signUpPage = new SignUpPage();
         dataBase = new DataBase();
+        profilePage = new ProfilePage();
     }
     @BeforeClass
     public void firstSteps(){
@@ -158,6 +160,6 @@ public class SignUpTest extends BaseTest {
         signUpPage.setPassWord(dataSignUp.get("Pass word"), dataSignUp.get("Password confirm"));
         keyword.verifyPresentAndClick(Locator.NOTICE_BTN_LATE);
         loginPage.viewUserInform();
-        loginPage.checkUserInform("name", phone);
+        profilePage.checkUserInform("name", phone);
     }
 }
