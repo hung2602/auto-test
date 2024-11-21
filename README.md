@@ -1,3 +1,17 @@
+**Upload app browserStack**
+curl -u "YOUR_USERNAME:YOUR_ACCESS_KEY" \
+-X POST "https://api-cloud.browserstack.com/app-automate/upload" \
+-F "file=@/path/to/app/file/Application-debug.apk" \
+-F "custom_id=CalculatorApp"
+
+**response app upload**
+{
+"app_url":"bs://f7c874f21852ba57957a3fdc33f47514288c4ba4",
+"custom_id":"CalculatorApp",
+"shareable_id":"exampleuser/CalculatorApp"
+}
+Use "custom_id" to specify the app: (in file browserstack.yml)
+
 **Cách setup reports**
 1. Tạo biến môi trường JAVA_HOME
 2. Thêm biến môi trường Allure-2.14.0 vào máy tính như cài đặt biến môi trường Java (link đến tận folder bin của allure)

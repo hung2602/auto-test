@@ -2,8 +2,8 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="OnPlus Android">
     <parameter name="cloudPlatform" value=""></parameter>
-    <parameter name="platformName" value="Android"/>
-    <parameter name="platformVersion" value="13"/>
+    <parameter name="platform" value="Android"/>
+    <parameter name="version" value="13"/>
     <parameter name="deviceName" value="99181FFAZ002RG"/>
     <listeners>
         <listener class-name="helpers.MyListener"/>

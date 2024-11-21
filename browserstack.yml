@@ -1,3 +1,10 @@
-userName: duy_u6ydwV
-accessKey: 2BffbhMipdqx47LAydRi
-app: bs://8ee19b5f6eee596f88a01e52651594974b7f08fc
+userName: cuongvu_FerjhE
+accessKey: idKAyrfQhD8DzT2su7Xe
+#app: CalculatorApp
+app: bs://8223a66b66c48e4e42c5fc779252d85a829d1bdd
+automationName: UIAutomator2
+platforms:
+  - platformName: android
+    deviceName: Samsung Galaxy S22 Ultra
+    platformVersion: 12.0
+projectName: Android-OnPlus

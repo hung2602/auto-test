@@ -2,8 +2,12 @@ package core;
 import helpers.PathHelper;
 import helpers.PropertiesFile;
 import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.android.options.UiAutomator2Options;
+import io.appium.java_client.ios.IOSDriver;
+import io.appium.java_client.ios.options.XCUITestOptions;
 import keyword.KeywordWeb;
 import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.MutableCapabilities;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.slf4j.Logger;
 import org.testng.ITestResult;
@@ -30,9 +34,12 @@ public class BaseTest {
     public static AndroidDriver driver;
     public static String appName = PathHelper.getFileName("app");
     public static String appPath  = projectPath + "app" + File.separator;
-    private final String app = "bs://8223a66b66c48e4e42c5fc779252d85a829d1bdd";
-    private final String userName = "cuongvu_FerjhE";
-    private final String accessKey = "idKAyrfQhD8DzT2su7Xe";
+    String userName = System.getenv("BROWSERSTACK_USERNAME");
+    String accessKey = System.getenv("BROWSERSTACK_ACCESS_KEY");
+    String app = System.getenv("BROWSERSTACK_APP");
+//    private final String userName = "cuongvu_FerjhE";
+//    private final String accessKey = "idKAyrfQhD8DzT2su7Xe";
+//    private final String app = "bs://8223a66b66c48e4e42c5fc779252d85a829d1bdd";
 
     public BaseTest() {
         keyword = new KeywordWeb();
@@ -51,11 +58,11 @@ public class BaseTest {
         }
 //        insertInformDevices("PLAT_FORM_VERSION","ID_DEVICE");
     }
-    public void setUp(String platformName, String platformVersion, String name, String cloudPlatform) throws Exception {
+    public void setUp(String platformName, String version, String name, String cloudPlatform) throws Exception {
         DesiredCapabilities dc = new DesiredCapabilities();
-        dc.setCapability("appium:deviceName", name);
-        dc.setCapability("appium:os_version", platformVersion);
         dc.setCapability("platformName", platformName);
+        dc.setCapability("appium:os_version", version);
+        dc.setCapability("appium:deviceName", name);
         String url = "";
         if (cloudPlatform.equals("browserStack")){
             HashMap<String, Object> browserstackOptions = new HashMap<>();
@@ -74,10 +81,15 @@ public class BaseTest {
         }
         driver = new AndroidDriver(new URL(url), dc);
     }
+    public void setUpBrowserStack() throws Exception{
+        MutableCapabilities capabilities = new UiAutomator2Options();
+        driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"),capabilities);
+    }
     @BeforeTest(alwaysRun = true)
-    @Parameters({"platformName","platformVersion","deviceName","cloudPlatform"})
+    @Parameters({"platform","version","deviceName","cloudPlatform"})
     public void setUpDevice(String platFrom, String platformVersion, String name, String cloudPlatform) throws Exception{
         setUp(platFrom, platformVersion, name, cloudPlatform);
+//        setUpBrowserStack();
     }
     @AfterTest
     public void afterTest() throws Exception {
