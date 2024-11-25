@@ -1,13 +1,15 @@
 package helpers;
 
+import core.BasePage;
 import core.BaseTest;
 import io.qameta.allure.Step;
+import keyword.KeywordWeb;
 import org.slf4j.Logger;
 import java.sql.*;
 import java.util.HashMap;
 import java.util.Set;
 
-public class DataBase extends BaseTest {
+public class DataBase extends BasePage {
     private static Logger logger = LogHelper.getLogger();
     public static Connection con ;
     public static ResultSet res ;

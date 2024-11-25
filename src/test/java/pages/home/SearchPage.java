@@ -1,5 +1,6 @@
 package pages.home;
 import core.BasePage;
+import driver.DriverManager;
 import helpers.DataBase;
 import helpers.LogHelper;
 import io.qameta.allure.Step;
@@ -13,7 +14,6 @@ import java.util.HashMap;
 import java.util.List;
 import static constant.Constant.*;
 import static constant.Query.*;
-import static core.BaseTest.driver;
 import static utilities.DateTime.*;
 
 
@@ -233,7 +233,7 @@ public class SearchPage extends BasePage {
     public void chooseLiveVideo() {
         keyword.webDriverWaitForElementPresent(Locator.CONTENT_LBL_LIVE, 10);
         keyword.sleep(0.5);
-        List<WebElement> webList = driver.findElements(By.xpath(Locator.CONTENT_IMG_LIVE));
+        List<WebElement> webList = DriverManager.getDriver().findElements(By.xpath(Locator.CONTENT_IMG_LIVE));
         int random = keyword.randomNumber(webList.size());
         webList.get(random).click();
         keyword.sleep(0.5);

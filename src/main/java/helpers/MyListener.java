@@ -10,7 +10,6 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import static core.BaseTest.driver;
 import static helpers.PathHelper.*;
 import static helpers.LogCat.*;
 
@@ -27,9 +26,9 @@ public class MyListener implements ITestListener {
         }
     }
     @Attachment(value = "Page screenshot", type = "image/png")
-    public static byte[] saveScreenshotPNG() {
-        return ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
-    }
+//    public static byte[] saveScreenshotPNG() {
+//        return ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
+//    }
     public String getTestName(ITestResult result) {
         return result.getTestName() != null ? result.getTestName() : result.getMethod().getConstructorOrMethod().getName();
     }

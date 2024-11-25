@@ -1,6 +1,9 @@
 package keyword;
+import core.BaseTest;
+import driver.DriverManager;
 import helpers.PropertiesFile;
 import io.appium.java_client.TouchAction;
+import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.touch.WaitOptions;
 import io.appium.java_client.touch.offset.PointOption;
 import io.qameta.allure.Step;
@@ -11,14 +14,15 @@ import org.openqa.selenium.support.ui.*;
 import org.slf4j.Logger;
 import org.testng.Assert;
 import helpers.LogHelper;
+
 import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.function.Function;
-import static core.BaseTest.driver;
 
-public class KeywordWeb {
+
+public class KeywordWeb extends BaseTest {
     private static Logger logger = LogHelper.getLogger();
     public KeywordWeb() {
     }
@@ -37,9 +41,9 @@ public class KeywordWeb {
             element = xpath;
         }
         String check = "";
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+        WebDriverWait wait = new WebDriverWait(DriverManager.getDriver(), Duration.ofSeconds(15));
         wait.until(ExpectedConditions.elementToBeClickable((By.xpath(element))));
-        WebElement e = driver.findElement(By.xpath(element));
+        WebElement e = DriverManager.getDriver().findElement(By.xpath(element));
         switch (flag) {
             case "click":
                 e.click();
@@ -62,25 +66,25 @@ public class KeywordWeb {
         if (content == null) {
             content = key;
         }
-        driver.findElement(by).sendKeys(content);
+        DriverManager.getDriver().findElement(by).sendKeys(content);
     }
     @Step("Cuộn tới vị trí: {0}")
     public void scrollToPositionByScript(String jsScript) {
         logger.info(" scrolling to position ");
-        JavascriptExecutor js = (JavascriptExecutor) driver;
+        JavascriptExecutor js = (JavascriptExecutor) DriverManager.getDriver();
         js.executeScript(jsScript);
     }
     @Step("Lấy giá trị: {0}")
     public String getText(By by){
         logger.info("Get Text " + by);
-        return driver.findElement(by).getText();
+        return DriverManager.getDriver().findElement(by).getText();
     }
     @Step("Click: {0}")
     public void click(By by){
         sleep(0.3);
 //        webDriverWaitForElementPresent(by, 10);
         logger.info("click " + by);
-        driver.findElement(by).click();
+        DriverManager.getDriver().findElement(by).click();
     }
     @Step("So sánh message: {1}")
     public void assertEqual(By by, String text){
@@ -90,7 +94,7 @@ public class KeywordWeb {
         if (content == null) {
             content = text;
         }
-        Assert.assertEquals(driver.findElement(by).getText(), content);
+        Assert.assertEquals(DriverManager.getDriver().findElement(by).getText(), content);
     }
     @Step("So sánh data: {0} với giá trị: {1}")
     public void assertEqualData(String db, String expect){
@@ -118,13 +122,13 @@ public class KeywordWeb {
     @Step("Chờ element hiển thị: {0}")
     public void webDriverWaitForElementPresent(By by, long timeout){
         logger.info("Wait For Element Present" + by);
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeout));
+        WebDriverWait wait = new WebDriverWait(DriverManager.getDriver(), Duration.ofSeconds(timeout));
         wait.until(ExpectedConditions.elementToBeClickable(by));
     }
     @Step("Chờ element không hiển thị: {0}")
     public void webDriverWaitInvisibleElement(By by, long timeout){
         logger.info("Wait For Element Not Present" + by);
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeout));
+        WebDriverWait wait = new WebDriverWait(DriverManager.getDriver(), Duration.ofSeconds(timeout));
         wait.until(ExpectedConditions.invisibilityOfElementLocated(by));
     }
     @Step("Xác thực hiển thị and click: {0}")
@@ -139,7 +143,7 @@ public class KeywordWeb {
     public boolean verifyElementPresent(By by) {
         logger.info("verifyElementPresent: " + by);
         try {
-            driver.findElement(by);
+            DriverManager.getDriver().findElement(by);
             return true;
         } catch (NoSuchElementException e) {
             e.printStackTrace();
@@ -150,19 +154,19 @@ public class KeywordWeb {
     public List<WebElement> getListElement(By by) {
         logger.info("get list element: " + by);
         webDriverWaitForElementPresent(by, 10);
-        List<WebElement> weblist = driver.findElements(by);
+        List<WebElement> weblist = DriverManager.getDriver().findElements(by);
         return weblist;
     }
 
     public void executeJsHorizontal(String command, WebElement element) {
         logger.info("Executing JavaScript");
-        JavascriptExecutor js = (JavascriptExecutor) driver;
+        JavascriptExecutor js = (JavascriptExecutor) DriverManager.getDriver();
         js.executeScript(command, element);
     }
     @Step("Chọn từ drop list: {1}")
     public void selectByText(By by, String text){
         logger.info("Select By Text " + by);
-        Select singleSelect = new Select(driver.findElement(by));
+        Select singleSelect = new Select(DriverManager.getDriver().findElement(by));
         singleSelect.selectByVisibleText(text);
     }
     @Step("Xóa: {0} và nhập giá trị {1}")
@@ -173,19 +177,19 @@ public class KeywordWeb {
         if (content == null) {
             content = contents;
         }
-        driver.findElement(by).clear();
-        driver.findElement(by).sendKeys(content);
+        DriverManager.getDriver().findElement(by).clear();
+        DriverManager.getDriver().findElement(by).sendKeys(content);
     }
     @Step("Xóa giá trị: {0}")
     public void clearText(By by) {
         logger.info("clearText");
-        driver.findElement(by).clear();
+        DriverManager.getDriver().findElement(by).clear();
     }
     @Step("Xác thực element có thể tương tác: {0}")
     public boolean isElementEnable(By by) {
         logger.info("verifyElementPresent: " + by);
         try {
-            driver.findElement(by).isEnabled();
+            DriverManager.getDriver().findElement(by).isEnabled();
             return true;
         } catch (NoSuchElementException e) {
             e.printStackTrace();
@@ -198,7 +202,7 @@ public class KeywordWeb {
         if (xPathElement == null) {
             xPathElement = element;
         }
-        List<WebElement> weblist = driver.findElements(By.xpath(xPathElement));
+        List<WebElement> weblist = DriverManager.getDriver().findElements(By.xpath(xPathElement));
         int size = weblist.size();
         int randNumber = ThreadLocalRandom.current().nextInt(0, size);
         weblist.get(randNumber).click();
@@ -215,19 +219,19 @@ public class KeywordWeb {
         if (xPathElement == null) {
             xPathElement = element;
         }
-        Actions builder = new Actions(driver);
-        WebElement elementRep = driver.findElement(By.xpath(xPathElement));
+        Actions builder = new Actions(DriverManager.getDriver());
+        WebElement elementRep = DriverManager.getDriver().findElement(By.xpath(xPathElement));
         builder.doubleClick(elementRep).perform();
     }
     @Step("Xác thực element hiển thị: {0}")
     public boolean isDisplayElement(By by) {
         logger.info("Check element display " + by );
-        boolean stt = driver.findElement(by).isDisplayed();
+        boolean stt = DriverManager.getDriver().findElement(by).isDisplayed();
         return stt;
     }
     public void scrollDownTo(int x, int y) {
         logger.info("Scroll " + x + " " + y );
-        new TouchAction(driver)
+        new TouchAction(DriverManager.getDriver())
                 .press(PointOption.point(100, 100))
                 .waitAction(WaitOptions.waitOptions(Duration.ofSeconds(2)))
                 .moveTo(PointOption.point(x, y))
@@ -237,16 +241,16 @@ public class KeywordWeb {
     @Step("Lấy giá trị alert: {0}")
     public String getAlertText() {
         logger.info("Getting alert text...");
-        Alert alert = driver.switchTo().alert();
+        Alert alert = DriverManager.getDriver().switchTo().alert();
         return alert.getText();
     }
     @Step("Chuyển sang web context: {0}")
     public boolean switchToWebContext() {
-        ArrayList<String> contexts = new ArrayList<>(driver.getContextHandles());
+        ArrayList<String> contexts = new ArrayList<>(DriverManager.getDriver().getContextHandles());
         for (String context : contexts) {
             System.out.println(context);
             if(context.contains("WEBVIEW")){   // NATIVE_APP
-                driver.context(context);
+                DriverManager.getDriver().context(context);
                 return true;
             }
         }
@@ -260,7 +264,7 @@ public class KeywordWeb {
         list.add(data);
     }
     public void waitPageLoad(){
-        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(30));
+        DriverManager.getDriver().manage().timeouts().pageLoadTimeout(Duration.ofSeconds(30));
     }
     public void dragAndDropToObj(String startElement, String endElement) {
         logger.info("drag from" + startElement + " to" + endElement);
@@ -272,9 +276,9 @@ public class KeywordWeb {
         if (xPathElement2 == null) {
             xPathElement2 = endElement;
         }
-        Actions builder = new Actions(driver);
-        WebElement source = driver.findElement(By.xpath(xPathElement1));
-        WebElement target = driver.findElement(By.xpath(xPathElement2));
+        Actions builder = new Actions(DriverManager.getDriver());
+        WebElement source = DriverManager.getDriver().findElement(By.xpath(xPathElement1));
+        WebElement target = DriverManager.getDriver().findElement(By.xpath(xPathElement2));
         builder.dragAndDrop(source, target).perform();
     }
     public void rightClick(String element, String menuItem) {
@@ -287,9 +291,9 @@ public class KeywordWeb {
         if (xPathElement2 == null) {
             xPathElement2 = menuItem;
         }
-        Actions builder = new Actions(driver);
-        WebElement clickMe = driver.findElement(By.xpath(xPathElement1));
-        WebElement editMenuItem = driver.findElement(By.xpath(xPathElement2));
+        Actions builder = new Actions(DriverManager.getDriver());
+        WebElement clickMe = DriverManager.getDriver().findElement(By.xpath(xPathElement1));
+        WebElement editMenuItem = DriverManager.getDriver().findElement(By.xpath(xPathElement2));
         builder.contextClick(clickMe).moveToElement(editMenuItem).click().perform();
     }
     public void hoverAndClick(String element) {
@@ -298,8 +302,8 @@ public class KeywordWeb {
         if (xPathElement == null) {
             xPathElement = element;
         }
-        Actions action = new Actions(driver);
-        WebElement elementRep = driver.findElement(By.xpath(xPathElement));
+        Actions action = new Actions(DriverManager.getDriver());
+        WebElement elementRep = DriverManager.getDriver().findElement(By.xpath(xPathElement));
         action.moveToElement(elementRep).perform();
     }
     public void hoverAndClicks(String element) {
@@ -308,19 +312,19 @@ public class KeywordWeb {
         if (xPathElement == null) {
             xPathElement = element;
         }
-        Actions action = new Actions(driver);
-        WebElement elementRep = driver.findElement(By.xpath(xPathElement));
+        Actions action = new Actions(DriverManager.getDriver());
+        WebElement elementRep = DriverManager.getDriver().findElement(By.xpath(xPathElement));
         action.moveToElement(elementRep).clickAndHold();
     }
 
     public void executeJavaScript(String command) {
         logger.info("Executing JavaScript");
-        JavascriptExecutor js = (JavascriptExecutor) driver;
+        JavascriptExecutor js = (JavascriptExecutor) DriverManager.getDriver();
         js.executeScript(command);
     }
     public void acceptAlert() {
         logger.info("Accepting alert...");
-        Alert alert = driver.switchTo().alert();
+        Alert alert = DriverManager.getDriver().switchTo().alert();
         alert.accept();
     }
     public void switchToIFrameByXpath(String element) {
@@ -329,13 +333,13 @@ public class KeywordWeb {
         if (xPathElement == null) {
             xPathElement = element;
         }
-        WebElement iframe = driver.findElement(By.xpath(xPathElement));
-        driver.switchTo().frame(iframe);
+        WebElement iframe = DriverManager.getDriver().findElement(By.xpath(xPathElement));
+        DriverManager.getDriver().switchTo().frame(iframe);
     }
     public void scrollDownToElement(By xPath) {
         logger.info("scrollDownToElement" + xPath);
-        WebElement element = driver.findElement(xPath);
-        Actions actions = new Actions(driver);
+        WebElement element = DriverManager.getDriver().findElement(xPath);
+        Actions actions = new Actions(DriverManager.getDriver());
         actions.moveToElement(element);
         actions.perform();
     }
@@ -345,8 +349,8 @@ public class KeywordWeb {
         if (xPathElement == null) {
             xPathElement = element;
         }
-        WebElement elements = driver.findElement(By.cssSelector(xPathElement));
-        Actions actions = new Actions(driver);
+        WebElement elements = DriverManager.getDriver().findElement(By.cssSelector(xPathElement));
+        Actions actions = new Actions(DriverManager.getDriver());
         actions.moveToElement(elements);
         actions.perform();
     }
@@ -360,14 +364,14 @@ public class KeywordWeb {
         if (xPathElement2 == null) {
             xPathElement2 = itemName;
         }
-        Select dropDownList = new Select(driver.findElement(By.xpath(xPathElement1)));
+        Select dropDownList = new Select(DriverManager.getDriver().findElement(By.xpath(xPathElement1)));
         dropDownList.selectByVisibleText(xPathElement2);
     }
     public void verifyElementDisplay(By element, boolean check) {
         logger.info("verifyElement" + element);
         boolean confirm = true;
         try {
-            driver.findElement(element).isDisplayed();
+            DriverManager.getDriver().findElement(element).isDisplayed();
         }
         catch (NoSuchElementException e) {
             e.printStackTrace();
@@ -379,7 +383,7 @@ public class KeywordWeb {
     public void checkElementIsNotDisplayed(By element) {
         logger.info("checkElementVisibleOrNot" + element);
         try {
-            driver.findElement(element);
+            DriverManager.getDriver().findElement(element);
             Assert.assertTrue(false);
         } catch (NoSuchElementException e) {
             e.printStackTrace();
@@ -389,7 +393,7 @@ public class KeywordWeb {
     public void checkElementIsDisplayed(By element) {
         logger.info("checkElementVisibleOrNot" + element);
         try {
-            driver.findElement(element);
+            DriverManager.getDriver().findElement(element);
             Assert.assertTrue(true);
         } catch (NoSuchElementException e) {
             e.printStackTrace();
@@ -402,7 +406,7 @@ public class KeywordWeb {
         if (xPathElement == null) {
             xPathElement = element;
         }
-        boolean status = driver.findElement(By.xpath(xPathElement)).isDisplayed();
+        boolean status = DriverManager.getDriver().findElement(By.xpath(xPathElement)).isDisplayed();
         if (status) {
             System.out.println("Is Display" + "\t" + element);
         } else {
@@ -413,14 +417,14 @@ public class KeywordWeb {
     }
     public void waitForAjaxToFinish() throws InterruptedException {
         logger.info("waitForAjaxToFinish");
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(3000));
-        wait.until((ExpectedCondition<Boolean>) wdriver -> ((JavascriptExecutor) driver).executeScript(
+        WebDriverWait wait = new WebDriverWait(DriverManager.getDriver(), Duration.ofSeconds(3000));
+        wait.until((ExpectedCondition<Boolean>) wdriver -> ((JavascriptExecutor) DriverManager.getDriver()).executeScript(
                 "return !!window.jQuery && !!window.jQuery.active == 0;").equals(true));
         Thread.sleep(150);
     }
 
     private static void until(Function<WebDriver, Boolean> waitCondition, Long timeoutInSeconds) {
-        WebDriverWait webDriverWait = new WebDriverWait(driver, Duration.ofSeconds(timeoutInSeconds));
+        WebDriverWait webDriverWait = new WebDriverWait(DriverManager.getDriver(), Duration.ofSeconds(timeoutInSeconds));
 //        webDriverWait.withTimeout(timeoutInSeconds, TimeUnit.SECONDS);
         try {
             webDriverWait.until(waitCondition);
@@ -432,7 +436,7 @@ public class KeywordWeb {
     public void untilJqueryIsDone(Long timeoutInSeconds){
         until((d) ->
         {
-            Boolean isJqueryCallDone = (Boolean) ((JavascriptExecutor) driver).executeScript("return jQuery.active==0");
+            Boolean isJqueryCallDone = (Boolean) ((JavascriptExecutor) DriverManager.getDriver()).executeScript("return jQuery.active==0");
             if (!isJqueryCallDone) System.out.println("JQuery call is in Progress");
             return isJqueryCallDone;
         }, timeoutInSeconds);
@@ -445,7 +449,7 @@ public class KeywordWeb {
             xPathElement = elementXPath;
         }
         try {
-            (new WebDriverWait(driver, Duration.ofSeconds(timeOutInSeconds))).until(ExpectedConditions.invisibilityOfElementLocated(By
+            (new WebDriverWait(DriverManager.getDriver(), Duration.ofSeconds(timeOutInSeconds))).until(ExpectedConditions.invisibilityOfElementLocated(By
                     .xpath(xPathElement)));
             return null;
         } catch (TimeoutException e) {
@@ -458,12 +462,12 @@ public class KeywordWeb {
         if (xPathElement == null) {
             xPathElement = element;
         }
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeout));
+        WebDriverWait wait = new WebDriverWait(DriverManager.getDriver(), Duration.ofSeconds(timeout));
         wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector(xPathElement)));
     }
     public void fluentWaitForElementPresent(String element, Duration polling, Duration timeout) {
         logger.info("fluentWaitForElementPresent");
-        Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
+        Wait<WebDriver> wait = new FluentWait<WebDriver>(DriverManager.getDriver())
                 .withTimeout(timeout)
                 .pollingEvery(polling)
                 .ignoring(NoSuchElementException.class);
@@ -475,7 +479,7 @@ public class KeywordWeb {
         if (xPathElement == null) {
             xPathElement = element;
         }
-        WebElement b = driver.findElement(By.xpath(xPathElement));
+        WebElement b = DriverManager.getDriver().findElement(By.xpath(xPathElement));
         String c = b.getAttribute(tag);
         logger.info(c);
         return c;
@@ -487,14 +491,14 @@ public class KeywordWeb {
         if (xPathElement == null) {
             xPathElement = element;
         }
-        WebElement b = driver.findElement(By.xpath(xPathElement));
+        WebElement b = DriverManager.getDriver().findElement(By.xpath(xPathElement));
         String c = b.getAttribute("value");
         logger.info(c);
         return c;
     }
     public void scrollToTheBottomPage() {
         logger.info("scrollDownToElementWithJavaExecutor");
-        JavascriptExecutor js = ((JavascriptExecutor) driver);
+        JavascriptExecutor js = ((JavascriptExecutor) DriverManager.getDriver());
         js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
     }
 }

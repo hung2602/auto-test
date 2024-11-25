@@ -11,7 +11,7 @@ curl -u "YOUR_USERNAME:YOUR_ACCESS_KEY" \
 "shareable_id":"exampleuser/CalculatorApp"
 }
 Use "custom_id" to specify the app: (in file browserstack.yml)
-
+** appium --address 127.0.0.1 --port 4723 --base-path /wd/hub **
 **Cách setup reports**
 1. Tạo biến môi trường JAVA_HOME
 2. Thêm biến môi trường Allure-2.14.0 vào máy tính như cài đặt biến môi trường Java (link đến tận folder bin của allure)

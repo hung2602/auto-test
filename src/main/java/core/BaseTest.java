@@ -1,10 +1,15 @@
 package core;
-import helpers.PathHelper;
-import helpers.PropertiesFile;
+import com.aventstack.extentreports.gherkin.model.And;
+import driver.DriverManager;
+import helpers.*;
+import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.options.UiAutomator2Options;
 import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.ios.options.XCUITestOptions;
+import io.appium.java_client.service.local.AppiumDriverLocalService;
+import io.appium.java_client.service.local.AppiumServerHasNotBeenStartedLocallyException;
+import io.appium.java_client.service.local.AppiumServiceBuilder;
 import keyword.KeywordWeb;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.MutableCapabilities;
@@ -12,8 +17,7 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.slf4j.Logger;
 import org.testng.ITestResult;
 import org.testng.annotations.*;
-import helpers.LogHelper;
-import helpers.ReadYaml;
+
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -28,21 +32,21 @@ import static helpers.PathHelper.*;
 import static utilities.XmlParse.insertInformDevices;
 
 public class BaseTest {
+    protected static AndroidDriver driver;
     private static Logger logger = LogHelper.getLogger();
-
-    protected KeywordWeb keyword;
-    public static AndroidDriver driver;
+    protected static KeywordWeb keyword;
     public static String appName = PathHelper.getFileName("app");
     public static String appPath  = projectPath + "app" + File.separator;
-    String userName = System.getenv("BROWSERSTACK_USERNAME");
-    String accessKey = System.getenv("BROWSERSTACK_ACCESS_KEY");
-    String app = System.getenv("BROWSERSTACK_APP");
-//    private final String userName = "cuongvu_FerjhE";
-//    private final String accessKey = "idKAyrfQhD8DzT2su7Xe";
-//    private final String app = "bs://8223a66b66c48e4e42c5fc779252d85a829d1bdd";
+    private final static String userName = "cuongvu_FerjhE";
+    private final static String accessKey = "idKAyrfQhD8DzT2su7Xe";
+    private final static String app = "bs://8223a66b66c48e4e42c5fc779252d85a829d1bdd";
 
     public BaseTest() {
-        keyword = new KeywordWeb();
+    }
+
+    public void startAppiumService(String port){
+        AppiumServiceBuilder builder = new AppiumServiceBuilder();
+        builder.withIPAddress("127.0.0.1");
     }
 
     @BeforeSuite(alwaysRun=true)
@@ -58,52 +62,55 @@ public class BaseTest {
         }
 //        insertInformDevices("PLAT_FORM_VERSION","ID_DEVICE");
     }
-    public void setUp(String platformName, String version, String name, String cloudPlatform) throws Exception {
+    public AndroidDriver setUp(String cloudPlatform, String version, String udid, String port) throws Exception {
         DesiredCapabilities dc = new DesiredCapabilities();
-        dc.setCapability("platformName", platformName);
-        dc.setCapability("appium:os_version", version);
-        dc.setCapability("appium:deviceName", name);
-        String url = "";
+        dc.setCapability("platformName", "Android");
+        dc.setCapability("version", version);
+        dc.setCapability("udid", udid);
         if (cloudPlatform.equals("browserStack")){
             HashMap<String, Object> browserstackOptions = new HashMap<>();
             browserstackOptions.put("userName", userName);
             browserstackOptions.put("accessKey", accessKey);
             dc.setCapability("app", app);
             dc.setCapability("bstack:options", browserstackOptions);
-            url = "http://hub.browserstack.com/wd/hub";
+            port = "http://hub.browserstack.com/wd/hub";
         }
         else {
             dc.setCapability("automationName", "UiAutomator2");
-            dc.setCapability("noReset", false);
-            dc.setCapability("appWaitForLaunch", false);
             dc.setCapability("app",  appPath + appName);
-            url ="http://127.0.0.1:4723/wd/hub";
+            dc.setCapability("noReset", true);
+            dc.setCapability("appWaitForLaunch", false);
+//            dc.setCapability("appPackage", "com.vtvcab.onsports.dev");
+//            dc.setCapability("appActivity", "com.vtvcab.onsports.feature.main.activity.MainActivity");
         }
-        driver = new AndroidDriver(new URL(url), dc);
+        driver = new AndroidDriver(new URL("http://127.0.0.1:" + port + "/wd/hub"), dc);
+        return driver;
     }
-    public void setUpBrowserStack() throws Exception{
+    public static void setUpBrowserStack() throws Exception{
         MutableCapabilities capabilities = new UiAutomator2Options();
-        driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"),capabilities);
+//         driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"),capabilities);
     }
-    @BeforeTest(alwaysRun = true)
-    @Parameters({"platform","version","deviceName","cloudPlatform"})
-    public void setUpDevice(String platFrom, String platformVersion, String name, String cloudPlatform) throws Exception{
-        setUp(platFrom, platformVersion, name, cloudPlatform);
+    @BeforeTest
+    @Parameters({"cloudPlatform","version","udid","port"})
+    public void setUpDevice(String cloudPlatform, String version, String udid, String port) throws Exception{
+        DriverManager.setDriver(setUp(cloudPlatform, version, udid, port));
 //        setUpBrowserStack();
     }
     @AfterTest
     public void afterTest() throws Exception {
-        if(con != null){
-            con.close();
+//        if(con != null){
+//            con.close();
+//        }
+        if (DriverManager.getDriver() != null) {
+//            DriverManager.quit();
         }
-//        driver.quit();
     }
     @AfterMethod
     public void tearDown(ITestResult testResult) {
         if (testResult.getStatus() == ITestResult.FAILURE) {
-            saveScreenshotPNG();
-            getLog();
-            logDevices(projectPath + "mylog.txt");
+//            saveScreenshotPNG();
+//            getLog();
+//            logDevices(projectPath + "mylog.txt");
         }
     }
 }

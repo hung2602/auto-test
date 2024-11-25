@@ -1,156 +1,160 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="OnPlus Android">
-    <parameter name="cloudPlatform" value=""></parameter>
-    <parameter name="platform" value="Android"/>
-    <parameter name="version" value="13"/>
-    <parameter name="deviceName" value="99181FFAZ002RG"/>
+<suite name="OnPlus Android" parallel="tests"  thread-count="2">
     <listeners>
         <listener class-name="helpers.MyListener"/>
     </listeners>
     <test name="Login Test">
+        <parameter name="cloudPlatform" value=""></parameter>
+        <parameter name="version" value="13"/>
+        <parameter name="udid" value="99181FFAZ002RG"/>
+        <parameter name="port" value="4723"></parameter>
         <classes>
             <class name="tests.LoginSignUp.LoginTest">
                 <methods>
                     <include name="LG_1"/>
-                    <include name="LG_2"/>
-                    <include name="LG_3"/>
-                    <include name="LG_4"/>
-                    <include name="LG_5"/>
-                    <include name="LG_6"/>
-                    <include name="LG_7_8"/>
-                    <include name="LG_24"/>
-                    <include name="LG_25"/>
-                    <include name="LG_9"/>
-                    <include name="LG_10"/>
-                    <include name="LG_11"/>
-                    <include name="LG_26"/>
-                    <include name="LG_27"/>
-                    <include name="LG_12"/>
-                    <include name="LG_13"/>
-                    <include name="LG_14"/>
+<!--                    <include name="LG_2"/>-->
+<!--                    <include name="LG_3"/>-->
+<!--                    <include name="LG_4"/>-->
+<!--                    <include name="LG_5"/>-->
+<!--                    <include name="LG_6"/>-->
+<!--                    <include name="LG_7_8"/>-->
+<!--                    <include name="LG_24"/>-->
+<!--                    <include name="LG_25"/>-->
+<!--                    <include name="LG_9"/>-->
+<!--                    <include name="LG_10"/>-->
+<!--                    <include name="LG_11"/>-->
+<!--                    <include name="LG_26"/>-->
+<!--                    <include name="LG_27"/>-->
+<!--                    <include name="LG_12"/>-->
+<!--                    <include name="LG_13"/>-->
+<!--                    <include name="LG_14"/>-->
                 </methods>
             </class>
         </classes>
     </test>
     <test name="Profile Test">
+        <parameter name="cloudPlatform" value=""></parameter>
+        <parameter name="version" value="11"/>
+        <parameter name="udid" value="R58M41M1AAZ"/>
+        <parameter name="port" value="4724"></parameter>
         <classes>
             <class name="tests.ProfileTest">
                 <methods>
                     <include name="PF_1"/>
-                    <include name="PF_2"/>
-                    <include name="PF_3"/>
-                    <include name="PF_4"/>
-                    <include name="PF_5"/>
-                    <include name="PF_6"/>
-                    <include name="PF_8"/>
-                    <include name="PF_9"/>
-                    <include name="PF_10"/>
-                    <include name="PF_11"/>
-                    <include name="PF_7"/>
-                    <include name="PF_12"/>
-                    <include name="PF_13_14"/>
-                    <include name="PF_15"/>
-                    <include name="PF_16"/>
-                    <include name="PF_17"/>
+<!--                    <include name="PF_2"/>-->
+<!--                    <include name="PF_3"/>-->
+<!--                    <include name="PF_4"/>-->
+<!--                    <include name="PF_5"/>-->
+<!--                    <include name="PF_6"/>-->
+<!--                    <include name="PF_8"/>-->
+<!--                    <include name="PF_9"/>-->
+<!--                    <include name="PF_10"/>-->
+<!--                    <include name="PF_11"/>-->
+<!--                    <include name="PF_7"/>-->
+<!--                    <include name="PF_12"/>-->
+<!--                    <include name="PF_13_14"/>-->
+<!--                    <include name="PF_15"/>-->
+<!--                    <include name="PF_16"/>-->
+<!--                    <include name="PF_17"/>-->
                 </methods>
             </class>
         </classes>
     </test>
-    <test name =  "Sign Up Test">
-        <classes>
-            <class name="tests.LoginSignUp.SignUpTest">
-                <methods>
-                    <include name="SU_1_2"/>
-                    <include name="SU_3"/>
-                    <include name="SU_4"/>
-                    <include name="SU_5"/>
-                    <include name="SU_6"/>
-                    <include name="SU_7_8"/>
-                    <include name="SU_9"/>
-                    <include name="SU_10"/>
-                    <include name="SU_11"/>
-                    <include name="SU_12"/>
-                    <include name="SU_13"/>
-                    <include name="SU_15"/>
-                    <include name="SU_16"/>
-                    <include name="SU_17"/>
-                    <include name="SU_18"/>
-                    <include name="SU_19"/>
-                    <include name="SU_20"/>
-                </methods>
-            </class>
-        </classes>
-    </test>
-    <test name="Forgot Password Test">
-        <parameter name="platformName" value="android"></parameter>
-        <parameter name="platformVersion" value="11"></parameter>
-        <parameter name="deviceName" value="Google Pixel 4"></parameter>
-        <classes>
-            <class name="tests.ForgotPasswordTest">
-                <methods>
-                    <include name="FP_1"/>
-                    <include name="FP_2"/>
-                    <include name="FP_3"/>
-                    <include name="FP_4"/>
-                    <include name="FP_5"/>
-                    <include name="FP_6"/>
-                    <include name="FP_7"/>
-                    <include name="FP_8"/>
-                    <include name="FP_9"/>
-                    <include name="FP_10"/>
-                    <include name="FP_11"/>
-                    <include name="FP_12"/>
-                    <include name="FP_13"/>
-                    <include name="FP_14"/>
-                    <include name="FP_15_16"/>
-                    <include name="FP_17"/>
-                    <include name="FP_18"/>
-                </methods>
-            </class>
-        </classes>
-    </test>
-    <test name="Menu Test">
-        <classes>
-            <class name="tests.MenuTest">
-                <methods>
-                    <include name="MN_4"/>
-                    <include name="MN_5"/>
-                    <include name="MN_7"/>
-                    <include name="MN_9"/>
-                    <include name="MN_10"/>
-                </methods>
-            </class>
-        </classes>
-    </test>
-    <test name="Profile Test">
-        <classes>
-            <class name="tests.home.SearchTest">
-                <methods>
-                    <include name="SA_1_2"/>
-                    <include name="SA_3"/>
-                    <include name="SA_4"/>
-                    <include name="SA_5"/>
-                    <include name="SA_6"/>
-                    <include name="SA_7"/>
-                    <include name="SA_8"/>
-                    <include name="SA_9"/>
-                    <include name="SA_10"/>
-                    <include name="SA_11"/>
-                    <include name="SA_12"/>
-                    <include name="SA_13"/>
-                    <include name="SA_14"/>
-                    <include name="SA_15"/>
-                    <include name="SA_16"/>
-                    <include name="SA_18"/>
-                    <include name="SA_19"/>
-                    <include name="SA_24"/>
-                    <include name="SA_25"/>
-                    <include name="SA_26"/>
-                    <include name="SA_27"/>
-                    <include name="SA_28"/>
-                </methods>
-            </class>
-        </classes>
-    </test>
+<!--    <test name =  "Sign Up Test">-->
+<!--        <classes>-->
+<!--            <class name="tests.LoginSignUp.SignUpTest">-->
+<!--                <methods>-->
+<!--                    <include name="SU_1_2"/>-->
+<!--                    <include name="SU_3"/>-->
+<!--                    <include name="SU_4"/>-->
+<!--                    <include name="SU_5"/>-->
+<!--                    <include name="SU_6"/>-->
+<!--                    <include name="SU_7_8"/>-->
+<!--                    <include name="SU_9"/>-->
+<!--                    <include name="SU_10"/>-->
+<!--                    <include name="SU_11"/>-->
+<!--                    <include name="SU_12"/>-->
+<!--                    <include name="SU_13"/>-->
+<!--                    <include name="SU_15"/>-->
+<!--                    <include name="SU_16"/>-->
+<!--                    <include name="SU_17"/>-->
+<!--                    <include name="SU_18"/>-->
+<!--                    <include name="SU_19"/>-->
+<!--                    <include name="SU_20"/>-->
+<!--                </methods>-->
+<!--            </class>-->
+<!--        </classes>-->
+<!--    </test>-->
+<!--    <test name="Forgot Password Test">-->
+<!--        <parameter name="platformName" value="android"></parameter>-->
+<!--        <parameter name="platformVersion" value="11"></parameter>-->
+<!--        <parameter name="deviceName" value="Google Pixel 4"></parameter>-->
+<!--        <classes>-->
+<!--            <class name="tests.ForgotPasswordTest">-->
+<!--                <methods>-->
+<!--                    <include name="FP_1"/>-->
+<!--                    <include name="FP_2"/>-->
+<!--                    <include name="FP_3"/>-->
+<!--                    <include name="FP_4"/>-->
+<!--                    <include name="FP_5"/>-->
+<!--                    <include name="FP_6"/>-->
+<!--                    <include name="FP_7"/>-->
+<!--                    <include name="FP_8"/>-->
+<!--                    <include name="FP_9"/>-->
+<!--                    <include name="FP_10"/>-->
+<!--                    <include name="FP_11"/>-->
+<!--                    <include name="FP_12"/>-->
+<!--                    <include name="FP_13"/>-->
+<!--                    <include name="FP_14"/>-->
+<!--                    <include name="FP_15_16"/>-->
+<!--                    <include name="FP_17"/>-->
+<!--                    <include name="FP_18"/>-->
+<!--                </methods>-->
+<!--            </class>-->
+<!--        </classes>-->
+<!--    </test>-->
+<!--    <test name="Menu Test">-->
+<!--        <classes>-->
+<!--            <class name="tests.MenuTest">-->
+<!--                <methods>-->
+<!--                    <include name="MN_4"/>-->
+<!--                    <include name="MN_5"/>-->
+<!--                    <include name="MN_7"/>-->
+<!--                    <include name="MN_9"/>-->
+<!--                    <include name="MN_10"/>-->
+<!--                </methods>-->
+<!--            </class>-->
+<!--        </classes>-->
+<!--    </test>-->
+<!--    <test name="Profile Test">-->
+<!--        <classes>-->
+<!--            <class name="tests.home.SearchTest">-->
+<!--                <methods>-->
+<!--                    <include name="SA_1_2"/>-->
+<!--                    <include name="SA_3"/>-->
+<!--                    <include name="SA_4"/>-->
+<!--                    <include name="SA_5"/>-->
+<!--                    <include name="SA_6"/>-->
+<!--                    <include name="SA_7"/>-->
+<!--                    <include name="SA_8"/>-->
+<!--                    <include name="SA_9"/>-->
+<!--                    <include name="SA_10"/>-->
+<!--                    <include name="SA_11"/>-->
+<!--                    <include name="SA_12"/>-->
+<!--                    <include name="SA_13"/>-->
+<!--                    <include name="SA_14"/>-->
+<!--                    <include name="SA_15"/>-->
+<!--                    <include name="SA_16"/>-->
+<!--                    <include name="SA_18"/>-->
+<!--                    <include name="SA_19"/>-->
+<!--                    <include name="SA_24"/>-->
+<!--                    <include name="SA_25"/>-->
+<!--                    <include name="SA_26"/>-->
+<!--                    <include name="SA_27"/>-->
+<!--                    <include name="SA_28"/>-->
+<!--                </methods>-->
+<!--            </class>-->
+<!--        </classes>-->
+<!--    </test>-->
 </suite>

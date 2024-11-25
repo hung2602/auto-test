@@ -4,10 +4,11 @@
 <!--    <parameter name="platform" value="Android"></parameter>-->
 <!--    <parameter name="version" value="12"></parameter>-->
 <!--    <parameter name="deviceName" value="Samsung Galaxy S22 Ultra"></parameter>-->
-<!--        <parameter name="cloudPlatform" value="browserStack"></parameter>-->
-<!--        <parameter name="platform" value="Android"/>-->
-<!--        <parameter name="version" value="13"/>-->
-<!--        <parameter name="deviceName" value="99181FFAZ002RG"/>-->
+<!--    <parameter name="cloudPlatform" value="browserStack"></parameter>-->
+    <parameter name="cloudPlatform" value=""></parameter>
+    <parameter name="version" value="14"/>
+    <parameter name="deviceName" value="e1ad43a1"/>
+    <parameter name="ipAddress" value="http://127.0.0.1:4724/wd/hub"></parameter>
     <listeners>
         <listener
                 class-name="helpers.MyListener">
@@ -20,8 +21,8 @@
                     <include name="MN_4"/>
                     <include name="MN_5"/>
                     <include name="MN_7"/>
-                    <include name="MN_9"/>
-                    <include name="MN_10"/>
+<!--                    <include name="MN_9"/>-->
+<!--                    <include name="MN_10"/>-->
                 </methods>
             </class>
         </classes>

@@ -34,14 +34,15 @@ public class LoginTest extends BaseTest {
     public void firstSteps(){
         ExcelOperations("Login");
         dataBase.setUpDB("POSTGRES_DB_URL","POSTGRES_DB_USER","POSTGRES_DB_PASSWORD");
-//        loginPage.isUserLogout();
+        loginPage.isUserLogout();
     }
     @Test(description = "Kiểm tra text ẩn, nhập sđt bỏ trống")
     public void LG_1(){
         dataLogin = getTestDataInMap(getIndexRowFromKey(getNameMethod()));
         loginPage.goToLogin();
         loginPage.checkHiddenText(Locator.LOGIN_TXT_USER_NAME,TEXT_BOX_USERNAME);
-        loginPage.inputUserName(dataLogin.get("User name"));
+//        loginPage.inputUserName(dataLogin.get("User name"));
+        loginPage.inputUserName("");
     }
     @Test(description = "Kiểm tra sđt > 10 số")
     public void LG_2(){

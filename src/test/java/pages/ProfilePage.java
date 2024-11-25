@@ -5,18 +5,17 @@ import helpers.LogHelper;
 import helpers.PropertiesFile;
 import io.appium.java_client.AppiumBy;
 import io.qameta.allure.Step;
+import keyword.KeywordWeb;
 import locator.Locator;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.slf4j.Logger;
-
 import java.time.Duration;
 import java.util.List;
 import static constant.Constant.*;
 import static constant.Query.SPORTS_ID_QUERY_USER;
-import static core.BaseTest.driver;
 import static utilities.DateTime.getCurrentDateTime;
 
 public class ProfilePage extends BasePage {
@@ -71,7 +70,7 @@ public class ProfilePage extends BasePage {
     }
     @Step("Click sửa thông tin")
     public void clickEdit(){
-        keyword.webDriverWaitForElementPresent(Locator.USER_INFORM_BTN_EDIT,10);
+//        keyword.webDriverWaitForElementPresent(Locator.USER_INFORM_BTN_EDIT,10);
         keyword.sleep(0.5);
         keyword.click(Locator.USER_INFORM_BTN_EDIT);
         keyword.webDriverWaitForElementPresent(Locator.USER_INFORM_BTN_EDIT_BIRTH_DAY,10);

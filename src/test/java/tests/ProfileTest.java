@@ -26,7 +26,7 @@ public class ProfileTest extends BaseTest {
     public void firstSteps(){
         ExcelOperations("Profile");
         dataBase.setUpDB("POSTGRES_DB_URL","POSTGRES_DB_USER","POSTGRES_DB_PASSWORD");
-        loginPage.isUserLogout();
+//        loginPage.isUserLogout();
     }
     @Test(priority = 1, description = "Kiểm tra cập nhật profile khi nhập các thông tin hợp lệ")
     public void PF_1(){
