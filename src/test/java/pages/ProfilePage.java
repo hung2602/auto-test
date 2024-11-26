@@ -5,14 +5,14 @@ import helpers.LogHelper;
 import helpers.PropertiesFile;
 import io.appium.java_client.AppiumBy;
 import io.qameta.allure.Step;
-import keyword.KeywordWeb;
 import locator.Locator;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.slf4j.Logger;
-import java.time.Duration;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.List;
 import static constant.Constant.*;
 import static constant.Query.SPORTS_ID_QUERY_USER;
@@ -115,16 +115,16 @@ public class ProfilePage extends BasePage {
         return date[2] + "-" + date[1] + "-" + date[0];
     }
     @Step("Kiểm tra thông tin user: {0} với trường: {1}")
-    public void checkUserInform(String key, String cases){
+    public void checkUserInform(Statement stmt, String key, String cases){
         logger.info("checkUserInform ");
         String getKey = PropertiesFile.getPropValue(key);
         if(getKey == null){
             getKey = key;
         }
         String query = SPORTS_ID_QUERY_USER.replace("key", getKey);
-        dataBase.queryDb(query);
+        ResultSet res = dataBase.queryDb(stmt , query);
         String birthDay = ""; String gender = "";
-        dataBase.getResultDataBase();
+        dataBase.getResultDataBase(res);
         switch (cases) {
             case "name":
                 dataBase.checkDataBase("fullname", keyword.getText(Locator.USER_INFORM_LBL_FULL_NAME));

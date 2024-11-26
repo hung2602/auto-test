@@ -10,6 +10,9 @@ import org.openqa.selenium.WebElement;
 import org.slf4j.Logger;
 import org.testng.Assert;
 import pages.loginsignup.LoginPage;
+
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.HashMap;
 import java.util.List;
 import static constant.Constant.*;
@@ -106,13 +109,16 @@ public class SearchPage extends BasePage {
     }
 
     @Step("Kiểm tra kết quả từ tag đã chọn")
-    public void checkTagResult(String idTag, List<WebElement> listResult) {
+    public void checkTagResult(Statement stmt, String idTag, List<WebElement> listResult) {
+        ResultSet res;
         logger.info("Kiểm tra kết quả từ tag đã chọn");
         HashMap<String, String> data = new HashMap<>();
         for (int i = 0; i < listResult.size(); i++) {
-            data = dataBase.queryAndGetDb(SPORT_TV_QUERY_EVENT_TV_NAME, listResult.get(i).getText());
+            res = dataBase.queryDb(stmt, SPORT_TV_QUERY_EVENT_TV_NAME.replace("key",listResult.get(i).getText()));
+            data = dataBase.getResultDataBase(res);
             System.out.println("ID: " + data.get("id"));
-            data = dataBase.queryAndGetDb(SPORTS_QUERY_EVENT_TV_SCREEN_BLOCK, data.get("id"));
+            res = dataBase.queryDb(stmt, SPORTS_QUERY_EVENT_TV_SCREEN_BLOCK.replace("key",data.get("id")));
+            data = dataBase.getResultDataBase(res);
             keyword.assertEqualData(idTag, data.get("screenblock_id"));
         }
         data.clear();

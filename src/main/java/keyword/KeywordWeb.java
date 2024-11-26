@@ -1,20 +1,16 @@
 package keyword;
-import core.BaseTest;
 import driver.DriverManager;
 import helpers.PropertiesFile;
 import io.appium.java_client.TouchAction;
-import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.touch.WaitOptions;
 import io.appium.java_client.touch.offset.PointOption;
 import io.qameta.allure.Step;
-import locator.Locator;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.*;
 import org.slf4j.Logger;
 import org.testng.Assert;
 import helpers.LogHelper;
-
 import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
@@ -22,7 +18,7 @@ import java.util.concurrent.ThreadLocalRandom;
 import java.util.function.Function;
 
 
-public class KeywordWeb extends BaseTest {
+public class KeywordWeb {
     private static Logger logger = LogHelper.getLogger();
     public KeywordWeb() {
     }

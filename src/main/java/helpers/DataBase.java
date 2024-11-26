@@ -13,16 +13,12 @@ public class DataBase extends BasePage {
     private static Logger logger = LogHelper.getLogger();
     public static Connection con ;
     public static ResultSet res ;
-    public static Statement stmt ;
     public static  HashMap<String, String> dataMap = new HashMap<>();
     public DataBase() {
     }
-    public DataBase(ResultSet res, Statement stmt) {
-        this.res = res;
-        this.stmt = stmt;
-    }
     @Step("Kết nốt data base : {0}")
-    public void setUpDB(String url, String user, String passWord) {
+    public Statement setUpDB(String url, String user, String passWord) {
+        Statement stmt = null;
         logger.info("Set Up DB " + url );
         try {
             if (PropertiesFile.getPropValue(url).contains("postgresql")) {
@@ -40,6 +36,7 @@ public class DataBase extends BasePage {
         catch (ClassNotFoundException | SQLException e) {
             throw new RuntimeException(e);
         }
+        return stmt;
     }
     @Step("Set up kết nốt Redis")
     public void setUpRedis(String url, String user, String passWord) {
@@ -47,7 +44,8 @@ public class DataBase extends BasePage {
     }
 
     @Step("Thực hiện truy vấn dữ liệu : {0}")
-    public void queryDb(String query) {
+    public ResultSet queryDb(Statement stmt, String query) {
+        ResultSet res;
         logger.info("Query DB: " + query );
         String content= PropertiesFile.getPropValue(query);
         if (content == null) {
@@ -59,9 +57,10 @@ public class DataBase extends BasePage {
         catch (SQLException e) {
             throw new RuntimeException(e);
         }
+        return res;
     }
     @Step("Lấy dữ liệu từ các cột db")
-    public static HashMap<String, String> getResultDataBase() {
+    public static HashMap<String, String> getResultDataBase(ResultSet res) {
         try {
             ResultSetMetaData md = res.getMetaData();
 //            res.last();
@@ -92,9 +91,5 @@ public class DataBase extends BasePage {
         for (int i = 0; i < expect.length; i++) {
             keyword.assertEqualData(dataMap.get(actual[i]), expect[i]);
         }
-    }
-    public HashMap<String, String> queryAndGetDb(String query, String key){
-        queryDb(query.replace("key", key));
-        return getResultDataBase();
     }
 }

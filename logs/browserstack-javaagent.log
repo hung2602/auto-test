@@ -817,3 +817,53 @@ java.lang.IllegalArgumentException: No enum constant com.browserstack.percy.Perc
 18:01:00.523 [main] WARN  c.b.config.BrowserStackConfig - Test Observability could not be enabled because framework detected is null. We currently support frameworks testng, cucumber-testng & serenity
 18:02:11.009 [main] WARN  c.b.config.BrowserStackConfig - Test Observability could not be enabled because framework detected is null. We currently support frameworks testng, cucumber-testng & serenity
 18:03:41.711 [main] WARN  c.b.config.BrowserStackConfig - Test Observability could not be enabled because framework detected is null. We currently support frameworks testng, cucumber-testng & serenity
+08:25:32.016 [main] WARN  c.b.config.BrowserStackConfig - Test Observability could not be enabled because framework detected is null. We currently support frameworks testng, cucumber-testng & serenity
+08:32:07.875 [main] WARN  c.b.config.BrowserStackConfig - Test Observability could not be enabled because framework detected is null. We currently support frameworks testng, cucumber-testng & serenity
+08:34:24.888 [main] WARN  c.b.config.BrowserStackConfig - Test Observability could not be enabled because framework detected is null. We currently support frameworks testng, cucumber-testng & serenity
+08:35:00.554 [main] WARN  c.b.config.BrowserStackConfig - Test Observability could not be enabled because framework detected is null. We currently support frameworks testng, cucumber-testng & serenity
+09:30:09.725 [main] WARN  c.b.config.BrowserStackConfig - Test Observability could not be enabled because framework detected is null. We currently support frameworks testng, cucumber-testng & serenity
+10:50:17.395 [main] WARN  c.b.config.BrowserStackConfig - Test Observability could not be enabled because framework detected is null. We currently support frameworks testng, cucumber-testng & serenity
+10:51:00.539 [main] WARN  c.b.config.BrowserStackConfig - Test Observability could not be enabled because framework detected is null. We currently support frameworks testng, cucumber-testng & serenity
+10:51:41.139 [main] WARN  c.b.config.BrowserStackConfig - Test Observability could not be enabled because framework detected is null. We currently support frameworks testng, cucumber-testng & serenity
+10:55:00.182 [main] WARN  c.b.config.BrowserStackConfig - Test Observability could not be enabled because framework detected is null. We currently support frameworks testng, cucumber-testng & serenity
+10:55:30.080 [main] INFO  c.browserstack.BrowserStackJavaAgent - Selenium version detected - 4.13.0
+10:55:30.082 [main] INFO  c.browserstack.BrowserStackJavaAgent - Appium version detected - 8.5.1
+10:55:30.312 [main] DEBUG c.b.config.BrowserStackConfig - Cli Config passed - {}
+10:55:30.313 [main] INFO  c.browserstack.utils.UtilityMethods - BrowserStack Yml Detected : /Users/cuongvu/AutomationTest/automation-appium/browserstack.yml
+10:55:30.368 [main] INFO  c.b.config.BrowserStackConfig - Detected Framework testng
+10:55:31.390 [main] INFO  c.browserstack.BrowserStackJavaAgent - Using app: [bs://8223a66b66c48e4e42c5fc779252d85a829d1bdd]
+10:55:31.390 [main] INFO  c.browserstack.BrowserStackJavaAgent - Framework set to testng
+10:55:39.559 [main] INFO  c.browserstack.BrowserStackJavaAgent - Project and debug logs are captured by default. To disable, set disableAutoCaptureLogs: true in config.
+10:55:41.401 [main] INFO  c.browserstack.BrowserStackJavaAgent - Starting Percy......
+10:55:41.941 [main] ERROR com.browserstack.PercyFactory - Error fetching percy token for project : %s.
+java.lang.IllegalArgumentException: No enum constant com.browserstack.percy.PercyCaptureMode.NULL
+	at java.base/java.lang.Enum.valueOf(Enum.java:273)
+	at com.browserstack.percy.PercyCaptureMode.valueOf(Unknown Source)
+	at com.browserstack.percy.PercyCaptureMode.fromString(Unknown Source)
+	at com.browserstack.PercyFactory.a(Unknown Source)
+	at com.browserstack.PercyFactory.<init>(Unknown Source)
+	at com.browserstack.PercyFactory.a(Unknown Source)
+	at com.browserstack.PercyFactory.createInstance(Unknown Source)
+	at com.browserstack.BrowserStackJavaAgent.c(Unknown Source)
+	at com.browserstack.BrowserStackJavaAgent.a(Unknown Source)
+	at com.browserstack.BrowserStackJavaAgent.premain(Unknown Source)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.instrument/sun.instrument.InstrumentationImpl.loadClassAndStartAgent(InstrumentationImpl.java:491)
+	at java.instrument/sun.instrument.InstrumentationImpl.loadClassAndCallPremain(InstrumentationImpl.java:503)
+10:55:41.943 [main] ERROR com.browserstack.PercyFactory - Initialization of percy failed java.lang.NullPointerException: Cannot invoke "String.split(String)" because the return value of "com.browserstack.PercyFactory.a(com.browserstack.config.BrowserStackConfig)" is null.
+10:55:45.904 [Thread-0] INFO  c.browserstack.utils.LogReportingAPI - Visit https://observability.browserstack.com/builds/lv7gitryhvfx9pookol4cz6sdsto6ee2yx6dre3m to view build report, insights, and many more debugging information all at one place!
+
+10:55:45.905 [Thread-0] INFO  c.b.config.BrowserStackConfig - INFO
+10:55:46.551 [SIGINT handler] INFO  c.b.utils.ExitSignalHandler - Shutdown triggered by: INT 2
+10:55:47.798 [Thread-0] WARN  c.browserstack.utils.UtilityMethods - Unable to show build URL, as build capability is not used
+10:55:47.799 [Thread-0] INFO  c.b.config.BrowserStackConfig - WARN
+10:58:23.871 [main] WARN  c.b.config.BrowserStackConfig - Test Observability could not be enabled because framework detected is null. We currently support frameworks testng, cucumber-testng & serenity
+11:03:12.544 [main] WARN  c.b.config.BrowserStackConfig - Test Observability could not be enabled because framework detected is null. We currently support frameworks testng, cucumber-testng & serenity
+11:08:00.992 [main] WARN  c.b.config.BrowserStackConfig - Test Observability could not be enabled because framework detected is null. We currently support frameworks testng, cucumber-testng & serenity
+11:10:30.467 [main] WARN  c.b.config.BrowserStackConfig - Test Observability could not be enabled because framework detected is null. We currently support frameworks testng, cucumber-testng & serenity
+11:12:32.716 [main] WARN  c.b.config.BrowserStackConfig - Test Observability could not be enabled because framework detected is null. We currently support frameworks testng, cucumber-testng & serenity
+11:14:36.996 [main] WARN  c.b.config.BrowserStackConfig - Test Observability could not be enabled because framework detected is null. We currently support frameworks testng, cucumber-testng & serenity
+11:17:26.633 [main] WARN  c.b.config.BrowserStackConfig - Test Observability could not be enabled because framework detected is null. We currently support frameworks testng, cucumber-testng & serenity

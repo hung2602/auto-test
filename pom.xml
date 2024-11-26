@@ -19,8 +19,10 @@
         <maven.compiler.plugin.version>3.13.0</maven.compiler.plugin.version>
         <maven.compiler.source.version>17</maven.compiler.source.version>
         <maven.compiler.target.version>17</maven.compiler.target.version>
+        <userName>userNameValue</userName>
+        <accessKey>passWordValue</accessKey>
+        <appId>idAppValue</appId>
     </properties>
-
     <dependencies>
         <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
         <dependency>
@@ -43,7 +45,6 @@
             <version>4.13.2</version>
             <scope>test</scope>
         </dependency>
-
         <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
@@ -151,6 +152,14 @@
         </dependency>
     </dependencies>
     <build>
+        <testResources>
+            <testResource>
+                <directory>
+                    src/main/resources
+                </directory>
+                <filtering>true</filtering>
+            </testResource>
+        </testResources>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -168,7 +177,7 @@
                 <configuration>
                     <testFailureIgnore>true</testFailureIgnore>
                     <suiteXmlFiles>
-                        <suiteXmlFile>config/login-test.xml</suiteXmlFile>
+                        <suiteXmlFile>config/browserStack-test.xml</suiteXmlFile>
                     </suiteXmlFiles>
 <!--                    <argLine>-javaagent:"${settings.localRepository}/com/browserstack/browserstack-java-sdk/1.26.0/browserstack-java-sdk-1.26.0.jar"</argLine>-->
                     <argLine>-javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/1.9.22.1/aspectjweaver-1.9.22.1.jar"</argLine>
@@ -181,7 +190,7 @@
     </build>
     <profiles>
     <profile>
-        <id>login-test</id>
+        <id>loginTest</id>
         <build>
             <plugins>
                 <plugin>

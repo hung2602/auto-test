@@ -2,10 +2,13 @@ package tests;
 
 import core.BaseTest;
 import helpers.DataBase;
+import org.apache.poi.ss.usermodel.Sheet;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import pages.loginsignup.LoginPage;
 import pages.ProfilePage;
+
+import java.sql.Statement;
 import java.util.HashMap;
 
 import static helpers.PathHelper.getNameMethod;
@@ -13,10 +16,12 @@ import static utilities.DateTime.getCurrentDateTime;
 import static utilities.ReadExcel.*;
 
 public class ProfileTest extends BaseTest {
+    private Sheet sh = null;
     public LoginPage loginPage;
     public ProfilePage profilePage;
     public DataBase dataBase ;
     private HashMap<String, String> dataProfile;
+    private Statement stmt ;
     public ProfileTest(){
         loginPage = new LoginPage();
         profilePage = new ProfilePage();
@@ -24,23 +29,24 @@ public class ProfileTest extends BaseTest {
     }
     @BeforeClass
     public void firstSteps(){
-        ExcelOperations("Profile");
-        dataBase.setUpDB("POSTGRES_DB_URL","POSTGRES_DB_USER","POSTGRES_DB_PASSWORD");
+        sh = readSheet(workbook , "Profile");
+        stmt = dataBase.setUpDB("POSTGRES_DB_URL","POSTGRES_DB_USER","POSTGRES_DB_PASSWORD");
 //        loginPage.isUserLogout();
     }
     @Test(priority = 1, description = "Kiểm tra cập nhật profile khi nhập các thông tin hợp lệ")
     public void PF_1(){
+        loginPage.goToLogin();
         loginPage.login("PHONE_NUMBER","PASS_WORD");
         loginPage.viewUserInform();
         profilePage.clickEdit();
-        dataProfile = getTestDataInMap(getIndexRowFromKey(getNameMethod()));
+        dataProfile = getTestDataInMap(sh,getIndexRowFromKey(sh,getNameMethod()));
         profilePage.updateFullInform(dataProfile.get("Name"),dataProfile.get("Email"),dataProfile.get("Gender"));
         profilePage.saveInform("Thành công");
-        profilePage.checkUserInform("PHONE_NUMBER","all");
+        profilePage.checkUserInform(stmt, "PHONE_NUMBER","all");
     }
     @Test(priority = 2, description = "Kiểm tra cập nhật profile nhưng không lưu")
     public void PF_2(){
-        dataProfile = getTestDataInMap(getIndexRowFromKey(getNameMethod()));
+        dataProfile = getTestDataInMap(sh, getIndexRowFromKey(sh, getNameMethod()));
         profilePage.clickEdit();
         String userInform = profilePage.getUserInform("all");
         profilePage.updateFullInform(dataProfile.get("Name"),dataProfile.get("Email"),dataProfile.get("Gender"));
@@ -50,11 +56,11 @@ public class ProfileTest extends BaseTest {
     }
     @Test(priority = 3, dependsOnMethods = "PF_2", description = "Kiểm tra cập nhật tên hiển thị thành công")
     public void PF_3(){
-        dataProfile = getTestDataInMap(getIndexRowFromKey(getNameMethod()));
+        dataProfile = getTestDataInMap(sh,getIndexRowFromKey(sh,getNameMethod()));
         profilePage.clickEdit();
         profilePage.editFullName(dataProfile.get("Name"));
         profilePage.saveInform("Thành công");
-        profilePage. checkUserInform("PHONE_NUMBER","name");
+        profilePage. checkUserInform(stmt,"PHONE_NUMBER","name");
     }
     @Test(priority = 4, dependsOnMethods = "PF_3", description = "Kiểm tra cập nhật tên nhưng không lưu")
     public void PF_5(){
@@ -73,13 +79,13 @@ public class ProfileTest extends BaseTest {
     }
     @Test(priority = 7, dependsOnMethods = "PF_4",description = "Kiểm tra cập nhật email thành công")
     public void PF_6(){
-        dataProfile = getTestDataInMap(getIndexRowFromKey(getNameMethod()));
+        dataProfile = getTestDataInMap(sh,getIndexRowFromKey(sh,getNameMethod()));
         loginPage.goBack();
         loginPage.viewUserInform();
         profilePage.clickEdit();
         profilePage.editEmail(dataProfile.get("Email"));
         profilePage.saveInform("Thành công");
-        profilePage.checkUserInform("PHONE_NUMBER","email");
+        profilePage.checkUserInform(stmt,"PHONE_NUMBER","email");
     }
     @Test(priority = 8, dependsOnMethods = "PF_6",description = "Kiểm tra khi để trống mail")
     public void PF_8(){
@@ -89,28 +95,28 @@ public class ProfileTest extends BaseTest {
     }
     @Test(priority = 9,dependsOnMethods = "PF_8", description = "Kiểm tra  khi nhập sai định dạng email")
     public void PF_9(){
-        dataProfile = getTestDataInMap(getIndexRowFromKey(getNameMethod()));
+        dataProfile = getTestDataInMap(sh,getIndexRowFromKey(sh,getNameMethod()));
         profilePage.clickEdit();
         profilePage.editEmail(dataProfile.get("Email"));
         profilePage.saveInform("Email thất bại");
     }
     @Test(priority = 10, dependsOnMethods = "PF_9", description = "Kiểm tra  khi nhập sai định dạng email")
     public void PF_10(){
-        dataProfile = getTestDataInMap(getIndexRowFromKey(getNameMethod()));
+        dataProfile = getTestDataInMap(sh,getIndexRowFromKey(sh,getNameMethod()));
         profilePage.clickEdit();
         profilePage.editEmail(dataProfile.get("Email"));
         profilePage.saveInform("Email thất bại");
     }
     @Test(priority = 11, dependsOnMethods = "PF_10",description = "Kiểm tra  khi nhập sai định dạng email")
     public void PF_11(){
-        dataProfile = getTestDataInMap(getIndexRowFromKey(getNameMethod()));
+        dataProfile = getTestDataInMap(sh,getIndexRowFromKey(sh,getNameMethod()));
         profilePage.clickEdit();
         profilePage.editEmail(dataProfile.get("Email"));
         profilePage.saveInform("Email thất bại");
     }
     @Test(priority = 12, dependsOnMethods = "PF_11",description = "Kiểm tra  khi đổi email nhưng không lưu")
     public void PF_7(){
-        dataProfile = getTestDataInMap(getIndexRowFromKey(getNameMethod()));
+        dataProfile = getTestDataInMap(sh,getIndexRowFromKey(sh,getNameMethod()));
         profilePage.clickEdit();
         String name = profilePage.getUserInform("name");
         profilePage.editEmail(dataProfile.get("Email"));
@@ -124,7 +130,7 @@ public class ProfileTest extends BaseTest {
         profilePage.clickEdit();
         profilePage.editBirthDay(getCurrentDateTime("dd MMMM yyyy"),"oke");
         profilePage.saveInform("Thành công");
-        profilePage.checkUserInform("PHONE_NUMBER","birth day");
+        profilePage.checkUserInform(stmt,"PHONE_NUMBER","birth day");
     }
     @Test(priority = 14, dependsOnMethods = "PF_12",description = "Kiểm tra cập nhật ngày sinh nhưng không lưu, hủy cập nhật ngày sinh")
     public void PF_13_14(){
@@ -140,10 +146,10 @@ public class ProfileTest extends BaseTest {
     }
     @Test(priority = 15, dependsOnMethods = "PF_13_14",description = "Kiểm tra cập nhật giới tính thành công")
     public void PF_15(){
-        dataProfile = getTestDataInMap(getIndexRowFromKey(getNameMethod()));
+        dataProfile = getTestDataInMap(sh,getIndexRowFromKey(sh,getNameMethod()));
         profilePage.editGender(dataProfile.get("Gender"));
         profilePage.saveInform("Thành công");
-        profilePage.checkUserInform("PHONE_NUMBER","gender");
+        profilePage.checkUserInform(stmt,"PHONE_NUMBER","gender");
     }
     @Test(priority = 16, dependsOnMethods = "PF_15",description = "Kiểm tra cập nhật giới tính nhưng không lưu")
     public void PF_16(){

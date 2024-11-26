@@ -23,6 +23,7 @@ public class LoginPage extends BasePage {
     }
     @Step("Hiển thị text ẩn {0}")
     public void checkHiddenText(By locator, String text){
+        keyword.webDriverWaitForElementPresent(locator, 10);
         keyword.clearText(locator);
         keyword.sleep(0.3);
         keyword.assertEqual(locator, text);
@@ -56,8 +57,6 @@ public class LoginPage extends BasePage {
     @Step("Đăng nhập thành công")
     public void login(String phoneNumber, String passWord) {
         logger.info("loginSuccess ");
-        keyword.click(Locator.HOME_BTN_MENU);
-        keyword.click(Locator.LOGIN_BTN);
         inputUserName(phoneNumber);
         inputPassWord(passWord);
         isMore3Devices();
@@ -130,8 +129,7 @@ public class LoginPage extends BasePage {
         }
         keyword.assertEqual(Locator.MENU_LBL_LOGIN_NOTICE, MESSAGE_LOGIN_NOTICE);
         keyword.click(Locator.LOGIN_BTN_ACCEPT);
-        inputUserName(phone);
-        inputPassWord(passWord);
+        login(phone, passWord);
         compareMessLoginSuccess();
     }
     @Step("Hiển thị màn {0}")
