@@ -177,7 +177,7 @@
                 <configuration>
                     <testFailureIgnore>true</testFailureIgnore>
                     <suiteXmlFiles>
-                        <suiteXmlFile>config/browserStack-test.xml</suiteXmlFile>
+                        <suiteXmlFile>config/test-test.xml</suiteXmlFile>
                     </suiteXmlFiles>
 <!--                    <argLine>-javaagent:"${settings.localRepository}/com/browserstack/browserstack-java-sdk/1.26.0/browserstack-java-sdk-1.26.0.jar"</argLine>-->
                     <argLine>-javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/1.9.22.1/aspectjweaver-1.9.22.1.jar"</argLine>
