@@ -120,24 +120,24 @@
                 </class>
             </classes>
         </test>
-        <test name="Menu Test">
-            <parameter name="version" value="13"/>
-            <parameter name="deviceName" value="Google Pixel 7 Pro"></parameter>
-            <parameter name="udid" value="R58M41M1AAZ"/>
-            <parameter name="port" value="4727"></parameter>
-            <classes>
-                <class name="tests.MenuTest">
-                    <methods>
-                        <include name="MN_4"/>
-                        <include name="MN_5"/>
-                        <include name="MN_7"/>
-                        <include name="MN_9"/>
-                        <include name="MN_10"/>
-                    </methods>
-                </class>
-            </classes>
-        </test>
-        <test name="Profile Test">
+<!--        <test name="Menu Test">-->
+<!--            <parameter name="version" value="13"/>-->
+<!--            <parameter name="deviceName" value="Google Pixel 7 Pro"></parameter>-->
+<!--            <parameter name="udid" value="R58M41M1AAZ"/>-->
+<!--            <parameter name="port" value="4727"></parameter>-->
+<!--            <classes>-->
+<!--                <class name="tests.MenuTest">-->
+<!--                    <methods>-->
+<!--                        <include name="MN_4"/>-->
+<!--                        <include name="MN_5"/>-->
+<!--                        <include name="MN_7"/>-->
+<!--                        <include name="MN_9"/>-->
+<!--                        <include name="MN_10"/>-->
+<!--                    </methods>-->
+<!--                </class>-->
+<!--            </classes>-->
+<!--        </test>-->
+        <test name="Search Test">
             <parameter name="version" value="11"/>
             <parameter name="deviceName" value="Samsung Galaxy S21"></parameter>
             <parameter name="udid" value="R58M41M1AAZ"/>

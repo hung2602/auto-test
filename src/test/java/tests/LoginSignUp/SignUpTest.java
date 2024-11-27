@@ -1,9 +1,11 @@
 package tests.LoginSignUp;
 import core.BaseTest;
 import core.DataBase;
+import driver.DriverManager;
 import io.qameta.allure.Severity;
 import locator.Locator;
 import org.apache.poi.ss.usermodel.Sheet;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import pages.ProfilePage;
@@ -12,6 +14,7 @@ import pages.loginsignup.SignUpPage;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.HashMap;
 import static constant.Constant.*;
@@ -179,5 +182,10 @@ public class SignUpTest extends BaseTest {
         loginPage.viewUserInform();
         profilePage.checkUserInform(stmt,"name", phone);
     }
-
+    @AfterClass
+    public void closeConnect() throws SQLException {
+        if(con != null) {
+            con.close();
+        }
+    }
 }

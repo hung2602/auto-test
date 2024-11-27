@@ -1,6 +1,7 @@
 package tests;
 import core.BaseTest;
 import core.DataBase;
+import driver.DriverManager;
 import locator.Locator;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.testng.annotations.AfterClass;
@@ -171,7 +172,9 @@ public class ForgotPasswordTest extends BaseTest {
     }
     @AfterClass
     public void closeConnect() throws SQLException {
-        con.close();
+        if(con != null) {
+            con.close();
+        }
     }
 
 }
