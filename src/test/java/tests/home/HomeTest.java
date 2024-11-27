@@ -1,15 +1,15 @@
-package tests;
+package tests.home;
 
 import core.BaseTest;
-import helpers.DataBase;
+import core.DataBase;
 import org.testng.annotations.BeforeClass;
 import pages.ForgotPasswordPage;
-import pages.LoginSignUp.LoginPage;
-import pages.LoginSignUp.SignUpPage;
+import pages.loginsignup.LoginPage;
+import pages.loginsignup.SignUpPage;
 
+import java.sql.Connection;
+import java.sql.Statement;
 import java.util.HashMap;
-
-import static utilities.ReadExcel.ExcelOperations;
 
 public class HomeTest extends BaseTest {
     public DataBase dataBase ;
@@ -17,6 +17,8 @@ public class HomeTest extends BaseTest {
     public ForgotPasswordPage forgotPasswordPage;
     public SignUpPage signUpPage;
     private HashMap<String, String> dataHome;
+    private static Statement stmt ;
+    private static Connection con ;
     public HomeTest(){
         loginPage = new LoginPage();
         forgotPasswordPage = new ForgotPasswordPage();
@@ -24,8 +26,8 @@ public class HomeTest extends BaseTest {
     }
     @BeforeClass
     public void setDb(){
-        ExcelOperations("Home");
-        dataBase.setUpDB("POSTGRES_DB_URL","POSTGRES_DB_USER","POSTGRES_DB_PASSWORD");
+        con = dataBase.setUpDB("POSTGRES_DB_URL","POSTGRES_DB_USER","POSTGRES_DB_PASSWORD");
+        stmt = dataBase.createStatement(con);
         loginPage.isUserLogout();
     }
 }

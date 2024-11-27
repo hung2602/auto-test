@@ -1,22 +1,24 @@
 package pages;
 import core.BasePage;
+import core.DataBase;
+import helpers.LogHelper;
 import helpers.PropertiesFile;
 import io.appium.java_client.AppiumBy;
 import io.qameta.allure.Step;
 import locator.Locator;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import org.slf4j.Logger;
+import java.sql.ResultSet;
+import java.sql.Statement;
 
-import java.time.Duration;
-import java.util.List;
 import static constant.Constant.*;
-import static core.BaseTest.driver;
+import static constant.Query.SPORTS_ID_QUERY_USER;
 import static utilities.DateTime.getCurrentDateTime;
 
 public class ProfilePage extends BasePage {
+    public DataBase dataBase ;
+    private static Logger logger = LogHelper.getLogger();
     public ProfilePage() {
+        dataBase = new DataBase();
     }
     @Step("Sửa tên hiển thị: {0}")
     public void editFullName(String name){
@@ -64,7 +66,7 @@ public class ProfilePage extends BasePage {
     }
     @Step("Click sửa thông tin")
     public void clickEdit(){
-        keyword.webDriverWaitForElementPresent(Locator.USER_INFORM_BTN_EDIT,10);
+//        keyword.webDriverWaitForElementPresent(Locator.USER_INFORM_BTN_EDIT,10);
         keyword.sleep(0.5);
         keyword.click(Locator.USER_INFORM_BTN_EDIT);
         keyword.webDriverWaitForElementPresent(Locator.USER_INFORM_BTN_EDIT_BIRTH_DAY,10);
@@ -93,4 +95,83 @@ public class ProfilePage extends BasePage {
         editBirthDay(getCurrentDateTime("dd MMMM yyyy"),"oke");
         editGender(gender);
     }
+    public String getGender(String gender){
+        if(gender.equals("Nam")){
+            return "MALE";
+        }
+        else if(gender.equals("Nữ")){
+            return "FEMALE";
+        }
+        else {
+            return "OTHER";
+        }
+    }
+    public String getBirthDay(String day){
+        String[] date = day.split("-");
+        return date[2] + "-" + date[1] + "-" + date[0];
+    }
+    @Step("Kiểm tra thông tin user: {0} với trường: {1}")
+    public void checkUserInform(Statement stmt, String key, String cases){
+        logger.info("checkUserInform ");
+        String getKey = PropertiesFile.getPropValue(key);
+        if(getKey == null){
+            getKey = key;
+        }
+        String query = SPORTS_ID_QUERY_USER.replace("key", getKey);
+        ResultSet res = dataBase.queryDb(stmt , query);
+        String birthDay = ""; String gender = "";
+        dataBase.getResultDataBase(res);
+        switch (cases) {
+            case "name":
+                dataBase.checkDataBase("fullname", keyword.getText(Locator.USER_INFORM_LBL_FULL_NAME));
+                break;
+            case "email":
+                dataBase.checkDataBase("email", keyword.getText(Locator.USER_INFORM_LBL_EMAIL));
+                break;
+            case "birth day":
+                birthDay = getBirthDay(keyword.getText(Locator.USER_INFORM_LBL_BIRTH_DAY));
+                dataBase.checkDataBase("dob", birthDay);
+                break;
+            case "gender":
+                gender = getGender(keyword.getText(Locator.USER_INFORM_LBL_GENDER));
+                dataBase.checkDataBase("gender", gender);
+                break;
+            case "all":
+                birthDay = getBirthDay(keyword.getText(Locator.USER_INFORM_LBL_BIRTH_DAY));
+                gender = getGender(keyword.getText(Locator.USER_INFORM_LBL_GENDER));
+                dataBase.checkDataBase("name,fullname,email,dob,gender",
+                        keyword.getText(Locator.USER_INFORM_LBL_PHONE) + "," + keyword.getText(Locator.USER_INFORM_LBL_FULL_NAME)
+                                + "," + keyword.getText(Locator.USER_INFORM_LBL_EMAIL) + "," + birthDay + "," + gender);
+                break;
+        }
+    }
+    public String getUserInform(String flag) {
+        logger.info("getUserInform ");
+        String inform = "";
+        switch (flag) {
+            case "phone":
+                inform =  keyword.getText(Locator.USER_INFORM_LBL_PHONE);
+                break;
+            case "name":
+                inform =  keyword.getText(Locator.USER_INFORM_LBL_FULL_NAME);
+                break;
+            case "email":
+                inform = keyword.getText(Locator.USER_INFORM_LBL_EMAIL);
+                break;
+            case "birth day":
+                inform = keyword.getText(Locator.USER_INFORM_LBL_BIRTH_DAY);
+                break;
+            case "gender":
+                inform = keyword.getText(Locator.USER_INFORM_LBL_GENDER);
+                break;
+            case "all":
+                inform = keyword.getText(Locator.USER_INFORM_LBL_PHONE)
+                        + "," + keyword.getText(Locator.USER_INFORM_LBL_FULL_NAME) + "," +
+                        keyword.getText(Locator.USER_INFORM_LBL_EMAIL) + "," + keyword.getText(Locator.USER_INFORM_LBL_BIRTH_DAY) + "," +
+                        keyword.getText(Locator.USER_INFORM_LBL_GENDER);
+                break;
+        }
+        return inform;
+    }
+
 }

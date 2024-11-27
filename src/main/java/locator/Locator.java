@@ -9,9 +9,9 @@ public class Locator {
     public static final By HOME_BTN_HOME = new AppiumBy.ByAccessibilityId("Trang chủ");
     public static final By HOME_BTN_LIVE_SCORE = new AppiumBy.ByAccessibilityId("Livescore");
     public static final By HOME_BTN_FOLLOWING = new AppiumBy.ByAccessibilityId("Yêu thích");
+    public static final By HOME_BTN_SEARCH = By.id("com.vtvcab.onsports.dev:id/imageButtonSearch");
     public static final By LOGOUT_BTN = By.id("com.vtvcab.onsports.dev:id/layout_logout");
     public static final By LOGOUT_BTN_CONFIRM = By.id("com.vtvcab.onsports.dev:id/btnLogout");
-    public static final By MENU_BTN_LAYOUT_AVATAR = By.id("com.vtvcab.onsports.dev:id/layout_avatar");
     public static final By PROFILE_BTN_VIEW_USER_INFORM = By.id("com.vtvcab.onsports.dev:id/text_show_profile");
     public static final By LOGOUT_TOAST_SUCCESS = By.id("com.vtvcab.onsports.dev:id/tv_message");
     public static final By LOGOUT_BTN_CANCEL = By.id("com.vtvcab.onsports.dev:id/btnCancel");
@@ -94,6 +94,36 @@ public class Locator {
     public static final By FORGOT_PASS_BTN = By.id("com.vtvcab.onsports.dev:id/text_forgot_password");
     public static final By CONFIRM_OTP_TITLE = By.id("com.vtvcab.onsports.dev:id/title_phone");
     public static final By NOTICE_LBL_MORE_3_DEVICE = By.id("com.vtvcab.onsports.dev:id/textLogout");
+    public static final By SEARCH_TXT_INPUT = By.id("com.vtvcab.onsports.dev:id/search_src_text");
+    public static final By SEARCH_LBL_NO_RESULT = By.xpath("//android.widget.TextView[@text=\"Không có kết quả tìm kiếm\"]");
+    public static final By SEARCH_LBL_FIND_OTHER_RESULT = By.xpath("//android.widget.TextView[@text=\"Hãy thử tìm kiếm với từ khóa khác.\"]");
+    public static final By SEARCH_LBL_TITLE_RESULT = By.id("com.vtvcab.onsports.dev:id/title_text");
+    public static final By SEARCH_BTN_TAG = By.id("com.vtvcab.onsports.dev:id/textview");
+    public static final By SEARCH_BTN_BACK = By.id("com.vtvcab.onsports.dev:id/imageButtonBack");
+    public static final By SEARCH_BTN_TAG_ALL = By.xpath("//android.widget.TextView[@resource-id=\"com.vtvcab.onsports.dev:id/textview\" and @text=\"Tất cả\"]");
+    public static final By VIEW_VIDEO_BTN_CLOSE = By.id("com.vtvcab.onsports.dev:id/close_imageView");
+    public static final By VIEW_VIDEO_BTN_PLAY = By.id("com.vtvcab.onsports.dev:id/play_imageView");
+    public static final By MENU_LBL_SIGNING = By.id("com.vtvcab.onsports.dev:id/info");
+    public static final By PLAYER_VIEW_BTN_PLAY = By.id("com.vtvcab.onsports.dev:id/onsport_play");
+    public static final By PLAYER_VIEW_BTN_PAUSE = By.id("com.vtvcab.onsports.dev:id/onsport_pause");
+    public static final By PLAYER_VIEW_BTN_REWIND = By.id("com.vtvcab.onsports.dev:id/ivRewind");
+    public static final By PLAYER_VIEW_BTN_FORWARD = By.id("com.vtvcab.onsports.dev:id/ivForward");
+    public static final By PLAYER_VIEW_LBL_TIME_LINE = By.id("com.vtvcab.onsports.dev:id/onsport_position");
+    public static final By PLAYER_VIEW_LBL_TIME_DURATION = By.id("com.vtvcab.onsports.dev:id/onsport_duration");
+    public static final By PLAYER_VIEW_BTN_FULL_SCREEN = By.id("com.vtvcab.onsports.dev:id/btnFullScreen");
+    public static final By PLAYER_VIEW_BTN_FRAME_SCREEN = By.id("com.vtvcab.onsports.dev:id/exo_content_frame");
+    public static final By CONTENT_LBL_LIVE = By.id("com.vtvcab.onsports.dev:id/include_live_text");
+    public static final String CONTENT_IMG_LIVE  = "//androidx.appcompat.widget.LinearLayoutCompat[@resource-id=\"com.vtvcab.onsports.dev:id/include_live_text\"]/ancestor::android.widget.FrameLayout[@resource-id=\"com.vtvcab.onsports.dev:id/searchCardView\"]";
+
+
+
+
+
+
+
+
+
+
 
 }
 

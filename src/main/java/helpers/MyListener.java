@@ -1,5 +1,5 @@
 package helpers;
-
+import driver.DriverManager;
 import io.qameta.allure.Attachment;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -7,19 +7,28 @@ import org.slf4j.Logger;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
-
-import static core.BaseTest.driver;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import static helpers.PathHelper.*;
+import static helpers.LogCat.*;
 
 public class MyListener implements ITestListener {
     private static final Logger logger = LogHelper.getLogger();
 
-    @Attachment(value = "{0}", type = "text/plain")
-    public static String saveTextLog(String message) {
-        return message;
+    @Attachment(type = "text/plain")
+    public static byte[] logDevices(String filePath) {
+        Path path = Paths.get(filePath);
+        try {
+            return Files.readAllBytes(path);
+        } catch (IOException e) {
+            return new byte[0];
+        }
     }
     @Attachment(value = "Page screenshot", type = "image/png")
     public static byte[] saveScreenshotPNG() {
-        return ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
+        return ((TakesScreenshot) DriverManager.getDriver()).getScreenshotAs(OutputType.BYTES);
     }
     public String getTestName(ITestResult result) {
         return result.getTestName() != null ? result.getTestName() : result.getMethod().getConstructorOrMethod().getName();
@@ -29,7 +38,6 @@ public class MyListener implements ITestListener {
     }
     @Override
     public void onStart(ITestContext result) {
-//        PropertiesHelper.loadAllFiles();
         //Khởi tạo report (Extent và Allure)
     }
 
@@ -41,6 +49,7 @@ public class MyListener implements ITestListener {
     @Override
     public void onTestStart(ITestResult result) {
         logger.info("Running test case " + result.getName());
+        removeLog();
     }
 
     @Override
@@ -51,7 +60,6 @@ public class MyListener implements ITestListener {
     @Override
     public void onTestFailure(ITestResult result) {
         logger.error("Test case " + result.getName() + " is failed.");
-        //CaptureHelper.captureScreenshot(result.getName());
         logger.error(result.getThrowable().toString());
     }
 

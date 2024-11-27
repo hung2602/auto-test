@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<suite name="OnPlus Android">
+    <parameter name="platform" value="Android"/>
+    <parameter name="version" value="13"/>
+    <parameter name="deviceName" value="99181FFAZ002RG"/>
+    <parameter name="cloudPlatform" value=""></parameter>
+    <listeners>
+        <listener class-name="helpers.MyListener"/>
+    </listeners>
+    <test name="Profile Test">
+        <classes>
+            <class name="tests.home.SearchTest">
+                <methods>
+                    <include name="SA_1_2"/>
+                    <include name="SA_3"/>
+                    <include name="SA_4"/>
+                    <include name="SA_5"/>
+                    <include name="SA_6"/>
+                    <include name="SA_7"/>
+                    <include name="SA_8"/>
+                    <include name="SA_9"/>
+                    <include name="SA_10"/>
+                    <include name="SA_11"/>
+                    <include name="SA_12"/>
+                    <include name="SA_13"/>
+                    <include name="SA_14"/>
+                    <include name="SA_15"/>
+                    <include name="SA_16"/>
+                    <include name="SA_18"/>
+                    <include name="SA_19"/>
+                    <include name="SA_24"/>
+                    <include name="SA_25"/>
+                    <include name="SA_26"/>
+                    <include name="SA_27"/>
+                    <include name="SA_28"/>
+
+
+<!--                    <include name="SA_17"/>-->
+<!--                    <include name="SA_20"/>-->
+<!--                    <include name="SA_21"/>-->
+<!--                    <include name="SA_22"/>-->
+<!--                    <include name="SA_23"/>-->
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

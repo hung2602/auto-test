@@ -1,60 +1,55 @@
-package helpers;
+package core;
 
-import core.BaseTest;
+import helpers.LogHelper;
+import helpers.PropertiesFile;
 import io.qameta.allure.Step;
 import org.slf4j.Logger;
 import java.sql.*;
 import java.util.HashMap;
+import java.util.Set;
 
-public class DataBase extends BaseTest {
+public class DataBase extends BasePage {
     private static Logger logger = LogHelper.getLogger();
-    public static Connection con ;
-    public static ResultSet res ;
-    public static Statement stmt ;
     public static  HashMap<String, String> dataMap = new HashMap<>();
     public DataBase() {
     }
-    public DataBase(ResultSet res, Statement stmt) {
-        this.res = res;
-        this.stmt = stmt;
-    }
-    @Step("Set up kết nốt Data PostGresSQL: {0}")
-    public void setUpDB(String url, String user, String passWord) {
+    @Step("Kết nốt data base : {0}")
+    public Connection setUpDB(String url, String user, String passWord) {
+        Connection con;
         logger.info("Set Up DB " + url );
         try {
-            Class.forName("org.postgresql.Driver");
+            if (PropertiesFile.getPropValue(url).contains("postgresql")) {
+                Class.forName("org.postgresql.Driver");
+            }
+            else {
+                Class.forName("cdata.jdbc.mongodb.MongoDBDriver");
+            }
             String dbUrl = PropertiesFile.getPropValue(url);
             String dbUser = PropertiesFile.getPropValue(user);
             String dbPass = PropertiesFile.getPropValue(passWord);
             con = DriverManager.getConnection(dbUrl, dbUser, dbPass);
-            stmt = con.createStatement();
         }
         catch (ClassNotFoundException | SQLException e) {
             throw new RuntimeException(e);
         }
+        return con;
     }
-    @Step("Set up kết nốt Data MonGoDb")
-    public void setUpMonGoDb(String url, String user, String passWord){
-        logger.info("Set Up MonGo DB");
+    @Step("Khởi tạo Db")
+    public Statement createStatement(Connection con) {
+        Statement stmt = null;
         try {
-            Class.forName("cdata.jdbc.mongodb.MongoDBDriver");
-            String dbUrl = PropertiesFile.getPropValue(url);
-            String dbUser = PropertiesFile.getPropValue(user);
-            String dbPass = PropertiesFile.getPropValue(passWord);
-            con = DriverManager.getConnection(dbUrl, dbUser, dbPass);
-            stmt = con.createStatement();
+//            stmt = con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+             stmt = con.createStatement();
         }
-        catch (ClassNotFoundException | SQLException e) {
+        catch (SQLException e) {
             throw new RuntimeException(e);
         }
-    }
-    @Step("Set up kết nốt Redis")
-    public void setUpRedis(String url, String user, String passWord) {
-        logger.info("Set Up Redis");
+        return stmt;
     }
 
     @Step("Thực hiện truy vấn dữ liệu : {0}")
-    public void queryDb(String query) {
+    public ResultSet queryDb(Statement stmt, String query) {
+        ResultSet res;
         logger.info("Query DB: " + query );
         String content= PropertiesFile.getPropValue(query);
         if (content == null) {
@@ -66,12 +61,15 @@ public class DataBase extends BaseTest {
         catch (SQLException e) {
             throw new RuntimeException(e);
         }
+        return res;
     }
     @Step("Lấy dữ liệu từ các cột db")
-    public static HashMap<String, String> getResultDataBase() {
-        logger.info("Get result DB: ");
+    public static HashMap<String, String> getResultDataBase(ResultSet res) {
         try {
             ResultSetMetaData md = res.getMetaData();
+//            res.last();
+//            int row = res.getRow();
+//            res.first();
             while (res.next()) {
                 for (int i = 1; i <= md.getColumnCount(); i++) {
                     dataMap.put(md.getColumnName(i), res.getString(i));
@@ -80,7 +78,12 @@ public class DataBase extends BaseTest {
         }
         catch(SQLException e)
         {
-            e.printStackTrace(); // hiển thị tổng quan về lỗi
+            e.printStackTrace();
+        }
+        logger.info("Get result DB:");
+        Set<String> set = dataMap.keySet();
+        for (String key : set) {
+            System.out.println("Key: " + key + "   Value: " + dataMap.get(key));
         }
         return dataMap;
     }

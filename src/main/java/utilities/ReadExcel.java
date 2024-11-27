@@ -2,7 +2,6 @@ package utilities ;
 import java.io.*;
 import java.util.HashMap;
 import java.util.Set;
-
 import helpers.LogHelper;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
@@ -11,23 +10,20 @@ import org.slf4j.Logger;
 import static helpers.PathHelper.projectPath;
 
 public class ReadExcel {
-    private static final String FILE_PATH = projectPath + "data\\DataTestOnplus.xlsx";
-    private static Sheet sh;
-    private static FileOutputStream fileOut;
-    private static Logger logger = LogHelper.getLogger();
-    private static Workbook workbook = null;
-    public static int getRowCount() {
+    public static final String FILE_PATH = projectPath + "data" + File.separator + "DataTestOnplus.xlsx";
+    public static Logger logger = LogHelper.getLogger();
+
+    public static int getRowCount(Sheet sh) {
         return sh.getLastRowNum();
     }
-    //ger column count
-    public static int getColCount() {
+    public static int getColCount(Sheet sh) {
         return sh.getRow(0).getLastCellNum();
     }
-    public static Object[][] getExcelData(){
-        Object[][] obj = new Object[getRowCount()][1];
+    public static Object[][] getExcelData(Sheet sh){
+        Object[][] obj = new Object[getRowCount(sh)][1];
         try {
-            for (int i = 1; i <= getRowCount(); i++) {
-                HashMap<String, String> testData = getTestDataInMap(i);
+            for (int i = 1; i <= getRowCount(sh); i++) {
+                HashMap<String, String> testData = getTestDataInMap(sh, i);
                 obj[i - 1][0] = testData;
             }
         }
@@ -36,8 +32,8 @@ public class ReadExcel {
         }
         return obj;
     }
-    public static void ExcelOperations(String sheetName) {
-        logger.info("Read sheet excel " + sheetName );
+    public static Workbook ExcelOperations() {
+        Workbook workbook = null;
         try {
             FileInputStream file = new FileInputStream(FILE_PATH);
             workbook = new XSSFWorkbook(file);
@@ -45,9 +41,13 @@ public class ReadExcel {
         catch (Exception e) {
             e.printStackTrace();
         }
-        sh = workbook.getSheet(sheetName);
+        return workbook;
     }
-    public static HashMap<String, String> getTestDataInMap(int rowNum) {
+    public static Sheet readSheet(Workbook workbook, String sheetName){
+        logger.info("Read sheet excel " + sheetName );
+        return workbook.getSheet(sheetName);
+    }
+    public static HashMap<String, String> getTestDataInMap(Sheet sh, int rowNum) {
         HashMap<String, String> hm = new HashMap<>();
         for (int i = 0; i < sh.getRow(0).getLastCellNum(); i++) {
             String value;
@@ -66,7 +66,7 @@ public class ReadExcel {
         }
         return hm;
     }
-    public static int getIndexRowFromKey(String key){
+    public static int getIndexRowFromKey(Sheet sh, String key){
         int index = 0;
         System.out.println("Number rows: " + sh.getPhysicalNumberOfRows());
         for (int i = 0; i < sh.getPhysicalNumberOfRows(); i++) {
@@ -79,7 +79,7 @@ public class ReadExcel {
         logger.info("Index row: " + index);
         return index;
     }
-    public static int getIndexCellFromKey(String key){
+    public static int getIndexCellFromKey(Sheet sh, String key){
         int index = 0;
         System.out.println("Number colum: " + sh.getRow(0).getPhysicalNumberOfCells());
         for (int i = 0; i < sh.getRow(0).getPhysicalNumberOfCells(); i++) {
@@ -91,13 +91,13 @@ public class ReadExcel {
         logger.info("Index cell: " + index);
         return index;
     }
-    public static void setCell(String value, int rowNumber, int cellNumber){
+    public static void setCell(Workbook workbook, Sheet sh, String value, int rowNumber, int cellNumber){
         try {
             logger.info("Set cell: " + value + " On row: " + rowNumber + " On cell: " + cellNumber);
             Row row = sh.getRow(rowNumber);
             Cell cell = row.getCell(cellNumber);
             cell.setCellValue(value);
-            fileOut = new FileOutputStream(FILE_PATH);
+            FileOutputStream fileOut = new FileOutputStream(FILE_PATH);
             workbook.write(fileOut);
         }
         catch(Exception e){

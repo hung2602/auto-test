@@ -1,15 +1,10 @@
-userName: duy_u6ydwV
-accessKey: 2BffbhMipdqx47LAydRi
-framework: testng
-app: bs://5ec4ce0869051e2bcc8f2ab8b8d0ead1b868b950
+userName: cuongvu_FerjhE
+accessKey: idKAyrfQhD8DzT2su7Xe
+#app: CalculatorApp
+app: bs://8223a66b66c48e4e42c5fc779252d85a829d1bdd
+automationName: UIAutomator2
 platforms:
-  - deviceName: Samsung Galaxy S22 Ultra
-    osVersion: 12.0
-    platformName: android
-parallelsPerPlatform: 1
-browserstackLocal: true
-buildName: browserstack-build-1
-projectName: BrowserStack Sample
-debug: false
-#integrations:
-#  ci: jenkins
+  - platformName: android
+    deviceName: Samsung Galaxy S21
+    platformVersion: 11
+projectName: Android-OnPlus

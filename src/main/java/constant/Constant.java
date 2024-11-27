@@ -37,7 +37,9 @@ public class Constant {
     public static final String MESS_SIGN_UP_COMPARE_PASS = "Mật khẩu xác nhận chưa trùng khớp";
     public static final String TITLE_INPUT_OTP = "Nhập mã OTP được gửi tới số ";
     public static final String MESS_ERROR_FORGOT_PASS = "Password không được để trống";
-
     public static final String MESS_NOTICE_MORE_3_DEVICES = "Tài khoản của bạn đã đăng nhập quá 3 thiết bị. Vui lòng chọn tiếp tục để đăng xuất khỏi thiết bị đã đăng nhập cũ nhất.";
-
+    public static final String TEXT_INPUT_SEARCH = "Nhập nội dung cần tìm kiếm";
+    public static final String MESS_NO_RESULT_FOUND = "Không có kết quả tìm kiếm";
+    public static final String MESS_FIND_OTHER_RESULT = "Hãy thử tìm kiếm với từ khóa khác.";
+    public static final String MESS_SIGNING_INTO_DEVICES = "Đang đăng nhập thiết bị";
 }

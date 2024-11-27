@@ -1,15 +1,21 @@
 package tests.LoginSignUp;
 import core.BaseTest;
-import helpers.DataBase;
+import core.DataBase;
 import io.qameta.allure.Severity;
 import locator.Locator;
-import org.testng.annotations.AfterClass;
+import org.apache.poi.ss.usermodel.Sheet;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-import pages.LoginSignUp.LoginPage;
-import pages.LoginSignUp.SignUpPage;
+import pages.ProfilePage;
+import pages.loginsignup.LoginPage;
+import pages.loginsignup.SignUpPage;
+
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.HashMap;
 import static constant.Constant.*;
+import static constant.Query.*;
 import static helpers.PathHelper.getNameMethod;
 import static io.qameta.allure.SeverityLevel.CRITICAL;
 import static utilities.ReadExcel.*;
@@ -19,104 +25,117 @@ public class SignUpTest extends BaseTest {
     public LoginPage loginPage;
     public SignUpPage signUpPage;
     private HashMap<String, String> dataSignUp;
-
+    public ProfilePage profilePage;
     private String phone = "";
-
+    private static Sheet sh;
+    private static Statement stmt ;
+    private static ResultSet res ;
+    private static Connection con ;
     public SignUpTest(){
         loginPage = new LoginPage();
         signUpPage = new SignUpPage();
         dataBase = new DataBase();
+        profilePage = new ProfilePage();
     }
     @BeforeClass
     public void firstSteps(){
-        ExcelOperations("SignUp");
-        dataBase.setUpDB("POSTGRES_DB_URL","POSTGRES_DB_USER","POSTGRES_DB_PASSWORD");
+        sh = readSheet(workbook, "SignUp");
+        con = dataBase.setUpDB("POSTGRES_DB_URL","POSTGRES_DB_USER","POSTGRES_DB_PASSWORD");
+        stmt = dataBase.createStatement(con);
         loginPage.isUserLogout();
     }
     @Severity(CRITICAL)
     @Test(description = "Kiểm tra nhập sdt chưa đăng ký - Bỏ trống mã OTP")
     public void SU_1_2(){
         loginPage.goToLogin();
-        int indexRow = getIndexRowFromKey(getNameMethod());
+        int indexRow = getIndexRowFromKey(sh, getNameMethod());
         phone = loginPage.getPhoneNumber();
-        setCell(phone, indexRow , getIndexCellFromKey("User name"));
-        dataSignUp = getTestDataInMap(indexRow);
+        setCell(workbook, sh, phone, indexRow , getIndexCellFromKey(sh,"User name"));
+        dataSignUp = getTestDataInMap(sh, indexRow);
         loginPage.inputUserName(dataSignUp.get("User name"));
     }
     @Test(priority = 1, description = "Kiểm tra nhập mã OTP sai" , dependsOnMethods = "SU_1_2")
     public void SU_3(){
-        dataSignUp = getTestDataInMap(getIndexRowFromKey(getNameMethod()));
+        dataSignUp = getTestDataInMap(sh, getIndexRowFromKey(sh, getNameMethod()));
         loginPage.inputOtp(dataSignUp.get("OTP"));
         loginPage.continueOtp("không tồn tại");
     }
     @Test(priority = 2, description = "Kiểm tra nhập mã OTP hợp lệ rồi back lại")
     public void SU_4(){
         loginPage.deleteOtp();
-        dataSignUp = getTestDataInMap(getIndexRowFromKey("SU_1_2"));
-        HashMap<String, String> dbData = signUpPage.queryAndGetDb("PostGre", dataSignUp.get("User name"));
+        dataSignUp = getTestDataInMap(sh, getIndexRowFromKey(sh,"SU_1_2"));
+        res = dataBase.queryDb(stmt, SPORTS_ID_QUERY_USER.replace("key", dataSignUp.get("User name")));
+        HashMap<String, String> dbData = dataBase.getResultDataBase(res);
         loginPage.inputOtp(dbData.get("otp_code"));
         loginPage.continueOtp("hợp lệ");
         signUpPage.inFormSetPassWord();
         signUpPage.backFromOTPScreen();
-        setCell(dbData.get("otp_code"), getIndexRowFromKey(getNameMethod()) ,getIndexCellFromKey("OTP"));
+        setCell(workbook , sh, dbData.get("otp_code"), getIndexRowFromKey(sh,getNameMethod()) ,getIndexCellFromKey(sh,"OTP"));
+        dbData.clear();
     }
     @Test(priority = 3, description = "Kiểm tra nhập mã OTP đã dùng", dependsOnMethods = "SU_4")
     public void SU_5(){
-        HashMap<String, String> dbData = dataBase.getResultDataBase();
+        HashMap<String, String> dbData = dataBase.getResultDataBase(res);
         loginPage.inputUserName(dataSignUp.get("User name"));
         loginPage.inputOtp(dbData.get("otp_code"));
         loginPage.continueOtp("không tồn tại");
-        setCell(dbData.get("otp_code"), getIndexRowFromKey(getNameMethod()) ,getIndexCellFromKey("OTP"));
+        setCell(workbook, sh, dbData.get("otp_code"), getIndexRowFromKey(sh, getNameMethod()) ,getIndexCellFromKey(sh,"OTP"));
+        dbData.clear();
     }
     @Test(priority = 4, description = "Kiểm tra nhập mã OTP đã hết hạn", dependsOnMethods = "SU_5")
     public void SU_6(){
         loginPage.waitTimeOtp();
         loginPage.deleteOtp();
-        HashMap<String, String> dbData = signUpPage.queryAndGetDb("PostGre", dataSignUp.get("User name"));
+        res = dataBase.queryDb(stmt, SPORTS_ID_QUERY_USER.replace("key", dataSignUp.get("User name")));
+        HashMap<String, String> dbData = dataBase.getResultDataBase(res);
         loginPage.inputOtp(dbData.get("otp_code"));
         loginPage.continueOtp("không tồn tại");
-        setCell(dbData.get("otp_code"), getIndexRowFromKey(getNameMethod()) ,getIndexCellFromKey("OTP"));
+        setCell(workbook, sh, dbData.get("otp_code"), getIndexRowFromKey(sh, getNameMethod()) ,getIndexCellFromKey(sh,"OTP"));
+        dbData.clear();
     }
     @Severity(CRITICAL)
     @Test(priority = 5, description = "Kiểm tra gửi lại mã OTP và dùng mã OTP lần 1", dependsOnMethods = "SU_6")
     public void SU_7_8(){
-        HashMap<String, String> dbData = dataBase.getResultDataBase();
+        HashMap<String, String> dbData = dataBase.getResultDataBase(res);
         String oldOtp = dbData.get("otp_code");
         loginPage.resendOtp();
-        setCell(oldOtp, getIndexRowFromKey(getNameMethod()) ,getIndexCellFromKey("OTP"));
+        setCell(workbook, sh, oldOtp, getIndexRowFromKey(sh, getNameMethod()) ,getIndexCellFromKey(sh,"OTP"));
         loginPage.inputOtp(oldOtp);
         loginPage.continueOtp("không tồn tại");
+        dbData.clear();
     }
     @Severity(CRITICAL)
     @Test(priority = 6, description = "Kiểm tra nhập mã OTP hợp lệ", dependsOnMethods = "SU_1_2")
     public void SU_9(){
-        HashMap<String, String> dbData = signUpPage.queryAndGetDb("PostGre", dataSignUp.get("User name"));
+        res = dataBase.queryDb(stmt, SPORTS_ID_QUERY_USER.replace("key", dataSignUp.get("User name")));
+        HashMap<String, String> dbData = dataBase.getResultDataBase(res);
         loginPage.deleteOtp();
         loginPage.inputOtp(dbData.get("otp_code"));
         loginPage.continueOtp("hợp lệ");
-        setCell(dbData.get("otp_code"), getIndexRowFromKey(getNameMethod()) ,getIndexCellFromKey("OTP"));
+        setCell(workbook , sh, dbData.get("otp_code"), getIndexRowFromKey(sh, getNameMethod()) ,getIndexCellFromKey(sh,"OTP"));
+        dbData.clear();
     }
     @Test(priority = 7, description = "Kiểm tra nhập pass > 6 ký tự" , dependsOnMethods = "SU_9")
     public void SU_10(){
-        dataSignUp = getTestDataInMap(getIndexRowFromKey(getNameMethod()));
+        dataSignUp = getTestDataInMap(sh, getIndexRowFromKey(sh, getNameMethod()));
         signUpPage.inputPassWord(dataSignUp.get("Pass word"));
         keyword.click(Locator.LOGIN_BTN_CONTINUE);
     }
     @Test(priority = 8, description = "Kiểm tra nhập pass = 6 ký tự")
     public void SU_11(){
-        dataSignUp = getTestDataInMap(getIndexRowFromKey(getNameMethod()));
+        dataSignUp = getTestDataInMap(sh, getIndexRowFromKey(sh, getNameMethod()));
         signUpPage.inputPassWord(dataSignUp.get("Pass word"));
         keyword.click(Locator.LOGIN_BTN_CONTINUE);
     }
     @Test(priority = 9, description = "Kiểm tra nhập pass < 6 ký tự")
     public void SU_12(){
-        dataSignUp = getTestDataInMap(getIndexRowFromKey(getNameMethod()));
+        dataSignUp = getTestDataInMap(sh, getIndexRowFromKey(sh, getNameMethod()));
         signUpPage.inputPassWord(dataSignUp.get("Pass word"));
         signUpPage.verifyMessPassWord(MESSAGE_ERROR_PASS);
     }
     @Test(priority = 10, description = "Kiểm tra nhập pass chỉ gồm chữ hoặc số")
     public void SU_13(){
-        dataSignUp = getTestDataInMap(getIndexRowFromKey(getNameMethod()));
+        dataSignUp = getTestDataInMap(sh, getIndexRowFromKey(sh, getNameMethod()));
         signUpPage.inputPassWord(dataSignUp.get("Pass word"));
         keyword.click(Locator.LOGIN_BTN_CONTINUE);
     }
@@ -127,19 +146,19 @@ public class SignUpTest extends BaseTest {
     }
     @Test(priority = 12, description = "Kiểm tra nhập pass gồm số, chữ, và ký tự đặc biệt, in hoa thường")
     public void SU_15(){
-        dataSignUp = getTestDataInMap(getIndexRowFromKey(getNameMethod()));
+        dataSignUp = getTestDataInMap(sh, getIndexRowFromKey(sh, getNameMethod()));
         signUpPage.inputPassWord(dataSignUp.get("Pass word"));
         keyword.click(Locator.LOGIN_BTN_CONTINUE);
     }
     @Test(priority = 13, description = "Kiểm tra nhập pass khác pass nhập lại")
     public void SU_16(){
-        dataSignUp = getTestDataInMap(getIndexRowFromKey(getNameMethod()));
+        dataSignUp = getTestDataInMap(sh, getIndexRowFromKey(sh, getNameMethod()));
         signUpPage.setPassWord(dataSignUp.get("Pass word"), dataSignUp.get("Password confirm"));
         signUpPage.verifyMessPassWord(MESS_SIGN_UP_COMPARE_PASS);
     }
     @Test(priority = 14, description = "Kiểm tra nhập pass trùng pass nhập lại")
     public void SU_17(){
-        dataSignUp = getTestDataInMap(getIndexRowFromKey(getNameMethod()));
+        dataSignUp = getTestDataInMap(sh, getIndexRowFromKey(sh, getNameMethod()));
         signUpPage.inputPassWord(dataSignUp.get("Pass word"));
         signUpPage.inputConfirmPassWord(dataSignUp.get("Password confirm"));
     }
@@ -158,6 +177,7 @@ public class SignUpTest extends BaseTest {
         signUpPage.setPassWord(dataSignUp.get("Pass word"), dataSignUp.get("Password confirm"));
         keyword.verifyPresentAndClick(Locator.NOTICE_BTN_LATE);
         loginPage.viewUserInform();
-        loginPage.checkUserInform("name", phone);
+        profilePage.checkUserInform(stmt,"name", phone);
     }
+
 }

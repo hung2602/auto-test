@@ -1,15 +1,12 @@
-package pages.LoginSignUp;
+package pages.loginsignup;
 import core.BasePage;
-import helpers.DataBase;
+import core.DataBase;
 import helpers.LogHelper;
-import helpers.PropertiesFile;
 import io.qameta.allure.Step;
 import locator.Locator;
 import org.slf4j.Logger;
 
-import java.util.HashMap;
 import java.util.Random;
-import java.util.concurrent.ThreadLocalRandom;
 
 import static constant.Constant.*;
 
@@ -20,18 +17,6 @@ public class SignUpPage extends BasePage {
     public SignUpPage() {
         dataBase = new DataBase();
         loginPage = new LoginPage();
-    }
-    public HashMap<String, String> queryAndGetDb(String flag, String key){
-        String query = "";
-        if(flag.equals("PostGre")) {
-            query = PropertiesFile.getPropValue("POSTGRES_DB_QUERY_USER").replace("phone", key);
-        }
-        else if (flag.equals("Mongo")){
-            query = PropertiesFile.getPropValue("MONGO_DB_QUERY_DEVICE").replace("idUser", key);
-        }
-        dataBase.queryDb(query);
-        HashMap<String, String> dbData = dataBase.getResultDataBase();
-        return dbData;
     }
     public void backFromOTPScreen(){
         keyword.click(Locator.INPUT_OTP_BTN_BACK);
