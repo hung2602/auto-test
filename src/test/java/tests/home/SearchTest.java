@@ -1,10 +1,12 @@
 package tests.home;
 import core.BaseTest;
 import core.DataBase;
+import driver.DriverManager;
 import io.qameta.allure.Severity;
 import locator.Locator;
 import org.apache.poi.ss.usermodel.*;
 import org.openqa.selenium.WebElement;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import pages.home.HomePage;
@@ -13,6 +15,7 @@ import pages.loginsignup.LoginPage;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.HashMap;
 import java.util.List;
@@ -232,5 +235,12 @@ public class SearchTest extends BaseTest {
         searchPage.waitBtnPause();
         searchPage.checkTimeAfterForwardVideo();
         searchPage.checkTimeAfterBackVideo();
+    }
+
+    @AfterClass
+    public void closeConnect() throws SQLException {
+        if(con != null) {
+            con.close();
+        }
     }
 }

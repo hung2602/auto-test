@@ -1,6 +1,7 @@
 package tests.LoginSignUp;
 import core.BaseTest;
 import core.DataBase;
+import driver.DriverManager;
 import io.qameta.allure.Severity;
 import locator.Locator;
 import org.testng.annotations.*;
@@ -10,6 +11,7 @@ import pages.loginsignup.LoginPage;
 import pages.loginsignup.SignUpPage;
 
 import java.sql.Connection;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.HashMap;
 
@@ -40,7 +42,7 @@ public class LoginTest extends BaseTest {
         sh = readSheet(workbook , "Login");
         con = dataBase.setUpDB("POSTGRES_DB_URL","POSTGRES_DB_USER","POSTGRES_DB_PASSWORD");
         stmt = dataBase.createStatement(con);
-//        loginPage.isUserLogout();
+        loginPage.isUserLogout();
     }
     @Test(description = "Kiểm tra text ẩn, nhập sđt bỏ trống")
     public void LG_1(){
@@ -162,5 +164,11 @@ public class LoginTest extends BaseTest {
     @Test(priority = 13 ,description = "Kiểm tra hủy login khi tài khoản đăng nhập 3 thiết bị")
     public void LG_22(){
 
+    }
+    @AfterClass
+    public void closeConnect() throws SQLException {
+        if(con != null) {
+            con.close();
+        }
     }
 }

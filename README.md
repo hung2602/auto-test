@@ -14,7 +14,7 @@ curl -u "YOUR_USERNAME:YOUR_ACCESS_KEY" \
 ** **
 **Run appium cmd**
 
-1. appium --address 127.0.0.1 --port 4723 --base-path /wd/hub
+1. appium --address 127.0.0.1 --port 4723 --base-path /wd/hub --session-override
 
 ** **
 **Cách setup reports**

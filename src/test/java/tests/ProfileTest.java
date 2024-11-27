@@ -2,6 +2,7 @@ package tests;
 
 import core.BaseTest;
 import core.DataBase;
+import driver.DriverManager;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -36,18 +37,18 @@ public class ProfileTest extends BaseTest {
         sh = readSheet(workbook , "Profile");
         con = dataBase.setUpDB("POSTGRES_DB_URL","POSTGRES_DB_USER","POSTGRES_DB_PASSWORD");
         stmt = dataBase.createStatement(con);
-//        loginPage.isUserLogout();
+        loginPage.isUserLogout();
     }
     @Test(priority = 1, description = "Kiểm tra cập nhật profile khi nhập các thông tin hợp lệ")
     public void PF_1(){
         loginPage.goToLogin();
         loginPage.login("PHONE_NUMBER","PASS_WORD");
         loginPage.viewUserInform();
-//        profilePage.clickEdit();
-//        dataProfile = getTestDataInMap(sh,getIndexRowFromKey(sh,getNameMethod()));
-//        profilePage.updateFullInform(dataProfile.get("Name"),dataProfile.get("Email"),dataProfile.get("Gender"));
-//        profilePage.saveInform("Thành công");
-//        profilePage.checkUserInform(stmt, "PHONE_NUMBER","all");
+        profilePage.clickEdit();
+        dataProfile = getTestDataInMap(sh,getIndexRowFromKey(sh,getNameMethod()));
+        profilePage.updateFullInform(dataProfile.get("Name"),dataProfile.get("Email"),dataProfile.get("Gender"));
+        profilePage.saveInform("Thành công");
+        profilePage.checkUserInform(stmt, "PHONE_NUMBER","all");
     }
     @Test(priority = 2, description = "Kiểm tra cập nhật profile nhưng không lưu")
     public void PF_2(){
@@ -173,6 +174,8 @@ public class ProfileTest extends BaseTest {
     }
     @AfterClass
     public void closeConnect() throws SQLException {
-        con.close();
+        if(con != null) {
+            con.close();
+        }
     }
 }

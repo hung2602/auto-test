@@ -2,6 +2,7 @@ package tests;
 
 import core.BaseTest;
 import core.DataBase;
+import driver.DriverManager;
 import locator.Locator;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -35,25 +36,25 @@ public class MenuTest extends BaseTest {
     public void firstSteps(){
         con = dataBase.setUpDB("POSTGRES_DB_URL","POSTGRES_DB_USER","POSTGRES_DB_PASSWORD");
         stmt = dataBase.createStatement(con);
-//        loginPage.isUserLogout();
+        loginPage.isUserLogout();
     }
     @Test(description = "Kiểm tra lịch sử mua gói")
     public void MN_4(){
         keyword.sleep(3);
         keyword.click(Locator.HOME_BTN_MENU);
-//        loginPage.login("PHONE_NUMBER","PASS_WORD");
-//        menuPage.goToSubHistory();
-//        menuPage.checkSubHistory();
+        loginPage.login("PHONE_NUMBER","PASS_WORD");
+        menuPage.goToSubHistory();
+        menuPage.checkSubHistory();
     }
     @Test(description = "Kiểm tra màn hình mã khuyến mãi")
     public void MN_5(){
-//        loginPage.goBack();
-//        menuPage.goToDiscountCode();
-//        menuPage.checkDiscountCode();
+        loginPage.goBack();
+        menuPage.goToDiscountCode();
+        menuPage.checkDiscountCode();
     }
     @Test(description = "Kiểm tra màn hình quản lý thiết bị")
     public void MN_7(){
-//        loginPage.goBack();
+        loginPage.goBack();
         res = dataBase.queryDb(stmt, SPORTS_ID_QUERY_USER.replace("key", "PHONE_NUMBER"));
         HashMap<String, String> dbData = dataBase.getResultDataBase(res);
         con = dataBase.setUpDB("MONGO_DB_URL","MONGO_DB_USER","MONGO_DB_PASSWORD");
@@ -77,7 +78,9 @@ public class MenuTest extends BaseTest {
     }
     @AfterClass
     public void closeConnect() throws SQLException {
-       con.close();
+        if(con != null) {
+            con.close();
+        }
     }
 
 }

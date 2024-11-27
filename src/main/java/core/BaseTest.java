@@ -92,28 +92,31 @@ public class BaseTest {
         else {
             dc.setCapability("udid", udid);
             dc.setCapability("automationName", "UiAutomator2");
-//            dc.setCapability("app",  appPath + appName);
-            dc.setCapability("noReset", true);
+//            dc.setCapability("appPackage", "com.vtvcab.onsports.dev");
+//            dc.setCapability("appActivity", "com.vtvcab.onsports.feature.main.activity.MainActivity");
+            dc.setCapability("app",  appPath + appName);
+            dc.setCapability("noReset", false);
             dc.setCapability("appWaitForLaunch", false);
-            dc.setCapability("appPackage", "com.vtvcab.onsports.dev");
-            dc.setCapability("appActivity", "com.vtvcab.onsports.feature.main.activity.MainActivity");
+//            dc.setCapability("autoLaunch", true);
             driver = new AndroidDriver(new URL("http://127.0.0.1:" + port + "/wd/hub"), dc);
         }
         return driver;
     }
-    @BeforeTest
+    @BeforeClass
     @Parameters({"cloudPlatform","version","udid","port","deviceName"})
     public void setUpDevice(String cloudPlatform, String version, String udid, String port, String deviceName) throws Exception{
 //        checkIfServerIsRunning(Integer.valueOf(port));
         DriverManager.setDriver(setUp(cloudPlatform, version, udid, port, deviceName));
-//        setUpBrowserStack();
     }
-    @AfterTest
+    @AfterClass
     public void afterTest() throws Exception {
 //        if(con != null){
 //            con.close();
 //        }
-        DriverManager.quit();
+        if (DriverManager.getDriver() != null) {
+            DriverManager.quit();
+        }
+        keyword.sleep(2);
     }
     @AfterMethod
     public void tearDown(ITestResult testResult) {

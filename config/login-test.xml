@@ -16,7 +16,7 @@
             <class name="tests.LoginSignUp.LoginTest" >
                 <methods>
                     <include name="LG_1"/>
-                    <include name="LG_2"/>
+<!--                    <include name="LG_2"/>-->
 <!--                    <include name="LG_3"/>-->
 <!--                    <include name="LG_4"/>-->
 <!--                    <include name="LG_5"/>-->
