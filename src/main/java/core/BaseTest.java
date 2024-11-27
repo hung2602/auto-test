@@ -18,16 +18,14 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.slf4j.Logger;
 import org.testng.ITestResult;
 import org.testng.annotations.*;
-
 import java.io.File;
 import java.io.IOException;
+import java.net.ServerSocket;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
-
 import static helpers.LogCat.*;
 import static helpers.MyListener.*;
-import static helpers.DataBase.con;
 import static helpers.MyListener.logDevices;
 import static helpers.PathHelper.*;
 import static utilities.ReadExcel.ExcelOperations;
@@ -48,7 +46,7 @@ public class BaseTest {
 //    private static String app = "bs://8223a66b66c48e4e42c5fc779252d85a829d1bdd";
     private final static String userNameBrs = PropertiesFile.getPropValue("userNameBrs");
     private final static String accessKeyBrs = PropertiesFile.getPropValue("accessKeyBrs");
-    private final static String appId = PropertiesFile.getPropValue("appId");
+    private final static String appId = PropertiesFile.getPropValue("appIdBrs");
 
     public BaseTest() {
         keyword = new KeywordWeb();
@@ -94,11 +92,11 @@ public class BaseTest {
         else {
             dc.setCapability("udid", udid);
             dc.setCapability("automationName", "UiAutomator2");
-            dc.setCapability("app",  appPath + appName);
+//            dc.setCapability("app",  appPath + appName);
             dc.setCapability("noReset", true);
             dc.setCapability("appWaitForLaunch", false);
-//            dc.setCapability("appPackage", "com.vtvcab.onsports.dev");
-//            dc.setCapability("appActivity", "com.vtvcab.onsports.feature.main.activity.MainActivity");
+            dc.setCapability("appPackage", "com.vtvcab.onsports.dev");
+            dc.setCapability("appActivity", "com.vtvcab.onsports.feature.main.activity.MainActivity");
             driver = new AndroidDriver(new URL("http://127.0.0.1:" + port + "/wd/hub"), dc);
         }
         return driver;
@@ -106,6 +104,7 @@ public class BaseTest {
     @BeforeTest
     @Parameters({"cloudPlatform","version","udid","port","deviceName"})
     public void setUpDevice(String cloudPlatform, String version, String udid, String port, String deviceName) throws Exception{
+//        checkIfServerIsRunning(Integer.valueOf(port));
         DriverManager.setDriver(setUp(cloudPlatform, version, udid, port, deviceName));
 //        setUpBrowserStack();
     }
@@ -114,9 +113,7 @@ public class BaseTest {
 //        if(con != null){
 //            con.close();
 //        }
-        if (DriverManager.getDriver() != null) {
-//            DriverManager.quit();
-        }
+        DriverManager.quit();
     }
     @AfterMethod
     public void tearDown(ITestResult testResult) {
@@ -125,5 +122,18 @@ public class BaseTest {
             getLog();
             logDevices(projectPath + "mylog.txt");
         }
+    }
+    public boolean checkIfServerIsRunning(int port) {
+        boolean isServerRunning = false;
+        ServerSocket serverSocket;
+        try {
+            serverSocket = new ServerSocket(port);
+            serverSocket.close();
+        } catch (IOException e) {
+            isServerRunning = true;
+        } finally {
+            serverSocket = null;
+        }
+        return isServerRunning;
     }
 }

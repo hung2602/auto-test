@@ -1,7 +1,6 @@
 package pages;
 
 import core.BasePage;
-import helpers.DataBase;
 import helpers.LogHelper;
 import io.qameta.allure.Step;
 import locator.Locator;

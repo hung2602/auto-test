@@ -1,7 +1,7 @@
 package pages.home;
 import core.BasePage;
 import driver.DriverManager;
-import helpers.DataBase;
+import core.DataBase;
 import helpers.LogHelper;
 import io.qameta.allure.Step;
 import locator.Locator;

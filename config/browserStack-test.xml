@@ -66,7 +66,7 @@
             <parameter name="version" value="13"/>
             <parameter name="deviceName" value="Samsung Galaxy S23 Ultra"></parameter>
             <parameter name="udid" value="R58M41M1AAZ"/>
-            <parameter name="port" value="4724"></parameter>
+            <parameter name="port" value="4725"></parameter>
             <classes>
                 <class name="tests.LoginSignUp.SignUpTest">
                     <methods>
@@ -95,7 +95,7 @@
             <parameter name="version" value="11"/>
             <parameter name="deviceName" value="Google Pixel 4"></parameter>
             <parameter name="udid" value="R58M41M1AAZ"/>
-            <parameter name="port" value="4724"></parameter>
+            <parameter name="port" value="4726"></parameter>
             <classes>
                 <class name="tests.ForgotPasswordTest">
                     <methods>
@@ -124,7 +124,7 @@
             <parameter name="version" value="13"/>
             <parameter name="deviceName" value="Google Pixel 7 Pro"></parameter>
             <parameter name="udid" value="R58M41M1AAZ"/>
-            <parameter name="port" value="4724"></parameter>
+            <parameter name="port" value="4727"></parameter>
             <classes>
                 <class name="tests.MenuTest">
                     <methods>
@@ -141,7 +141,7 @@
             <parameter name="version" value="11"/>
             <parameter name="deviceName" value="Samsung Galaxy S21"></parameter>
             <parameter name="udid" value="R58M41M1AAZ"/>
-            <parameter name="port" value="4724"></parameter>
+            <parameter name="port" value="4728"></parameter>
             <classes>
                 <class name="tests.home.SearchTest">
                     <methods>

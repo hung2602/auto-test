@@ -1,15 +1,17 @@
 package tests;
 import core.BaseTest;
-import helpers.DataBase;
+import core.DataBase;
 import locator.Locator;
 import org.apache.poi.ss.usermodel.Sheet;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import pages.ForgotPasswordPage;
 import pages.loginsignup.LoginPage;
 import pages.loginsignup.SignUpPage;
-
+import java.sql.Connection;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.HashMap;
 import static constant.Constant.*;
@@ -20,6 +22,7 @@ import static utilities.ReadExcel.getIndexRowFromKey;
 
 public class ForgotPasswordTest extends BaseTest {
     private static Sheet sh;
+    private static Connection con ;
     public DataBase dataBase ;
     public LoginPage loginPage;
     public ForgotPasswordPage forgotPasswordPage;
@@ -36,7 +39,8 @@ public class ForgotPasswordTest extends BaseTest {
     @BeforeClass
     public void firstSteps(){
         sh = readSheet(workbook, "ForgotPassword");
-        stmt = dataBase.setUpDB("POSTGRES_DB_URL","POSTGRES_DB_USER","POSTGRES_DB_PASSWORD");
+        con = dataBase.setUpDB("POSTGRES_DB_URL","POSTGRES_DB_USER","POSTGRES_DB_PASSWORD");
+        stmt = dataBase.createStatement(con);
 //        loginPage.isUserLogout();
         loginPage.goToLogin();
     }
@@ -164,6 +168,10 @@ public class ForgotPasswordTest extends BaseTest {
     }
     @Test(priority = 17, description = "Kiểm tra gửi quá 3 lần otp trong ngày", dependsOnMethods = "FP_18")
     public void FP_19(){
+    }
+    @AfterClass
+    public void closeConnect() throws SQLException {
+        con.close();
     }
 
 }

@@ -1,19 +1,15 @@
 package pages;
 import core.BasePage;
-import helpers.DataBase;
+import core.DataBase;
 import helpers.LogHelper;
 import helpers.PropertiesFile;
 import io.appium.java_client.AppiumBy;
 import io.qameta.allure.Step;
 import locator.Locator;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.slf4j.Logger;
 import java.sql.ResultSet;
 import java.sql.Statement;
-import java.util.List;
+
 import static constant.Constant.*;
 import static constant.Query.SPORTS_ID_QUERY_USER;
 import static utilities.DateTime.getCurrentDateTime;

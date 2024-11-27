@@ -1,16 +1,16 @@
 package tests.LoginSignUp;
 import core.BaseTest;
-import helpers.DataBase;
+import core.DataBase;
 import io.qameta.allure.Severity;
 import locator.Locator;
 import org.apache.poi.ss.usermodel.Sheet;
-import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import pages.ProfilePage;
 import pages.loginsignup.LoginPage;
 import pages.loginsignup.SignUpPage;
 
+import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.HashMap;
@@ -28,8 +28,9 @@ public class SignUpTest extends BaseTest {
     public ProfilePage profilePage;
     private String phone = "";
     private static Sheet sh;
-    private Statement stmt ;
-    private ResultSet res ;
+    private static Statement stmt ;
+    private static ResultSet res ;
+    private static Connection con ;
     public SignUpTest(){
         loginPage = new LoginPage();
         signUpPage = new SignUpPage();
@@ -39,7 +40,8 @@ public class SignUpTest extends BaseTest {
     @BeforeClass
     public void firstSteps(){
         sh = readSheet(workbook, "SignUp");
-        stmt = dataBase.setUpDB("POSTGRES_DB_URL","POSTGRES_DB_USER","POSTGRES_DB_PASSWORD");
+        con = dataBase.setUpDB("POSTGRES_DB_URL","POSTGRES_DB_USER","POSTGRES_DB_PASSWORD");
+        stmt = dataBase.createStatement(con);
         loginPage.isUserLogout();
     }
     @Severity(CRITICAL)

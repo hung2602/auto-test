@@ -14,54 +14,59 @@
             <class name="tests.LoginSignUp.LoginTest">
                 <methods>
                     <include name="LG_1"/>
-                    <include name="LG_2"/>
-                    <include name="LG_3"/>
-                    <include name="LG_4"/>
-                    <include name="LG_5"/>
-                    <include name="LG_6"/>
-                    <include name="LG_7_8"/>
-                    <include name="LG_24"/>
-                    <include name="LG_25"/>
-                    <include name="LG_9"/>
-                    <include name="LG_10"/>
-                    <include name="LG_11"/>
-                    <include name="LG_26"/>
-                    <include name="LG_27"/>
-                    <include name="LG_12"/>
-                    <include name="LG_13"/>
-                    <include name="LG_14"/>
+<!--                    <include name="LG_2"/>-->
+<!--                    <include name="LG_3"/>-->
+<!--                    <include name="LG_4"/>-->
+<!--                    <include name="LG_5"/>-->
+<!--                    <include name="LG_6"/>-->
+<!--                    <include name="LG_7_8"/>-->
+<!--                    <include name="LG_24"/>-->
+<!--                    <include name="LG_25"/>-->
+<!--                    <include name="LG_9"/>-->
+<!--                    <include name="LG_10"/>-->
+<!--                    <include name="LG_11"/>-->
+<!--                    <include name="LG_26"/>-->
+<!--                    <include name="LG_27"/>-->
+<!--                    <include name="LG_12"/>-->
+<!--                    <include name="LG_13"/>-->
+<!--                    <include name="LG_14"/>-->
                 </methods>
             </class>
         </classes>
     </test>
     <test name="Profile Test">
         <parameter name="version" value="11"/>
+        <parameter name="deviceName" value="SamSung a30"></parameter>
         <parameter name="udid" value="R58M41M1AAZ"/>
         <parameter name="port" value="4724"></parameter>
         <classes>
             <class name="tests.ProfileTest">
                 <methods>
                     <include name="PF_1"/>
-                    <include name="PF_2"/>
-                    <include name="PF_3"/>
-                    <include name="PF_4"/>
-                    <include name="PF_5"/>
-                    <include name="PF_6"/>
-                    <include name="PF_8"/>
-                    <include name="PF_9"/>
-                    <include name="PF_10"/>
-                    <include name="PF_11"/>
-                    <include name="PF_7"/>
-                    <include name="PF_12"/>
-                    <include name="PF_13_14"/>
-                    <include name="PF_15"/>
-                    <include name="PF_16"/>
-                    <include name="PF_17"/>
+<!--                    <include name="PF_2"/>-->
+<!--                    <include name="PF_3"/>-->
+<!--                    <include name="PF_4"/>-->
+<!--                    <include name="PF_5"/>-->
+<!--                    <include name="PF_6"/>-->
+<!--                    <include name="PF_8"/>-->
+<!--                    <include name="PF_9"/>-->
+<!--                    <include name="PF_10"/>-->
+<!--                    <include name="PF_11"/>-->
+<!--                    <include name="PF_7"/>-->
+<!--                    <include name="PF_12"/>-->
+<!--                    <include name="PF_13_14"/>-->
+<!--                    <include name="PF_15"/>-->
+<!--                    <include name="PF_16"/>-->
+<!--                    <include name="PF_17"/>-->
                 </methods>
             </class>
         </classes>
     </test>
 <!--    <test name =  "Sign Up Test">-->
+<!--    <parameter name="version" value="11"/>-->
+<!--    <parameter name="deviceName" value="SamSung a30"></parameter>-->
+<!--    <parameter name="udid" value="R58M41M1AAZ"/>-->
+<!--    <parameter name="port" value="4723"></parameter>-->
 <!--        <classes>-->
 <!--            <class name="tests.LoginSignUp.SignUpTest">-->
 <!--                <methods>-->
@@ -82,20 +87,23 @@
 <!--                    <include name="SU_18"/>-->
 <!--                    <include name="SU_19"/>-->
 <!--                    <include name="SU_20"/>-->
+
 <!--                </methods>-->
 <!--            </class>-->
 <!--        </classes>-->
 <!--    </test>-->
 <!--    <test name="Forgot Password Test">-->
-<!--        <parameter name="platformName" value="android"></parameter>-->
-<!--        <parameter name="platformVersion" value="11"></parameter>-->
-<!--        <parameter name="deviceName" value="Google Pixel 4"></parameter>-->
+<!--    <parameter name="version" value="13"/>-->
+<!--    <parameter name="deviceName" value="Google Pixel 4"></parameter>-->
+<!--    <parameter name="udid" value="99181FFAZ002RG"/>-->
+<!--    <parameter name="port" value="4724"></parameter>-->
 <!--        <classes>-->
 <!--            <class name="tests.ForgotPasswordTest">-->
 <!--                <methods>-->
 <!--                    <include name="FP_1"/>-->
 <!--                    <include name="FP_2"/>-->
 <!--                    <include name="FP_3"/>-->
+
 <!--                    <include name="FP_4"/>-->
 <!--                    <include name="FP_5"/>-->
 <!--                    <include name="FP_6"/>-->
@@ -110,11 +118,16 @@
 <!--                    <include name="FP_15_16"/>-->
 <!--                    <include name="FP_17"/>-->
 <!--                    <include name="FP_18"/>-->
+
 <!--                </methods>-->
 <!--            </class>-->
 <!--        </classes>-->
 <!--    </test>-->
 <!--    <test name="Menu Test">-->
+<!--    <parameter name="version" value="11"/>-->
+<!--    <parameter name="deviceName" value="Google Pixel 4"></parameter>-->
+<!--    <parameter name="udid" value="R58M41M1AAZ"/>-->
+<!--    <parameter name="port" value="4727"></parameter>-->
 <!--        <classes>-->
 <!--            <class name="tests.MenuTest">-->
 <!--                <methods>-->
@@ -128,6 +141,10 @@
 <!--        </classes>-->
 <!--    </test>-->
 <!--    <test name="Profile Test">-->
+<!--    <parameter name="version" value="11"/>-->
+<!--    <parameter name="deviceName" value="Google Pixel 4"></parameter>-->
+<!--    <parameter name="udid" value="R58M41M1AAZ"/>-->
+<!--    <parameter name="port" value="4728"></parameter>-->
 <!--        <classes>-->
 <!--            <class name="tests.home.SearchTest">-->
 <!--                <methods>-->

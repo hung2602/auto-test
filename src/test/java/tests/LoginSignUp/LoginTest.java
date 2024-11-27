@@ -1,6 +1,6 @@
 package tests.LoginSignUp;
 import core.BaseTest;
-import helpers.DataBase;
+import core.DataBase;
 import io.qameta.allure.Severity;
 import locator.Locator;
 import org.testng.annotations.*;
@@ -9,6 +9,7 @@ import pages.home.HomePage;
 import pages.loginsignup.LoginPage;
 import pages.loginsignup.SignUpPage;
 
+import java.sql.Connection;
 import java.sql.Statement;
 import java.util.HashMap;
 
@@ -24,8 +25,9 @@ public class LoginTest extends BaseTest {
     public HomePage homePage;
     public ProfilePage profilePage;
     private HashMap<String, String> dataLogin;
-    private  Sheet sh = null;
-    private  Statement stmt ;
+    private  static Sheet sh = null;
+    private  static Statement stmt ;
+    private static Connection con ;
     public LoginTest(){
         loginPage = new LoginPage();
         profilePage = new ProfilePage();
@@ -36,8 +38,9 @@ public class LoginTest extends BaseTest {
     @BeforeClass
     public void firstSteps(){
         sh = readSheet(workbook , "Login");
-        stmt = dataBase.setUpDB("POSTGRES_DB_URL","POSTGRES_DB_USER","POSTGRES_DB_PASSWORD");
-        loginPage.isUserLogout();
+        con = dataBase.setUpDB("POSTGRES_DB_URL","POSTGRES_DB_USER","POSTGRES_DB_PASSWORD");
+        stmt = dataBase.createStatement(con);
+//        loginPage.isUserLogout();
     }
     @Test(description = "Kiểm tra text ẩn, nhập sđt bỏ trống")
     public void LG_1(){

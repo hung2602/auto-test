@@ -1,6 +1,6 @@
 package pages.loginsignup;
 import core.BasePage;
-import helpers.DataBase;
+import core.DataBase;
 import helpers.LogHelper;
 import io.qameta.allure.Step;
 import locator.Locator;

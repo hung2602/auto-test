@@ -1,9 +1,8 @@
-package helpers;
+package core;
 
-import core.BasePage;
-import core.BaseTest;
+import helpers.LogHelper;
+import helpers.PropertiesFile;
 import io.qameta.allure.Step;
-import keyword.KeywordWeb;
 import org.slf4j.Logger;
 import java.sql.*;
 import java.util.HashMap;
@@ -11,14 +10,12 @@ import java.util.Set;
 
 public class DataBase extends BasePage {
     private static Logger logger = LogHelper.getLogger();
-    public static Connection con ;
-    public static ResultSet res ;
     public static  HashMap<String, String> dataMap = new HashMap<>();
     public DataBase() {
     }
     @Step("Kết nốt data base : {0}")
-    public Statement setUpDB(String url, String user, String passWord) {
-        Statement stmt = null;
+    public Connection setUpDB(String url, String user, String passWord) {
+        Connection con;
         logger.info("Set Up DB " + url );
         try {
             if (PropertiesFile.getPropValue(url).contains("postgresql")) {
@@ -31,16 +28,23 @@ public class DataBase extends BasePage {
             String dbUser = PropertiesFile.getPropValue(user);
             String dbPass = PropertiesFile.getPropValue(passWord);
             con = DriverManager.getConnection(dbUrl, dbUser, dbPass);
-            stmt = con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
         }
         catch (ClassNotFoundException | SQLException e) {
             throw new RuntimeException(e);
         }
-        return stmt;
+        return con;
     }
-    @Step("Set up kết nốt Redis")
-    public void setUpRedis(String url, String user, String passWord) {
-        logger.info("Set Up Redis");
+    @Step("Khởi tạo Db")
+    public Statement createStatement(Connection con) {
+        Statement stmt = null;
+        try {
+//            stmt = con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+             stmt = con.createStatement();
+        }
+        catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return stmt;
     }
 
     @Step("Thực hiện truy vấn dữ liệu : {0}")

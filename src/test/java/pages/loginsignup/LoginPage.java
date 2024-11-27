@@ -1,11 +1,8 @@
 package pages.loginsignup;
 import core.BasePage;
-import helpers.DataBase;
+import core.DataBase;
 import helpers.LogHelper;
-import helpers.PropertiesFile;
-import keyword.KeywordWeb;
 import io.qameta.allure.Step;
-import keyword.KeywordWeb;
 import locator.Locator;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -13,7 +10,6 @@ import org.slf4j.Logger;
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 import static constant.Constant.*;
-import static constant.Query.*;
 
 public class LoginPage extends BasePage {
     private static Logger logger = LogHelper.getLogger();

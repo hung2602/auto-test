@@ -1,17 +1,17 @@
 package tests.home;
 import core.BaseTest;
-import helpers.DataBase;
+import core.DataBase;
 import io.qameta.allure.Severity;
 import locator.Locator;
 import org.apache.poi.ss.usermodel.*;
 import org.openqa.selenium.WebElement;
-import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import pages.home.HomePage;
 import pages.home.SearchPage;
 import pages.loginsignup.LoginPage;
 
+import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.HashMap;
@@ -32,8 +32,9 @@ public class SearchTest extends BaseTest {
     public SearchPage searchPage;
     private HashMap<String, String> dbData;
     private HashMap<String, String> dataSearch;
-    private Statement stmt ;
-    private ResultSet res ;
+    private static Statement stmt ;
+    private static ResultSet res ;
+    private static Connection con ;
     public SearchTest(){
         loginPage = new LoginPage();
         searchPage = new SearchPage();
@@ -43,7 +44,8 @@ public class SearchTest extends BaseTest {
     @BeforeClass
     public void firstSteps(){
         sh = readSheet(workbook , "Search");
-        stmt = dataBase.setUpDB("POSTGRES_ON_TV_URL","POSTGRES_ON_TV_USER","POSTGRES_ON_TV_PASS");
+        con = dataBase.setUpDB("POSTGRES_ON_TV_URL","POSTGRES_ON_TV_USER","POSTGRES_ON_TV_PASS");
+        stmt = dataBase.createStatement(con);
 //        loginPage.isUserLogout();
     }
     @Test(description = "Kiểm tra tìm kiếm nhưng không nhập dữ liệu, nội dung đã xóa")
