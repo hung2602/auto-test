@@ -1,2 +1,2 @@
-@Library('libs@onplus') _
-onplus_auto_test(service_name:"auto-test")
+@Library('jenkins-library@main') _
+nodejs 'lab'
