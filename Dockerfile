@@ -15,5 +15,5 @@ COPY --from=package /base/allure-2.19.0/. /usr/local/
 COPY pom.xml pom.xml
 RUN mvn dependency:resolve
 COPY . .
-CMD mvn test
+RUN mvn test
 #CMD ["mvn", "test"]
