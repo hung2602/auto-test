@@ -1,2 +1,2 @@
 @Library('jenkins-library@main') _
-nodejs 'lab'
+auto 'lab'
