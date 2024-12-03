@@ -5,7 +5,7 @@ RUN curl -o allure-2.19.0.tgz -L https://github.com/allure-framework/allure2/rel
     tar -xvzf allure-2.19.0.tgz 
 
 FROM openjdk:17-alpine
-ENV BROWSERSTACK_USERNAME='nguynvnhng_qC7nHm' \
+ARG BROWSERSTACK_USERNAME='nguynvnhng_qC7nHm' \
     BROWSERSTACK_ACCESS_KEY='sqVMLFahABTkM4ViEsRb' \
     BROWSERSTACK_APP='bs://1b8a4f08b2f81452d3f5407585fcfdc64985cd64'
 RUN apk add maven
