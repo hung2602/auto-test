@@ -1,4 +1,7 @@
 FROM alpine:latest as package
+ARG BROWSERSTACK_USERNAME='nguynvnhng_qC7nHm' 
+ARG BROWSERSTACK_ACCESS_KEY='sqVMLFahABTkM4ViEsRb' 
+ARG BROWSERSTACK_APP='bs://1b8a4f08b2f81452d3f5407585fcfdc64985cd64'
 WORKDIR /base
 RUN apk add --no-cache curl
 RUN curl -o allure-2.19.0.tgz -L https://github.com/allure-framework/allure2/releases/download/2.19.0/allure-2.19.0.tgz && \
